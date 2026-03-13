@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>上传视频文件 - 视学智问</title>
+    <title>学习历史记录 - 视学智问</title>
     <style>
         /* ================= 核心系统变量 (Apple & Glassmorphism 质感) ================= */
         :root {
@@ -12,6 +12,11 @@
             --text-sec: #86868b;
             --accent-blue: #0071e3;
             --accent-hover: #0077ed;
+            
+            /* 状态颜色 (Apple 柔和系) */
+            --status-success-bg: #e6f4ea; --status-success-text: #1e8e3e;
+            --status-process-bg: #fff0d4; --status-process-text: #d97706;
+            --status-danger-bg: #ffebeb;  --status-danger-text: #d93025;
             
             /* 毛玻璃核心参数 */
             --glass-bg: rgba(255, 255, 255, 0.65);
@@ -69,7 +74,7 @@
             box-shadow: var(--shadow-glass); display: flex; flex-direction: column; overflow: hidden;
         }
 
-        /* ================= 左侧导航边栏 (与历史页面保持绝对一致) ================= */
+        /* ================= 左侧导航边栏 ================= */
         .sidebar {
             width: 280px; flex-shrink: 0; padding: 32px 24px;
             opacity: 0; transform: translateX(-30px); animation: slideIn 0.6s var(--ease-apple) forwards; animation-delay: 0.1s;
@@ -99,74 +104,69 @@
         .content {
             flex: 1; padding: 40px; opacity: 0; transform: translateY(30px);
             animation: slideIn 0.8s var(--ease-apple) forwards; animation-delay: 0.2s;
-            display: flex; flex-direction: column;
         }
 
         .content-header { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.06); }
         .content-header h1 { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 8px; }
         .content-header p { font-size: 15px; color: var(--text-sec); }
 
-        .content-body { flex: 1; display: flex; flex-direction: column; max-width: 800px; margin: 0 auto; width: 100%; justify-content: center;}
+        .content-body { flex: 1; overflow-y: auto; padding-right: 8px; }
+        /* 隐形滚动条 */
+        .content-body::-webkit-scrollbar { width: 6px; }
+        .content-body::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
 
-        /* ================= Jinja2 提示信息美化 ================= */
-        .alert {
-            padding: 14px 20px; border-radius: 16px; font-size: 15px; margin-bottom: 24px;
-            font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.03); backdrop-filter: blur(10px);
-            animation: slideDown 0.4s var(--ease-apple) both; text-align: center;
+        /* ================= 视频列表果冻卡片 ================= */
+        .video-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        
+        .video-item {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-md); transition: all 0.3s var(--ease-apple);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
         }
-        .alert-success { background-color: rgba(230, 244, 234, 0.85); color: #1e8e3e; border: 1px solid rgba(206, 234, 214, 0.9); }
-        .alert-danger { background-color: rgba(255, 235, 235, 0.85); color: #d93025; border: 1px solid rgba(250, 210, 210, 0.9); }
-
-        /* ================= 高级视窗上传表单 ================= */
-        .upload-card {
-            background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.9);
-            border-radius: var(--radius-lg); padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.02);
-            text-align: center; transition: all 0.3s var(--ease-apple);
-        }
-
-        .upload-zone {
-            position: relative; padding: 60px 20px; border: 2px dashed rgba(0, 113, 227, 0.3);
-            border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.5);
-            transition: all 0.3s var(--ease-apple); margin-bottom: 24px; cursor: pointer;
-        }
-        .upload-zone:hover {
-            border-color: var(--accent-blue); background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.1);
+        .video-item:hover {
+            background: #fff; transform: translateY(-2px) scale(1.005);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
         }
 
-        /* 将真正的 input[file] 隐藏并铺满整个区域 */
-        .upload-zone input[type="file"] {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            opacity: 0; cursor: pointer; z-index: 10;
+        .video-info { display: flex; align-items: center; gap: 20px; flex: 1; min-width: 0; }
+        .video-name { font-size: 16px; font-weight: 600; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* 状态胶囊标签 */
+        .video-status { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+        .video-status.processing { background: var(--status-process-bg); color: var(--status-process-text); }
+        .video-status.completed { background: var(--status-success-bg); color: var(--status-success-text); }
+        .video-status.failed { background: var(--status-danger-bg); color: var(--status-danger-text); }
+
+        /* ================= 操作动作组 ================= */
+        .action-group { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        
+        .btn-view {
+            padding: 10px 20px; background: var(--accent-blue); color: #fff; text-decoration: none;
+            border-radius: 20px; font-size: 14px; font-weight: 600; transition: all 0.3s var(--ease-apple);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2);
         }
+        .btn-view:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3); }
 
-        .upload-icon { font-size: 48px; margin-bottom: 16px; display: inline-block; transition: transform 0.3s var(--ease-apple); }
-        .upload-zone:hover .upload-icon { transform: translateY(-4px) scale(1.05); }
-
-        .upload-title { font-size: 18px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
-        .upload-subtitle { font-size: 14px; color: var(--text-sec); font-weight: 500; }
-
-        /* 文件名回显文字 */
-        .file-name-tip {
-            margin-top: 20px; font-size: 15px; font-weight: 600; padding: 12px 20px;
-            border-radius: 12px; display: inline-block; transition: all 0.3s ease;
-            background: transparent; color: var(--text-sec);
+        .btn-delete {
+            padding: 10px 20px; background: rgba(217, 48, 37, 0.08); color: #d93025;
+            border: none; border-radius: 20px; font-size: 14px; font-weight: 600; cursor: pointer;
+            transition: all 0.3s var(--ease-apple);
         }
-        .file-name-tip.has-file { background: rgba(0, 113, 227, 0.08); color: var(--accent-blue); border: 1px solid rgba(0, 113, 227, 0.2); }
+        .btn-delete:hover { background: #d93025; color: #fff; box-shadow: 0 4px 12px rgba(217, 48, 37, 0.3); }
 
-        .btn-primary {
-            padding: 16px 40px; background: var(--accent-blue); color: #fff;
-            border: none; border-radius: 40px; font-size: 16px; font-weight: 600;
-            cursor: pointer; transition: all 0.3s var(--ease-apple);
-            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25); width: 100%; max-width: 320px; margin: 0 auto; display: block;
+        .placeholder-text { font-size: 14px; color: var(--text-sec); font-weight: 500; padding: 0 10px; }
+
+        /* 空状态 */
+        .empty-tip {
+            text-align: center; padding: 80px 20px; color: var(--text-sec);
+            font-size: 16px; font-weight: 500; background: rgba(255,255,255,0.4);
+            border-radius: var(--radius-md); border: 2px dashed rgba(0,0,0,0.05);
         }
-        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0, 113, 227, 0.35); }
-        .btn-primary:active { transform: scale(0.98) translateY(0); }
 
         /* 动画定义 */
         @keyframes layoutFadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideIn { to { opacity: 1; transform: translate(0, 0); } }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ================= 统一全局毛玻璃导航栏 ================= */
         .global-navbar {
@@ -210,83 +210,70 @@
             {% endif %}
         </div>
     </nav>
-
+    
     <div class="layout">
         
-        <!-- 左侧悬浮导航边栏 (active 状态已切换至上传页面) -->
+        <!-- 左侧悬浮导航边栏 -->
         <div class="glass-panel sidebar">
             <div class="brand">
                 <h2>✨ 视学智问</h2>
                 <p>教育视频智能助手</p>
             </div>
             <nav class="sidebar-menu">
-                <a href="/upload" class="menu-item active">
+                <!-- 这里的 active 逻辑可以通过 Jinja2 动态控制，这里默认让历史记录高亮 -->
+                <a href="/upload" class="menu-item">
                     <span>📤</span> 上传视频
                 </a>
-                <a href="/workspace" class="menu-item">
+                <a href="/workspace" class="menu-item active">
                     <span>📚</span> 学习记录
                 </a>
             </nav>
         </div>
 
-        <!-- 右侧主体内容区 -->
+        <!-- 右侧主体浮动卡片 -->
         <div class="glass-panel content">
             <div class="content-header">
-                <h1>上传网课视频</h1>
-                <p>上传您的学习视频，AI 将自动为您提取知识点与随堂测验</p>
+                <h1>学习历史记录</h1>
+                <p>回顾并继续您的 AI 辅助学习之旅</p>
             </div>
             
             <div class="content-body">
-                
-                <!-- Jinja2 闪现消息提示 -->
-                {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                    {% for msg in messages %}
-                      <div class="alert {% if '成功' in msg %}alert-success{% else %}alert-danger{% endif %}">{{ msg }}</div>
-                    {% endfor %}
-                  {% endif %}
-                {% endwith %}
-
-                <div class="upload-card">
-                    <!-- 表单核心：保留了所有后端的 action, method, enctype -->
-                    <form action="/upload" method="POST" enctype="multipart/form-data">
-                        
-                        <!-- 现代化 Dropzone 质感上传区 -->
-                        <div class="upload-zone">
-                            <!-- 核心隐藏原生 input -->
-                            <input type="file" id="video_file" name="video_file" accept="video/*" required onchange="showFileName(this)">
-                            
-                            <div class="upload-icon">🎥</div>
-                            <div class="upload-title">点击或拖拽选择视频文件</div>
-                            <div class="upload-subtitle">支持 MP4 / AVI / MOV / MKV，最大尺寸 2GB</div>
-                            
-                            <!-- 回显文件名展示区 -->
-                            <div id="file_name_display" class="file-name-tip">暂未选择文件</div>
-                        </div>
-
-                        <button type="submit" class="btn-primary">上传并启动 AI 解析</button>
-                    </form>
-                </div>
-
+                {% if videos %}
+                    <ul class="video-list">
+                        {% for video in videos %}
+                            <li class="video-item">
+                                <div class="video-info">
+                                    <span class="video-name">{{ video.filename }}</span>
+                                    <span class="video-status {{ video.status }}">
+                                        {% if video.status == 'processing' %}⏳ AI 处理中{% endif %}
+                                        {% if video.status == 'completed' %}✅ 分析完成{% endif %}
+                                        {% if video.status == 'failed' %}❌ 处理失败{% endif %}
+                                    </span>
+                                </div>
+                                <div class="action-group">
+                                    {% if video.status == 'completed' %}
+                                        <a href="/video_detail/{{ video.id }}" class="btn-view">开始学习</a>
+                                    {% else %}
+                                        <span class="placeholder-text">暂不可看</span>
+                                    {% endif %}
+                                    
+                                    <!-- 删除逻辑完全保留，替换了样式 -->
+                                    <form action="/delete/{{ video.id }}" method="POST" style="display:inline;" onsubmit="return confirm('确定要彻底删除这条学习记录吗？此操作不可恢复。');">
+                                        <button type="submit" class="btn-delete">删除</button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="empty-tip">
+                        📚 暂无视频记录，点击左侧 "上传视频" 开启您的智能学习之旅
+                    </div>
+                {% endif %}
             </div>
         </div>
 
     </div>
 
-    <!-- 优化版：显示选中文件名的脚本 -->
-    <script>
-        function showFileName(input) {
-            const display = document.getElementById('file_name_display');
-            if (input.files && input.files.length > 0) {
-                display.textContent = `✅ 已选择：${input.files[0].name}`;
-                // 添加高亮类名
-                display.classList.add('has-file');
-            } else {
-                display.textContent = '暂未选择文件';
-                // 移除高亮类名
-                display.classList.remove('has-file');
-            }
-        }
-    </script>
 </body>
 </html>

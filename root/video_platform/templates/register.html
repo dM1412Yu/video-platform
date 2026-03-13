@@ -2,13 +2,178 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>注册 - 视频处理平台</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建账号 - 视学智问</title>
+    <style>
+        /* ================= 核心系统变量 (Apple & Glassmorphism 质感) ================= */
+        :root {
+            --bg-base: #fbfbfd;
+            --text-main: #1d1d1f;
+            --text-sec: #86868b;
+            --accent-blue: #0071e3;
+            --accent-hover: #0077ed;
+            
+            /* 毛玻璃核心参数 */
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --shadow-glass: 0 24px 64px rgba(0, 0, 0, 0.12);
+            
+            --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-base); color: var(--text-main);
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; position: relative; overflow: hidden;
+
+            padding-top: 64px; 
+            box-sizing: border-box;
+        }
+
+        /* ================= 动态流体光晕背景 ================= */
+        .mesh-background {
+            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1; overflow: hidden; background: var(--bg-base);
+        }
+        .orb {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.7;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        /* 针对登录/注册页，光晕更集中，营造视觉焦点 */
+        .orb-1 { width: 50vw; height: 50vw; background: #e0f2fe; top: -10%; left: -10%; animation-duration: 25s; }
+        .orb-2 { width: 45vw; height: 45vw; background: #f3e8ff; bottom: -10%; right: -5%; animation-duration: 22s; animation-delay: -5s; }
+        .orb-3 { width: 35vw; height: 35vw; background: #ffedd5; top: 40%; left: 50%; transform: translate(-50%, -50%); animation-duration: 30s; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(3%, 5%) scale(1.03); }
+            100% { transform: translate(-3%, -2%) scale(0.97); }
+        }
+
+        /* ================= 核心认证毛玻璃卡片 ================= */
+        .auth-container {
+            width: 100%; max-width: 440px; margin: 20px; padding: 48px 48px;
+            background: var(--glass-bg); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-border); border-radius: 32px;
+            box-shadow: var(--shadow-glass); position: relative; z-index: 10;
+            animation: cardFadeUp 0.8s var(--ease-apple) both;
+        }
+
+        /* 顶部品牌与标题排版 */
+        .brand-logo { text-align: center; font-size: 24px; margin-bottom: 24px; opacity: 0.9; }
+        
+        .auth-container h1 {
+            font-size: 28px; font-weight: 700; text-align: center;
+            margin-bottom: 10px; letter-spacing: 0.5px; color: var(--text-main);
+        }
+
+        .subtitle { text-align: center; color: var(--text-sec); font-size: 15px; margin-bottom: 36px; }
+
+        /* ================= Jinja2 Flash 消息美化 (果冻质感) ================= */
+        .alert {
+            padding: 14px 16px; border-radius: 16px; font-size: 14px; margin-bottom: 24px;
+            text-align: center; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            animation: alertShow 0.4s var(--ease-apple) both; backdrop-filter: blur(10px);
+        }
+        .alert-success { background-color: rgba(230, 244, 234, 0.85); color: #1e8e3e; border: 1px solid rgba(206, 234, 214, 0.9); }
+        .alert-error, .alert-danger { background-color: rgba(255, 235, 235, 0.85); color: #d93025; border: 1px solid rgba(250, 210, 210, 0.9); }
+        .alert-info { background-color: rgba(232, 240, 254, 0.85); color: #1a73e8; border: 1px solid rgba(210, 227, 252, 0.9); }
+
+        /* ================= 表单输入组 ================= */
+        .form-group { margin-bottom: 22px; }
+        .form-group label {
+            display: block; font-size: 14px; font-weight: 600; color: var(--text-main);
+            margin-bottom: 10px; padding-left: 4px; opacity: 0.85;
+        }
+
+        /* 现代质感玻璃输入框 */
+        .form-group input {
+            width: 100%; padding: 16px 18px; font-size: 15px; color: var(--text-main);
+            background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 16px; outline: none; transition: all 0.3s var(--ease-apple);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02) inset;
+        }
+        .form-group input::placeholder { color: #a1a1a6; }
+        .form-group input:focus {
+            background: #ffffff; border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+        }
+
+        /* 提交按钮 */
+        .btn-submit {
+            width: 100%; padding: 18px; margin-top: 16px;
+            background-color: var(--accent-blue); color: #ffffff; border: none;
+            border-radius: 40px; font-size: 16px; font-weight: 600; letter-spacing: 0.5px;
+            cursor: pointer; transition: all 0.3s var(--ease-apple);
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25);
+        }
+        .btn-submit:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0, 113, 227, 0.35); }
+        .btn-submit:active { transform: scale(0.98) translateY(0); }
+
+        /* 底部链接区 */
+        .auth-footer { margin-top: 36px; text-align: center; font-size: 14px; color: var(--text-sec); font-weight: 500;}
+        .auth-footer a { color: var(--accent-blue); text-decoration: none; font-weight: 600; transition: color 0.2s; padding: 4px 8px; border-radius: 8px;}
+        .auth-footer a:hover { background: rgba(0, 113, 227, 0.08); color: var(--accent-hover); }
+
+        /* 动画定义 */
+        @keyframes cardFadeUp { from { opacity: 0; transform: translateY(30px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes alertShow { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ================= 统一全局毛玻璃导航栏 ================= */
+        .global-navbar {
+            position: fixed; top: 0; left: 0; width: 100%; height: 64px;
+            padding: 0 40px; display: flex; justify-content: space-between; align-items: center;
+            z-index: 9999; background: rgba(251, 251, 253, 0.7);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .global-navbar .logo { font-size: 20px; font-weight: 700; color: #1d1d1f; text-decoration: none; letter-spacing: -0.5px; }
+        .global-navbar .nav-actions { display: flex; gap: 12px; align-items: center; }
+        .global-navbar .btn-text { color: #86868b; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; transition: color 0.3s; }
+        .global-navbar .btn-text:hover { color: #1d1d1f; }
+        .global-navbar .btn-outline {
+            color: #1d1d1f; text-decoration: none; font-size: 14px; font-weight: 500;
+            padding: 8px 20px; background: white; border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s;
+        }
+        .global-navbar .btn-outline:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.06); transform: translateY(-1px); }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>用户注册</h1>
-        <!-- 显示提示信息 -->
+    
+    <!-- 动态流体光晕背景 -->
+    <div class="mesh-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav class="global-navbar">
+        <a href="/" class="logo">视学智问</a>
+        <div class="nav-actions">
+            {% if session.get('user') %}
+                <span class="btn-text">Hi, {{ session.user }}</span>
+                <a href="/workspace" class="btn-text">工作台</a>
+                <a href="/logout" class="btn-outline">退出登录</a>
+            {% else %}
+                <a href="/login" class="btn-text">登录</a>
+                <a href="/register" class="btn-outline">免费体验</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="brand-logo">✨</div>
+        <h1>创建账号</h1>
+        <p class="subtitle">欢迎加入视学智问学习平台</p>
+
+        <!-- 完美兼容 Jinja2 的优雅提示信息 (动态拼接 class 逻辑已保留) -->
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
             {% for category, message in messages %}
@@ -16,25 +181,29 @@
             {% endfor %}
           {% endif %}
         {% endwith %}
+
         <form method="POST" action="/register">
             <div class="form-group">
-                <label for="username">用户名：</label>
-                <input type="text" id="username" name="username" 
-                       placeholder="请输入用户名" required>
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" placeholder="设置您的专属用户名" required autocomplete="off">
             </div>
+            
             <div class="form-group">
-                <label for="password">密码：</label>
-                <input type="password" id="password" name="password" 
-                       placeholder="请输入密码" required>
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" placeholder="设置高强度登录密码" required>
             </div>
+            
             <div class="form-group">
-                <label for="confirm_password">确认密码：</label>
-                <input type="password" id="confirm_password" 
-                       name="confirm_password" placeholder="请确认密码" required>
+                <label for="confirm_password">确认密码</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="请再次输入以确认密码" required>
             </div>
-            <button type="submit" class="btn">注册</button>
+            
+            <button type="submit" class="btn-submit">立即注册</button>
         </form>
-        <p>已有账号？<a href="/login">立即登录</a></p>
+
+        <div class="auth-footer">
+            <p>已有账号？ <a href="/login">前往登录</a></p>
+        </div>
     </div>
 </body>
 </html>

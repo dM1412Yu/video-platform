@@ -2,93 +2,348 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>视学智问 - 教育视频智能助手</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视学智问 - AI驱动的视频学习革命</title>
     <style>
-        * {margin:0; padding:0; box-sizing:border-box; font-family:"Microsoft YaHei";}
-        .layout {display:flex; height:100vh;}
-        .sidebar {width:240px; background:#2c3e50; color:#fff; padding:20px;}
-        .sidebar-header h2 {margin-bottom:10px; font-size:20px;}
-        .sidebar-header p {color:#bdc3c7; font-size:14px;}
-        .sidebar-menu {margin-top:30px;}
-        .menu-item {display:block; padding:10px 15px; color:#fff; text-decoration:none; border-radius:4px; margin-bottom:8px;}
-        .menu-item.active {background:#3498db;}
-        .menu-item:hover {background:#34495e;}
-        .content {flex:1; padding:30px; background:#ecf0f1;}
-        .content-header {margin-bottom:20px;}
-        .content-header h1 {font-size:24px; color:#2c3e50;}
-        .card {background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-        .card h2 {color:#2c3e50; margin-bottom:15px;}
-        .video-list {list-style:none;}
-        .video-list li {padding:10px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;}
-        .video-info {display:flex; gap:20px;}
-        .video-name {color:#2c3e50; font-weight:500;}
-        .video-status {padding:4px 8px; border-radius:4px; font-size:12px;}
-        .video-status.processing {background:#f39c12; color:#fff;}
-        .video-status.completed {background:#27ae60; color:#fff;}
-        .video-status.failed {background:#e74c3c; color:#fff;}
-        .btn-view {padding:6px 12px; background:#3498db; color:#fff; text-decoration:none; border-radius:4px; font-size:14px; margin-right:8px;}
-        .btn-delete {padding:6px 12px; background:#e74c3c; color:#fff; text-decoration:none; border-radius:4px; font-size:14px; border:none; cursor:pointer;}
-        .empty-tip {color:#7f8c8d; text-align:center; padding:20px;}
-        .action-group {display:flex; align-items:center;}
+        /* ================= 核心系统变量 ================= */
+        :root {
+            --bg-base: #fbfbfd;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent-blue: #0071e3;
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --card-border: rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
+            --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif; -webkit-font-smoothing: antialiased; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* 隐藏原生滚动条，但保留滚动功能 */
+            scrollbar-width: none; 
+        }
+        body::-webkit-scrollbar { display: none; }
+
+        /* ================= 高级背景：动态流体光晕 (Mesh Gradient) ================= */
+        .mesh-background {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: #fbfbfd;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        .orb-1 {
+            width: 60vw; height: 60vw;
+            background: #e0f2fe; /* 极浅的蓝 */
+            top: -10%; left: -10%;
+            animation-duration: 25s;
+        }
+        .orb-2 {
+            width: 50vw; height: 50vw;
+            background: #f3e8ff; /* 极浅的紫 */
+            bottom: -20%; right: -10%;
+            animation-duration: 20s;
+            animation-delay: -5s;
+        }
+        .orb-3 {
+            width: 40vw; height: 40vw;
+            background: #ffedd5; /* 极浅的桃红 */
+            top: 40%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 30s;
+            animation-delay: -10s;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(5%, 10%) scale(1.1); }
+            100% { transform: translate(-5%, -5%) scale(0.95); }
+        }
+
+        /* ================= 苹果风毛玻璃导航栏 ================= */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 16px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100;
+            background: rgba(251, 251, 253, 0.7);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .logo { font-size: 20px; font-weight: 700; color: var(--text-main); text-decoration: none; letter-spacing: -0.5px; }
+        .nav-actions { display: flex; gap: 12px; align-items: center; }
+        
+        .btn-text { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; transition: color 0.3s; }
+        .btn-text:hover { color: var(--text-main); }
+        
+        .btn-outline {
+            color: var(--text-main); text-decoration: none; font-size: 14px; font-weight: 500;
+            padding: 8px 20px; background: white; border: 1px solid var(--card-border);
+            border-radius: 40px; box-shadow: var(--shadow-sm); transition: all 0.3s var(--ease-apple);
+        }
+        .btn-outline:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.06); transform: translateY(-1px); }
+
+        /* ================= 首屏：文字揭示与视差动画 ================= */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center;
+            padding: 160px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* 将文本容器与 CSS 变量绑定，实现滚动视差 */
+        .hero-text-wrapper {
+            transform: translateY(calc(var(--scroll-y, 0) * 0.4px));
+            opacity: calc(1 - var(--scroll-y, 0) * 0.002);
+            z-index: 2;
+        }
+
+        .reveal-text-container { overflow: hidden; margin-bottom: 8px; padding-bottom: 8px;}
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 800; letter-spacing: -2px; line-height: 1.1;
+            transform: translateY(110%);
+            animation: slideUp 1s var(--ease-apple) forwards;
+        }
+        .hero h1.gradient-text {
+            /* 绚丽的渐变字 */
+            background: linear-gradient(135deg, #007aff, #5856d6, #ff2d55);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: slideUp 1s var(--ease-apple) 0.1s forwards, shine 4s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .hero p {
+            font-size: 22px; color: var(--text-muted); max-width: 600px; margin: 24px auto 40px;
+            opacity: 0; animation: fadeIn 1s ease-out 0.6s forwards; font-weight: 400;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--text-main); color: #fff;
+            text-decoration: none; font-size: 16px; font-weight: 600;
+            padding: 18px 40px; border-radius: 40px;
+            opacity: 0; animation: fadeIn 1s ease-out 0.8s forwards;
+            transition: all 0.4s var(--ease-apple);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.2); background: #000; }
+
+        /* ================= 核心：3D悬浮视窗 (App Mockup) ================= */
+        .app-mockup-wrapper {
+            margin-top: 60px;
+            width: 100%; max-width: 1100px;
+            perspective: 1200px; /* 开启 3D 空间 */
+            opacity: 0; animation: fadeInUp 1.2s var(--ease-apple) 1s forwards;
+            z-index: 10;
+        }
+        
+        .app-mockup {
+            width: 100%; aspect-ratio: 16/9;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,0.02) inset;
+            overflow: hidden;
+            /* 初始带有一点后仰角度，随滚动变平缓 */
+            transform: rotateX(15deg) translateY(calc(var(--scroll-y, 0) * -0.2px));
+            transition: transform 0.1s linear; /* 抹平滚动时的卡顿 */
+            display: flex; flex-direction: column;
+        }
+
+        /* 模拟 macOS 顶部状态栏 */
+        .mockup-header {
+            height: 40px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04);
+            display: flex; align-items: center; padding: 0 16px; gap: 8px;
+        }
+        .mockup-dot { width: 12px; height: 12px; border-radius: 50%; background: #e0e0e0; }
+        .mockup-dot.red { background: #ff5f56; }
+        .mockup-dot.yellow { background: #ffbd2e; }
+        .mockup-dot.green { background: #27c93f; }
+
+        /* 视窗内部装饰 */
+        .mockup-body { flex: 1; display: flex; padding: 20px; gap: 20px; background: #fdfdfd; }
+        .mockup-sidebar { width: 25%; background: #f5f5f7; border-radius: 12px; }
+        .mockup-main { flex: 1; background: #eaeaea; border-radius: 12px; position: relative; overflow: hidden; }
+        .mockup-main::after { content: "▶"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+
+        /* ================= 滚动特性展示区 ================= */
+        .features-section { padding: 160px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 10; }
+        .section-title { text-align: center; font-size: 40px; font-weight: 700; margin-bottom: 80px; letter-spacing: -1px; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .feature-card {
+            background: var(--card-bg); border: 1px solid white;
+            padding: 48px 32px; border-radius: 24px;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            /* 滚动揭示初始状态 */
+            opacity: 0; transform: translateY(40px) scale(0.95);
+            transition: all 0.8s var(--ease-apple);
+        }
+        .feature-card:hover { transform: translateY(-8px) scale(1) !important; box-shadow: var(--shadow-lg); background: #fff; }
+        
+        .feature-icon-wrapper {
+            width: 56px; height: 56px; background: rgba(0, 113, 227, 0.1);
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 24px;
+        }
+
+        .feature-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: var(--text-main); }
+        .feature-card p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+        /* 动画触发类 */
+        .show-on-scroll { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+
+        /* 基础动画 */
+        @keyframes slideUp { to { transform: translateY(0); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .mockup-body { flex-direction: column; }
+            .mockup-sidebar { width: 100%; height: 60px; }
+        }
     </style>
 </head>
 <body>
-    <div class="layout">
-        <!-- 左侧侧边栏 -->
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <h2>视学智问</h2>
-                <p>教育视频智能助手</p>
-            </div>
-            <div class="sidebar-menu">
-                <a href="/upload" class="menu-item">
-                    <span>📤</span> 上传教育视频
-                </a>
-                <a href="/" class="menu-item active">
-                    <span>📚</span> 学习历史记录
-                </a>
-            </div>
+
+    <!-- 极简流体网格背景 (Mesh Background) -->
+    <div class="mesh-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- 顶部毛玻璃导航 -->
+    <nav class="navbar" id="navbar">
+        <a href="/" class="logo">视学智问</a>
+        <div class="nav-actions">
+            <a href="/login" class="btn-text">登录</a>
+            <a href="/register" class="btn-outline">免费体验</a>
         </div>
-        <!-- 右侧内容区 -->
-        <div class="content">
-            <div class="content-header">
-                <h1>学习历史记录</h1>
-            </div>
-            <div class="content-body">
-                <div class="card">
-                    <h2>视频列表</h2>
-                    {% if videos %}
-                        <ul class="video-list">
-                            {% for video in videos %}
-                                <li>
-                                    <div class="video-info">
-                                        <span class="video-name">{{ video.filename }}</span>
-                                        <span class="video-status {{ video.status }}">
-                                            {% if video.status == 'processing' %}处理中{% endif %}
-                                            {% if video.status == 'completed' %}已完成{% endif %}
-                                            {% if video.status == 'failed' %}失败{% endif %}
-                                        </span>
-                                    </div>
-                                    <div class="action-group">
-                                        {% if video.status == 'completed' %}
-                                        <a href="/video_detail/{{ video.id }}" class="btn-view">查看</a>
-                                        {% else %}
-                                        <span>-</span>
-                                        {% endif %}
-                                        <!-- 新增删除按钮 -->
-                                        <form action="/delete/{{ video.id }}" method="POST" style="display:inline;" onsubmit="return confirm('确定要删除这条记录吗？');">
-                                            <button type="submit" class="btn-delete">删除</button>
-                                        </form>
-                                    </div>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <p class="empty-tip">暂无视频记录，请先上传视频</p>
-                    {% endif %}
+    </nav>
+
+    <!-- 首屏区域 -->
+    <section class="hero">
+        <div class="hero-text-wrapper">
+            <div class="reveal-text-container"><h1>告别无效刷课，</h1></div>
+            <div class="reveal-text-container"><h1 class="gradient-text">唤醒你的深度思考。</h1></div>
+            <p>AI 自动切割知识切片，智能生成随堂弹窗测验。<br>让你的每一次视频学习，都能转化为真正的能力沉淀。</p>
+            <a href="/workspace" class="btn-primary">进入学习工作台</a>
+        </div>
+
+        <!-- 3D 悬浮视窗演示 (随着滚动会发生透视变化) -->
+        <div class="app-mockup-wrapper">
+            <div class="app-mockup" id="mockup-window">
+                <div class="mockup-header">
+                    <div class="mockup-dot red"></div>
+                    <div class="mockup-dot yellow"></div>
+                    <div class="mockup-dot green"></div>
+                </div>
+                <div class="mockup-body">
+                    <div class="mockup-sidebar"></div>
+                    <div class="mockup-main"></div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- 优势展现区 -->
+    <section class="features-section">
+        <h2 class="section-title scroll-fade-element">为什么选择视学智问？</h2>
+        <div class="features-grid">
+            <div class="feature-card scroll-fade-element" style="transition-delay: 0.1s;">
+                <div class="feature-icon-wrapper">✂️</div>
+                <h3>AI 智能时间轴</h3>
+                <p>一键上传冗长网课，AI 自动为你提炼核心结构，将长视频切割为清晰的知识点片段，定位知识从此轻而易举。</p>
+            </div>
+            <div class="feature-card scroll-fade-element" style="transition-delay: 0.2s;">
+                <div class="feature-icon-wrapper">🎯</div>
+                <h3>沉浸式随堂测验</h3>
+                <p>看视频容易走神？在关键知识点处，系统会自动悬浮弹出测验卡片。实时批改与解析，强迫大脑主动思考。</p>
+            </div>
+            <div class="feature-card scroll-fade-element" style="transition-delay: 0.3s;">
+                <div class="feature-icon-wrapper">🤖</div>
+                <h3>24H 全天候助教</h3>
+                <p>遇到不懂的概念，无需暂停去搜索引擎。右侧专属 AI 伴学助教时刻在线，针对当前视频内容提供精准解答。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 极简页脚 -->
+    <footer style="text-align: center; padding: 80px 20px 40px; color: var(--text-muted); font-size: 14px;">
+        <p>© 2026 视学智问. Crafted with AI & Code.</p>
+    </footer>
+
+    <!-- 高级互动动画脚本 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 1. 鼠标滚动视差 (Parallax Effects)
+            const mockupWindow = document.getElementById('mockup-window');
+            const navbar = document.getElementById('navbar');
+            
+            // 使用 requestAnimationFrame 优化滚动性能
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        let scrollY = window.scrollY;
+                        
+                        // 将滚动值写入根元素的 CSS 变量，供 CSS 的 calc() 使用
+                        document.documentElement.style.setProperty('--scroll-y', scrollY);
+
+                        // 3D 窗口展开特效：往下滚时，X轴旋转从 15度 逐渐变平到 0度
+                        let rotateX = Math.max(0, 15 - scrollY * 0.05);
+                        mockupWindow.style.transform = `rotateX(${rotateX}deg) translateY(${scrollY * -0.15}px)`;
+
+                        // 导航栏滚动时加深阴影
+                        if (scrollY > 50) {
+                            navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+                        } else {
+                            navbar.style.boxShadow = 'none';
+                        }
+                        
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // 2. 滚动出现动画 (Intersection Observer)
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show-on-scroll');
+                        observer.unobserve(entry.target); // 动画只触发一次
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-fade-element, .section-title').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

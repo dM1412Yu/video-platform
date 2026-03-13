@@ -2,19 +2,147 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>404 - 视学智问</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到 - 视学智问</title>
+    <!-- 移除了外部样式的干扰 -->
     <style>
-        .not-found {width: 600px;margin: 100px auto;background: white;padding: 50px;border-radius: 8px;text-align: center;box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
-        .not-found h1 {font-size: 72px;color: #fb7299;margin-bottom: 20px;}
+        /* 苹果风格色彩与动画变量 */
+        :root {
+            --bg-color: #f5f5f7;        /* 苹果经典背景灰 */
+            --text-main: #1d1d1f;       /* 主标题极深灰 */
+            --text-secondary: #86868b;  /* 副标题/提示浅灰 */
+            --accent-blue: #0066cc;     /* 苹果系统蓝 */
+            --accent-blue-hover: #0077ed;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 满屏居中布局，去卡片化 */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* 整体容器入场动画 */
+        .not-found-container {
+            padding: 40px;
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 404 数字特效：大字号、紧凑字间距、渐变遮罩、悬浮动画 */
+        .error-code {
+            font-size: 180px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -6px;
+            margin-bottom: 24px;
+            /* 苹果风深邃金属渐变 */
+            background: linear-gradient(135deg, #1d1d1f 0%, #434353 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* 灵动感：缓慢的上下呼吸悬浮 */
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        /* 副标题与正文 */
+        .error-title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .error-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 400px;
+            line-height: 1.5;
+        }
+
+        /* 苹果风胶囊按钮 */
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px; /* 大胶囊圆角 */
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        /* 按钮交互 */
+        .btn-home:hover {
+            background-color: var(--accent-blue-hover);
+            transform: scale(1.04); /* 悬浮时微缩放，充满弹性 */
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.25);
+        }
+
+        .btn-home:active {
+            transform: scale(0.96);
+        }
+
+        /* 动画定义 */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); } /* 缓慢向上漂浮 15px */
+            100% { transform: translateY(0); }
+        }
+
+        /* 移动端响应式处理 */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 120px;
+                letter-spacing: -4px;
+            }
+            .error-title {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="not-found">
-        <h1>404</h1>
-        <h2>页面走丢了 😢</h2>
-        <p>你访问的页面不存在，请返回首页</p>
-        <a href="/" class="btn primary">返回首页</a>
+    <div class="not-found-container">
+        <!-- 带有呼吸动画的渐变 404 -->
+        <div class="error-code">404</div>
+        
+        <h2 class="error-title">寻找的页面不存在 😢</h2>
+        <p class="error-desc">您访问的页面可能已被移除、重命名，或者暂时不可用。请返回首页继续您的学习之旅。</p>
+        
+        <!-- 返回首页按钮 -->
+        <a href="/" class="btn-home">返回首页</a>
     </div>
 </body>
 </html>

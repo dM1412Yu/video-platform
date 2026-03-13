@@ -2,34 +2,207 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>登录 - 视频处理平台</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 视学智问</title>
+    <style>
+        /* ================= 核心系统变量 (Apple & Glassmorphism 质感) ================= */
+        :root {
+            --bg-base: #fbfbfd;
+            --text-main: #1d1d1f;
+            --text-sec: #86868b;
+            --accent-blue: #0071e3;
+            --accent-hover: #0077ed;
+            
+            /* 毛玻璃核心参数 */
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --shadow-glass: 0 12px 32px rgba(0, 0, 0, 0.05);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-base); color: var(--text-main);
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; position: relative; padding: 24px;
+            padding-top: 64px; 
+            box-sizing: border-box;
+        }
+
+        /* ================= 动态流体光晕背景 ================= */
+        .mesh-background {
+            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1; overflow: hidden; background: var(--bg-base);
+        }
+        .orb {
+            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
+            animation: float 25s infinite alternate ease-in-out;
+        }
+        .orb-1 { width: 60vw; height: 60vw; background: #e0f2fe; top: -10%; left: -10%; animation-duration: 30s; }
+        .orb-2 { width: 50vw; height: 50vw; background: #f3e8ff; bottom: -20%; right: -10%; animation-duration: 25s; animation-delay: -5s; }
+        .orb-3 { width: 40vw; height: 40vw; background: #ffedd5; top: 30%; left: 40%; transform: translate(-50%, -50%); animation-duration: 35s; animation-delay: -10s; }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(3%, 6%) scale(1.05); }
+            100% { transform: translate(-3%, -3%) scale(0.95); }
+        }
+
+        /* ================= 登录居中卡片 ================= */
+        .login-wrapper {
+            width: 100%; max-width: 420px;
+            animation: slideUpFade 0.8s var(--ease-apple) forwards;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-glass); padding: 48px 40px; display: flex; flex-direction: column;
+        }
+
+        /* ================= 头部品牌标识 ================= */
+        .brand-header { text-align: center; margin-bottom: 32px; }
+        .brand-icon { font-size: 48px; margin-bottom: 16px; display: inline-block; animation: popIn 0.6s var(--ease-apple) forwards; }
+        .brand-header h1 { font-size: 26px; font-weight: 700; color: var(--text-main); letter-spacing: 0.5px; margin-bottom: 8px; }
+        .brand-header p { font-size: 15px; color: var(--text-sec); font-weight: 500; }
+
+        /* ================= Flask 消息提示 ================= */
+        .alert {
+            padding: 14px 16px; border-radius: 12px; font-size: 14px; margin-bottom: 24px;
+            font-weight: 600; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            animation: shake 0.5s var(--ease-apple) both; border: 1px solid transparent;
+        }
+        /* Flask 中 error 等同于 danger */
+        .alert-error, .alert-danger { background-color: rgba(255, 235, 235, 0.85); color: #d93025; border-color: rgba(250, 210, 210, 0.9); }
+        .alert-success { background-color: rgba(230, 244, 234, 0.85); color: #1e8e3e; border-color: rgba(206, 234, 214, 0.9); }
+        .alert-info, .alert-warning { background-color: rgba(255, 240, 212, 0.85); color: #d97706; border-color: rgba(255, 230, 180, 0.9); }
+
+        /* ================= 表单与输入框 ================= */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: var(--text-main); padding-left: 4px; }
+        
+        .form-control {
+            width: 100%; padding: 16px; border: 1px solid rgba(255,255,255,0.8);
+            border-radius: var(--radius-md); font-size: 15px; background: rgba(255,255,255,0.6);
+            transition: all 0.3s var(--ease-apple); box-shadow: 0 2px 8px rgba(0,0,0,0.02) inset;
+            outline: none; color: var(--text-main);
+        }
+        .form-control::placeholder { color: #a1a1a6; }
+        .form-control:focus { background: #fff; border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15); }
+
+        /* ================= 按钮与底部链接 ================= */
+        .btn-submit {
+            width: 100%; padding: 16px; margin-top: 12px; background: var(--accent-blue); color: #fff;
+            border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s var(--ease-apple);
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25);
+        }
+        .btn-submit:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0, 113, 227, 0.35); }
+        .btn-submit:active { transform: scale(0.98); }
+
+        .auth-footer { margin-top: 28px; text-align: center; font-size: 14px; color: var(--text-sec); font-weight: 500; }
+        .auth-footer a { color: var(--accent-blue); text-decoration: none; font-weight: 600; transition: color 0.2s; padding: 4px; }
+        .auth-footer a:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 4px; }
+
+        /* ================= 动画定义 ================= */
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes popIn { 0% { opacity: 0; transform: scale(0.5); } 70% { transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-4px); } 40%, 80% { transform: translateX(4px); } }
+
+        /* ================= 统一全局毛玻璃导航栏 ================= */
+        .global-navbar {
+            position: fixed; top: 0; left: 0; width: 100%; height: 64px;
+            padding: 0 40px; display: flex; justify-content: space-between; align-items: center;
+            z-index: 9999; background: rgba(251, 251, 253, 0.7);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .global-navbar .logo { font-size: 20px; font-weight: 700; color: #1d1d1f; text-decoration: none; letter-spacing: -0.5px; }
+        .global-navbar .nav-actions { display: flex; gap: 12px; align-items: center; }
+        .global-navbar .btn-text { color: #86868b; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; transition: color 0.3s; }
+        .global-navbar .btn-text:hover { color: #1d1d1f; }
+        .global-navbar .btn-outline {
+            color: #1d1d1f; text-decoration: none; font-size: 14px; font-weight: 500;
+            padding: 8px 20px; background: white; border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s;
+        }
+        .global-navbar .btn-outline:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.06); transform: translateY(-1px); }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>用户登录</h1>
-        <!-- 显示提示信息 -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for category, message in messages %}
-              <div class="alert alert-{{ category }}">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
-        <form method="POST" action="/login">
-            <div class="form-group">
-                <label for="username">用户名：</label>
-                <input type="text" id="username" name="username" 
-                       placeholder="请输入用户名" required>
-            </div>
-            <div class="form-group">
-                <label for="password">密码：</label>
-                <input type="password" id="password" name="password" 
-                       placeholder="请输入密码" required>
-            </div>
-            <button type="submit" class="btn">登录</button>
-        </form>
-        <p>还没有账号？<a href="/register">立即注册</a></p>
+
+    <!-- 动态流体光晕背景 -->
+    <div class="mesh-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
+
+    <nav class="global-navbar">
+        <a href="/" class="logo">视学智问</a>
+        <div class="nav-actions">
+            {% if session.get('user') %}
+                <span class="btn-text">Hi, {{ session.user }}</span>
+                <a href="/workspace" class="btn-text">工作台</a>
+                <a href="/logout" class="btn-outline">退出登录</a>
+            {% else %}
+                <a href="/login" class="btn-text">登录</a>
+                <a href="/register" class="btn-outline">免费体验</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- 居中登录容器 -->
+    <div class="login-wrapper">
+        <div class="glass-panel">
+            
+            <div class="brand-header">
+                <div class="brand-icon">✨</div>
+                <h1>视学智问</h1>
+                <p>欢迎回来，继续您的智能学习之旅</p>
+            </div>
+
+            <!-- Flask 闪现消息提示框 -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <!-- 自动映射 error 类别到 danger 样式 -->
+                  <div class="alert alert-{{ 'danger' if category == 'error' else category }}">
+                      {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <!-- 登录表单核心逻辑保持不变 -->
+            <form method="POST" action="/login">
+                <div class="form-group">
+                    <label for="username">账号</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="请输入用户名" required autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" required autocomplete="current-password">
+                </div>
+                
+                <button type="submit" class="btn-submit">立即登录</button>
+            </form>
+
+            <div class="auth-footer">
+                还没有账号？<a href="/register">免费注册</a>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 </html>
