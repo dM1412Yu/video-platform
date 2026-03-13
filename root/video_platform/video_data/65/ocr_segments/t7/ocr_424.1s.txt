@@ -1,0 +1,14 @@
+1F21 1月13日周二                                                                                CR
+X                                       Ln Coe ot Lg                                   ic ed
+Seb a 2s 1) a0 8)
+i
+1
+远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。
+Cre         ESET ae
+a3
+下述哪个协议用于安全的远程登录( 。 )
+A.FTP                        B.TELNET                   cea)                        aia
+好考点三远程终端协议TELNET
+人eve            ee           ‘aren               ‘esemempance ‘oom
+e@                                                              <
+4

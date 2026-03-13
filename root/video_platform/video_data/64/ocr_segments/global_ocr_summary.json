@@ -1,0 +1,1408 @@
+{
+  "video_id": 64,
+  "segment_folders": [
+    "t1",
+    "t2",
+    "t3",
+    "t4",
+    "t5",
+    "t6",
+    "t7",
+    "t8",
+    "t9",
+    "t10",
+    "t11"
+  ],
+  "ocr_results": {
+    "t1": {
+      "segment_folder": "t1",
+      "title": "知识点1",
+      "start_time": 7.72,
+      "end_time": 45.8,
+      "ocr_frames": [
+        {
+          "time": 7.766666666666667,
+          "ocr_text": "由                                                                        CO\nx                    LR Dot poiy 9                   @\n《                                              A:\nLesson 6                  外\n\nBoi:     ¥\n\n®                       3                  不  ce\n® ann                            >   三\noop                           视频列表 。 2X 。 高清",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_7.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 8.766666666666667,
+          "ocr_text": "SOA DEL: | ba                                                                        OP ram\nx               eR Loegod |              国 .…\n《                             内\nLesson 6                  外\n\n1] ae |\n\n®              93           不 @\nbeer                                   >    =\nin         各位小伙伴大家好         aa",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_8.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 9.766666666666667,
+          "ocr_text": "Lesson 6                  不\n4二         |\n<          不\n® aun                            >\n这节课我们来学习应用层",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_9.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 10.766666666666667,
+          "ocr_text": "Lesson 6                  不\nVE |         |\n<          不\n® aun                            >\n这节课我们来学习应用层",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_10.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 11.766666666666667,
+          "ocr_text": "Lesson 6                  不\n应用层         |\n<          不\n® aun                            >\n这节课我们来学习应用层",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_11.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 12.766666666666667,
+          "ocr_text": "Lesson 6                  I A\nVE |             j\n>             不\n© mye                       i\npaces             那上一节课呢",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_12.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 13.766666666666667,
+          "ocr_text": "TFT7 1月13昌央二                                                                                                                  ESD = oo m\ni.                       ec                     a\nvee\nif\nLome,\n7\n我们是学习了运输层\n加     Waseoe 。。 Sonass aaaearper Touma       到\n4     >\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_13.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 14.766666666666667,
+          "ocr_text": "MT7 1月13晶央二                                                                                                                  ES = = oo 四\ni.                       CT                     a\nvere\n讨\nLote,\n 人网\n我们是学习了运输层\nassra Seeman aaaaernarr     ao       R        nal\nA     Py\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_14.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 15.766666666666667,
+          "ocr_text": "TFT7 1月13日周二                                                                                               BP ese\nx                       LE                     a ~\nPe Lee,\nOo     ao   oa    na    Sparen    ‘aren     Tesseemoamcr ‘eam\n二                      本\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_15.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 16.833333333333332,
+          "ocr_text": "1HPT7 1月13日央二                                                                                               BD ese\ni                       bh                     a\n:rmt\ner ete\n     ao   Ca    a    Sh    Taree     amemeaorc om\n日                      <>\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_16.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 17.833333333333332,
+          "ocr_text": "PT7 1月13晶央二                                                                                               ESD = = oo\ni.                                   CLS                                a\nvee\n， 计算机网络体系结构\n 看\n进程和进程之间的一个通信问题\nCo         areoa ce        am        coe          ‘             os\n@           <\n了",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_17.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 18.833333333333332,
+          "ocr_text": "SR Ind                                                                                               BP eax.\ni.                                   (Co                                oe\nWw       丰\n， 计算机网络体系结榴\n CJ\n进程和进程之间的一个通信问题\nCo           Prd        poe          os         “een            °               os\nJ                                                   @ >\n已",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_18.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 19.833333333333332,
+          "ocr_text": "TFI8 1月13昌网二                                                                                               ED oox四\ni                                   pd                                ae\nee\nlimmmeneey\n =\n进程和进程之间的一个通信问题\nCo           a ccc          ‘raw         Pod            ray\n二                                                   四\n已",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_19.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 20.833333333333332,
+          "ocr_text": "TH18 1月13日周二                                                                                      rane\ni.                       ee                     a\nDye 21\n\nPe cL Lec,\n\na\na     Pr cd     am    co      ep ES\ne                       4 ，\n\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_20.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 21.833333333333332,
+          "ocr_text": "TFI8 1月13昌央二                                                                                 BP ea0%.e\n四                       py                     国 …-\n计算机\nSc  ，\n7\n那你现在这么想\nco     让       i      7       a\n二                       < ，\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_21.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 22.833333333333332,
+          "ocr_text": "TH18 1月13日周二                                                                               Rd\nx                       PET                     me\nLL 2\n__    本\n二               四\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_22.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 23.833333333333332,
+          "ocr_text": "TH18 1月13日央二                                                                        A\nx                       PD                     me\neT 2\nak.    本\nco                  “\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_23.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 24.833333333333332,
+          "ocr_text": "1F18 1月13日央二                                                                        WE = = ov\nx                       PEL                     me\ncM,\nak.    本\ne                  由\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_24.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 25.833333333333332,
+          "ocr_text": "1P18 1月13日央二                                                                                 ESD =二oo m\ni.                       ae                     we\n计算机\nPe cL Lec,\n你是不是可以选择不同的\noe     Ped    oer     ems    ary      +       =\n. J                       rs\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_25.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 26.833333333333332,
+          "ocr_text": "1P18 1月13日央二                                                                                 ESD = = oo\n的                       攻                     we\n计算机\nPe cL Lee,\nBES ab\n    Prd    Poe     ny    Ory      +       =\n. J                       rs\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t1/ocr_26.8s.txt",
+          "segment_folder": "t1"
+        }
+      ]
+    },
+    "t2": {
+      "segment_folder": "t2",
+      "title": "知识点2",
+      "start_time": 63.98,
+      "end_time": 271.58,
+      "ocr_frames": [
+        {
+          "time": 64.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              ed\nx                              [新版] 课时 6 应用层\npe of a4\n考察记忆力\n         考点          ”重要程度 “     Eg\n域名系统DNS        村 oe       选择填空,简答\n文件传输协议              .           Biss es ed\n远程终端协议TELNET        下和        选择填空\n万维网WWW         选择填空\n电子邮件              ee          选择,填空\n动态主机配置协议DHCP       下        选择填空\n那我们先来看考点一域名系统DNS\n<\ned",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_64.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 65.03333333333333,
+          "ocr_text": "TFI8 1月13日周二                                              [CI\nx                              [新版] 课时 6 应用层                            a\n本\n考察记忆力\ni         考点          ” 重要程度 “     题型\n域名系统DNS        中 be ee       选择填空、简答\n文件传输协议            eee         选择.填空\n远程终端协议TELNET        下        选择填空\n万维网WWW             ee          选择填空\n电子邮件             eee -         IAS\nroe Lb tolled       . 7        选择,填空\n那我们先来看考点一域名系统DNS\n7                                <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_65.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 66.03333333333333,
+          "ocr_text": "TFI8 1月13日周二                                    [CI\nX                 [本               国 …\n考点1域名系统DNS anm ra\n7” 1-1域名系统DNS    ig\n_  那我们先来看考点一域名系统DNS      。\nr                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_66.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 67.03333333333333,
+          "ocr_text": "SUL DELL bat                                                  CR)\n4                              [二                            i ed\nSAAB RRDNS ane on\n7” 1-1域名系统DNS   id\n我们都知道\n\nrd   Caoa    “enna atest    ed    ‘aren     ‘esrmemance ‘oom\n\ne@                            <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_67.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 68.03333333333333,
+          "ocr_text": "SOUR)                                                             RT\nx                         [全 |                       @ -.\n考点1域名系统DNS samm za\n7” 1-1域名系统DNS     Y\ncs ae           :\n@                                  《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_68.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 69.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              ed\nx                 LR Cotot Ly               @ -.\n考点1域名系统DNS gmmm ra\n” 1-1域名系统DNS\n[|\ni\n_   当你再去使用这个计算机    -    。\ne@                   《\noy)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_69.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 70.03333333333333,
+          "ocr_text": "TFI8 1月13日周二                                    [CI\nX                 LR eet Ly               国 …\n考点1域名系统DNS gmmam ra\n” 1-1域名系统DNS\n|_|\ni\n:     A     ;      去搜索一些东西的时候\n@                   《\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_70.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 71.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              ed\nX                 LR not Ly               i\n考点1域名系统DNS samm ra\n” 1-1域名系统DNS\n|__|\ni\n.     ;      去搜索一些东西的时候\n=                   ;                 本\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_71.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 72.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              OP es 00%\nx                 LR not y               i\nSPUR SES BN\n” 1-1域名系统DNS\n|_|\ni\n:     ;      我们往往输入的是一个      -\n@                   《\na)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_72.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 73.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              OP ram\nx                 LR not Ly               国 …\n\n考点1域名系统DNS gmmm *a\n\n” 1-1域名系统DNS\n\n|_|\nering msde\n:     5     ;      我们往往输入的是一个\ne@                   《\na)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_73.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 74.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              ed\nx                 LR Rot Ly               国 …\n\n考点1域名系统DNS smmm ra\n\n” 1-1域名系统DNS\n\n|_|\neee\n:     :     ;      Ries\ne@                   《\na)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_74.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 75.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                    OP ra 00%\nx                 LR Deer Ly               fe\n\n考点1域名系统DNS gmmm zxa\n\n” 1-1域名系统DNS\n\n|__|\n下\n@                   《\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_75.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 76.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              OP es 00% 本\nx                 LR Droit y               国 .…\n考点1域名系统DNS smmm ra\n” 1-1域名系统DNS\n|__|\nearn\n下\n  但是我们之前在网络层的时候又讲了     。      。\n@ <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_76.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 77.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              OP > a 00% a\nx                 LR eet Ly               国 .…\n\n考点1域名系统DNS gmmm ra\n\n” 1-1域名系统DNS\n\n|__|\n下\n     ’     ;  但是我们之前在网络层的时候又讲了     。      。\ne@                   《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_77.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 78.03333333333333,
+          "ocr_text": "1TF18 1月13日周二                                    [CI\nx                 Le Corot Lg               国 .…\nSUR LESBO\n” 1-1域名系统DNS\n|_|\nneers\n>\n;     ’     ;  但是我们之前在网络层的时候又讲了      。\ne@                   《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_78.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 79.03333333333333,
+          "ocr_text": "1TF18 1月13日周二                                    [Ci\nx                 LR eet Ly               国 .…\n考点1域名系统DNS gmmm ra\n” 1-1域名系统DNS\n|_|\nee\n下\n     本      你的通信要依靠PP地址\ne@                   《\na)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_79.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 80.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              Ry\nx                 LR Dotot Ly               @\n\nSPUR SES BN\n\n” 1-1域名系统DNS\n\n|_|\n>\nz     E     ;      你的通信要依靠IP地址\n@                   《\n4)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_80.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 81.03333333333333,
+          "ocr_text": "1H18 1月13日周二                                              nd\nx                 LR Ott 4               i\nSUR RESP\n” 1-1域名系统DNS\n[|\n下\n那这个网址是怎么转换成1P地址的呢     =      。\n@                ; 《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_81.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 82.03333333333333,
+          "ocr_text": "TFI8 1月13日周二                                    OP eam\nvs                 LR Dott Lg               i\nSUR ESPN\n” 1-1域名系统DNS\n|\n>        5\n那这个网址是怎么转换成|P地址的呢     =      。\n@                ; 《\n|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_82.0s.txt",
+          "segment_folder": "t2"
+        },
+        {
+          "time": 83.03333333333333,
+          "ocr_text": "ws                         LR Dror |                        上\n考点1域名系统DNS smmm za\n” 1-1域名系统DNS\npare           ‘ie a\nFj       ,       ;   那这个网址是怎么转换成地址的呢\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t2/ocr_83.0s.txt",
+          "segment_folder": "t2"
+        }
+      ]
+    },
+    "t3": {
+      "segment_folder": "t3",
+      "title": "知识点3",
+      "start_time": 275.94,
+      "end_time": 307.92,
+      "ocr_frames": [
+        {
+          "time": 276.0,
+          "ocr_text": "1820 1月13日周二                                                                                 CR\nry                                  Cet                               o-\nPURSE See ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nADNS                 B.FTP                 CTELNET             D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu         B.wwwabccom        Cwwwabcgov         D.wwwabcorg\n»\n$e ferme Seater         a        am          aanememre ‘one\n@                                            <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_276.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 277.0,
+          "ocr_text": "1F20 1月13日周二                                    CC\nX                      LR Corot Ly                    i ed\n考点1域名系统DNS smmm ra\n1\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS        B.FTP         C.TELNET       D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nA.wwabc.edu    B.www.abccom    C.wwwabcgov    D.wwwabcorg\n>\n那下面我们就看两道题\n全   oa    as    ed    ‘aren     ‘estmemmancr ‘oom\n@                      《\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_277.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 278.0,
+          "ocr_text": "1F20 1月13日周二                                                                                 ed\nX                                       LR Cnet Lg                                   i ed\nSPUR Se ete\na5\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS                    B.FTP                    C.TELNET                D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu          B.wwwabccom         C.wwwabc.gov          D.www.abcorg\n下\n那下面我们就看两道题\n人     oa      as       mw      re        anemiaprcy 和am\n@                                                    《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_278.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 279.0,
+          "ocr_text": "1F20 1月13日周二                                    OP rs 00%\nX                      LR Corot Ly                    i ed\nSUR Se eee\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS        B.FTP         C.TELNET       D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nA.wwabc.edu    B.wwwabccom    C.wwwabc.gov    D.www.abcorg\n>\n巩固一下考点一的内容\na aaa   oa    as    ed    od     ‘estmemance ‘oom\n@                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_279.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 280.0,
+          "ocr_text": "1820 1月13日周二                                                                                 ES = = 09y 权\nry                                  Ct                               o-\nPRL SBN Mery\na3\nDace po ita le ese Sa\nADNS                 B.FTP                 CTELNET             D.SMTP\nar                下\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu         B.wwwabccom        Cwwwabcgov         D.wwwabcorg\n巩固一下考点一的内容\n二       pa      wm        aamememre am\nr )                                            <\nJ",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_280.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 281.0,
+          "ocr_text": "1F20 1月13日周二                                    OP es 00%\nx                      LR Donor |                    i ed\nSUR SES 1B\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS    r    B.FTP         C.TELNET       D.SMTP\n3\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu    B.wwwabccom    Cwwwabcgov    D.wwwabcorg\n问能够把域名转换为网络\nse    eee    pon    pend     aaanemoaocy om\ne@                      i\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_281.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 282.0,
+          "ocr_text": "1820 1月13日周二                                    ed\nX                      LR Rot Lg                    ao.\nee Se See ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS        B.FTP     下  C.TELNET       D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu    CR)    Cwwwabcgov    D.wwwabcorg\n问能够把域名转换为网络\nse    ns    am    pen     oy\ne@                      《\n已|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_282.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 283.0,
+          "ocr_text": "1820 1月13日周二                                    TR\nX                      [全                    i ed\nee SE See ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS       B.FTP     Le C. TELNET     D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu    CR)    Cwwwabcgov    D.wwwabcorg\n问能够把域名转换为网络\nse    an    am    pen     oy\ne@                      《\n已|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_283.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 284.0,
+          "ocr_text": "1F20 1月13日央二                                                                                 2\nX                              LR not Ly                            ao.\nee SE See ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS            B.FTP         Ay  C. TELNET         D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu      CR ey      Cwwwabcgov      D.wwwabcorg\n可以识别的IP地址的协议\n而一as一 wen    panne    am    pen     eo\ne@                               《\n已]",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_284.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 285.0,
+          "ocr_text": "1820 1月13日周二                                                  TR\nBa                              LR Ooeot Ly                            i\nee Se See ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS           B.FTP        AP  C. TELNET         D.SMTP\ney)\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu      B.wwwabccom     Cwwwabcgov      D.wwwabcorg\n可以识别的IP地址的协议\na   oe    am    en     ‘estramvence ‘eon\n@                            <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_285.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 286.0,
+          "ocr_text": "1820 1月13日周二                                    ed\nX                      [全                    i ed\neo Se See ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS       B.FTP     Ap C.TELNET     D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu    CR)    Cwwwabcgov    D.wwwabcorg\n那刚刚我们说了是域名系统DNS\n而一一 own    eee    am    en     aaanemoaocr om\nr                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_286.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 287.0,
+          "ocr_text": "1820 1月13日周二                                    OR\nX                      LR Conor Ly                    i ed\nee Se See ey\n“题1\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS        B.FTP   ia    C.TELNET       D.SMTP\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu    Bwwwabccom    Cwwwabcgov    D.wwwabcorg\n那刚刚我们说了是域名系统DNS\na    naoareenr    am    en     oy\nr                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_287.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 288.0,
+          "ocr_text": "1F20 1月13日周二                                                                                 GDP care\nx                      [1                    ic ed\nee Se See ey\na 3\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS        B.FTP         C.TELNET       D.SMTP\n上\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu    B.wwwabccom    Cwwwabcgov    D.wwwabcorg\n那刚刚我们说了是域名系统DNS\nae   eee   am   po    aaanemoaocry om\ne@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_288.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 289.0,
+          "ocr_text": "1F20 1月13日周二                                    1时 = = 99y 本\nx                      LR Deer Lg                    ic ed\nee Se See ey\na5\n能够把域名转换成为网络可以识别的|P地址的协议是( 。 )\nA.DNS        B.FTP         C.TELNET       D.SMTP\n2\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu    B.wwwabccom    Cwwwabcgov    D.wwwabcorg\n那刚刚我们说了是域名系统DNS\n而一own   eee   am   pond    aaanemwaocy om\ne@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_289.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 290.0,
+          "ocr_text": "1F20 1月13日周二                                                  O) ram\nBa                      LR Ooeot Ly                    i\nee Se Se) ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( A )\nA.DNS          B.FTP          C.TELNET        D.SMTP\n2\n“题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu     B.wwwabccom     Cwwwabc.gov     D.wwwabcorg\n它的一个功能呢\n而一so     am     pen      aaanemoaocy om\ne@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_290.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 291.0,
+          "ocr_text": "1F20 1月13日周二                                                  OP rs 00% me\nX                      [全                    i ed\nee Se Se) ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( A )\nA.DNS          B.FTP          C.TELNET        D.SMTP\n下\n3\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu     B.wwwabccom     Cwwwabc.gov     D.wwwabcorg\n所\n而一so    oem     od     pen      ‘estnemance ‘eam\nr                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_291.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 292.0,
+          "ocr_text": "1F20 1月13日周二                                                                                 CR\nx                              LR rot Ly                            ic ed\nee SE See ey\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( A )\nA.DNS           B.FTP           C.TELNET         D.SMTP\n下\ney)\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu      B.wwwabccom     Cwwwabcgov      D.wwwabcorg\n所\na    eee     am     pen      oy\ne@                            《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_292.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 293.0,
+          "ocr_text": "1820 1月13日周二                                                                                  【CE\nry                          Ct                       o-\n本\n1\n能够把域名转换成为网络可以识别的IP地址的协议是( A )\nADNS                    B.FTP                    CTELNET                D.SMTP\nSs\na0)\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu          B.wwwabccom         Cwwwabcgov          D.wwwabcorg\n机oo          Sen         wm            asoememre em\ne@                                                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_293.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 294.0,
+          "ocr_text": "1F20 1月13日周二                                                                                  nd\nX                                        Le Don ot Ly                                     ow\nAe Se Se) Nee\na3\n能够把域名转换成为网络可以识别的|P地址的协议是( A )\nA.DNS                    B.FTP                    C.TELNET                D.SMTP\n题2\n下列域名最可能属于政府机构的网站是( 。 )\nAwwabcedu          Cee         Cwwwabcgov          D.wwwabcorg\n例题2下列域名\nSe         Pea          am         Do            amemoaoc wma\ne@                                                   Ke\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_294.0s.txt",
+          "segment_folder": "t3"
+        },
+        {
+          "time": 295.0,
+          "ocr_text": "1F20 1月13日周二                                                  OP es 00% mm\nBa                      LR Cnet Ly                    i\nSPUR See PN\n7“ 题1\n能够把域名转换成为网络可以识别的|P地址的协议是( A )\nA.DNS         B.FTP         C.TELNET       D.SMTP\ney\nnL Se LL ne\nAwwabcedu     B.wwwabccom    Cwwwabcgov     D.wwwabcorg\n例题2下列域名\n而一as一oo     ere     oo     pend       ‘estnamvence ‘eon\ne@                        <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t3/ocr_295.0s.txt",
+          "segment_folder": "t3"
+        }
+      ]
+    },
+    "t4": {
+      "segment_folder": "t4",
+      "title": "知识点4",
+      "start_time": 309.08,
+      "end_time": 420.96,
+      "ocr_frames": [
+        {
+          "time": 309.1333333333333,
+          "ocr_text": "1F20 1月13日央二                                                                                 CR!\nx                              [有 |                            i ed\nCee eet hay\n是2-1 FTP的工作原理      下\nFTP采用客户/服务如的工作方式4\n\neS    -一    oo     ———\n\ne@                            <\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_309.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 310.1333333333333,
+          "ocr_text": "1820 1月13日周二                                                  nd\nx                      LR Deot Lg                    i ed\n考点2 See 1议| em >\ni\n” 2-1 FTP的工作原理\nFTP采用客户/服务器的工作方式。\n考点二文件传输协议\n\naa $name ‘enn    eee    am    pened     ‘eatnemenc ‘eam\n\nr                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_310.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 311.1333333333333,
+          "ocr_text": "1820 1月13日周二                                                                             OP es 00% me\nrm                                  [断版] 课时6 应用层                               oe\n考点2 ask 1D Ge\n>\n” 2-1 FTP的工作原理\nFTP采用客户/服务器的工作方式。\n考点二文件传输协议\ncS       a et      “omamaresert       am        ‘estnemanc ‘eon\ne@                                  i\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_311.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 312.1333333333333,
+          "ocr_text": "1F20 1月13日周二                                    el\nx                 LR RI |               @\nStd 文件传输协议 Cy\n” 2-1 FTP的工作原理\nFTP采用客户/服务器的工作方式。\nae     ec\ne@                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_312.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 313.1333333333333,
+          "ocr_text": "1F20 1月13日周二                                    Rd\nx                 Le RI               @\n考点2 文件传输协议 smmm za\n\" 2-1 FTP LER M\nale Talk Rob\nac     Re ce\ne                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_313.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 314.1333333333333,
+          "ocr_text": "1820 1月13日周二                                    ed\nX                      LR Droit |                    i ed\n考点2 文件传输协议 smmm ra\n” 2-1 FTP的工作原理\n[UL ec Se ab\n是FTP\nwr     od   aoa    el    cd    re     ssemaprcy 和am\ne                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_314.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 315.1333333333333,
+          "ocr_text": "1820 1月13日周二                                    【CE\nx                      LR not Ly                    i\n考点2 文件传输协议 smmm ra\n” 2-1 FTP的工作原理\nER\n是FTP\nwr     od   oa    ad    ee    re     asmemaprcy 全am\ne                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_315.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 316.1333333333333,
+          "ocr_text": "1820 1月13日周二                                    OP es 00%\nx                 [全               国 .…\n考点2 文件传输协议 smmam ra\nae tata)\ni clan\n这个F它就是文件file的一个缩写      =      。\n\ne          ;  :   ;    <\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_316.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 317.1333333333333,
+          "ocr_text": "1820 1月13日周二                                    Rd\nx                 [全               回 .…\n考点2 文件传输协议 smmm ra\nTUE ae\nFTP采用客户/服务器的工作方式。\n这个F它就是文件file的一个缩写      -      。\n\ne            :   ;    <\n\n2",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_317.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 318.1333333333333,
+          "ocr_text": "io                                    四 eu人\nx                 Le RD |               回 .…\n考点2 文件传输协议 samm za\nar Salsa: J   aS\nFTP采用客户/服务器的工作方式。\n这个F它就是文件file的一个缩写\ne           :   ;  : <\n四",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_318.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 319.1333333333333,
+          "ocr_text": "SOL TELL ba                                    CD\nx                 [二               oB«\n考点2 文件传输协议 smmm ra\nar > eal st]   aS\nFTP采用客户/服务器的工作方式。\n本1\n\ne                     <\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_319.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 320.1333333333333,
+          "ocr_text": "SOL TELL ba                                    Co)\nx                 [本               a~\n考点2 文件传输协议 smmm za\n” 2-1 FTP的工作原理    3\nFTP采用客户/服务器的工作方式。\n那FTP它采用的工作方式    。    。\n\n@                   《\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_320.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 321.1333333333333,
+          "ocr_text": "SOL TELL ba                                    CD\n网                 [3               a~\n考点2 文件传输协议 smmm ra\n” 2-1 FTP的工作原理\nFTP采用客户/服务器的工作方式。\n>\nbal ae)    。    。\n@                   《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_321.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 322.1333333333333,
+          "ocr_text": "1F20 1月13日央二                                    id\nx                  [本                 司\n考点2 文件传输协议 samm za\npS eal: st: 3\nalia\ns &>\na          renee\n     -     2\n罗4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_322.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 323.1333333333333,
+          "ocr_text": "1F20 1月13日央二                                    ed\nX                  [本                 司\n考点2 文件传输协议 samm za\n” 2-1 FTP的工作原理\npila tel\ns &>\na          remsee\n     ;     :     aC      :     ;\nP\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_323.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 324.1333333333333,
+          "ocr_text": "aa                                    二oo 四\nX                  LR Rot Ly                 上\n考点2 文件传输协议 EEmm za\n\" 2-1 FTP LF RE\nala tak\n下\nen\n—_\"     ;     eect\n4\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_324.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 325.1333333333333,
+          "ocr_text": "1F20 1月13昌网二                                    adenoid\nx                 LR RI |                司\n考点2 文件传输协议 smam za\nar Salat: J\nah he et),\ns >\nao          masaa\n;    ;     ies cae     ;     ;\n<\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_325.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 326.1333333333333,
+          "ocr_text": "1F20 1月13昌网二                                    9 = oo 四\nX                 LR ert                司\n考点2 文件传输协议 smam za\n” 2-1 FTP的工作原理\nlinia ag te,\nv=)\nco          masaa\n;    ;     ies cae     ;     ;\n<\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_326.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 327.1333333333333,
+          "ocr_text": "1TF20 1有13昌网二                                    OD 7 99% a\nx                  LR Cnet Ly                 上\n考点2 文件传输协议 samm za\n” 2-1 FTP的工作原理\niain ag te,\ns @>\nsp          ay\nBil WAS ESSE a)   ’      7     -\n<\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_327.1s.txt",
+          "segment_folder": "t4"
+        },
+        {
+          "time": 328.1333333333333,
+          "ocr_text": "x                 LR Colpo y 9                司\n考点2 文件传输协议 wmmm zs\n” 2-1 FTP的工作原理\n上\n《ID       Mi\n=          a\n他所应用到的是下面     。     -\n。\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t4/ocr_328.1s.txt",
+          "segment_folder": "t4"
+        }
+      ]
+    },
+    "t5": {
+      "segment_folder": "t5",
+      "title": "知识点5",
+      "start_time": 422.02,
+      "end_time": 459.22,
+      "ocr_frames": [
+        {
+          "time": 422.06666666666666,
+          "ocr_text": "1F21 1月13日周二                                                                                 ESD = = oa\nxX                                 REI                               ie\n考点2 广伦传输协议TEdaNB -em 7\na eae alam a\na Pa Mes al ia act 和 所上\nA.20,20            B.23,25\n题1 ¢.21,21            .21,20             控制连接 人 21\n    X用于安全的远程登录            数据传输 | 20\nae as              ii)               Aad\na       pod      ‘even        ceed\noO                                  <\n时",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_422.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 423.06666666666666,
+          "ocr_text": "1F21 1月13日周二                                                                                 TR\nX                                       LR Corot Ly                                   i ed\nSeb 2s 1) a0 8)\ni\neS: s ala ag\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre         REET ae\na3\nBS ce rs. ae)\nA.FTP                              B.TELNET                       C.SSH                              D.HTTP\n好考点三远程终端协议TELNET\n人ENET               |              re                  ‘esmemmance ‘oom\ne@                                                                             <\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_423.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 424.06666666666666,
+          "ocr_text": "1F21 1月13日周二                                                                                CR\nX                                       Ln Coe ot Lg                                   ic ed\nSeb a 2s 1) a0 8)\ni\n1\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre         ESET ae\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP                        B.TELNET                   cea)                        aia\n好考点三远程终端协议TELNET\n人eve            ee           ‘aren               ‘esemempance ‘oom\ne@                                                              <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_424.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 425.06666666666666,
+          "ocr_text": "1F21 1月13日周二                                                                                 【CE\nX                                       LR Corot Ly                                   国 …\nSeb 2-1) as 8)\ni\neSBs: s ala as\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre         ESET Te\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP                              B.TELNET                       C.SSH                              D.HTTP\n好考点三远程终端协议TELNET\na aaa TeverT               am              re                  aaanemaprcy 全am\nce)                                                                             ce\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_425.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 426.06666666666666,
+          "ocr_text": "1F21 1月13日周二                                                O) rao mm\nX                      LR Corot Lg                    国 …\n本\n>\neSBs: s alas\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      ESET ae\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          B.TELNET        coe)          D.HTTP\n那对于这个远程终端协议\n全   cor    ns    ed    re     ssemeaprcy ‘eam\nce)                          i\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_426.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 427.06666666666666,
+          "ocr_text": "1F21 1月13日周二                                                EC\nX                      LR Corot Ly                    国 …\n了\n>\neSBs: s alas\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      JES Et ae\n“ 题1\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          B.TELNET        C.SSH          D.HTTP\n那对于这个远程终端协议\na aaa   cor    marenrr    ee    re     ssemaprcy 全am\nce)                          i\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_427.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 428.06666666666666,
+          "ocr_text": "1H21 1月13日周二                                                                            外\nX                      LR Corot Ly                    i ed\noe et 2-3 Oem\n>\neSBs: s ala as\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      ESET ae 3\n“ 题1\n下述哪个协议用于安全的远程登录(。 )\nA.FTP          B.TELNET        C.SSH          D.HTTP\n4\n人   coy    eanarerr    ed    re     aanemaprcy 全am\nro)                          ce\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_428.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 429.06666666666666,
+          "ocr_text": "1F21 1月13日周二                                                TR\nX                      [全                    i ed\nSeep s+ 23) ee人\n>\neSBs: s ala ag\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre     (RAEN IP steht)\na3\n下述哪个协议用于安全的远程登录(。 )\nA.FTP         B.TELNET       coe)        D.HTTP\n它的一个功能就行了\na aaa   eas    mw    ‘even     ‘ostmemeancr ‘oom\ne@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_429.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 430.06666666666666,
+          "ocr_text": "1821 1 DIL be                                                OR\nX                      [1                    i ed\neee t-2- 2 Pm\n>\nEDs: s ala ag\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\n(即登录)     EET Ue\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP         B.TELNET       coe)         aa\n它的一个功能就行了\n人    coor    aed     mw     ‘even       ‘esrmemeance ‘oom\nr                        <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_430.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 431.06666666666666,
+          "ocr_text": "1821 1 DEL be                                                【|\nX                      LR Deer Ly                    i\n考点3 远程终端协议TELNET smmm zw\n>\neSBs: s ala ag\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      上\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          B.TELNET        C.SSH          aa\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、自改，用于安全的远程登录 。\nee pe eS: a dD\na ara    corr    areerr     mw     re       samemeaorcy 和am\nr                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_431.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 432.06666666666666,
+          "ocr_text": "1F21 1月13日央二                                                                       ey\nx                      LR Corot Lg                    i ed\nSeep s+ 23/0) ae\neSBs: s ala as\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCrs      ESET ae\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          B.TELNET        C.SSH          Raia\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、臭改，用于安全的远程登录 。\n它是用于安丢的过个还梯登录鸭\nwr     od   corr    aareerr    mw    rd     ‘osememeancr ‘oom\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_432.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 433.06666666666666,
+          "ocr_text": "1F21 1月13 bd                                                OP raceme\nx                      LR not Ly                    i\nSeep s+ 23) ae\neSBs: s alas\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      ESET ae\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          B.TELNET        C.SSH          D.HTTP\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、臭改，用于安全的远程登录 。\n它是用于安丢的过个还梯登录鸭\nwr     od   corr    areerr    mw    re     asmemeaorcy 和am\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_433.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 434.06666666666666,
+          "ocr_text": "1F21 1月13 bd                                                OR\nx                      LR Corot Lg                    i\neee ut 2-2 1) ape\n>\neSBs 1s ala ag\n远程终绸协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      ESET Ue\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          B.TELNET        C.SSH          D.HTTP\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、臭改，用于安全的远程登录 。\nee ites Es)\nCe    oor      Treerr       mw      ‘aren        ‘estmemmance ‘oom\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_434.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 435.06666666666666,
+          "ocr_text": "1821 1 DIL be                                                【|\nX                      LR Doe ot Ly                    i ed\n本[二古人\neSBs: sala as\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      JET Ue\n\"gl\n2     Ne\n下述哪个协议用于安全的远程登录(。 )\nA.FTP          B.TELNET        C.SSH          D.HTTP\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被帘听、臭改，用于安全的远程登录 。\nPee ious saa Lhe\ned   ord    “anemones     ord    re      ‘estmemancr ‘oom\nt                          <\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_435.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 436.06666666666666,
+          "ocr_text": "1F21 1月13 bd                                                                       OR\nx                      LR not |                    i ed\nSece ps 2-200) ae\nDt 2s ala ag\n远程终绸协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\n(即登录)      JEST Te 3)\n\"gl\nBe ce rs ts ae)\nA.FTP          Arr        C.SSH          aa\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、自改，用于安全的远程登录 。\nPee ious saa Lhe\ned   rT   “cameron    eed    ‘aren     ‘esemempancr ‘oom\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_436.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 437.06666666666666,
+          "ocr_text": "1F21 1月13 bd                                                【|\nx                      LR not Lg                    i ed\nSeep s+ 23) ae\nDBs: s alas\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\n(即登录)      JEST Ue 3)\n\"gl\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          Ass        cea)          aa\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、臭改，用于安全的远程登录 。\n几是癌你远梯登陆用哪个协议\n人  ET   oo    eed    ‘even     ‘estmemmancr ‘oom\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_437.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 438.06666666666666,
+          "ocr_text": "1F21 1月13 bd                                                @O) ram\nx                      LR not |                    i ed\nSeep is -£ 23/0) ae\nDs: s ala ag\n远程终绸协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\n(即登录)\na3\n下述哪个协议用于安全的远程登录( 。 )\nA.FTP          [3        C.SSH          aa\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差 。\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、自改，用于安全的远程登录 。\n你融焉到TELNET\n人  eas    ee    cd     ‘esenemance ‘oom\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_438.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 439.06666666666666,
+          "ocr_text": "1F21 1月13 bd                                                【|\nx                      LR not Lg                    i ed\nee ps £23) Oe\nDs: s alam ag\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\n(即登录)      JES Et Te\na3\nBe re rs. ae)\nA.FTP          B.TELNET        C.SSH          aa\n>\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被帘听、臭改，用于安全的远程登录 。\n你融焉到TELNET\na aaa  eas    Sd    cd     ‘estmemance ‘oom\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_439.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 440.06666666666666,
+          "ocr_text": "1821 1 LL be                                                                            CR\nx                      LR Oe ot Ly                    i ed\neee it 2-2 ae\neSBs: s ala as\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      CES ET aes)\na3\n下述哪个协议用于安全的远程登录(。 )\nA.FTP          B.TELNET        C.SSH          D.HTTP\n>»\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被灾听、臭改，用于安全的远程登录 。\n找们可以联朴记亿\n人   Sooo    os    ed    ‘aren     ‘esememmance ‘oom\n@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_440.1s.txt",
+          "segment_folder": "t5"
+        },
+        {
+          "time": 441.06666666666666,
+          "ocr_text": "1821 1 LIL be                                                OP ram\nx                      LR Oot ot Ly                    i ed\neee e223) ae\neSBs: sala ag\n远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\nCre      ESET ae 3\na3\n下述哪个协议用于安全的远程登录( 三 )\nA.FTP          B.TELNET        cea)          D.HTTP\n>»\n是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中\n容易被窃取，安全性较差\n建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密\n技术对传输数据进行加密，可有效防止数据被窗听、段改，用于安全的远程登录 。\n一般况还是不是尹况太远了\n人   ET   ar    eed    ‘eren     ‘estmemeancr ‘oom\n@                          《\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t5/ocr_441.1s.txt",
+          "segment_folder": "t5"
+        }
+      ]
+    },
+    "t6": {
+      "segment_folder": "t6",
+      "title": "知识点6",
+      "start_time": 459.32,
+      "end_time": 599.02,
+      "ocr_frames": [
+        {
+          "time": 459.3666666666667,
+          "ocr_text": "1F21 1月13日周二                                                         BD) scene\nx                              【新版] 课时6 应用层                            i ed\nPU akg. a ey 7w\n>\n” 4 er ana\n人允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。\n题1\n下述哪个协议用于安全的远程登录(   )\n\nFTP                 ae as            LoS               D.HTTP\nTF      re       asmemeaorcy ‘em\ne                                  nS\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_459.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 460.3666666666667,
+          "ocr_text": "1F21 1月13日央二                                                                       Sl\nco                      CR tet}                    ae.\nSree Je\n>\n” 4-1 万维网WWW\n考点四 万维网WWW\n人   Ta   re    arnemoaor am\nfa)                      «\ny",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_460.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 461.3666666666667,
+          "ocr_text": "1F21 1月13日央二                                                tl\npo                      CR tet}                    ae.\n\nrae Nee\n\n>\n” 4-1 万维网WWW\n考点四 万维网WWW\nwe   Ta Samana —~“‘aaaaroa   Ta   Ded    peed\nfa)                      «\ny",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_461.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 462.3666666666667,
+          "ocr_text": "1F21 1月13日央二                                                ald\nre                 CR ota)               国 .\n\n考点4万维网WVWWV gm四 ra\n\n让\n\n” 4-1 万维网WWW\n      _也是我们本章会出题       。      。\nfa)                     «\n\ny",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_462.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 463.3666666666667,
+          "ocr_text": "1F21 1月13日央二                                                dtd\nre                 Rta)               国 .\n\n考点4万维网WVWWV gm四 ra\n\n>\n\n” 4-1 万维网WWW\n      _也是我们本章会出题       。      。\nfa)                     «\n\ny",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_463.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 464.3666666666667,
+          "ocr_text": "1F21 1月3日央二                                                delta\nre                 CR tL               re\n\n考点4万维网WVWWV gm四 ra\n\n下\n\n” 4-1 万维网WWW\n      _也是我们本章会出题       。\n°}                     «\n\ny",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_464.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 465.3666666666667,
+          "ocr_text": "1F21 1月13日央二                                                RL!\nX                 LR edt               i\n\n人\n\n下\n\n” 4-1 万维网WWW\n      频率比较高的一个考点\nr                      <\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_465.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 466.3666666666667,
+          "ocr_text": "1F21 1月13日央二                                                OR!\nX                 LR RD |               i\n\n人\n\n下\n\n” 4-1 万维网WWW\n      频率比较高的一个考点\nr                      <\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_466.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 467.3666666666667,
+          "ocr_text": "1F21 1月13昌央二                                                eld\n的                 Rott               ee\n\nSe Uae ae Aare\n\n>\n\n” 4-1 万维网WWW\n      加       。\nra)                     《\n\n时】",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_467.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 468.3666666666667,
+          "ocr_text": "1821 1 LIL be                                                【|\nx                 [有 |               ic ed\n考点小万维网WWVVWV samm za\n” 4-1万维网WVWW 个\n(统一资源定位符URL: <协议>://<主机>:<端口>/<路径>\n     首先我们要掌握它的三个部分        。       。\ne@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_468.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 469.3666666666667,
+          "ocr_text": "1F21 1月13日央二                                                OR!\nx                 LR Rat |               国 .…\n\n考点4万维网WWW gmmm ma\n\n” 4-1 万维网WWW\n\naaa ch <协议>://<主机>:<端口>/<路径>\n首先我们要掌握它的三个部分\ne@                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_469.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 470.3666666666667,
+          "ocr_text": "1F21 1月13昌风二                                    CD\nX                 LR not Lg               @\n\nSe aE a AW samm za\n\nae\n\nOa ee a/<和>\n第一个呢就是统一资源定位符URL\nr                     <\nr",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_470.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 471.3666666666667,
+          "ocr_text": "1821 1 LIL be                                                OP ram\nX                         LR not Ly                       @\nSe aE a AWA eee\nae\na ee\n第一个呢就是统一资源定位符URL\n\nr                            <\n\n|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_471.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 472.3666666666667,
+          "ocr_text": "1821 1 DEL be                                                【|\n网                         LR Oe ot Ly                       国 …\n考点万维网WVWVWV wamm za\n7” 4-1 万维网WWW\na ea/<和>\n第一个呢就是统一资源定位符URL\n\ne@                            《\n\n|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_472.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 473.3666666666667,
+          "ocr_text": "ER Ld                                    tld\n网                 LR not Ly               国 …\n\n考点4万维网WVWVWV wamm za\n\n7” 4-1 万维网WWW\n\na ee a\n第一个呢就是统一资源定位符URL\ne@                     《\n|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_473.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 474.3666666666667,
+          "ocr_text": "1F21 1月13日周二                                                Od\nx                              LR Oe ot Ly                            i ed\n考点小万维网WWVVV ed\n” 4-1 万维网WWW\n三\n__ a 0 11\ne@                               <\n\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_474.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 475.3666666666667,
+          "ocr_text": "1821 1 LL i                                                【CE\nx                      LR tot Ly                    i ed\n考点上万维网VVVVV gamm za\n” 4-1 万维网WWW\nOVE Seer areca ba\ni    了  最前面是你使用到的哪一种协议\nr                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_475.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 476.3666666666667,
+          "ocr_text": "1F21 1月13日周二                                                Ro\nx                      LR not Lg                    i ed\n考点小万维网VVVVV gamm za\n” 4-1 万维网WWW\nOV Seer areca a\n_       :    最前面是你使用到的哪一种协议\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_476.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 477.3666666666667,
+          "ocr_text": "1F21 1月13日周二                                                TR\nx                      LR not Ly                    i ed\n考点小万维网VWVVVV gamm za\n” 4-1 万维网WWW\nOVE Seb areca a\nae       :    最前面是你使用到的哪一种协议\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_477.4s.txt",
+          "segment_folder": "t6"
+        },
+        {
+          "time": 478.3666666666667,
+          "ocr_text": "1F21 1月13日周二                                                【CE\nX                              LR not Lg                            i ed\n考点上万维网VWVVVV gamm za\n” 4-1 万维网WWW\nCOOP Seer acta a a\n\nee IS\n\ne@                               Ke\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t6/ocr_478.4s.txt",
+          "segment_folder": "t6"
+        }
+      ]
+    },
+    "t7": {
+      "segment_folder": "t7",
+      "title": "知识点7",
+      "start_time": 599.12,
+      "end_time": 616.46,
+      "ocr_frames": [
+        {
+          "time": 599.1666666666666,
+          "ocr_text": "名                                                CO\n多                      [晰版] 课时6应用层                    国 -\n考点小万维网VVVVV gmmm za\n1\nWWW 网页文件的编写语言及相应的支持协议分别为( 。 )\nAHTMLHTPT\nCeara               S\nCa rat\nD.以上均不对\n巩固一下\n机    —    Dn     a\nor                               <\n到",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_599.2s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 600.1666666666666,
+          "ocr_text": "车                                                                            GP oa ccm 四\nx                      C4                    o-\n考点小万维网VVVVV gmmm za\n1\nWWW 网页文件的编写语言及相应的支持协议分别为( 。 )\n下 AHTMUHTPT\nCees\nCm Lat\nD.以上均不对\n考点4的内容\nae ee     TAR      ‘etme fone\nie)                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_600.2s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 601.1666666666666,
+          "ocr_text": "Sica tL bad                                                Ce or!\nry                      Ct                    oe\n考点小万维网VVVVV wamm za\n1\nWWW 网页文件的编写语言及相应的支持协议分别为( 。 )\n\nAHTMLHTP季\n\nCees\n\nCm Lat\n\nD.以上均不对\ner      —       ‘etme fone\nio)                               <\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_601.2s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 602.1666666666666,
+          "ocr_text": "1F22 1月13日周二                                                Or\nx                 [新版] 课时6 应用层               re\n考点小万维网WWVVWV samm za\n1\nWww 网页文件的编写语言及相应的支持协议分别为(。 )\n\nET             和\n\nB.HTTLHTTP\n\nC.HTMLHTTP\n\nD.以上均不对\n\n说WWW网页文件的编写语言\nFS     ss — are    TAR    J    Ded     eee\ne                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_602.2s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 603.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                Rd\nx                 [新版] 课时6 应用层               re\n考点小万维网WWVVWV samm za\n1\nWww 网页文件的编写语言及相应的支持协议分别为(。 )\n\nET             和\n\nB.HTTLHTTP\n\nC.HTMLHTTP\n\nD.以上均不对\n\n说WWW网页文件的编写语言\n本     ss — are    TAR    J    Do     eee\ne@                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_603.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 604.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                【|\nx                 LR not |               fe\nSe aE AW eee\na3\nWWW 网页文件的编写语言及相应的支持协议分别为( )\n\nA.HTMLHTPT\n\nB.HTTLHTTP\n\nfee\n\nD.以上均不对\n\n以及它相应的这个支持协议是哪一个\nwr     eco   coor    or    samen    ‘ere8     ‘esemempance ‘oom\n@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_604.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 605.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                O) rao\nx                 |               国 -\n考点小万维网WWVVWV samm za\n1\nWWW 网页文件的编写语言及相应的支持协议分别为(。 )\n\nET\n\nB.HTTLHTTP\n\nC.HTMLHTTP\n\nD.以上均不对\n\n以及它相应的这个支持协议是哪一个\nco     ass — are    ny    sam    We     eee\nr                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_605.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 606.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                O) rao\nx                 Rea               o-\n考点小万维网WWVVWV samm za\n1\nWWW 网页文件的编写语言及相应的支持协议分别为(。 )\n\nET             加\n\nB.HTTLHTTP\n\nC.HTMLHTTP\n\nD.以上均不对\n\n以及它相应的这个支持协议是哪一个\n=     a    ny    sy    pod     eee\nr                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_606.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 607.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                【|\nx                 LR Doeot Ly               hee\n考点4万维网WVWVWV samm za\na3\nWWW 网页文件的编写语言及相应的支持协议分别为( 。 )\n\nA.HTMLHTPT   Le\n\nB.HTTLHTTP\n\nlee\n\nD.以上均不对\n\n和\nwe     Ware   oro    “auemnaTont    od    aren     ‘esemempance ‘oom\nr                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_607.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 608.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                Rd\nX                      [全                    ic ed\nSe aE dA ae\na3\nWWW 网页文件的编写语言及相应的支持协议分别为( 。 )\n\nA.HTMLHTPT\n\nB.HTTLHTTP\n\nlee\n\nD.以上均不对\n\n下\nww     Tod   coor    a    Fawn    laren     ‘esemempancr ‘oom\ne@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_608.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 609.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                [|\nX                      LR not |                    i ed\nSe aE aS Aa za\na3\n|e\nWWW 网页文件的编写语言及相应的支持协议分别为( 。 )\n\nA.HTMLHTPT\n\nB.HTTLHTTP\n\nlen ee\n\nD.以上均不对\n\n和\nww     Tod   coor    a ras    Fawn    laren     ‘esemempance ‘oom\ne@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_609.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 610.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                O) ram\nx                 LR rot Ly               fe\n考点万维网WWVWV smmm za\na3\nHTML\nWWW 网页文件的编写语言及相应的支持协议分别为( 。 )\n\nA.HTMLHTPT\n\nB.HTTLHTTP\n\nfea et\n\nD.以上均不对\n\nBe oe be\nwr     ET   ET    or    od    aren     ‘ostmempance ‘oom\n@                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_610.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 611.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                【|\n所                 Crt)               oe\n考点万维网WVWVVWV samm za\n1\nHTML\nWww 网页文件的编写语言及相应的支持协议分别为( 。 )\nAHTMLHTPT          条\nB.HTTLHTTP\nfea ee\nD.以上均不对\n那这个相应的支持协议是HTTP\ne@                        <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_611.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 612.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                Rd\n4                      Cra)                    ae\n考点万维网WVWVWV samm za\n1\nHTML\nWww 网页文件的编写语言及相应的支持协议分别为( 。 )\nAHTMLHTPT           入\nB.HTTLHTTP\nfe ee\nD.以上均不对\n那这个相应的支持协议是HTTP\nwe     ‘aera   sama    Ta    ra    pened     pee am\ne@                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_612.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 613.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                OP rao me\n4                      Cra)                    ae\n考点万维网WWVWV samm ra\n1\nPie     Lats\nWww 网页文件的编写语言及相应的支持协议分别为( 。 )\nAHTMLHTPT           条\nB.HTTLHTTP\nle et\nD.以上均不对\n那这个相应的支持协议是HTTP\nwe     ‘aera   sama    Ta    ra    pened     pee am\n@                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_613.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 614.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                [|\nx                      LR not Ly                    i ed\nSe waka Aa ra\nei\nHTML      LU\nPSs cesT Ege ist, ee ea)\nA.HTMLHTPT               AP\nB.HTTLHTTP\nCea et\nD.以上均不对\n所以答案呢就是<选项\na     3   ET    ET    oy    re     asmemaprcy 和am\ne@                          《\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_614.6s.txt",
+          "segment_folder": "t7"
+        },
+        {
+          "time": 615.5666666666667,
+          "ocr_text": "1F22 1月13日周二                                                【|\nX                      LR Corot Ly                    i ed\n考点万维网WVWVWV samm za\na3\nle      Cais\nPSs Ee Ege ise aU aa)\nA.HTMLHTPT                  \\\nB.HTTLHTTP\nCHTMLHTTP\n[\n所以答案呢就是<选项\nwr     od   rd    ae    oy    cd     ‘esememmanc ‘oom\n@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t7/ocr_615.6s.txt",
+          "segment_folder": "t7"
+        }
+      ]
+    },
+    "t8": {
+      "segment_folder": "t8",
+      "title": "知识点8",
+      "start_time": 618.02,
+      "end_time": 724.66,
+      "ocr_frames": [
+        {
+          "time": 618.0666666666667,
+          "ocr_text": "1F22 1月13日周二                                                ed\nX                              LR RD                            i ed\n考点5 电子邮件 samm mw\n0      5\ne@                            Ke\n忆 |",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_618.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 619.0666666666667,
+          "ocr_text": "名                                                                             iD = = 96y 权\nrm                                  Ct                               o-\n= a Prd\n” 5-1 电子邮件的格式\n考点五电子邮件\ne@                                  <\n|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_619.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 620.0666666666667,
+          "ocr_text": "名                                                                                 CR\n多                      [晰版] 课时6应用层                    国 -\n= ea Prd\n” 5-1 电子邮件的格式\n人\ne@                            <\nyy",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_620.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 621.0666666666667,
+          "ocr_text": "1823 1月13日周二                                                                             【|\nx                                  [新版] 课时 6 应用层                               国 -\n考点5 电子慨件,， ann a\n” 5-1 电子邮件的格式\n         这我们需要掌握两个知识\n@                                  <                              _\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_621.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 622.0666666666667,
+          "ocr_text": "1F23 1月13日周二                                    [|\nx                 [新版] 课时 6 应用层               国 -\n考点5 电子邮件smmm 到\n” 5-1 电子邮件的格式\n     pa\n@                     <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_622.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 623.0666666666667,
+          "ocr_text": "1F23 1月13日周二                                                                             Rd\nx                         Le RD                       @ -\n考点5 电子邮件,， Ce\n” 5-1 电子邮件的格式\n了           第一个就是电子邮件它的一个格式\n@                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_623.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 624.0666666666667,
+          "ocr_text": "1823 1月13日周二                                                  【|\n                 LR Doro y               国 …\n考点5 电子邮件 smmme mw\n” 5-1 电子邮件的格式 政\n   第一个就是电子邮件它的一个格式       。       。\n@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_624.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 625.0666666666667,
+          "ocr_text": "1F23 1月13日周二                                                  OR!\nX                 Le ert |               国 .…\n考点5 电子邮件 emmm mw\n7” 5-1 电子邮件的格式 个\n       第一个就是电子邮件它的一个格式\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_625.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 626.0666666666667,
+          "ocr_text": "at                                    二 ov 四\nX                 LR RI               Bo -\npe heme mw\nMeet LenS\na\ne@                   《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_626.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 627.0666666666667,
+          "ocr_text": "1F23 1月13日周二                                                  [|\nX                 LR ert |               i\nSee ee em mw\n7” 5-1 电子邮件的格式 个\na       ghee\ne@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_627.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 628.0666666666667,
+          "ocr_text": "1823 1月13日周二                                                  Rd\nX                 LR not |               国 .…\n考点5 电子邮件 spam mw\n\n7” 5-1 电子邮件的格式 个\n\n发送方          发送方               接收方           接收方\n\n用户代理        邮件服务器            邮件服务器         用户代理\n\nDeLee       :\n@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_628.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 629.0666666666667,
+          "ocr_text": "1823 1月13日周二                                                  [|\nX                 LR not Ly               国 .…\n考点5 电子邮件 smam mw\n\n7” 5-1 电子邮件的格式 个\n\n发送方          发送方               接收方           接收方\n\n用户代理        邮件服务器            邮件服务器         用户代理\n\nDL ey       :\n@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_629.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 630.0666666666667,
+          "ocr_text": "二                                    四 了 ae\nX                 Le ert |               i\n考点5 电子邮件 smam mw\n7” 5-1 电子邮件的格式 个\n发送方       发送方           接收方        Lvl\n用户代理      邮件服务器         邮件服务器       用户代理\n在发送方我们使用了哪一个协议\nt                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_630.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 631.0666666666667,
+          "ocr_text": "1F23 1月13日周二                                                  RL!\nX                 LR RI               i\n考点5 电子邮件 smam mw\n\n” 5-1 电子邮件的格式 个\n\n发送方          发送方               接收方          Lvl\n\n用户代理        邮件服务器            邮件服务器         用户代理\n\n在发送方我们使用了哪一个协议\nr                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_631.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 632.0666666666667,
+          "ocr_text": "1F23 1月13日周二                                                  Rr\nx                 LR edt               国 .…\n考点5 电子邮件 smam mw\n\n” 5-1 电子邮件的格式 个\n\n发送方          发送方               接收方          Lvl\n\n用户代理        邮件服务器            邮件服务器         用户代理\n\n在接收方又使用了哪一个协议\ne@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_632.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 633.0666666666667,
+          "ocr_text": "车                                                  re!\nx                 [全 |               国 .…\n考点5 电子邮件 smam mw\n\n” 5-1 电子邮件的格式 个\n\n发送方          发送方               接收方          接收方\n\n用户代理        邮件服务器            邮件服务器         用户代理\n\n在接收方又使用了哪一个协议\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_633.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 634.0666666666667,
+          "ocr_text": "SN                                    mode nie\nX                 LR Rat               国 .…\n考点5 电子邮件 smam mw\n”5-1 电子邮件的格式 个\n发送方       发送方           接收方        Lvl\n用户代理      邮件服务器         邮件服务器       用户代理\n在接收方又使用了哪一个协议\ne@                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_634.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 635.0666666666667,
+          "ocr_text": "1F23 1月13日周二                                                  OR!\nx                 LR Rt               oo -.\n考点5 电子邮件 smmm mw\n\n” 5-1 电子邮件的格式 个\n\n发送方          发送方               接收方          Lvl\n\n用户代理        邮件服务器            邮件服务器         用户代理\n\nEU Sa\n@                          <\n|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_635.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 636.0666666666667,
+          "ocr_text": "车                                                  CO\nx                              [全 |                            i ed\n考点5 电子邮件 smmme mw\n” 5-1 电子邮件的格式 个\n电子邮件的格式:用户名@闻件服务器的域名\n发送方           发送方                接收方           接收方\n用户代理         邮件服务器             邮件服务器          用户代理\n好我们先来看一下电子邮件\nwe     EEC   ET    or    a    Te     ee)\ne@                            《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_636.1s.txt",
+          "segment_folder": "t8"
+        },
+        {
+          "time": 637.0666666666667,
+          "ocr_text": "1823 1月13日周二                                                  Rd\nx                              LR not Ly                            i ed\n考点5 电子邮件 smmm mw\n” 5-1 电子邮件的格式\n电子内的格式:用户名@邮件服务器的域名\nEra           pred                Pied           Dita\n用户代理         邮件服务器             ey          ore]\nboli Fatt ticle]\noy     od   coro    ora    ad    ‘SFr     ‘ostmemeancr ‘oom\ne@                            《\n2",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t8/ocr_637.1s.txt",
+          "segment_folder": "t8"
+        }
+      ]
+    },
+    "t9": {
+      "segment_folder": "t9",
+      "title": "知识点9",
+      "start_time": 725.44,
+      "end_time": 766.36,
+      "ocr_frames": [
+        {
+          "time": 725.5,
+          "ocr_text": "1F23 1月13日周二                                                                                 aed\nX                              【新版] 课时6 应用层                            ic ed\nBARES ky a8) Oe ea\nSb rors itn wae leg\nlc Gc iam liled aa 自动获取1P 地址,而不用手工配置。\nPOP3\na a |\ne                                      KS\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_725.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 726.5,
+          "ocr_text": "1F23 1月13日周二                                                                                 ed\nX                                       LR Dotty                                   ic ed\nSess es a ee\n>\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。\n考点六动态主机配置协议DHCP\n人     ET          “semen         od            ‘ostmemmance ‘oom\ne@                                                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_726.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 727.5,
+          "ocr_text": "1F23 1月13日周二                                                                                 EC\nX                                       LR Doe ot Ly                                   ic ed\n考点6动态主机配置协议DHCP snw\n>\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取1P 地址,而不用手工配置。\n考点六动态主机配置协议DHCP\n人     Cd          “semen         od            ‘osmemmance ‘oom\ne@                                                   <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_727.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 728.5,
+          "ocr_text": "1F23 1月13日周二                                                                                BP eso\nX                                              LR rot Ly                                          i ed\n考点6 动态主机配置协议DHCP sow\n>\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 多许一台计算机加入网络时, 自动获取1P 地址,而不用手工配置\n考点六动态主机配置协议DHCP\n人         ET          ras            od           AR              asnemaorcr ‘som\nr                                                   ce\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_728.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 729.5,
+          "ocr_text": "1823 1月13日周二                                                                             OP eam\nx                              LR ior Ly                            i ed\n本\n>\n” 6-1 动态主机配置协议DHCP\n本\n那这个协议\nwe        EEC      ET      ara       Fame       wr         aznemeaorcp om\nr                                       《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_729.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 730.5,
+          "ocr_text": "1823 1月13日周二                                                  CO) ram\nx                           Crt)                         a -.\n本\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:人允许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。\n下\n它就是用来自动去获取IP地址的         -        。\n@                            <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_730.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 731.5,
+          "ocr_text": "1823 1月13日周二                                                  OP eso 权\nx                           [新版] 课时6 应用层                         ao.\n考点6 动态主机配置协议DHCP samm 7w\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取 Eee nee\n它就是用来自动去获取IP地址的         -        。\n\n@                            <\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_731.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 732.5,
+          "ocr_text": "1F23 1月13日周二                                                                                  Rd\naa                         LR eI                       国 .…\n考点6 动态主机配置协议DHCP gmmm zw\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 允许一台计算机加入网络时, 自动获取 ER\neae le tal            :\ne                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_732.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 733.5,
+          "ocr_text": "1F23 1月13日周二                                                                                  Rd\nx                         LR RD |                       国 …\n考点6 动态主机配置协议DHCP samm zw\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 允许一台计算机加入网络时, 自动获取 ER\neee ts)            ;\ne@                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_733.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 734.5,
+          "ocr_text": "1F23 1月13日周二                                                                                  Ra!\nX                         Le RE                       ie\n考点6 动态主机配置协议DHCP ee\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:允许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置\n|\n就是不用我们再去手工去配置了            _\n@                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_734.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 735.5,
+          "ocr_text": "1F23 1月13日周二                                                                                  Rd\nX                         Le ert                       国 …\n考点6 动态主机配置协议DHCP gmmm zw\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 允许一台计算机加入网络时, 自动获取1IP 地址,而不用手工配置。\n|\n就是不用我们再去手工去配置了            :\nr                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_735.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 736.5,
+          "ocr_text": "1823 1月13日周二                                                    Re\nx                           [新版] 课时6 应用层                         国 -。\n9本\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。\n下\n我可以自动的去获取这个IP地址         _        。\n\ne@                            <\n\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_736.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 737.5,
+          "ocr_text": "1823 1月13日周二                                                    iD = = 97y 本\nx                           [新版] 课时6 应用层                         国 -。\nBee te a A) ee\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取 P 地址,而不用手工配置。\n下\n我可以自动的去获取这个IP地址         _        。\n\ne@                            <\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_737.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 738.5,
+          "ocr_text": "1F23 1月13日央二                                      tied\nx                 [新版] 课时6 应用层               a\n考点6 动态主机配置协议DHCP gmam zw\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。\n下\n你只需要记住它的功能就行\ne@                     <\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_738.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 739.5,
+          "ocr_text": "1824 1月13日周二                                                  OP ram\ni                           Cea                         @~\n考点6 动态主机配置协议DHCP gmmm zw\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。\n你只需要记住它的功能就行\ne@                            <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_739.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 740.5,
+          "ocr_text": "1824 1月13日周二                                                                                aed\nx                              LR not Ly                            i ed\nBARES eT Tw ay Ba Oe ee\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 多许一台计算机加入网络时, 自动获取 P 地址,而不用手工配置\n题1   四\n用于动态分配IpP地址,解决网络地址冲突的协议是:( 。 )\nA.DHCP                     B.DNS                       C.ICMP                      D.PPP\n那我们\n人    ory     ao ras     rd     oo       nemeaorcr som\n@                                       《\n罗4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_740.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 741.5,
+          "ocr_text": "1824 1月13日周二                                                  Rad\nis                      LR rot Ly                    i ed\nBee te AZ A) ee\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP:多许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。\n题1 四\n用于动态分配lp地址,解决网络地址冲突的协议是:(。 )\nA.DHCP                     B.DNS                       C.ICMP                      D.PPP\nCUS Pabst teat\nwe     od   ory    eo ras    Ca    ar     snemeaorcr ‘som\n@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_741.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 742.5,
+          "ocr_text": "1824 1月13日周二                                                  Oe ad\nx                      LR not Ly                    i ed\nBee te a7 4) ee\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 允许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。\n题1 四\n用于动态分配lp地址,解决网络地址冲突的协议是:(。 )\nA.DHCP                     B.DNS                       C.ICMP                      D.PPP\nUS Paes a tet\n*     一    —<——$ rr     —\n@                      《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_742.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 743.5,
+          "ocr_text": "1824 1月13日周二                                                  1 = = 97y 本\nis                      LR rot Ly                    i ed\nBee te a7) a) er\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 多许一台计算机加入网络时, 自动获取1P 地址,而不用手工配置\na3 4\n用于动态分配IP地址,解决网络地址冲突的协议是:( 。 )\nA.DHCP                     B.DNS                       C.ICMP                      D.PPP\n它会问你用于这个动态分配IP地址\nwe     od   oor    ao ras    Ca    od     snemeaorcr som\n@                          <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_743.5s.txt",
+          "segment_folder": "t9"
+        },
+        {
+          "time": 744.5,
+          "ocr_text": "1824 1月13日周二                                                  OP ram\nx                              LR Deo 4                            i ed\nBe ee te a A) ee\n” 6-1 动态主机配置协议DHCP\n动态主机配置协议DHCP: 多许一台计算机加入网络时, 自动获取1P 地址,而不用手工配置\na3\n用于动态分配IP地址,解决网络地址冲突的协议是:(。 )\nA.DHCP                     B.DNS              让      C.ICMP                      D.PPP\n它会问你用于这个动态分配IP地址\n@                            <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t9/ocr_744.5s.txt",
+          "segment_folder": "t9"
+        }
+      ]
+    },
+    "t10": {
+      "segment_folder": "t10",
+      "title": "知识点10",
+      "start_time": 768.64,
+      "end_time": 803.84,
+      "ocr_frames": [
+        {
+          "time": 768.7,
+          "ocr_text": "1F24 1月13日央二                                                                                 GP rave\nrm                      Cea                    a\nPSE\n” 常见应用层协议小结 了\n那最后呢\na GT en\nfo)                          <《\na)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_768.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 769.7,
+          "ocr_text": "1F24 1月13日周二                                                                                         Ra!\nx                         Le Rt |                       @\ncE\n” 常见应用层协议小结\n我们是把常见的应用层的这些协议          .\ne@                                  <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_769.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 770.7,
+          "ocr_text": "1F24 1月13日周二                                                                                         Ra!\nX                         LR edt |                       oB«\nais\n常见应用层协议小结  国\n我们是把常见的应用层的这些协议\n@                                       <\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_770.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 771.7,
+          "ocr_text": "1F24 1月13日周二                                                                                         Rd\nX                         LR RD                       Bo -\ncE)\n常见应用层协议小结  国\n我们是把常见的应用层的这些协议\n@                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_771.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 772.7,
+          "ocr_text": "1F24 1月13日周二                                         9 = = 97y\nX                      tL                    o-\naS\n” 常见应用层协议小结 本\n     r   a     ,      r    a   y   iY\n应用程序 。 DNS。 FTP数据链接 。 FTP控制链接 。 TELNET HTTP SMTP POP3\n使用协议 。 UDP   ce    TCP   TCP  TCP «TCP TCP\n熟知端口号 。 53    20     21    23   80 25 110\n|\na ars aan    ram    rar     asoc Tam\ne@                 Ke\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_772.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 773.7,
+          "ocr_text": "Slo LL bd                                                  ORs)\nX                              LR tot Ly                            i ed\nBE\n” 常见应用层协议小结 r\n\nci Oat Mat ee)\n\n使用协议   Uy)     TCP       TCP      TCP   TCP  TCP  TCP\n\nboro) [ahd   53      vi        21       Px}    cy   25   EU\n\n我们这个运输层的哪一个协议\nwr   ny   oor   crs    rd    oo     “Sea ‘oom\ne@                            《\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_773.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 774.7,
+          "ocr_text": "SPL DELL ba                                                  ORs)\nx                              LR rot Ly                            i ed\nBE\n” 常见应用层协议小结 x\n\" mes \"ons “Fresigntie \"Frpimieie \"TELNET \"HTTP “SMTP \"PoP3\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\n邹知端口号   53      20        21       Px}    cy   Po)   110\n我们这个运输层的哪一个协议\na    Tod    Sorry    or ras     Shamwwn     oo      |\ne@                            《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_774.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 775.7,
+          "ocr_text": "SOL DELL ba                                                  Re)\n4                              LR Corot Lg                            i ed\nBE\n” 常见应用层协议小结 人\n和\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\nbooth ahd   53      yi        21       Px}    cy   Po)   110\n我们给大家整理了一张表\n人   ET   ae rs    Same    oo     ET ‘oom\nr                            <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_775.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 776.7,
+          "ocr_text": "SOL LL bd                                                  ee!\nx                              LR rot Ly                            i ed\nBE\n” 常见应用层协议小结 人\n人\n使用协议    TCP       TCP     TCP   TCP  TCP  TCP\n皂知端口号   53     20        21      Px}    cy   25   110\n我们给大家整理了一张表\n人   ET   aes    rd    oo     ee\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_776.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 777.7,
+          "ocr_text": "SOL LL bd                                                  ORs)\nx                              LR not |                            i ed\nBE\n” 常见应用层协议小结 人\n人\n使用协议    TCP       TCP     TCP   TCP  TCP  TCP\n皂知端口号   53     20        21      区   Po)   110\nbag bee) Se Lee a\n人   ET    aes     rd    ‘er      re |\ne@                          《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_777.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 778.7,
+          "ocr_text": "SOL LL bd                                                  OR ee)\nx                              LR rot Ly                            i ed\nBE\n” 常见应用层协议小结 人\n\n人\n\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\n\n皂知端口号   53      20        21       区   25   110\n\nbag bea) Se Le a\n人    ET    aed     Ca     oo      Sr ee |\ne@                            《\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_778.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 779.7,
+          "ocr_text": "1F24 1月13日央二                                                                   GP eso\nX                              LR not |                            i ed\nBE\n” 常见应用层协议小结 人\n\n\" mes \"ons “Fresigetie \"Frpimitie \"TELNET \"HTTP “SMTP \"PoP3\n\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\n\nmAwOs   53      vay        21       区   Po)   110\n\n每一种应用层协议\n人   ord    aed    haan    oo     ‘STE ‘oom\ne@                            《\n\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_779.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 780.7,
+          "ocr_text": "1F24 1月13日周二                                                         Sed\n多                      [晰版]课时6应用层                    oe\nBE\n” 常见应用层协议小结\n      mr       四       A     a er\nCi OM a ee A)\ncS a i Co      Tcp\nat a)     Fr)      2     2B 8 2 10\n每一种应用层协议\n而    ra    nn     ‘wana ‘an\n@                      <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_780.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 781.7,
+          "ocr_text": "SOL TELL 车                                                                                  Oram\nx                                              LR not Ly                                          i eo\nBE\n” 常见应用层协议小结\n人\n使用协议    UDP       TCP          TCP        TCP     TCP  TCP  TCP    全\n皂知端口号    53        va           21         区     25    110\n它是使用的运输层的哪一个协议\na aaa       coo        aes         rd        oo           |\n@                                       《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_781.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 782.7,
+          "ocr_text": "SOL TELL 车                                                                                  OP rae\nx                                              LR rot Ly                                          i eo\nBE\n” 常见应用层协议小结\n人\n使用协议    UDP       TCP          TCP        TCP     TCP  TCP  TCP    全\n皂知端口号    53        20           21         区     25    110\n它是使用的运输层的哪一个协议\n人       coo        aes         rd        oo           oe\n@                                       《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_782.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 783.7,
+          "ocr_text": "1824 1月13日周二                                                                                  Re\nx                                              LR not Ly                                          i eo\nBE\n” 常见应用层协议小结\n人\n使用协议       TCP           TCP         TCP     TCP  TCP  TCP    S\nmAwOs     53         20             21          区     yo)     110\n以及它连接的一个端口号分别是多少\n人       ET        ET         rd        a           “Sane ‘oom\n@                                            《\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_783.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 784.7,
+          "ocr_text": "SOL TELL ba                                                                                  有\nis                                              LR Det |                                          i ed\nBE\n” 常见应用层协议小结\n人\n使用协议       TCP          TCP        TCP     TCP  TCP  TCP\nboot lah    53        yi)           yay         B      ci)     25    110  下\n以及它连接的一个端口号分别是多少\n人       ET        Bers         cd        er           oy\n@                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_784.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 785.7,
+          "ocr_text": "SOL DELL ba                                                                                  ORs)\nX                                              LR Corot Lg                                          i ed\nBE\n” 常见应用层协议小结\n人\n使用协议       TCP          TCP        TCP     TCP  TCP  TCP\nLoo Tah    53           a         B      80     25    110  S\n以及它连接的一个端口号分别是多少\n人       ET        CT         os        a           “Sanna ‘som\nr                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_785.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 786.7,
+          "ocr_text": "SOL DELL ba                                                                                         CRs)\nx                              LR Dror Lg                            i ed\nBE\n” 常见应用层协议小结\n人\n使用协议      TCP         TCP       TCP    TCP  TCP  TCP\nLvl [ahd    53       vay          21        23     cy    23    pet  S\n以及它连接的一个端口号分别是多少\n全     ET     aes       rd      wa        “Sarma ‘oom\n@                                  <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_786.7s.txt",
+          "segment_folder": "t10"
+        },
+        {
+          "time": 787.7,
+          "ocr_text": "1824 1月13日周二                                                  OP eso 权\nX                      LR Corot Lg                    i ed\nBE\n” 常见应用层协议小结\n\"mes \"ons \"Fresigetie \"Frpiaieve \"TELNET \"HTTP “SMTP \"PoP3\n使用协议 UDP    TCP      TCP     TCP  TCP  TCP  TCP\nso fl a)     20       21      二 下二\n那这个咱们没有一个很好的记忆方法\nPS     a    sy    ‘aa     ‘carmen ‘ome\ne@                        <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t10/ocr_787.7s.txt",
+          "segment_folder": "t10"
+        }
+      ]
+    },
+    "t11": {
+      "segment_folder": "t11",
+      "title": "知识点11",
+      "start_time": 803.94,
+      "end_time": 850.6,
+      "ocr_frames": [
+        {
+          "time": 804.0,
+          "ocr_text": "SOL iL i                                                                                 aed\nx                                              LR De ot Ly                                          i ed\nBE\n” 常见应用层协议小结\n\" mes \"ons “Fresigetie \"Frpimiewe \"TELNET \"HTTP “SMTP \"PoP3\n使用协议       TCP          TCP        TCP     TCP  TCP  TCP\nmAwOs    53        va           21         区      80     Po)    110  T\n那最后呢\n人      iamwwe     oo       Sr ae\ne@                                       <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_804.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 805.0,
+          "ocr_text": "| 车                                                  【有\nx                              LR Corot Ly                            i ed\nBE\n” 常见应用层协议小结\n\" mes \"ons “Frpsigetie \"Frpieiew \"TELNET \"HTTP “SMTP \"PoP3\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\n邹知端口号   53        21       Px}    cy   Po)   pet  S\nECA see BON b tL Sel iy\ncy     rod   corr    ET     Shawn    oo      Sr ee\n@                            <\nyy",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_805.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 806.0,
+          "ocr_text": "SOL DELL ba                                                  ORs)\nx                              LR Dror Ly                            i ed\n本\n” 常见应用层协议小结\n人\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\nbooth lah   53      vay        21       区   25   110  T\nECA sear MOBIL Sah i)\nwe     EEC    ord    ora     ord    ar      ‘Se som\nr                            <\nyy",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_806.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 807.0,
+          "ocr_text": "1824 1月13日周二                                                                                         TR\n外                                      [断版] 课时6 应用层                                   国 --\n让\n          _     我们是照旧给大家留了几道练习题          =           ;\nr                                       <\n)",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_807.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 808.0,
+          "ocr_text": "1F24 1月13日周二                                                                                 ed\nBd                                        LR rot Ly                                     i ed\nFAB\n\"gl\n域名系统使用的端口号是多少?(。 )\nA.53                      a                     5.443                    D.8080\n“题2\nPa bets a)                                                             <\nA.FTP                    B.SMTP                  C. TELNET                ace)\n大家先自行练习一下\nDe |\ne@                                                   Ke\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_808.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 809.0,
+          "ocr_text": "1F24 1月13日周二                                                                                 aed\nX                                        LR rot Ly                                     i ed\nKB\n\"gl\n域名系统使用的端口号是多少?(。 )\nA.53                      ei                     foe Ey                    D.8080\na7)\nPe bets ae)                                                             S\nA.FTP                    PS Lid                  C. TELNET                reek)\n大家先自行练习一下\n全No 0\ne@                                                   Ke\n-s",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_809.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 810.0,
+          "ocr_text": "1F24 1月13日周二                                                                                  iD = = 97y 权\nBa                                        LR Corot Ly                                     i ed\nFAB\na3\n域名系统使用的端口号是多少?(。 )\nA.53                          a                          C443                        D.8080\na7)\nDe bets a)                                                                         S\nA.FTP                        PS id                     C. TELNET                   ace)\nEee PA\na\n@                                                              Ke\na",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_810.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 811.0,
+          "ocr_text": "1F24 1月13日周二                                                                                 ed\nX                                       LR Dror Ly                                    i ed\nSb\n\"gl\n域名系统使用的端口号是多少?(。 )\nA.53                          a                          5.443                        D.8080\nay\nDa tre ts a)                                                                         “\nA.FTP                        PS id                     C. TELNET                   D.POP3\n|\ne                                                             <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_811.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 812.0,
+          "ocr_text": "1F24 1月13日周二                                                                                 ae\nX                                       [全                                    i\nSB\n\"gl\n域名系统使用的端口号是多少?(。 )\nA.53                          a                          foe Ed                        D.8080\nay)\nDe tre ts a)                                                                         “\nA.FTP                        PS id                     C. TELNET                   D.POP3\n全ogg\nr                                                             <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_812.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 813.0,
+          "ocr_text": "1F24 1月13日周二                                                                                 aed\nX                                       LR tot |                                    i ed\nSb\n\"gl\n域名系统使用的端口号是多少?(。 )\nA.53                          a                          ford                        D.8080\nay\nDa tore ts a)                                                                         “\nA.FTP                        CaS id                     C. TELNET                   D.POP3\n全， ae room\ne                                                             <\n4",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_813.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 814.0,
+          "ocr_text": "1F24 1月13日央二                                                                                 CR\npa                                           Ce                                       es\n本\ncy                                           《        >\nm7",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_814.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 815.0,
+          "ocr_text": "1F24 1月13日周二                                                                                    本\n要                          etal                        we\nKB\na)\n下列描述错误的是( 。 )\nATELNET 协议的服务端口为23\nB.SMTP 协议的服务端口为25\nC.HTTP 协议的服务端口为80\nD.FTP 协议的服务端口为31\n下\nay\nae OE ee tile Sty\nATCP                              any                             C.FTP                              D.DNS\n全oo aa GT\n@                                                                             Ke\nsy",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_815.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 816.0,
+          "ocr_text": "1F24 1月13日周二                                                                                 ed\niM                                  CLR ta)                               we\nFAG\nak)\n下列描述错误的是( 。 )\nA.TELNET 协议的服务端口为23\nRSMO Gs) Eb Spork}\nC.HTTP 协议的服务端口为80\nD.FTP 协议的服务端口为31\n下\na\n在TCRPIIP 协议族内, ( 。 )是用于将域名转换为|P 域名地址的协议。\nATCP                 Pay                 C.FTP                 D.DNS\na a a rr\ne@                                            Ke\ny",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_816.0s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 817.0666666666667,
+          "ocr_text": "1F24 1月13日周二                                                                                 本\n要                                  Rota)                               we\nFAG\nak)\n下列描述错误的是( 。 )\nA.TELNET 协议的服务端口为23\nCASO Gs) Eb Spr ky\nC.HTTP 协议的服务端口为80\nD.FTP 协议的服务端口为31\n下\na\n在TCPIIP 协议族内, ( 。 )是用于将域名转换为|P 域名地址的协议。\nATCP                 Pay                 C.FTP                 D.DNS\na a a re\ne@                                            Ke\ny",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_817.1s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 818.0666666666667,
+          "ocr_text": "1F24 1月13日周二                                                    OTR\nrm                      [断版] 课时 6 应用层                    o-\nFAB\nak)\n下列描述错误的是( 。 )\n\nATELNET 协议的服务端口为23\n\nB.SMTP 协议的服务端口为25\n\nONC Lr srr)\n\nDFTP 协议的服务端口为31\n\n让\na)\n在TCPIIP 协议族内, ( 。 )是用于将域名转换为|P 域名地址的协议。\n\nATCP            B.UDP            FTP            D.DNS\na a a a\ne@                               Ke\n\n2",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_818.1s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 819.0666666666667,
+          "ocr_text": "1F24 1月13日周二                                                                                     COR\nrm                                  [断版] 课时6 应用层                               o-\nFAG\nak)\n下列描述错误的是( 。 )\nATELNET协议的服务端口为23\nB.SMTP 协议的服务端口为25\nON Lr srr)\nDFTP 协议的服务端口为31\n让\na)\n在TCPIIP 协议族内, ( 。 )是用于将域名转换为|P 域名地址的协议。\nATCP                 B.UDP                 FTP                 D.DNS\n全 a a a\ne@                                            Ke\n时",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_819.1s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 820.0666666666667,
+          "ocr_text": "1F24 1月13日周二                                                                                     GDP eso\nx                                  [断版] 课时 6 应用层                               o-\nFAB\nak)\n下列描述错误的是( 。 )\nATELNET 协议的服务端口为23\nB.SMTP 协议的服务端口为25\nRE sr)\nDFTP 协议的服务端口为31\n让\n\"m4\n在TCPIIP 协议族内, ( 。 )是用于将域名转换为|P 域名地址的协议。\nATCP                 Can                 FTP                 D.DNS\n全 av a a ed\ne@                                            Ke\n2",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_820.1s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 821.0666666666667,
+          "ocr_text": "1f24 1月13日央二                                                                                 rsx\na                         RG                       oe\n_\ne\n|",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_821.1s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 822.0666666666667,
+          "ocr_text": "1F24 1月13日央二                                                          1 = = 9 四\nX                              CR iL}                            yee\nFAG\na4\n简单邮件传送协议 SMTP 使用的端口号为( 。 )\nA20                          cere                          [和                          D.25\na3\nFTP 使用的传输层协议为( 。 )                                                                                cS\nAUDP                       Carag                        CICMP                      D.ARP\na Waster ~~‘\nO°                                                             <\n罗]",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_822.1s.txt",
+          "segment_folder": "t11"
+        },
+        {
+          "time": 823.0666666666667,
+          "ocr_text": "1F24 1月13日央二                                                         Ra\nX                              CR iL!                            o-\nKB\n了题5\n简单邮件传送协议 SMTP 使用的端口号为( 。 )\nA20                          cere                          [wry                          Dery\n9\nFTP 使用的传输层协议为( 。 )                                                                                cS\nAUDP                       Carag                        CICMP                      DARP\na a a\noO                                                             <\n罗]",
+          "file_path": "/root/video_platform/video_data/64/ocr_segments/t11/ocr_823.1s.txt",
+          "segment_folder": "t11"
+        }
+      ]
+    }
+  }
+}

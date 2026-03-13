@@ -1,0 +1,25 @@
+{
+  "concept_hierarchy": [
+    {
+      "parent": "数学核心概念",
+      "children": [],
+      "description": "兜底概念（生成失败）",
+      "related_video_names": [
+        "63"
+      ],
+      "related_video_ids": [
+        "63"
+      ]
+    }
+  ],
+  "preset_relations_adjusted": [],
+  "video_specific_relations": [
+    {
+      "video_name": "63",
+      "relation": "兜底关系",
+      "description": "视频63知识图谱生成失败：❌ generate_video_kg：视频63生成失败：module 'dashscope' ha"
+    }
+  ],
+  "explanation": "视频63知识图谱生成失败，使用兜底数据",
+  "error_info": "❌ generate_video_kg：视频63生成失败：module 'dashscope' has no attribute 'api_error'"
+}

@@ -1,0 +1,55 @@
+2026-02-28 16:58:01,685 - INFO - generate_questions_for_knowledge_points - line 323 - ===== 开始生成题目 =====
+2026-02-28 16:58:01,686 - INFO - init_base_context - line 267 - ✅ 第一次传入：全局矫正ASR完成
+2026-02-28 16:58:01,686 - INFO - init_base_context - line 280 - ✅ 第二次传入：final_llm_input.json完成
+2026-02-28 16:58:01,686 - INFO - init_base_context - line 282 - ✅ 上下文初始化完成（分两次传入ASR+LLM输入）
+2026-02-28 16:58:01,687 - WARNING - load_all_t_segments_ocr - line 293 - ⚠️ OCR不存在，自动提取
+2026-02-28 16:58:16,393 - INFO - extract_t_ocr_with_pytesseract - line 218 - t1 应用层概述 | 提取帧：20
+2026-02-28 16:58:16,411 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t2 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,426 - INFO - extract_t_ocr_with_pytesseract - line 218 - t2 DNS域名系统与域名结构 | 提取帧：0
+2026-02-28 16:58:16,440 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t3 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,455 - INFO - extract_t_ocr_with_pytesseract - line 218 - t3 DNS相关习题解析 | 提取帧：0
+2026-02-28 16:58:16,470 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t4 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,485 - INFO - extract_t_ocr_with_pytesseract - line 218 - t4 文件传输协议FTP | 提取帧：0
+2026-02-28 16:58:16,500 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t5 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,517 - INFO - extract_t_ocr_with_pytesseract - line 218 - t5 FTP相关习题解析 | 提取帧：0
+2026-02-28 16:58:16,532 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t6 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,550 - INFO - extract_t_ocr_with_pytesseract - line 218 - t6 远程登录协议Telnet | 提取帧：0
+2026-02-28 16:58:16,564 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t7 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,579 - INFO - extract_t_ocr_with_pytesseract - line 218 - t7 万维网WWW的组成 | 提取帧：0
+2026-02-28 16:58:16,593 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t8 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,610 - INFO - extract_t_ocr_with_pytesseract - line 218 - t8 万维网相关习题解析 | 提取帧：0
+2026-02-28 16:58:16,626 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t9 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,637 - INFO - extract_t_ocr_with_pytesseract - line 218 - t9 电子邮件协议与格式 | 提取帧：0
+2026-02-28 16:58:16,647 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t10 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,657 - INFO - extract_t_ocr_with_pytesseract - line 218 - t10 动态主机配置协议DHCP | 提取帧：0
+2026-02-28 16:58:16,668 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t11 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,678 - INFO - extract_t_ocr_with_pytesseract - line 218 - t11 应用层协议总结表 | 提取帧：0
+2026-02-28 16:58:16,688 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t12 无变化帧，5秒兜底提取
+2026-02-28 16:58:16,698 - INFO - extract_t_ocr_with_pytesseract - line 218 - t12 课程总结与练习题预告 | 提取帧：0
+2026-02-28 16:58:16,700 - INFO - extract_t_ocr_with_pytesseract - line 229 - ✅ OCR 完成
+2026-02-28 16:58:16,700 - INFO - load_all_t_segments_ocr - line 317 - ✅ 读取分段：12 个
+2026-02-28 16:58:16,700 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t1
+2026-02-28 16:58:17,382 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t1 使用兜底题
+2026-02-28 16:58:17,383 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t2
+2026-02-28 16:58:17,754 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t2 使用兜底题
+2026-02-28 16:58:17,754 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t3
+2026-02-28 16:58:18,269 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t3 使用兜底题
+2026-02-28 16:58:18,270 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t4
+2026-02-28 16:58:18,706 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t4 使用兜底题
+2026-02-28 16:58:18,706 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t5
+2026-02-28 16:58:18,907 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t5 使用兜底题
+2026-02-28 16:58:18,907 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t6
+2026-02-28 16:58:19,506 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t6 使用兜底题
+2026-02-28 16:58:19,507 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t7
+2026-02-28 16:58:19,728 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t7 使用兜底题
+2026-02-28 16:58:19,729 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t8
+2026-02-28 16:58:20,084 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t8 使用兜底题
+2026-02-28 16:58:20,084 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t9
+2026-02-28 16:58:20,403 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t9 使用兜底题
+2026-02-28 16:58:20,404 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t10
+2026-02-28 16:58:20,635 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t10 使用兜底题
+2026-02-28 16:58:20,636 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t11
+2026-02-28 16:58:21,149 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t11 使用兜底题
+2026-02-28 16:58:21,150 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t12
+2026-02-28 16:58:21,490 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t12 使用兜底题
+2026-02-28 16:58:21,492 - INFO - generate_questions_for_knowledge_points - line 392 - ===== 生成完成！保存到：/root/video_platform/video_data/56/knowledge_questions.json =====

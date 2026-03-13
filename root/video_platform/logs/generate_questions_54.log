@@ -1,0 +1,139 @@
+2026-02-27 16:37:15,166 - INFO - generate_questions_for_knowledge_points - line 157 - ===== 开始生成题目（3次基础传入 + 逐t分段出题） =====
+2026-02-27 16:37:15,573 - INFO - init_base_context - line 94 - ✅ 第1次传入：知识图谱
+2026-02-27 16:37:16,065 - INFO - init_base_context - line 102 - ✅ 第2次传入：关系网
+2026-02-27 16:37:16,698 - INFO - init_base_context - line 112 - ✅ 第3次传入：矫正ASR
+2026-02-27 16:37:16,699 - ERROR - load_all_t_segments_ocr - line 126 - ❌ 未找到原有OCR汇总文件，无法读取t分段
+2026-02-27 16:37:16,699 - ERROR - generate_questions_for_knowledge_points - line 165 - ❌ 无有效t分段，终止生成
+2026-02-27 18:13:57,219 - INFO - generate_questions_for_knowledge_points - line 302 - ===== 开始生成题目 =====
+2026-02-27 18:13:57,661 - INFO - init_base_context - line 251 - ✅ 知识图谱已传入
+2026-02-27 18:13:58,139 - INFO - init_base_context - line 258 - ✅ 关系网已传入
+2026-02-27 18:13:58,606 - INFO - init_base_context - line 267 - ✅ ASR已传入
+2026-02-27 18:13:58,607 - WARNING - load_all_t_segments_ocr - line 279 - ⚠️ OCR不存在，自动提取
+2026-02-27 18:14:26,041 - INFO - extract_t_ocr_with_pytesseract - line 210 - t1 应用层概述 | 提取帧：20
+2026-02-27 18:14:53,376 - INFO - extract_t_ocr_with_pytesseract - line 210 - t2 DNS域名系统与域名结构 | 提取帧：20
+2026-02-27 18:15:30,203 - INFO - extract_t_ocr_with_pytesseract - line 210 - t3 中国域名分类与行政区划域名 | 提取帧：20
+2026-02-27 18:16:03,005 - INFO - extract_t_ocr_with_pytesseract - line 210 - t4 DNS相关习题解析 | 提取帧：20
+2026-02-27 18:16:29,457 - INFO - extract_t_ocr_with_pytesseract - line 210 - t5 文件传输协议FTP | 提取帧：20
+2026-02-27 18:17:12,277 - INFO - extract_t_ocr_with_pytesseract - line 210 - t6 远程登录协议Telnet | 提取帧：20
+2026-02-27 18:17:38,180 - INFO - extract_t_ocr_with_pytesseract - line 210 - t7 万维网WWW的三大组成部分 | 提取帧：20
+2026-02-27 18:18:08,391 - INFO - extract_t_ocr_with_pytesseract - line 210 - t8 万维网相关习题解析 | 提取帧：20
+2026-02-27 18:18:34,563 - INFO - extract_t_ocr_with_pytesseract - line 210 - t9 电子邮件协议SMTP与POP3 | 提取帧：20
+2026-02-27 18:18:53,409 - INFO - extract_t_ocr_with_pytesseract - line 210 - t10 电子邮件协议习题解析 | 提取帧：13
+2026-02-27 18:19:24,161 - INFO - extract_t_ocr_with_pytesseract - line 210 - t11 动态主机配置协议DHCP | 提取帧：20
+2026-02-27 18:19:53,185 - INFO - extract_t_ocr_with_pytesseract - line 210 - t12 应用层协议总结表 | 提取帧：20
+2026-02-27 18:20:25,164 - INFO - extract_t_ocr_with_pytesseract - line 210 - t13 课程总结与练习题预告 | 提取帧：20
+2026-02-27 18:20:25,179 - INFO - extract_t_ocr_with_pytesseract - line 221 - ✅ OCR 完成：/root/video_platform/video_data/54/ocr_segments/global_ocr_summary.json
+2026-02-27 18:26:17,977 - INFO - generate_questions_for_knowledge_points - line 312 - ===== 开始生成题目 =====
+2026-02-27 18:26:18,177 - INFO - init_base_context - line 249 - ✅ 知识图谱已传入
+2026-02-27 18:26:18,422 - INFO - init_base_context - line 256 - ✅ 关系网已传入
+2026-02-27 18:26:18,933 - INFO - init_base_context - line 265 - ✅ ASR已传入
+2026-02-27 18:26:18,939 - INFO - load_all_t_segments_ocr - line 306 - ✅ 读取分段：13 个
+2026-02-27 18:26:18,939 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t1
+2026-02-27 18:26:19,141 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t1 使用兜底题
+2026-02-27 18:26:19,141 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t2
+2026-02-27 18:26:19,779 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t2 使用兜底题
+2026-02-27 18:26:19,780 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t3
+2026-02-27 18:26:20,167 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t3 使用兜底题
+2026-02-27 18:26:20,168 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t4
+2026-02-27 18:26:20,408 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t4 使用兜底题
+2026-02-27 18:26:20,409 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t5
+2026-02-27 18:26:20,995 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t5 使用兜底题
+2026-02-27 18:26:20,996 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t6
+2026-02-27 18:26:21,385 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t6 使用兜底题
+2026-02-27 18:26:21,386 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t7
+2026-02-27 18:26:21,818 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t7 使用兜底题
+2026-02-27 18:26:21,818 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t8
+2026-02-27 18:26:22,436 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t8 使用兜底题
+2026-02-27 18:26:22,437 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t9
+2026-02-27 18:26:22,771 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t9 使用兜底题
+2026-02-27 18:26:22,772 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t10
+2026-02-27 18:26:23,350 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t10 使用兜底题
+2026-02-27 18:26:23,350 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t11
+2026-02-27 18:26:23,999 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t11 使用兜底题
+2026-02-27 18:26:23,999 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t12
+2026-02-27 18:26:24,302 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t12 使用兜底题
+2026-02-27 18:26:24,302 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t13
+2026-02-27 18:26:24,527 - WARNING - generate_questions_for_knowledge_points - line 373 - ⚠️ t13 使用兜底题
+2026-02-27 18:26:24,529 - INFO - generate_questions_for_knowledge_points - line 379 - ===== 完成！保存到：/root/video_platform/video_data/54/knowledge_questions.json =====
+2026-02-27 18:32:30,397 - INFO - generate_questions_for_knowledge_points - line 314 - ===== 开始生成题目 =====
+2026-02-27 18:32:30,810 - INFO - init_base_context - line 254 - ✅ 知识图谱已传入
+2026-02-27 18:32:31,024 - INFO - init_base_context - line 262 - ✅ 关系网已传入
+2026-02-27 18:32:31,666 - INFO - init_base_context - line 272 - ✅ ASR已传入
+2026-02-27 18:32:31,672 - INFO - load_all_t_segments_ocr - line 308 - ✅ 读取分段：13 个
+2026-02-27 18:32:31,672 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t1
+2026-02-27 18:32:31,894 - WARNING - generate_questions_for_knowledge_points - line 389 - ⚠️ t1 AI出题失败，使用兜底题
+2026-02-27 18:32:31,895 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t2
+2026-02-27 18:32:32,073 - WARNING - generate_questions_for_knowledge_points - line 389 - ⚠️ t2 AI出题失败，使用兜底题
+2026-02-27 18:32:32,074 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t3
+2026-02-27 18:32:32,684 - WARNING - generate_questions_for_knowledge_points - line 389 - ⚠️ t3 AI出题失败，使用兜底题
+2026-02-27 18:32:32,685 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t4
+2026-02-27 18:32:32,906 - WARNING - generate_questions_for_knowledge_points - line 389 - ⚠️ t4 AI出题失败，使用兜底题
+2026-02-27 18:32:32,907 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t5
+2026-02-27 18:32:33,298 - WARNING - generate_questions_for_knowledge_points - line 389 - ⚠️ t5 AI出题失败，使用兜底题
+2026-02-27 18:32:33,299 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t6
+2026-02-27 18:32:33,637 - WARNING - generate_questions_for_knowledge_points - line 389 - ⚠️ t6 AI出题失败，使用兜底题
+2026-02-27 18:32:33,638 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t7
+2026-02-27 18:32:33,901 - WARNING - generate_questions_for_knowledge_points - line 389 - ⚠️ t7 AI出题失败，使用兜底题
+2026-02-27 18:32:33,901 - INFO - generate_questions_for_knowledge_points - line 326 - ➡️ 处理 t8
+2026-02-27 18:36:01,875 - INFO - generate_questions_for_knowledge_points - line 312 - ===== 开始生成题目 =====
+2026-02-27 18:36:01,979 - INFO - init_base_context - line 252 - ✅ 知识图谱已传入
+2026-02-27 18:36:02,072 - INFO - init_base_context - line 260 - ✅ 关系网已传入
+2026-02-27 18:36:02,174 - INFO - init_base_context - line 270 - ✅ ASR已传入
+2026-02-27 18:36:02,179 - INFO - load_all_t_segments_ocr - line 306 - ✅ 读取分段：13 个
+2026-02-27 18:36:02,179 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t1
+2026-02-27 18:36:02,271 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t1 AI出题失败，使用兜底题
+2026-02-27 18:36:02,271 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t2
+2026-02-27 18:36:02,375 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t2 AI出题失败，使用兜底题
+2026-02-27 18:36:02,376 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t3
+2026-02-27 18:36:02,476 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t3 AI出题失败，使用兜底题
+2026-02-27 18:36:02,476 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t4
+2026-02-27 18:36:02,577 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t4 AI出题失败，使用兜底题
+2026-02-27 18:36:02,577 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t5
+2026-02-27 18:36:02,684 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t5 AI出题失败，使用兜底题
+2026-02-27 18:36:02,684 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t6
+2026-02-27 18:36:02,789 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t6 AI出题失败，使用兜底题
+2026-02-27 18:36:02,789 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t7
+2026-02-27 18:36:02,894 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t7 AI出题失败，使用兜底题
+2026-02-27 18:36:02,894 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t8
+2026-02-27 18:36:03,011 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t8 AI出题失败，使用兜底题
+2026-02-27 18:36:03,011 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t9
+2026-02-27 18:36:03,115 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t9 AI出题失败，使用兜底题
+2026-02-27 18:36:03,115 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t10
+2026-02-27 18:36:03,208 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t10 AI出题失败，使用兜底题
+2026-02-27 18:36:03,208 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t11
+2026-02-27 18:36:03,328 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t11 AI出题失败，使用兜底题
+2026-02-27 18:36:03,328 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t12
+2026-02-27 18:36:03,436 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t12 AI出题失败，使用兜底题
+2026-02-27 18:36:03,437 - INFO - generate_questions_for_knowledge_points - line 324 - ➡️ 处理 t13
+2026-02-27 18:36:03,549 - WARNING - generate_questions_for_knowledge_points - line 384 - ⚠️ t13 AI出题失败，使用兜底题
+2026-02-27 18:36:03,551 - INFO - generate_questions_for_knowledge_points - line 391 - ===== 生成完成！结果保存到：/root/video_platform/video_data/54/knowledge_questions.json =====
+2026-02-27 18:55:18,792 - INFO - generate_questions_for_knowledge_points - line 319 - ===== 开始生成题目 =====
+2026-02-27 18:55:18,792 - INFO - init_base_context - line 279 - ✅ 上下文初始化完成（已截短）
+2026-02-27 18:55:18,794 - INFO - load_all_t_segments_ocr - line 313 - ✅ 读取分段：13 个
+2026-02-27 18:55:18,794 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t1
+2026-02-27 18:55:18,939 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t1 使用兜底题
+2026-02-27 18:55:18,939 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t2
+2026-02-27 18:55:19,361 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t2 使用兜底题
+2026-02-27 18:55:19,361 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t3
+2026-02-27 18:55:19,802 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t3 使用兜底题
+2026-02-27 18:55:19,802 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t4
+2026-02-27 18:55:20,309 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t4 使用兜底题
+2026-02-27 18:55:20,309 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t5
+2026-02-27 18:55:20,619 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t5 使用兜底题
+2026-02-27 18:55:20,620 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t6
+2026-02-27 18:55:21,020 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t6 使用兜底题
+2026-02-27 18:55:21,021 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t7
+2026-02-27 18:55:21,227 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t7 使用兜底题
+2026-02-27 18:55:21,228 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t8
+2026-02-27 18:55:21,483 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t8 使用兜底题
+2026-02-27 18:55:21,483 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t9
+2026-02-27 18:55:21,932 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t9 使用兜底题
+2026-02-27 18:55:21,933 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t10
+2026-02-27 18:55:22,350 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t10 使用兜底题
+2026-02-27 18:55:22,351 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t11
+2026-02-27 18:55:22,856 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t11 使用兜底题
+2026-02-27 18:55:22,856 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t12
+2026-02-27 18:55:23,142 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t12 使用兜底题
+2026-02-27 18:55:23,142 - INFO - generate_questions_for_knowledge_points - line 331 - ➡️ 处理 t13
+2026-02-27 18:55:23,683 - WARNING - generate_questions_for_knowledge_points - line 378 - ⚠️ t13 使用兜底题
+2026-02-27 18:55:23,684 - INFO - generate_questions_for_knowledge_points - line 384 - ===== 生成完成！保存到：/root/video_platform/video_data/54/knowledge_questions.json =====

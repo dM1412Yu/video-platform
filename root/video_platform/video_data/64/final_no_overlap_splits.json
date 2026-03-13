@@ -1,0 +1,68 @@
+[
+  {
+    "start_time": 7.72,
+    "end_time": 45.8,
+    "knowledge_point": "应用层概述",
+    "description": "介绍应用层的功能，即为不同应用提供不同的服务，并通过快递类比说明其作用。"
+  },
+  {
+    "start_time": 63.98,
+    "end_time": 271.58,
+    "knowledge_point": "DNS域名系统与域名结构",
+    "description": "讲解DNS的作用是将域名转换为IP地址，介绍域名的三级结构（顶级、二级、三级），以及国家顶级域名（如CN）和通用顶级域名（如COM、EDU、GOV）的分类与记忆方法。"
+  },
+  {
+    "start_time": 275.94,
+    "end_time": 307.92,
+    "knowledge_point": "DNS相关习题解析",
+    "description": "通过两道选择题巩固DNS知识点，包括识别将域名转为IP的协议（DNS）和判断政府机构网站的域名后缀（GOV）。"
+  },
+  {
+    "start_time": 309.08,
+    "end_time": 420.96,
+    "knowledge_point": "文件传输协议FTP",
+    "description": "介绍FTP协议的工作方式（客户服务器模式）、使用的TCP协议、两个连接（控制连接端口21，数据传输连接端口20）及其端口号的记忆技巧。"
+  },
+  {
+    "start_time": 422.02,
+    "end_time": 459.22,
+    "knowledge_point": "远程登录协议Telnet",
+    "description": "讲解Telnet协议的功能是实现安全的远程登录，并通过“太远了”谐音联想记忆其名称和用途。"
+  },
+  {
+    "start_time": 459.32,
+    "end_time": 599.02,
+    "knowledge_point": "万维网WWW的组成",
+    "description": "介绍万维网的三个组成部分：统一资源定位符（URL）格式、超文本传输协议（HTTP）及其端口号80、超文本标记语言（HTML），并结合实例说明其工作原理。"
+  },
+  {
+    "start_time": 599.12,
+    "end_time": 616.46,
+    "knowledge_point": "万维网相关习题解析",
+    "description": "通过一道选择题巩固WWW知识点，考察网页编写语言（HTML）和支持协议（HTTP）。"
+  },
+  {
+    "start_time": 618.02,
+    "end_time": 724.66,
+    "knowledge_point": "电子邮件协议与格式",
+    "description": "讲解电子邮件的格式（用户名@邮件服务器域名），以及发送方使用SMTP协议（端口25）和接收方使用POP3协议（端口110）的区分。"
+  },
+  {
+    "start_time": 725.44,
+    "end_time": 766.36,
+    "knowledge_point": "动态主机配置协议DHCP",
+    "description": "介绍DHCP协议的功能是自动分配IP地址，避免手工配置和IP冲突，并通过“CP”谐音记忆其功能。"
+  },
+  {
+    "start_time": 768.64,
+    "end_time": 803.84,
+    "knowledge_point": "应用层协议总结与表格归纳",
+    "description": "总结常见应用层协议所使用的运输层协议及端口号，强调记忆表格的重要性以应对考试。"
+  },
+  {
+    "start_time": 803.94,
+    "end_time": 850.6,
+    "knowledge_point": "课程总结与练习题预告",
+    "description": "课程结束语，布置课后练习题，公布答案，并根据考试范围提示后续学习安排。"
+  }
+]

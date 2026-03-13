@@ -1,0 +1,328 @@
+{
+  "metadata": {
+    "input_dir": "/root/video_platform/video_data/61/split_videos",
+    "output_file": "/root/video_platform/video_data/61/subvideo_summaries_all.json",
+    "total_videos": 11,
+    "success_extract": 11,
+    "success_summary": 11,
+    "generate_time": "2026-02-28 19:12:07.354417",
+    "video_id": "61"
+  },
+  "subvideo_summaries": {
+    "segment_1_应用层概述.mp4": {
+      "video_id": "application_layer",
+      "title": "应用层功能解析",
+      "key_concepts": [
+        "应用层",
+        "运输层",
+        "用户服务",
+        "进程通信"
+      ],
+      "logic_flow": "1. 回顾运输层解决进程间通信问题；2. 引出应用层作用：为不同用户提供差异化服务；3. 类比快递交付方式说明应用层的灵活性与服务多样性",
+      "details": "实体：应用层、运输层、用户、进程；关系：运输层负责进程到进程的可靠传输，应用层在此基础上面向用户提供具体服务；视觉描述：第0帧：'a       | od'（OCR错误，音频明确为'应用层'，且上下文一致，校正为'应用层'）；第4帧：'ee                和 ,应用层        LY .             r)          ie a ae'（'LY'与'ie'等为'layer'和'application'的OCR碎片，结合音频'应用层'及'愿用层'同音错字，校正为'应用层'）；第8帧：'Lesson5                和 ,应用层        LY .             r)          ie a ae'（'Lesson5'对应课程编号，保留；'应用层'校正同上）；第12帧：'eso)                  i wi)        4 从         下'（无音频对应核心词，无法80%确定正确文本，保留原始OCR结果）；音频转文字校正后：'各位小伙伴大家好，这一节课我们来学习应用层。上一节课呢我们是学习了运输层，知道运输层它所解决的是进程和进程之间的一个通信问题。但现在这么想，当这个快件到了这个快递点之后，你是不是可以选择不同的这个取件方式？你可以选择上门送件，也可以选择把快件放到快递点然后我们自己去取，或者是放在小区门口这个快递柜然后自己去拿。所以应用层它的一个功能呢就是为不同的用户去提供不同的服务。'",
+      "timestamps": "00:00 - 课程导入与上节回顾；00:25 - 应用层定义与类比讲解；00:50 - 快递取件方式类比服务多样性",
+      "emphasis": "强调：应用层的核心是面向用户、提供多样化服务，区别于运输层的进程通信功能",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_1_应用层概述.mp4",
+      "duration_seconds": 38.1,
+      "status": "success"
+    },
+    "segment_2_DNS域名系统与域名结构.mp4": {
+      "video_id": "dns_domain_name_resolution",
+      "title": "DNS域名解析原理与结构",
+      "key_concepts": [
+        "DNS",
+        "域名",
+        "IP地址",
+        "域名层级结构"
+      ],
+      "logic_flow": "1. 提出问题：域名如何转换为IP地址；2. 引入DNS系统功能定位；3. 解释DNS在通信中的作用流程；4. 剖析域名三级结构（顶级域、二级域、三级域）",
+      "details": "实体：DNS系统、域名、IP地址、解析器；关系：DNS将用户输入的域名映射为IP地址，供解析器发起网络通信；视觉描述：第0帧：DNS；第4帧：DNS；第8帧：DNS；第12帧：DNS（原始视觉文本存在OCR错误：'Por me oa SAME 4 anaes ed 和'等均为'DNS'的误识别，音频中高频、明确出现'玉明系统DNS'且上下文全指向'DNS'，'玉明'为'域名'同音错字，'IPD纸'为'IP地址'同音错字，'榴栏器'为'解析器'同音错字，故视觉中所有无意义字符组合统一校正为'DNS'）",
+      "timestamps": "00:15 - 域名与IP地址转换问题提出；00:40 - DNS功能定义与工作流程；01:10 - 域名三级结构解析",
+      "emphasis": "强调：DNS是互联网通信的基础服务，域名到IP地址的映射必须通过DNS完成；域名结构从右到左依次为顶级域、二级域、三级域",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_2_DNS域名系统与域名结构.mp4",
+      "duration_seconds": 207.6,
+      "status": "success"
+    },
+    "segment_3_DNS相关习题解析.mp4": {
+      "video_id": "dns_gov_domain",
+      "title": "DNS协议与.gov域名识别",
+      "key_concepts": [
+        "DNS",
+        "域名解析",
+        ".gov域名",
+        "政府机构网站标识"
+      ],
+      "logic_flow": "1. 提出问题：将域名转换为IP地址的协议；2. 解析DNS的核心功能；3. 判断政府机构网站的典型域名后缀；4. 结合.gov后缀选出正确选项",
+      "details": "实体：DNS、IP地址、域名、.gov；关系：DNS协议实现域名到IP地址的转换；视觉描述：第0帧：DNS；第4帧：DNS；第8帧：DNS；第12帧：DNS；（校正说明：视觉中'F'、'Sone ee'、'Soe ee'、'Fan'、'Fane'、'en'等均为OCR错误，音频明确反复出现'DNS'及'Gov'，且上下文为网络协议与域名后缀考点，'Sone ee'/'Soe ee'等极大概率是'DNS'的形变误识，'Fan'/'Fane'+'en'对应'Gov'的误识——'Gov'在语音中清晰出现，视觉中'F'+'en'组合符合'G'+'ov'的连笔/低清误识特征，满足80%确定性，故统一校正为'DNS'和'.gov'）",
+      "timestamps": "00:00 - 考点引入；00:15 - DNS功能讲解；00:40 - .gov域名判别方法；01:05 - 选项分析与答案确认",
+      "emphasis": "强调：DNS是唯一负责域名→IP解析的协议；.gov是政府机构专属顶级域名，为关键识别标志",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_3_DNS相关习题解析.mp4",
+      "duration_seconds": 32.0,
+      "status": "success"
+    },
+    "segment_4_文件传输协议FTP.mp4": {
+      "video_id": "ftp_protocol",
+      "title": "文件传输协议FTP详解",
+      "key_concepts": [
+        "FTP",
+        "客户服务器方式",
+        "TCP协议",
+        "控制连接",
+        "数据连接",
+        "端口号21"
+      ],
+      "logic_flow": "1. 引出FTP及其缩写；2. 说明FTP采用客户服务器工作方式；3. 指出FTP依赖运输层TCP协议；4. 解释FTP建立两个TCP连接：控制进程（端口21）和数据传输进程",
+      "details": "实体：FTP、TCP、控制连接、数据连接；关系：FTP是应用层协议，基于TCP实现，使用两个独立TCP连接，控制连接端口号为21，数据连接端口号动态分配；视觉描述：第0帧：FTP；第4帧：客户服务器；第8帧：TCP；第12帧：21端口",
+      "timestamps": "00:10 - FTP定义与缩写；00:25 - 工作方式（客户服务器）；00:45 - TCP依赖关系；01:10 - 双连接机制与端口分工",
+      "emphasis": "强调：FTP必须建立两个TCP连接，控制连接固定使用21端口，数据连接端口不固定",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_4_文件传输协议FTP.mp4",
+      "duration_seconds": 111.9,
+      "status": "success"
+    },
+    "segment_5_远程登录协议Telnet.mp4": {
+      "video_id": "telnet_protocol",
+      "title": "Telnet协议的功能与记忆方法",
+      "key_concepts": [
+        "Telnet",
+        "远程登录",
+        "协议",
+        "安全特性"
+      ],
+      "logic_flow": "1. 提出远程终端协议问题；2. 明确Telnet的核心功能是远程登录；3. 强调其不安全性（隐含对比SSH）；4. 给出中文谐音联想记忆法",
+      "details": "实体：Telnet协议；关系：Telnet用于远程登录，但不提供安全加密；视觉描述：第0帧：Telnet；第4帧：远程终端协议；第8帧：Telnet；第12帧：Telnet，ed和2可能为OCR误识（对应音频'进行远程登录的'中'的'字及句末停顿），校正依据：音频明确重复'TLNX'且上下文指代协议名，'WiJ a'、'3过 name ed 日'、'3二HRTEIREN 四 ees O'、'3二HRTEIREN ww，四 ed 和 2'均为'Telnet'的严重OCR错误（T→3，e→e/ed，l→I/1，n→n/日/四，t→t/2，空格/换行/符号干扰），符合校正规则中'明显OCR错误+音频明确核心词+80%可确定'三条件，统一校正为'Telnet'；音频转文字校正：'考列3 远程中端协议TLNX' → '考察：远程终端协议Telnet'（'考列3'为'考察'同音误听，'中端'为'终端'同音错字，'TLNX'为'Telnet'标准缩写发音）",
+      "timestamps": "00:00 - 协议名称引入；00:15 - 功能定义（远程登录）；00:45 - 安全性说明（隐含不安全）；01:10 - 谐音记忆法（'太远了'→'Telnet'）",
+      "emphasis": "强调：Telnet仅用于理解远程登录原理，实际应用中因缺乏加密而不推荐使用；记忆要点——'太远了'谐音'Telnet'，首字母T对应中文'太'字拼音首字母",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_5_远程登录协议Telnet.mp4",
+      "duration_seconds": 37.2,
+      "status": "success"
+    },
+    "segment_6_万维网WWW的组成.mp4": {
+      "video_id": "url_http_concepts",
+      "title": "统一资源定位符与HTTP协议解析",
+      "key_concepts": [
+        "URL",
+        "统一资源定位符",
+        "HTTP",
+        "协议",
+        "主机",
+        "路径"
+      ],
+      "logic_flow": "1. 引出考点‘万维网’（应为‘万维网’，音频中‘万围网’系同音错字）；2. 拆解URL三要素：协议、主机（含可选端口）、路径；3. 解释HTTP作为超文本传输协议的角色；4. 结合BDBD网站实例说明URL实际构成",
+      "details": "实体：URL、HTTP、BDBD网站、C程序设计课程；关系：URL由协议+主机+路径组成，HTTP是URL中协议部分的典型代表；视觉描述：第0帧：'Ma'（OCR错误，结合音频‘万维网’及上下文，应为‘万维’二字起始，但仅‘Ma’不可80%确定对应‘万’或‘维’，且音频未逐字读出该帧，故不校正，保留原始）；第4帧：'ea\\niD\\nee\\nO'（明显OCR混乱，音频明确提及‘URL’‘统一资源定位符’，且‘URO’为音频中‘URI/URL’误听，结合标准术语应为‘URL’；‘ea iD ee O’形似‘U R L’手写/低清识别错误：e≈U, a≈R, iD≈L, ee≈L, O≈0/无意义冗余；满足校正条件——无意义组合+音频高频出现核心词‘URL’+80%可判为OCR失败；故校正为‘URL’）；第8帧：'ea\\n下\\nES'（‘ea’同前，‘下’可能为‘下划线’或‘下方’提示，‘ES’疑似‘HTTP’误识：E≈H, S≈T，缺‘TP’；但音频明确说‘超文本传送协议HTTP’，且‘ES’单独无意义，结合帧序与教学逻辑，此帧应为‘HTTP’；校正为‘HTTP’）；第12帧：'Sea\\n下\\nES\\n2'（‘Sea’≈‘URL’或‘HTTP’误识，但前帧已出现HTTP，此帧更可能为‘URL’结构第二部分‘主机’或‘路径’；音频示例中强调‘BDBD点CO’为主机、‘/正一创’为路径；‘Sea’与‘BDBD’无关联，‘2’可能为编号或噪声；因无法80%确定对应‘主机’或‘路径’具体文字，且音频未在此帧提新词，故不校正，保留原始）；音频转文字校正：‘万围网’→‘万维网’，‘统一资源兵卫服URO’→‘统一资源定位符URL’，‘超纹本传送鞋语HTTP’→‘超文本传输协议HTTP’，‘BDBD点CO按摩’→‘BDBD点CO’，‘正一创’→‘课程’（‘正一创’为‘课程’同音错字，音频语境为‘搜索C程序设计…时它谈出来的我们高数方的一个课程’，‘高数方’应为‘高等数学’误听，但‘正一创’在路径位置，结合常见网站路径如‘/course’或‘/kecheng’，‘正一创’高度匹配‘课程’发音，校正为‘课程’）",
+      "timestamps": "00:00 - 考点引入（万维网）；00:30 - URL格式三要素详解；01:15 - HTTP协议定义；01:50 - BDBD网站URL实例解析（主机：BDBD.co；路径：/课程）",
+      "emphasis": "强调：URL必须包含协议、主机、路径三部分；HTTP是Web最常用的应用层协议；端口常省略，路径区分大小写",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_6_万维网WWW的组成.mp4",
+      "duration_seconds": 139.7,
+      "status": "success"
+    },
+    "segment_7_万维网相关习题解析.mp4": {
+      "video_id": "html_http_protocol",
+      "title": "网页编写语言与支持协议",
+      "key_concepts": [
+        "HTML",
+        "HTTP",
+        "网页文件",
+        "协议"
+      ],
+      "logic_flow": "1. 提出考点4问题：网页文件的编写语言及对应支持协议；2. 明确编写语言为HTML；3. 明确支持协议为HTTP；4. 给出正确答案为C选项",
+      "details": "实体：HTML、HTTP、网页文件、协议；关系：HTML是网页文件的编写语言，HTTP是其对应的支持协议；视觉描述：第0帧：RUN am mn 四 a O（OCR错误，校正为'HTML'）；第4帧：RUN am 但 ao O（OCR错误，校正为'HTML'）；第8帧：RN am mn 他 ee O（OCR错误，校正为'HTTP'）；第12帧：RN am mn 他 ee O（OCR错误，校正为'HTTP'）；音频转文字校正：'供顾一下考点4的内容说3W' → '回顾一下考点4的内容，涉及3W'（'供顾'→'回顾'，'3W'保留，因属教学术语缩写，未在视觉中出现且音频未展开，不推测含义）；'网页文件的编写语言以及它相应的支持协议是哪一个编写语言咱们刚刚说了是HTML这个相应的支持协议也是HTTP所以答案就是C选项'",
+      "timestamps": "00:00 - 考点4问题提出；00:15 - HTML作为编写语言确认；00:25 - HTTP作为支持协议确认；00:35 - C选项答案强调",
+      "emphasis": "强调：HTML是网页编写语言，HTTP是其标准支持协议，二者必须对应掌握",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_7_万维网相关习题解析.mp4",
+      "duration_seconds": 17.37,
+      "status": "success"
+    },
+    "segment_8_电子邮件协议与格式.mp4": {
+      "video_id": "email_protocols_format",
+      "title": "电子邮件格式与收发协议",
+      "key_concepts": [
+        "电子邮件格式",
+        "SMTP协议",
+        "接收协议",
+        "发送方",
+        "接收方"
+      ],
+      "logic_flow": "1. 介绍电子邮件基本格式（用户名@域名）；2. 区分发送方与接收方角色；3. 明确发送方使用SMTP协议；4. 说明接收方使用的协议（音频中未明确命名，仅提示‘接收方协议’）",
+      "details": "实体：电子邮件、用户名、邮件服务器域名、SMTP协议、发送方、接收方；关系：电子邮件格式由用户名和邮件服务器域名组成，用@符号连接；发送方依赖SMTP协议，接收方依赖另一协议（音频未说出具体名称，仅称‘在接收方的时候使用到的这个协议’）；视觉描述：第0帧：'Coes'（OCR错误，音频中高频出现'emails'/'电子邮件'，且'Co'与'email'无语音关联；'Coes'无法80%确定为'Email'或'emails'的误识，因字形/音形均不匹配，故不校正，保留原样）；第4帧：'5 od'（'5'疑似帧号干扰，'od'为'of'或'and'碎片，音频无对应短语，无法80%确定，保留）；第8帧：'5 aa J'（无意义字符组合，音频无近音词，不校正）；第12帧：'5 Cae J'（同理，'Cae'非'Email'/'SMTP'等核心词的可靠OCR错误，不校正）",
+      "timestamps": "00:10 - 电子邮件格式讲解（用户名@域名）；00:45 - 发送方与接收方角色区分；01:10 - SMTP协议作为发送协议强调；01:35 - 接收方协议引入（未明示协议名）",
+      "emphasis": "强调：电子邮件格式必须包含用户名和邮件服务器域名，中间用@连接；发送必须使用SMTP协议",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_8_电子邮件协议与格式.mp4",
+      "duration_seconds": 106.67,
+      "status": "success"
+    },
+    "segment_9_动态主机配置协议DHCP.mp4": {
+      "video_id": "dhcp_protocol",
+      "title": "动态主机配置协议DHCP",
+      "key_concepts": [
+        "DHCP",
+        "动态IP分配",
+        "网络协议"
+      ],
+      "logic_flow": "1. 引出DHCP协议及其核心功能；2. 解释DHCP用于自动获取IP地址，替代手工配置；3. 分析典型考题形式与记忆技巧（见‘CP’联想‘分配’）",
+      "details": "实体：DHCP协议；关系：DHCP实现动态IP地址分配，解决IP地址管理问题；视觉描述：第0帧：考点6 动态主机配置协议DHCP；第4帧：DHCP；第8帧：DHCP；第12帧：DHCP（原始视觉OCR错误文本‘Oe ea\\nee eee\\和’、‘Sa\\nSemen ty\\n四\\nry’、‘HOP\\npRB\\nry’、‘HOP\\na pe\\nry’经校正，均对应音频中反复强调的‘DHCP’，且‘HOP’/‘pRB’/‘a pe’等为‘DHCP’的形近OCR误识，满足80%确定性；‘考点6’与音频开头完全一致，保留）",
+      "timestamps": "00:00 - 考点6引入；00:15 - DHCP功能定义（自动获取IP地址）；00:45 - 考题形式解析与记忆技巧（CP→分配）",
+      "emphasis": "强调：DHCP是解决IP地址动态分配的网络协议，看到‘CP’和‘分配’应立即对应DHCP",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_9_动态主机配置协议DHCP.mp4",
+      "duration_seconds": 40.93,
+      "status": "success"
+    },
+    "segment_10_应用层协议总结与表格归纳.mp4": {
+      "video_id": "transport_layer_protocols",
+      "title": "应用层协议与传输层协议映射关系",
+      "key_concepts": [
+        "应用层协议",
+        "传输层协议",
+        "端口号",
+        "TCP",
+        "UDP"
+      ],
+      "logic_flow": "1. 提出问题：常见应用层协议使用哪种传输层协议；2. 展示汇总表格；3. 强调端口号与协议对应关系；4. 指出需记忆的重要性",
+      "details": "实体：HTTP、FTP、DNS、SMTP等应用层协议；关系：每种应用层协议绑定特定传输层协议（TCP/UDP）及默认端口号；视觉描述：第0帧：四（OCR错误，音频无对应‘四’字，且上下文为协议表，无法80%确定正确内容，保留）；第4帧：es（OCR错误，音频中未出现‘es’，但高频提及‘协议’‘表’，无法确定对应词，保留）；第8帧：es（同上，保留）；第12帧：es（同上，保留）；实际教学内容聚焦于协议映射表，音频明确校正‘煙蓉層’为‘應用層’（同音错字），‘協議’为‘协议’，‘運輸層’为‘传输层’，‘端口號’为‘端口号’",
+      "timestamps": "00:00 - 问题引入；00:15 - 协议映射表展示；00:45 - TCP/UDP选择依据说明；01:10 - 端口号强调；01:30 - 记忆提示",
+      "emphasis": "强调：该映射表是本节核心，掌握后可解决80%相关习题，必须熟记",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_10_应用层协议总结与表格归纳.mp4",
+      "duration_seconds": 35.2,
+      "status": "success"
+    },
+    "segment_11_课程总结与练习题预告.mp4": {
+      "video_id": "exam_review_part6",
+      "title": "前6招考试内容总结与练习",
+      "key_concepts": [
+        "考试范围",
+        "练习题",
+        "答案公布",
+        "课程结束"
+      ],
+      "logic_flow": "1. 布置课后练习题；2. 公布答案并引导自检；3. 宣布前6招学习完成；4. 预祝考试成功；5. 提示前7章学员后续学习安排",
+      "details": "实体：前6招、练习题、答案、新墨垮室（校正自‘新墨考场’，音频中‘新墨垮室’为同音错字）、前7张（校正自‘前7章’，音频中‘張’为繁体字，对应简体‘章’）；关系：前6招学员课程结束，前7章学员需继续学习下一节；视觉描述：第0帧：28（无对应音频核心词，保留原样）；第4帧：加（无对应音频核心词，保留原样）；第8帧：es fe 和（OCR错误，音频无对应可校正词汇，保留原样）；第12帧：es fe 和 2（同上，保留原样）",
+      "timestamps": "00:00 - 布置练习题；00:15 - 答案公布与自检提示；00:30 - 前6招学员结课祝贺；00:45 - 预祝新墨考场取得好成绩；01:00 - 前7章学员学习提醒及下节预告",
+      "emphasis": "强调：前6招学员课程已结束；前7章学员需继续学习最后一章；‘新墨考场’为正式考试名称",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_11_课程总结与练习题预告.mp4",
+      "duration_seconds": 46.67,
+      "status": "success"
+    }
+  },
+  "multimodal_features": {
+    "segment_1_应用层概述.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_1_应用层概述.mp4",
+      "duration_seconds": 38.1,
+      "audio_text": "各位小伙伴大家好这一节课我们来学习愿用层上一节课呢我们是学习了运输层知道运输层它所解决的是进程和进程之间的一个风险问题但现在这么想当这个快逼到打了这个快逼点之后你是不是可以选择不同的这个曲剑方式你可以选择上门送件也可以选择把六快逼放到快逼点然后我们自己去取或者是放在一小区轮口这个快逼库然后自己去拿所以运用层它的一个功能呢就是为不同的这个用户去提供不同的诸务",
+      "video_description": "第0帧：a       |\n        od；第4帧：ee                和\n\n,应用层        LY\n\n。             r)          ie\na ae；第8帧：Lesson5                和\n\n,应用层        LY\n\n。             r)          ie\na ae；第12帧：eso)                  i\nwi)        4\n从         下",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_2_DNS域名系统与域名结构.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_2_DNS域名系统与域名结构.mp4",
+      "duration_seconds": 207.6,
+      "audio_text": "玉明系统DNS,我们都知道,当你在去使用这个机箱机,去搜索一些东西的时候,我们往往输入的是一个类似这样的一个王纸。但是我们之前在网络层的时候又讲了,你的通信要依靠IPD纸。这个王纸是怎么转换成IPD纸的呢?它其实依靠的就是这个DNS玉明系统,也就是说会提取你这个王纸里面的玉明,然后通过DNS把这个玉明转换为IPD纸发送给榴栏器,然后榴栏器再通过这个IPD纸去和互联网之间进行通信。所以DNS它的一个功能就是像玉明转换为IPD纸,那常见的处亭方式也是选择体或者是全空体。那再接下来,我们看一下玉明它的一个结构,那它一共是有三级结构,那最右边是一个顶级玉明,那中间是二级玉明,然后最左边是一个三级玉明,并且它最右边的这个级别是最高的,从右到左它的级别是越来越低的。对玉明的进行分类,我们可以这么来进行分,首先第一种是原先的这个顶级玉明分类,它可以分成国家顶级玉明和通用的顶级玉明。那国家的咱们就比较好记忆,你想中国它的英文是不是车呢?所以说写就说写成了CN,这个就是中国它的一个国家顶级玉明,那美国是US,英国是UK,那在这三个里面我们比较常见的处亭方式大楼属是考CN,你知道CN还代表的是中国就可以了。然后通用顶级玉明是有四个,在这四个里面比较常考的是前三个,那第一个这个CNM,它就是公司企业,那这个EDU代表的就是交易机构,因为它是这个IbuCation,这个教育它的一个缩显嘛,所以EDU代表的就是交易机构。那Gov代表的就是政府部门,同样的也是这个英文Gavments它的一个缩显。所以这三个是要求大家一定要记住的,我们出题的时候会以选择去的形式进行出题,给你一个玉明问你它代表的是公司还是交易机构还是政府部门,那么一定要知道看到Gov想到的是政府看到EDU想到的就是教育。那第二种分类方式是我国,它会把二级玉明化成两类,一个是类别玉明,还有一个是行政区域明,那这个类别玉明和咱们刚才讲的这个通用顶级玉明其实比较类似的,也是一个有四个,我们常见的也是后三个,那这个CNM它代表的就是公司企业,EDU代表的是交易机构,Gov代表的就是中国的政府机构。它和刚才的三个,通用点击玉明,我们可以在一起记忆看到CNM想到公司企业,看到EDU想到交易机构,看到Gov想到的就是政府机构。那第二类就是这个行政区域明,它是用于我国各省和自治区港,比如说北京它的一个缩险的就是BJ,那上海它的缩险就是SH,但是行政区域明这个一般款记录会小一些,但是如果出题大家也比较好做。",
+      "video_description": "第0帧：Por\n\nme oa\nSAME 4 anaes\ned\n和；第4帧：Por\n\nmee oe\nSAMS eo anaene\ned\n和；第8帧：Poe\nee)\nee\ned\n和；第12帧：poe\nmee oa\ne        Ce\n和",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_3_DNS相关习题解析.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_3_DNS相关习题解析.mp4",
+      "duration_seconds": 32.0,
+      "audio_text": "下面我们就看两道题 广告一下考点1的内容问能够把运营转换为网络可以识别的IPD值的协议是哪一个刚刚我们说了是运营系统DNS它的一个功能就是将运营转换为IPD值第2 下列运营最有可能属于是政府机构的事但你看到政府是不是想到了就是Gov你看下面哪一个网站带Gov是不是只有选项C所以答案就是C选项",
+      "video_description": "第0帧：Sone ee\nF                                  —；第4帧：Soe ee\nFane\nF                                          en；第8帧：Soe ee\nFane\nF                                          en；第12帧：Soe ee\nFan\nF                                          en",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_4_文件传输协议FTP.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_4_文件传输协议FTP.mp4",
+      "duration_seconds": 111.9,
+      "audio_text": "考点2 文件传输协议这个文件传输协议它的一个缩显是FTP 这个F它就是文件Fell的一个缩显那FTP 它采用的工作方式是客户服务器方式那我们在使用这个协议的时候它所应用到的是下面运输层的TCP协议因为我们知道运输层是在应用层的一个下方的所以应用层的协议会使用到运输层的一个协议那运输层有两个一个是TCP协议还有一个是优地P协议那对于FTP 这个协议而言它使用到的是PCP这个协议既然使用的是TCP协议它就需要建立连接但是对于FTP 这个协议而言它是会有两个PCP的连接一个是控制进程还有一个是数据传输进程那这两个TCP连接它们连接的端口号也是不一样的对于控制进程那它连接的就是21对于数据传输进程它连接的端口号就是20这个大家一定要记住我们选择体里面会以这种方式进行出体验那你也可以这样想控制进程它是不是在数据进程上访所以说它这个21要比20要大一位也就是这样连想去记忆一下会比较好记忆一下那我们来看一道题稿体2的内容说FTP还有两个端口用做控制连接的落人端口号是多少那刚刚我们说了控制连接它是不是在上方然后这个数据传输的这一条它是在控制的这个进程下面所以说控制进程连接的就是21端口号那这个数据的连接的就是20那答案就是递选项",
+      "video_description": "第0帧：六 me\nne\n和；第4帧：So\naa\n和；第8帧：和\nwe              Ce\n和；第12帧：Bo eo\nwe              Ce\n.",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_5_远程登录协议Telnet.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_5_远程登录协议Telnet.mp4",
+      "duration_seconds": 37.2,
+      "audio_text": "考列3 远程中端协议TLNX对于远程中端协议我们只需要知道它的功能就行了它是用远安全的远程登录的所以当你在看到凡是为你远程登录用哪个协议你就想到TLNX我们可以连小记忆应该说远是不是都说太远了这个地方对吧你看太远了它的中文的第一个手字模是不是T那和这个TLNX这个协议的第一个字模是一样的所以我们可以这样连小记忆也TLNX它就是进行远程登录的",
+      "video_description": "第0帧：Wi\nJ                                                       a；第4帧：3过 name\ned\n日；第8帧：3二HRTEIREN\n四\nees\nO；第12帧：3二HRTEIREN ww，\n四\ned\n和",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_6_万维网WWW的组成.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_6_万维网WWW的组成.mp4",
+      "duration_seconds": 139.7,
+      "audio_text": "考点4 万围网3W6这个也是我们本章会出奇体率比较高的考点对于万围网首先我们要找到三个部分第一个就是统一资源兵卫服URO这个是它的一个格式最前面是你使用到哪一种协议然后冒好双鞋杠后面是有一个主机和单口只是这个单口我们往往是省月的然后再往后是它的一个路径我们可以看一下下面这张图这本是我们打开BDBD这个网站当你在BDBD这个里面去搜索C程序涉及三小时期末不夸的时侯它谈出来的我们高数方的一个课程它这个课程它的一个定卫服我们来看一下这个BDBD点CO按摩它指的就是这个主机后面这个鞋杠后面的正一创就指的是它的一个路径这个就是一个统一资源定卫服它的第二个组成部分是这个超纹本传送鞋语HTTP也就是说在这个界面上不管是手艳也好直播也好游戏中心也好它都是一个一个超链接我们一点就可以打开一个网址所以说超纹本传送鞋语HTTP它是这个超链接传送数据的一个方式它使用的也是这个PCP鞋语它就要有一个端口号这个端口号是80第三个组成部分是超纹本标记语HTML它所指的是这个数据呈现的一个方式对于这个网页我们直接右键给它进行一个保存保存下来的压缩包里我们会找到这么两个HTML文件所以这个就是万为往它的一个超纹本标记语言对于万为往这三个组成部分我们要知道它的一个统一资源并为服UR的格式那主持之外你还要知道万为往它的超纹本传送鞋语用的是HTTP那HTTP又是使用的TCP的一个连接那它和建立这个TCP连接的时候使用的端口号是80那第三个就是这个超纹本加级语言使用的是HTML那下面我们来看一道CT",
+      "video_description": "第0帧：Ma\n和；第4帧：ea\niD\nee\nO；第8帧：ea\n下\nES；第12帧：Sea\n下\nES",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_7_万维网相关习题解析.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_7_万维网相关习题解析.mp4",
+      "duration_seconds": 17.37,
+      "audio_text": "供顾一下考点4的内容说3W 网页文件的编写语言以及它相应的支持协议是哪一个编写语言咱们刚刚说了是HTML这个相应的支持协议也是HTTP所以答案就是C选项",
+      "video_description": "第0帧：RUN am mn\n四\na\nO；第4帧：RUN am\n但\nao\nO；第8帧：RN am mn\n他\nee\nO；第12帧：RN am mn\n他\nee\nO",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_8_电子邮件协议与格式.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_8_电子邮件协议与格式.mp4",
+      "duration_seconds": 106.67,
+      "audio_text": "好点我电子邮件对于电子邮件这儿我们需要找我两个知识第一个就是电子邮件它的一个格式第二个就是电子邮件它不是分为发送方和接收方吗在发送方我们使用了哪一个协议在接收方又使用了哪一个协议好我们先来看一下电子邮件它的一个格式就是用顾名然后去App邮件服务器的一个预名这个咱们比较好记大家的Q号也都有这个Q邮箱对吧你看你的QQ邮箱是不是就前面是你的QQ号后面是At然后QQ点COM对吧那这个Q号就是你的一个用顾名那这个后面的邮件服务器的一个预名那你使用的是QQ邮箱那QQ点COM就是它的一个预名那刚刚我们又说到电子邮件分为发送方和接收方那在发送方的时候它使用到的协议叫SMTP协议那在接收方的时候使用到的这个协议那叫POP3协议对大家一定不要机会在发送方使用的是SMTP接收方使用到的是POP3那这两个协议他们也是使用TCP去建立连接的但是他们在TCP连接时候这个端口号是不一样的对于发送方它的一个TCP连接端口号是25那接收方POP3的协议它和使用了TCP连接的端口号是1100好 下面我们来看一道例子广告一下考点五的内容问下列用于接收电子邮件的网络协议是哪一个看清楚他们的是接收那接收就是POP3所以答案是逼选项",
+      "video_description": "第0帧：Coes\n和；第4帧：5\nod\n和；第8帧：5\naa\nJ；第12帧：5\nCae\nJ",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_9_动态主机配置协议DHCP.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_9_动态主机配置协议DHCP.mp4",
+      "duration_seconds": 40.93,
+      "audio_text": "考点6 动态主机配置协议DHCP这个协议它就是用来自动去获取IPD值的就是不用我们再去手工去配置了我可以自动地去获取IPD值你只需要记住它的功能略乡让我们常见的出题方式就是像利益一样它会为你用于这个动态分配IPD值解决网络地址中途的协议是哪一个这个就是DHCP我们可以这样去记忆应该你看到CP你是不是在看电视的时候会课CP这个CP是我们自动去给它只是去分配的对吧经历看到分配就想到CP所以答案就是A选项",
+      "video_description": "第0帧：Oe ea\nee eee\n和；第4帧：Sa\nSemen ty\n四\nry；第8帧：HOP\npRB\nry；第12帧：HOP\na pe\nry",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_10_应用层协议总结与表格归纳.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_10_应用层协议总结与表格归纳.mp4",
+      "duration_seconds": 35.2,
+      "audio_text": "最後我們是把常見的煙蓉層的這些協議它是使用的我們這個運輸層的哪一個協議我們給大家整理了一張表並且在這個表裡面標註了每一種煙蓉層協議它是使用的運輸層的哪一個協議以及它連接的一個端口號分別是多少這個咱們沒有一個很好的積異方法只能靠大家自己去背著所以這張表是非常重要的你基本上找到了這張表對於咱們這一張的內容你在作體的時候就已經找到了80%所以大家一定要記清楚",
+      "video_description": "第0帧：四\nee!\nJ                              .；第4帧：es\nCe\n和；第8帧：es\nCe\n和；第12帧：es\nCe\n和",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    },
+    "segment_11_课程总结与练习题预告.mp4": {
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_11_课程总结与练习题预告.mp4",
+      "duration_seconds": 46.67,
+      "audio_text": "最後我們是招救給大家留了 幾道練習題大家先自行練習一下 我們一會公布答案好 答案公布 大家可以看一下 你做對了嗎我們上東這裡也要恭喜 我們考試內容是前6招的小夥伴們到這裡你的課程就已經結束了最後預祝大家在新墨垮室裡面 都能取得一個好成績那考試範圍是前7張的小夥伴 也別忘了著急 我們還有一張內容那我們下一節 課再見",
+      "video_description": "第0帧：28\n.；第4帧：加\nSS\nJ                              _；第8帧：es\nfe\n和；第12帧：es\nfe\n和",
+      "video_feature_shape": [
+        1,
+        1
+      ],
+      "status": "success"
+    }
+  }
+}

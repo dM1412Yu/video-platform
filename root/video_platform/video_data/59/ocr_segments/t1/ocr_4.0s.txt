@@ -1,0 +1,15 @@
+1FT7 1 bd                                                                       DP osm
+X                      【新版] 课时 6 应用层                    ic ed
+《    占          a                             (ne
+考点2 文件传输协议 REmm ma
+a3
+FTP有2个端口,用作控制连接的默认端号为{ ), 用作数据传输的默认端口号为( 。 )
+A.20,20       B.23,25
+Coys ty ht       D.21,20       控制连接 个
+日                            数据传输 |
+mn ered       \e
+®                                                [oj
+i        一
+Il 时           ey ese heed a        anna x RA
+L
+vd

@@ -1,0 +1,79 @@
+[
+  {
+    "subvideo_id": "64_1",
+    "start_time": 7.72,
+    "end_time": 45.8,
+    "summary": "应用层概述",
+    "title": "应用层概述"
+  },
+  {
+    "subvideo_id": "64_2",
+    "start_time": 63.98,
+    "end_time": 271.58,
+    "summary": "DNS域名系统与域名结构",
+    "title": "DNS域名系统与域名结构"
+  },
+  {
+    "subvideo_id": "64_3",
+    "start_time": 275.94,
+    "end_time": 307.92,
+    "summary": "DNS相关习题解析",
+    "title": "DNS相关习题解析"
+  },
+  {
+    "subvideo_id": "64_4",
+    "start_time": 309.08,
+    "end_time": 420.96,
+    "summary": "文件传输协议FTP",
+    "title": "文件传输协议FTP"
+  },
+  {
+    "subvideo_id": "64_5",
+    "start_time": 422.02,
+    "end_time": 459.22,
+    "summary": "远程登录协议Telnet",
+    "title": "远程登录协议Telnet"
+  },
+  {
+    "subvideo_id": "64_6",
+    "start_time": 459.32,
+    "end_time": 599.02,
+    "summary": "万维网WWW的组成",
+    "title": "万维网WWW的组成"
+  },
+  {
+    "subvideo_id": "64_7",
+    "start_time": 599.12,
+    "end_time": 616.46,
+    "summary": "万维网相关习题解析",
+    "title": "万维网相关习题解析"
+  },
+  {
+    "subvideo_id": "64_8",
+    "start_time": 618.02,
+    "end_time": 724.66,
+    "summary": "电子邮件协议与格式",
+    "title": "电子邮件协议与格式"
+  },
+  {
+    "subvideo_id": "64_9",
+    "start_time": 725.44,
+    "end_time": 766.36,
+    "summary": "动态主机配置协议DHCP",
+    "title": "动态主机配置协议DHCP"
+  },
+  {
+    "subvideo_id": "64_10",
+    "start_time": 768.64,
+    "end_time": 803.84,
+    "summary": "应用层协议总结与表格归纳",
+    "title": "应用层协议总结与表格归纳"
+  },
+  {
+    "subvideo_id": "64_11",
+    "start_time": 803.94,
+    "end_time": 850.6,
+    "summary": "课程总结与练习题预告",
+    "title": "课程总结与练习题预告"
+  }
+]

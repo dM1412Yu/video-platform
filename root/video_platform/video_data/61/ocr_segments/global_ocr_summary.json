@@ -1,0 +1,216 @@
+{
+  "video_id": 61,
+  "segment_folders": [
+    "t1",
+    "t2",
+    "t3",
+    "t4",
+    "t5",
+    "t6",
+    "t7",
+    "t8",
+    "t9",
+    "t10",
+    "t11"
+  ],
+  "ocr_results": {
+    "t1": {
+      "segment_folder": "t1",
+      "title": "应用层概述",
+      "start_time": 7.72,
+      "end_time": 45.8,
+      "ocr_frames": [
+        {
+          "time": 7.766666666666667,
+          "ocr_text": "TFT7 1月13日天二                                                                                     AR\nx                       EE                     a ~\nLom,\n和             ao         aa          al            Shame           re              asnemeaorcr sm\ne                ad\n4",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_7.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 8.766666666666667,
+          "ocr_text": "PT7 1月13日央二                                                                                                                 本\na                       Cet id                     rs\naE\n\nPace LL cc,\n\noe\nwe     上     oem      end\n«                       <3\n\n4",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_8.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 9.766666666666667,
+          "ocr_text": "PT7 1月13日央二                                                                                                                 dl\na                       Cet id                     re\naE\n\nPe LL cc,\n\nff\n人     上     oo      end\n«                       <3\n\n4",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_9.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 10.766666666666667,
+          "ocr_text": "TFT7 1月13日周二                                                                                               RT\nx                                           CT                                       a~\nvere\nPe Ls es,\n C.J\n进程和进程之间的一个通信问题\nwe         od       oa       amamareerr        “hase        ‘aren          Tesseemoamcr ‘eam\n二\n4",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_10.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 11.766666666666667,
+          "ocr_text": "1T18 1月13日周二                                                                                 CR\nx                       CT                     a\nvere\nPLS es,\na\n进程和进程之间的一个通信问题\n     oo   oa    amamareerr    “hase    ‘aren     ‘Tesseemoamcr ‘eam\n二\n4",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_11.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 12.766666666666667,
+          "ocr_text": "1T18 1月13日周二                                                                                 CR\nx                       CT                     a\nvere\nPe Lee,\ni\n进程和进程之间的一个通信问题\n     oo   ooo    amamareerr    oe    ‘aren     aaaprcr ‘eam\n二\n4",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_12.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 13.766666666666667,
+          "ocr_text": "THP18 1月13日央二                                                                                 Cal\na                       Cet ids                     a\neee\nDe\nlimmmemeep\ni\n那你现在这么想\na     ood   Smoa    amanarear    od    ‘zen     aemeaorc ‘eam\n*                         <>\nwy",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_13.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 14.766666666666667,
+          "ocr_text": "THP18 1月13日央二                                                                                 Ral\na                       Cet ids                     a\nae\nDe\nPe Ls 2,\ni\nwe     ood   Seoa    amanarear    od    ‘zen     aaaprcr ‘eam\n*                         <>\nwy",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_14.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 15.766666666666667,
+          "ocr_text": "a iL                                                                               RT\nx                       EE                     a ~\nLL 2\n5    本\n°               ;                  四\n4",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_15.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 16.833333333333332,
+          "ocr_text": "Daas                                                                                 ero\n:                       LDL                     a=\ncB,\ni.         本\n                                      <  ，\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_16.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 17.833333333333332,
+          "ocr_text": "TFT8 1月13昌网二                                                               BP cane\n\nal                       ed                     a\n\nDe]\nPe cL Lec,\n你是不是可以选择不同的\n=       Decoy     pa       one      pase,        p          oy\noO                                  < ，\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_17.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 18.833333333333332,
+          "ocr_text": "TFT8 1月13昌网二                                                               eto\n\nal                       ed                     a\n\nDe]\nlot,\n你是不是可以选择不同的\n      Peco     pan       on      cas,        p          oy\noO                                  < ，\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_18.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 19.833333333333332,
+          "ocr_text": "SR Id                                             eto\nal                                                            ed                                                       oe\nPe cL Lec, cc\n这个取件方式\noO                   < ，\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_19.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 20.833333333333332,
+          "ocr_text": "SR Id                                                                                      ran\nal                       ed                     oe\nee\nit F\nPe cL cc,\ni\noO                       < ，\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_20.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 21.833333333333332,
+          "ocr_text": "TFI8 1有13昌网二                                                                                 oe to.\ni.                                   Ct                                a\nne\na\n i\n你可以选择上门送件\n°                                                   6 >\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_21.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 22.833333333333332,
+          "ocr_text": "TFI8 1有13昌网二                                                                                 ESD = = oo m\n                                   Cet                                a\net\na\n i\n你可以选择上门送件\n°                                                   <>\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_22.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 23.833333333333332,
+          "ocr_text": "Daas                                                                                 ES = = oo m\n*                       ee TED                     a=\nPe Lee,\n—         Rees ra Let\n°                                      4 ，\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_23.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 24.833333333333332,
+          "ocr_text": "Dalat                                                                                 BP es0%.e\n*                       ee TED                     a=\nPe Lee,\n—         ees ra er\n°                                      4 ，\nos",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_24.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 25.833333333333332,
+          "ocr_text": "1T18 1月13日周二                                                                                 ED =二oo 权\na                       CT                     (Oe\neB)\nPe cL cc,\n C.J\n然后我们自己去取\noo   Pec    Caoarenr    a    ord     aanemeao am\noO                            《     >\nsy",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_25.8s.txt",
+          "segment_folder": "t1"
+        },
+        {
+          "time": 27.1,
+          "ocr_text": "TH18 1月13日周二                                                                                 Rd\na                       bd                     a\n计算村\nit#\nSc Sc\n7\nWenner; voneoa anmanarocr    od    od     ean\n四                       <>\n了",
+          "file_path": "/root/video_platform/video_data/61/ocr_segments/t1/ocr_27.1s.txt",
+          "segment_folder": "t1"
+        }
+      ]
+    },
+    "t2": {
+      "segment_folder": "t2",
+      "title": "DNS域名系统与域名结构",
+      "start_time": 63.98,
+      "end_time": 271.58,
+      "ocr_frames": []
+    },
+    "t3": {
+      "segment_folder": "t3",
+      "title": "DNS相关习题解析",
+      "start_time": 275.94,
+      "end_time": 307.92,
+      "ocr_frames": []
+    },
+    "t4": {
+      "segment_folder": "t4",
+      "title": "文件传输协议FTP",
+      "start_time": 309.06,
+      "end_time": 420.96,
+      "ocr_frames": []
+    },
+    "t5": {
+      "segment_folder": "t5",
+      "title": "远程登录协议Telnet",
+      "start_time": 422.02,
+      "end_time": 459.22,
+      "ocr_frames": []
+    },
+    "t6": {
+      "segment_folder": "t6",
+      "title": "万维网WWW的组成",
+      "start_time": 459.32,
+      "end_time": 599.02,
+      "ocr_frames": []
+    },
+    "t7": {
+      "segment_folder": "t7",
+      "title": "万维网相关习题解析",
+      "start_time": 599.12,
+      "end_time": 616.46,
+      "ocr_frames": []
+    },
+    "t8": {
+      "segment_folder": "t8",
+      "title": "电子邮件协议与格式",
+      "start_time": 618.02,
+      "end_time": 724.66,
+      "ocr_frames": []
+    },
+    "t9": {
+      "segment_folder": "t9",
+      "title": "动态主机配置协议DHCP",
+      "start_time": 725.44,
+      "end_time": 766.36,
+      "ocr_frames": []
+    },
+    "t10": {
+      "segment_folder": "t10",
+      "title": "应用层协议总结与表格归纳",
+      "start_time": 768.64,
+      "end_time": 803.84,
+      "ocr_frames": []
+    },
+    "t11": {
+      "segment_folder": "t11",
+      "title": "课程总结与练习题预告",
+      "start_time": 803.94,
+      "end_time": 850.6,
+      "ocr_frames": []
+    }
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传视频文件 - 学习助手</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:"Microsoft YaHei";}
+        .layout {display:flex; height:100vh;}
+        .sidebar {width:240px; background:#2c3e50; color:#fff; padding:20px;}
+        .sidebar-header h2 {margin-bottom:10px; font-size:20px;}
+        .sidebar-header p {color:#bdc3c7; font-size:14px;}
+        .sidebar-menu {margin-top:30px;}
+        .menu-item {display:block; padding:10px 15px; color:#fff; text-decoration:none; border-radius:4px; margin-bottom:8px;}
+        .menu-item.active {background:#3498db;}
+        .menu-item:hover {background:#34495e;}
+        .content {flex:1; padding:30px; background:#ecf0f1;}
+        .content-header h1 {font-size:24px; color:#2c3e50; margin-bottom:20px;}
+        .card {background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+        .card h2 {color:#2c3e50; margin-bottom:15px;}
+        .alert {padding:10px; margin-bottom:15px; border-radius:4px;}
+        .alert-success {background:#2ecc71; color:#fff;}
+        .alert-danger {background:#e74c3c; color:#fff;}
+        .form-group {margin-bottom:15px;}
+        .form-group label {display:block; margin-bottom:5px; color:#2c3e50;}
+        .form-group input {width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;}
+        .btn-primary {padding:10px 20px; background:#3498db; color:#fff; border:none; border-radius:4px; cursor:pointer; font-size:16px;}
+        .btn-primary:hover {background:#2980b9;}
+        /* 新增：显示选中的文件名 */
+        .file-name-tip {margin-top:8px; color:#7f8c8d; font-size:14px;}
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <!-- 左侧侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>学习助手</h2>
+                <p>视频文件智能解析工具</p>
+            </div>
+            <div class="sidebar-menu">
+                <a href="/upload" class="menu-item active">
+                    <span>📤</span> 上传视频文件
+                </a>
+                <a href="/" class="menu-item">
+                    <span>📜</span> 学习历史记录
+                </a>
+            </div>
+        </div>
+        <!-- 右侧内容区 -->
+        <div class="content">
+            <div class="content-header">
+                <h1>上传网课视频</h1>
+            </div>
+            <div class="content-body">
+                <div class="card">
+                    <h2>选择视频文件</h2>
+                    <!-- 提示信息 -->
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                        {% for msg in messages %}
+                          <div class="alert {% if '成功' in msg %}alert-success{% else %}alert-danger{% endif %}">{{ msg }}</div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+                    <!-- 上传表单：保留你的enctype，补充action属性（核心修复400错误） -->
+                    <form action="/upload" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="video_file">选择视频文件（支持MP4/AVI/MOV/MKV，最大2GB）：</label>
+                            <input type="file" id="video_file" name="video_file" accept="video/*" required onchange="showFileName(this)">
+                            <!-- 新增：显示选中的文件名 -->
+                            <div id="file_name_display" class="file-name-tip">未选择文件</div>
+                        </div>
+                        <button type="submit" class="btn-primary">上传并解析视频</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 新增：显示选中文件名的脚本 -->
+    <script>
+        function showFileName(input) {
+            const display = document.getElementById('file_name_display');
+            if (input.files.length > 0) {
+                display.textContent = `已选择：${input.files[0].name}`;
+                display.style.color = '#2c3e50';
+            } else {
+                display.textContent = '未选择文件';
+                display.style.color = '#7f8c8d';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+1821 1 DL be                                                TR]
+X                      LR rot |                    i ed
+ee Gat ae
+a3
+FTP有2个端口,用作控制连接的默认端号为( ), 用作数据传输的默认端口号为( 。 )
+A.20,20        LPI)
+C.21,21       D.21,20        控制连接 个
+数据传输 上
+下
+它是在控制的这个进程下面
+人   ET    as    ed    ‘aren     ‘esemempance ‘oom
+r                      <
+a

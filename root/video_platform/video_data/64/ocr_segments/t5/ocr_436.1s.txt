@@ -1,0 +1,17 @@
+1F21 1月13 bd                                                                       OR
+x                      LR not |                    i ed
+Sece ps 2-200) ae
+Dt 2s ala ag
+远程终绸协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。
+(即登录)      JEST Te 3)
+"gl
+Be ce rs ts ae)
+A.FTP          Arr        C.SSH          aa
+是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中
+容易被窃取，安全性较差
+建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密
+技术对传输数据进行加密，可有效防止数据被窗听、自改，用于安全的远程登录 。
+Pee ious saa Lhe
+ed   rT   “cameron    eed    ‘aren     ‘esemempancr ‘oom
+e@                          《
+4

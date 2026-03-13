@@ -1,0 +1,234 @@
+{
+  "concept_hierarchy": [
+    {
+      "parent": "应用层",
+      "children": [
+        "DNS域名系统",
+        "FTP文件传输协议",
+        "Telnet远程登录协议",
+        "WWW万维网",
+        "电子邮件协议",
+        "DHCP动态主机配置协议"
+      ],
+      "description": "OSI模型第七层，直接面向用户网络服务的接口层；本课程聚焦典型协议及其原理、结构与实践问题。",
+      "related_video_names": [
+        "1_应用层概述",
+        "12_应用层协议总结表",
+        "13_课程总结与练习题预告"
+      ],
+      "related_video_ids": [
+        65,
+        65,
+        65
+      ]
+    },
+    {
+      "parent": "DNS域名系统",
+      "children": [
+        "域名层次结构",
+        "根域/顶级域/二级域划分",
+        "递归查询与迭代查询机制",
+        "DNS资源记录类型（A、CNAME、MX等）"
+      ],
+      "description": "将人类可读的域名映射为IP地址的分布式数据库系统；强调分层命名空间与解析过程。",
+      "related_video_names": [
+        "2_DNS域名系统",
+        "3_域名结构与分类",
+        "4_DNS相关习题解析"
+      ],
+      "related_video_ids": [
+        65,
+        65,
+        65
+      ]
+    },
+    {
+      "parent": "FTP文件传输协议",
+      "children": [
+        "主动模式（PORT）与被动模式（PASV）区别",
+        "控制连接（端口21）与数据连接（动态端口或端口20）",
+        "ASCII与二进制传输模式适用场景"
+      ],
+      "description": "基于TCP的应用层协议，支持双向文件传输；重点区分通信模式及端口行为差异。",
+      "related_video_names": [
+        "5_文件传输协议FTP",
+        "6_FTP端口习题解析"
+      ],
+      "related_video_ids": [
+        65,
+        65
+      ]
+    },
+    {
+      "parent": "Telnet远程登录协议",
+      "children": [
+        "明文传输特性与安全缺陷",
+        "NVT（网络虚拟终端）抽象机制",
+        "客户端-服务器交互会话流程"
+      ],
+      "description": "早期远程终端访问协议；突出其无加密本质及标准化字符处理方式。",
+      "related_video_names": [
+        "7_远程登录协议Telnet"
+      ],
+      "related_video_ids": [
+        65
+      ]
+    },
+    {
+      "parent": "WWW万维网",
+      "children": [
+        "URL语法构成（scheme://host:port/path?query#fragment）",
+        "HTTP请求方法（GET/POST等）与状态码含义",
+        "超文本链接与MIME类型协商"
+      ],
+      "description": "构建在HTTP之上的分布式信息系统；核心是统一资源标识、超媒体导航与客户机/服务器架构。",
+      "related_video_names": [
+        "8_万维网WWW",
+        "9_万维网习题解析"
+      ],
+      "related_video_ids": [
+        65,
+        65
+      ]
+    },
+    {
+      "parent": "电子邮件协议",
+      "children": [
+        "SMTP发送邮件（端口25/587）、POP3接收下载（端口110）、IMAP同步管理（端口143/993）功能对比",
+        "邮件报文结构（首部+正文+MIME扩展）"
+      ],
+      "description": "支撑异步消息传递的三协议协同体系；关键在于角色分工、端口约定与存储模型差异。",
+      "related_video_names": [
+        "10_电子邮件协议"
+      ],
+      "related_video_ids": [
+        65
+      ]
+    },
+    {
+      "parent": "DHCP动态主机配置协议",
+      "children": [
+        "DORA四阶段流程（Discover-Offer-Request-Ack）",
+        "租约时间与续租机制",
+        "DHCP中继代理跨子网工作原理"
+      ],
+      "description": "自动分配IP地址及其他网络参数的服务协议；以广播发现起始，依赖UDP且具容错性设计。",
+      "related_video_names": [
+        "11_动态主机配置协议DHCP"
+      ],
+      "related_video_ids": [
+        65
+      ]
+    },
+    {
+      "parent": "应用层协议共性分析",
+      "children": [
+        "均运行于TCP或UDP之上",
+        "多数采用客户机/服务器模型",
+        "普遍使用熟知端口号进行初始握手"
+      ],
+      "description": "从工程实现视角提炼各协议底层依赖、交互范式与端口规范的一致性特征。",
+      "related_video_names": [
+        "12_应用层协议总结表"
+      ],
+      "related_video_ids": [
+        65
+      ]
+    }
+  ],
+  "preset_relations_adjusted": [],
+  "video_specific_relations": [
+    {
+      "video_id": 65,
+      "video_name": "1_应用层概述",
+      "relation_type": "introduces",
+      "source_concept": "应用层",
+      "target_concept": "协议栈定位与服务边界"
+    },
+    {
+      "video_id": 65,
+      "video_name": "2_DNS域名系统",
+      "relation_type": "demonstrates",
+      "source_concept": "DNS域名系统",
+      "target_concept": "本地hosts文件优先级验证实验"
+    },
+    {
+      "video_id": 65,
+      "video_name": "3_域名结构与分类",
+      "relation_type": "classifies",
+      "source_concept": "域名层次结构",
+      "target_concept": "国家代码顶级域（ccTLD）vs 通用顶级域（gTLD）语义规则"
+    },
+    {
+      "video_id": 65,
+      "video_name": "4_DNS相关习题解析",
+      "relation_type": "applies",
+      "source_concept": "DNS资源记录类型（A、CNAME、MX等）",
+      "target_concept": "链路故障下CNAME跳转失效路径推演"
+    },
+    {
+      "video_id": 65,
+      "video_name": "5_文件传输协议FTP",
+      "relation_type": "illustrates",
+      "source_concept": "FTP文件传输协议",
+      "target_concept": "双通道分离设计理念对防火墙穿透的影响"
+    },
+    {
+      "video_id": 65,
+      "video_name": "6_FTP端口习题解析",
+      "relation_type": "resolves",
+      "source_concept": "控制连接（端口21）与数据连接（动态端口或端口20）",
+      "target_concept": "Wireshark抓包中PASV响应字段端口提取逻辑"
+    },
+    {
+      "video_id": 65,
+      "video_name": "7_远程登录协议Telnet",
+      "relation_type": "contrasts",
+      "source_concept": "Telnet远程登录协议",
+      "target_concept": "SSH协议密钥认证替代方案安全性提升维度"
+    },
+    {
+      "video_id": 65,
+      "video_name": "8_万维网WWW",
+      "relation_type": "defines",
+      "source_concept": "WWW万维网",
+      "target_concept": "URI vs URL vs URN形式化辨析示例"
+    },
+    {
+      "video_id": 65,
+      "video_name": "9_万维网习题解析",
+      "relation_type": "analyzes",
+      "source_concept": "HTTP请求方法（GET/POST等）与状态码含义",
+      "target_concept": "304 Not Modified缓存协商触发条件判定树"
+    },
+    {
+      "video_id": 65,
+      "video_name": "10_电子邮件协议",
+      "relation_type": "compares",
+      "source_concept": "电子邮件协议",
+      "target_concept": "POP3删除后不可恢复 vs IMAP多设备标记一致性保障机制"
+    },
+    {
+      "video_id": 65,
+      "video_name": "11_动态主机配置协议DHCP",
+      "relation_type": "traces",
+      "source_concept": "DHCP动态主机配置协议",
+      "target_concept": "Windows DHCP Client服务日志中Offer拒绝原因编码解读"
+    },
+    {
+      "video_id": 65,
+      "video_name": "12_应用层协议总结表",
+      "relation_type": "synthesizes",
+      "source_concept": "应用层协议共性分析",
+      "target_concept": "协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "video_id": 65,
+      "video_name": "13_课程总结与练习题预告",
+      "relation_type": "foreshadows",
+      "source_concept": "应用层",
+      "target_concept": "综合拓扑中混合协议流量冲突排查策略（如DNS劫持干扰HTTPS证书校验）"
+    }
+  ],
+  "explanation": "本定制化知识图谱完全依据13个子视频的实际教学脉络构建：① 视频1确立'应用层'作为顶层父概念，并贯穿全系列；② 视频2–4围绕DNS展开，形成‘DNS域名系统→域名层次结构→具体资源记录’三级递进，体现由总到分的教学逻辑；③ 视频5–6聚焦FTP双通道机制与端口细节，在层级中单列‘主动/被动模式’并绑定实操难点；④ 视频7单独强化Telnet的安全局限性，引出与SSH的对照关系；⑤ 视频8–9深化WWW的URL/HTTP/MIME三维认知框架；⑥ 视频10明确三大邮件协议的功能切面与端口契约；⑦ 视频11通过DORA流程建模DHCP时序敏感性；⑧ 视频12不简单罗列协议，而是升华为‘共性分析’节点，支撑高阶比较能力；⑨ 视频13虽为收尾，但引入真实排障场景预测，反向锚定整个图谱的应用导向。全部13个视频均有专属概念分支或特有关系注入，零冗余裁剪——因预设图谱为空集，故无概念被移除；所有新增概念均标注对应video_id=65及精确video_name，确保可追溯性与教学闭环。"
+}

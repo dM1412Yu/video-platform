@@ -1,0 +1,251 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6006
+ * Running on http://172.17.0.5:6006
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [13/Feb/2026 13:50:10] "[32mGET / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [13/Feb/2026 13:50:10] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 13:50:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+[2026-02-13 13:50:12,877] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/video_platform/routes/auth.py", line 13, in login
+    if check_user(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/video_platform/utils/db.py", line 19, in check_user
+    return redis_client.hget("users", username) == password
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/commands/core.py", line 5261, in hget
+    return self.execute_command("HGET", name, key, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+127.0.0.1 - - [13/Feb/2026 13:50:12] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+127.0.0.1 - - [13/Feb/2026 13:50:25] "[32mGET / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [13/Feb/2026 13:50:25] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 13:50:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [13/Feb/2026 13:50:27] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 13:50:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+[2026-02-13 13:50:30,799] ERROR in app: Exception on /register [POST]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/video_platform/routes/auth.py", line 25, in register
+    save_user(username, password)
+  File "/root/video_platform/utils/db.py", line 16, in save_user
+    redis_client.hset("users", username, password)
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/commands/core.py", line 5411, in hset
+    return self.execute_command("HSET", name, *pieces)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+127.0.0.1 - - [13/Feb/2026 13:50:30] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+127.0.0.1 - - [13/Feb/2026 13:52:08] "[32mGET / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [13/Feb/2026 13:52:08] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 13:52:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+[2026-02-13 13:52:10,743] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/video_platform/routes/auth.py", line 13, in login
+    if check_user(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/video_platform/utils/db.py", line 19, in check_user
+    return redis_client.hget("users", username) == password
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/commands/core.py", line 5261, in hget
+    return self.execute_command("HGET", name, key, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+127.0.0.1 - - [13/Feb/2026 13:52:10] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+127.0.0.1 - - [13/Feb/2026 13:53:05] "[32mGET / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [13/Feb/2026 13:53:05] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 13:53:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+[2026-02-13 13:53:08,109] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/video_platform/routes/auth.py", line 13, in login
+    if check_user(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/video_platform/utils/db.py", line 19, in check_user
+    return redis_client.hget("users", username) == password
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/commands/core.py", line 5261, in hget
+    return self.execute_command("HGET", name, key, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+  File "/root/miniconda3/lib/python3.12/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+127.0.0.1 - - [13/Feb/2026 13:53:08] "[35m[1mPOST /login HTTP/1.1[0m" 500 -

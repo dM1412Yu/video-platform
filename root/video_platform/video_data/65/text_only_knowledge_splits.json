@@ -1,0 +1,80 @@
+[
+  {
+    "start_time": 7.72,
+    "end_time": 45.8,
+    "knowledge_point": "应用层概述",
+    "description": "介绍应用层的功能，即为不同应用提供不同的服务，并通过快递类比说明其作用。"
+  },
+  {
+    "start_time": 46.3,
+    "end_time": 112.36,
+    "knowledge_point": "DNS域名系统",
+    "description": "讲解DNS的作用是将域名转换为IP地址，以及其在互联网通信中的关键角色。"
+  },
+  {
+    "start_time": 112.94,
+    "end_time": 275.94,
+    "knowledge_point": "域名结构与分类",
+    "description": "详细解析域名的三级结构（顶级、二级、三级），并介绍国家顶级域名（如CN）和通用顶级域名（如COM、EDU、GOV）的含义及常见考题形式。"
+  },
+  {
+    "start_time": 278.08,
+    "end_time": 307.92,
+    "knowledge_point": "DNS相关习题解析",
+    "description": "通过两道典型选择题巩固DNS知识点，包括域名转IP协议识别和政府机构域名判断。"
+  },
+  {
+    "start_time": 309.08,
+    "end_time": 394.16,
+    "knowledge_point": "文件传输协议FTP",
+    "description": "讲解FTP的工作方式（客户端-服务器）、使用的TCP协议、控制连接（端口21）与数据传输连接（端口20）的区别及其记忆方法。"
+  },
+  {
+    "start_time": 395.5,
+    "end_time": 420.96,
+    "knowledge_point": "FTP端口习题解析",
+    "description": "通过一道题目巩固FTP控制连接端口号（21）的知识点，强调控制连接在上层、数据连接在下层的记忆逻辑。"
+  },
+  {
+    "start_time": 422.02,
+    "end_time": 459.22,
+    "knowledge_point": "远程登录协议Telnet",
+    "description": "介绍Telnet协议用于安全远程登录的功能，并通过“太远了”谐音联想帮助记忆其名称与用途。"
+  },
+  {
+    "start_time": 459.22,
+    "end_time": 596.96,
+    "knowledge_point": "万维网WWW",
+    "description": "讲解万维网的三个组成部分：统一资源定位符（URL）、超文本传输协议（HTTP）和超文本标记语言（HTML），并说明HTTP使用TCP协议及默认端口80。"
+  },
+  {
+    "start_time": 596.96,
+    "end_time": 616.46,
+    "knowledge_point": "万维网习题解析",
+    "description": "通过一道题目巩固网页编写语言（HTML）和支持协议（HTTP）的知识点，确认答案为C选项。"
+  },
+  {
+    "start_time": 618.02,
+    "end_time": 724.66,
+    "knowledge_point": "电子邮件协议",
+    "description": "讲解电子邮件格式（用户名@邮件服务器域名），以及发送方使用SMTP协议（端口25）和接收方使用POP3协议（端口110）的机制。"
+  },
+  {
+    "start_time": 725.44,
+    "end_time": 766.36,
+    "knowledge_point": "动态主机配置协议DHCP",
+    "description": "介绍DHCP协议用于自动获取IP地址的功能，强调其解决网络地址冲突的作用，并通过“CP=分配”记忆法辅助理解。"
+  },
+  {
+    "start_time": 768.64,
+    "end_time": 803.84,
+    "knowledge_point": "应用层协议总结表",
+    "description": "汇总常见应用层协议所使用的运输层协议（TCP/UDP）及其对应端口号，强调该表格对考试的重要性。"
+  },
+  {
+    "start_time": 803.84,
+    "end_time": 850.6,
+    "knowledge_point": "课程总结与练习题预告",
+    "description": "总结本节课内容，布置课后练习题，并预告下一节课程安排，鼓励学生复习巩固。"
+  }
+]

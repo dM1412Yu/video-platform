@@ -1,0 +1,13 @@
+flask==2.3.3
+torch==2.1.0
+torchvision==0.16.0
+openai-whisper==20231106
+easyocr==1.7.0
+ffmpeg-python==0.2.0
+dashscope==1.14.0
+opencv-python==4.8.1.78
+scipy==1.11.4
+sentence-transformers==2.2.2
+Pillow==10.1.0
+numpy==1.26.2
+requests==2.31.0

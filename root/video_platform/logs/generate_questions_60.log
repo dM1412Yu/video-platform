@@ -1,0 +1,65 @@
+2026-02-28 18:57:42,870 - INFO - generate_questions_for_knowledge_points - line 347 - ===== 开始生成题目 =====
+2026-02-28 18:57:42,870 - INFO - init_base_context - line 263 - 📤 第一次传入：final_llm_input.json
+2026-02-28 18:57:42,870 - WARNING - init_base_context - line 278 - ⚠️ final_llm_input.json不存在：/root/video_platform/video_data/60/final_llm_input.json
+2026-02-28 18:57:42,871 - INFO - init_base_context - line 286 - 📤 第二次传入：全局矫正ASR
+2026-02-28 18:57:42,871 - INFO - init_base_context - line 293 - ✅ 矫正ASR加载成功（长度：4089字）
+2026-02-28 18:57:42,871 - INFO - init_base_context - line 306 - ✅ 上下文初始化完成（严格按顺序：先传final_llm_input → 再传矫正ASR）
+2026-02-28 18:57:42,872 - WARNING - load_all_t_segments_ocr - line 317 - ⚠️ OCR不存在，自动提取
+2026-02-28 18:57:58,028 - INFO - extract_t_ocr_with_pytesseract - line 218 - t1 应用层概述 | 提取帧：20
+2026-02-28 18:57:58,049 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t2 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,061 - INFO - extract_t_ocr_with_pytesseract - line 218 - t2 DNS域名系统 | 提取帧：0
+2026-02-28 18:57:58,071 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t3 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,083 - INFO - extract_t_ocr_with_pytesseract - line 218 - t3 域名结构与分类 | 提取帧：0
+2026-02-28 18:57:58,093 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t4 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,104 - INFO - extract_t_ocr_with_pytesseract - line 218 - t4 DNS相关习题解析 | 提取帧：0
+2026-02-28 18:57:58,114 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t5 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,124 - INFO - extract_t_ocr_with_pytesseract - line 218 - t5 文件传输协议FTP | 提取帧：0
+2026-02-28 18:57:58,134 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t6 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,144 - INFO - extract_t_ocr_with_pytesseract - line 218 - t6 FTP端口习题解析 | 提取帧：0
+2026-02-28 18:57:58,165 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t7 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,178 - INFO - extract_t_ocr_with_pytesseract - line 218 - t7 远程登录协议Telnet | 提取帧：0
+2026-02-28 18:57:58,189 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t8 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,199 - INFO - extract_t_ocr_with_pytesseract - line 218 - t8 万维网WWW组成原理 | 提取帧：0
+2026-02-28 18:57:58,210 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t9 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,220 - INFO - extract_t_ocr_with_pytesseract - line 218 - t9 万维网相关习题解析 | 提取帧：0
+2026-02-28 18:57:58,230 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t10 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,240 - INFO - extract_t_ocr_with_pytesseract - line 218 - t10 电子邮件协议与格式 | 提取帧：0
+2026-02-28 18:57:58,250 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t11 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,261 - INFO - extract_t_ocr_with_pytesseract - line 218 - t11 电子邮件接收协议习题解析 | 提取帧：0
+2026-02-28 18:57:58,271 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t12 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,282 - INFO - extract_t_ocr_with_pytesseract - line 218 - t12 动态主机配置协议DHCP | 提取帧：0
+2026-02-28 18:57:58,292 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t13 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,303 - INFO - extract_t_ocr_with_pytesseract - line 218 - t13 应用层协议总结表 | 提取帧：0
+2026-02-28 18:57:58,313 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t14 无变化帧，5秒兜底提取
+2026-02-28 18:57:58,324 - INFO - extract_t_ocr_with_pytesseract - line 218 - t14 课程总结与练习题预告 | 提取帧：0
+2026-02-28 18:57:58,325 - INFO - extract_t_ocr_with_pytesseract - line 229 - ✅ OCR 完成
+2026-02-28 18:57:58,326 - INFO - load_all_t_segments_ocr - line 341 - ✅ 读取分段：14 个
+2026-02-28 18:57:58,326 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t1 | 标题：应用层概述
+2026-02-28 18:58:02,180 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t1 AI出题成功
+2026-02-28 18:58:02,181 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t2 | 标题：DNS域名系统
+2026-02-28 18:58:06,284 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t2 AI出题成功
+2026-02-28 18:58:06,285 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t3 | 标题：域名结构与分类
+2026-02-28 18:58:10,969 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t3 AI出题成功
+2026-02-28 18:58:10,970 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t4 | 标题：DNS相关习题解析
+2026-02-28 18:58:15,694 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t4 AI出题成功
+2026-02-28 18:58:15,694 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t5 | 标题：文件传输协议FTP
+2026-02-28 18:58:20,646 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t5 AI出题成功
+2026-02-28 18:58:20,647 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t6 | 标题：FTP端口习题解析
+2026-02-28 18:58:25,513 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t6 AI出题成功
+2026-02-28 18:58:25,513 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t7 | 标题：远程登录协议Telnet
+2026-02-28 18:58:30,608 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t7 AI出题成功
+2026-02-28 18:58:30,608 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t8 | 标题：万维网WWW组成原理
+2026-02-28 18:58:35,751 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t8 AI出题成功
+2026-02-28 18:58:35,751 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t9 | 标题：万维网相关习题解析
+2026-02-28 18:58:40,704 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t9 AI出题成功
+2026-02-28 18:58:40,705 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t10 | 标题：电子邮件协议与格式
+2026-02-28 18:58:45,684 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t10 AI出题成功
+2026-02-28 18:58:45,684 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t11 | 标题：电子邮件接收协议习题解析
+2026-02-28 18:58:50,886 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t11 AI出题成功
+2026-02-28 18:58:50,887 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t12 | 标题：动态主机配置协议DHCP
+2026-02-28 18:58:55,858 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t12 AI出题成功
+2026-02-28 18:58:55,859 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t13 | 标题：应用层协议总结表
+2026-02-28 18:59:01,337 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t13 AI出题成功
+2026-02-28 18:59:01,338 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t14 | 标题：课程总结与练习题预告
+2026-02-28 18:59:06,635 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t14 AI出题成功
+2026-02-28 18:59:06,637 - INFO - generate_questions_for_knowledge_points - line 430 - ===== 生成完成！题目已保存到：/root/video_platform/video_data/60/knowledge_questions.json =====

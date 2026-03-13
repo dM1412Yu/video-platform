@@ -1,0 +1,11 @@
+SOL TELL 车                                                                                  OP rae
+x                                              LR rot Ly                                          i eo
+BE
+” 常见应用层协议小结
+人
+使用协议    UDP       TCP          TCP        TCP     TCP  TCP  TCP    全
+皂知端口号    53        20           21         区     25    110
+它是使用的运输层的哪一个协议
+人       coo        aes         rd        oo           oe
+@                                       《
+4

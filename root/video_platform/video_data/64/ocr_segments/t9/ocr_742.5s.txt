@@ -1,0 +1,12 @@
+1824 1月13日周二                                                  Oe ad
+x                      LR not Ly                    i ed
+Bee te a7 4) ee
+” 6-1 动态主机配置协议DHCP
+动态主机配置协议DHCP: 允许一台计算机加入网络时, 自动获取 IP 地址,而不用手工配置。
+题1 四
+用于动态分配lp地址,解决网络地址冲突的协议是:(。 )
+A.DHCP                     B.DNS                       C.ICMP                      D.PPP
+US Paes a tet
+*     一    —<——$ rr     —
+@                      《
+4

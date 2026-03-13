@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>注册 - 视频处理平台</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>用户注册</h1>
+        <!-- 显示提示信息 -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label for="username">用户名：</label>
+                <input type="text" id="username" name="username" 
+                       placeholder="请输入用户名" required>
+            </div>
+            <div class="form-group">
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password" 
+                       placeholder="请输入密码" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">确认密码：</label>
+                <input type="password" id="confirm_password" 
+                       name="confirm_password" placeholder="请确认密码" required>
+            </div>
+            <button type="submit" class="btn">注册</button>
+        </form>
+        <p>已有账号？<a href="/login">立即登录</a></p>
+    </div>
+</body>
+</html>

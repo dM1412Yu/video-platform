@@ -1,0 +1,128 @@
+{
+  "segment_folder": "t1",
+  "title": "知识点1",
+  "start_time": 7.72,
+  "end_time": 45.8,
+  "ocr_frames": [
+    {
+      "time": 7.766666666666667,
+      "ocr_text": "TFT7 1月13日周二                                                                                 ES = ok\nx                       LE                     a ~\nee:\nPe Ls es,\n     ao   oa    nad    Shame    ‘aren     Tesseemoamce ‘eam\ne                            <\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_7.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 8.766666666666667,
+      "ocr_text": "1HPT7 1月13日央二                                                                                               BP cso\nbs                       bh                     a\n:rmt\n它所解决的是\n     ao   Ca    a    Shea    ‘zen     amemoaonc ‘oom\na                      <>\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_8.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 9.766666666666667,
+      "ocr_text": "1HPT7 1月13日央二                                                                                               AR 四\n四                       bh                     a\n1 rt\na ets\nwe     ao   oa    ammnareer    Shem    ‘aren     amemoaonc ‘oom\na                      <>\n了",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_9.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 10.766666666666667,
+      "ocr_text": "PT7 1月13晶央二                                                                                               ES = = oo m\ni.                                   (Co                                oe\nWw       丰\n， 计算机网络体系结构\n CJ\n进程和进程之间的一个通信问题\n于           Prd        een          oS         “ewe            °               os\nJ                                                   < ，\n已",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_10.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 11.766666666666667,
+      "ocr_text": "HP18 1月13日周二                                                                                               BP eae\ni.                                   (oO                                oe\nyy       丰\n， 计算机网络体系结榴\n =\n进程和进程之间的一个通信问题\n于           Pred        pene          os         “een            °               os\nJ                                                   @ >\na",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_11.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 12.766666666666667,
+      "ocr_text": "TH18 1月13日周二                                                                               ee\nx                       pe                     me\n\nd\n\nPee\n\n进程和进程之间的一个通信问题\n             ao         neoa          a            “pease           ‘aren              Tesseemoamce “eam\n7               c\na",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_12.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 13.766666666666667,
+      "ocr_text": "TFI8 1月13昌央二                                                                                 2\niz                       yy                     国 …-\n计算机\nSec LS\n7\n那你现在这么想\nco     Ca       ,       —_      7       a\n二                       < ，\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_13.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 14.766666666666667,
+      "ocr_text": "1P18 1月13日周二                                                                                      rane\ni.                       EEO                     a\nDye 21\n\nPe ccc,\n\n7\nCo     rd     ‘yam    cod      Qe ES\ne                       4 ，\n\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_14.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 15.766666666666667,
+      "ocr_text": "1F18 1月13日周二                                                                               RT\nx                       PET                     me\nLL 2,\n村    本\nfe)               ae\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_15.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 16.833333333333332,
+      "ocr_text": "1F18 1月13日央二                                                                        WE = = ov\nx                       PEL                     me\ncM,\nak.    本\ne                  由\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_16.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 17.833333333333332,
+      "ocr_text": "1P18 1月13日央二                                                                                 oon to.\ni.                       eee Ce                     we\n计算机\nPe cL Lec,\n你是不是可以选择不同的\nos     Pred    Poe     Om    oy      +       =\n. J                       rs\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_17.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 18.833333333333332,
+      "ocr_text": "1P18 1月13日央二                                                                                 GB) ea0%e\ni.                       ae Ce                     we\n计算机\nPe cL Lec,\n你是不是可以选择不同的\n    Prd    Poe     mn    Ory      +       =\n. J                       rs\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_18.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 19.833333333333332,
+      "ocr_text": "1P18 1月13日央二                                                                                 ED = = oo 四\ni.                       ae                     we\n计算村\nlm,\nTMA\noe    Prd    poner     ny    ary      +       =\n. J                       rs\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_19.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 20.833333333333332,
+      "ocr_text": "TFT8 1有13日央二                                                                                      crt)\ni.                       Ed                     a\nae Ei)\nPee\ni\ncom    a     —    ey      ，       =\nL                       nr\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_20.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 21.833333333333332,
+      "ocr_text": "1818 1月13日周二                                                                                 OR\nx                       Deu                     a\nne\n6\ntome,\n你可以选择上门送件\n=    Taenstons   oa    eos     ad    re      asnemaorcr om\ncoy\na",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_21.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 22.833333333333332,
+      "ocr_text": "Dad                                                                                 BP ea0%em\na                       py                     a\n计算村\nlaaneeemen\n f°\nits aang\noO                                  « >\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_22.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 23.833333333333332,
+      "ocr_text": "TFT18 1月13日周二                                                                               ED oo 四\nx                       pe                     a ~\ner\n0\nPe Lee\n也可以选择把这个快递放到快递点\n人             so            neo            aanarenrr               “ham              ‘wren                  Teseeameaoce ‘exe\noO                                                                            《\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_23.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 24.833333333333332,
+      "ocr_text": "1TF18 1月13日周二                                                                        AR\nx                       pe                     a ~\nLL 2\n=    |\noO                                 《\na",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_24.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 25.833333333333332,
+      "ocr_text": "HP18 1月13日央二                                                                                 oer to. 8\ni.                       (ON                     o-\n计算村\nPe cL Lec,\n7\n然后我们自己去取\n人而ao neo    Pree     ——     oa      9       =\nco                         «>\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_25.8s.txt",
+      "segment_folder": "t1"
+    },
+    {
+      "time": 26.833333333333332,
+      "ocr_text": "HP18 1月13日央二                                                                                 Omer to 四\ni.                       (ON                     o-\nne\nPe cL Lec,\n i\n然后我们自己去取\n宙 a a ee       SS      town        7          =\noO                                  <       ，\n4",
+      "file_path": "/root/video_platform/video_data/63/ocr_segments/t1/ocr_26.8s.txt",
+      "segment_folder": "t1"
+    }
+  ]
+}

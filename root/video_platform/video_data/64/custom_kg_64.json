@@ -1,0 +1,107 @@
+{
+  "concept_hierarchy": [
+    {
+      "parent": "数学核心概念",
+      "children": [
+        "应用层概述",
+        "DNS域名系统与域名结构",
+        "DNS相关习题解析",
+        "文件传输协议FTP",
+        "远程登录协议Telnet",
+        "万维网WWW的组成",
+        "万维网相关习题解析",
+        "电子邮件协议与格式",
+        "动态主机配置协议DHCP",
+        "应用层协议总结与表格归纳",
+        "课程总结与练习题预告"
+      ],
+      "description": "API调用失败，兜底概念层级",
+      "related_video_names": [
+        "1_应用层概述",
+        "2_DNS域名系统与域名结构",
+        "3_DNS相关习题解析",
+        "4_文件传输协议FTP",
+        "5_远程登录协议Telnet",
+        "6_万维网WWW的组成",
+        "7_万维网相关习题解析",
+        "8_电子邮件协议与格式",
+        "9_动态主机配置协议DHCP",
+        "10_应用层协议总结与表格归纳",
+        "11_课程总结与练习题预告"
+      ],
+      "related_video_ids": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    }
+  ],
+  "preset_relations_adjusted": [],
+  "video_specific_relations": [
+    {
+      "video_name": "1_应用层概述",
+      "relation": "应用层概述-兜底关系",
+      "description": "应用层概述的核心概念：默认概念"
+    },
+    {
+      "video_name": "2_DNS域名系统与域名结构",
+      "relation": "DNS域名系统与域名结构-兜底关系",
+      "description": "DNS域名系统与域名结构的核心概念：默认概念"
+    },
+    {
+      "video_name": "3_DNS相关习题解析",
+      "relation": "DNS相关习题解析-兜底关系",
+      "description": "DNS相关习题解析的核心概念：默认概念"
+    },
+    {
+      "video_name": "4_文件传输协议FTP",
+      "relation": "文件传输协议FTP-兜底关系",
+      "description": "文件传输协议FTP的核心概念：默认概念"
+    },
+    {
+      "video_name": "5_远程登录协议Telnet",
+      "relation": "远程登录协议Telnet-兜底关系",
+      "description": "远程登录协议Telnet的核心概念：默认概念"
+    },
+    {
+      "video_name": "6_万维网WWW的组成",
+      "relation": "万维网WWW的组成-兜底关系",
+      "description": "万维网WWW的组成的核心概念：默认概念"
+    },
+    {
+      "video_name": "7_万维网相关习题解析",
+      "relation": "万维网相关习题解析-兜底关系",
+      "description": "万维网相关习题解析的核心概念：默认概念"
+    },
+    {
+      "video_name": "8_电子邮件协议与格式",
+      "relation": "电子邮件协议与格式-兜底关系",
+      "description": "电子邮件协议与格式的核心概念：默认概念"
+    },
+    {
+      "video_name": "9_动态主机配置协议DHCP",
+      "relation": "动态主机配置协议DHCP-兜底关系",
+      "description": "动态主机配置协议DHCP的核心概念：默认概念"
+    },
+    {
+      "video_name": "10_应用层协议总结与表格归纳",
+      "relation": "应用层协议总结与表格归纳-兜底关系",
+      "description": "应用层协议总结与表格归纳的核心概念：默认概念"
+    },
+    {
+      "video_name": "11_课程总结与练习题预告",
+      "relation": "课程总结与练习题预告-兜底关系",
+      "description": "课程总结与练习题预告的核心概念：默认概念"
+    }
+  ],
+  "explanation": "视频64生成失败（API调用多次失败），使用兜底数据",
+  "error_type": "API_FAILED"
+}

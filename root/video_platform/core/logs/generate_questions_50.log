@@ -1,0 +1,172 @@
+2026-02-26 17:53:22,456 - INFO - generate_questions_for_knowledge_points - line 288 - 开始为视频50生成差异化题目（OCR采样间隔2秒）
+2026-02-26 17:56:02,092 - INFO - generate_questions_for_knowledge_points - line 288 - 开始为视频50生成差异化题目（OCR采样间隔2秒）
+2026-02-26 17:56:17,242 - INFO - extract_t_ocr_with_pytesseract - line 245 - t1「应用层概述」OCR提取完成 | 时间：7.7-45.8秒 | 有效帧：9
+2026-02-26 17:56:17,274 - INFO - extract_t_ocr_with_pytesseract - line 245 - t2「DNS域名系统」OCR提取完成 | 时间：46.3-114.1秒 | 有效帧：0
+2026-02-26 17:56:17,308 - INFO - extract_t_ocr_with_pytesseract - line 245 - t3「域名结构与分类」OCR提取完成 | 时间：114.9-274.5秒 | 有效帧：0
+2026-02-26 17:56:17,339 - INFO - extract_t_ocr_with_pytesseract - line 245 - t4「DNS相关习题解析」OCR提取完成 | 时间：275.9-307.9秒 | 有效帧：0
+2026-02-26 17:56:17,372 - INFO - extract_t_ocr_with_pytesseract - line 245 - t5「文件传输协议FTP」OCR提取完成 | 时间：309.1-394.2秒 | 有效帧：0
+2026-02-26 17:56:17,402 - INFO - extract_t_ocr_with_pytesseract - line 245 - t6「FTP相关习题解析」OCR提取完成 | 时间：395.5-421.0秒 | 有效帧：0
+2026-02-26 17:56:17,434 - INFO - extract_t_ocr_with_pytesseract - line 245 - t7「远程登录协议Telnet」OCR提取完成 | 时间：422.0-458.1秒 | 有效帧：0
+2026-02-26 17:56:17,462 - INFO - extract_t_ocr_with_pytesseract - line 245 - t8「万维网WWW」OCR提取完成 | 时间：459.2-596.3秒 | 有效帧：0
+2026-02-26 17:56:17,494 - INFO - extract_t_ocr_with_pytesseract - line 245 - t9「万维网相关习题解析」OCR提取完成 | 时间：597.0-616.5秒 | 有效帧：0
+2026-02-26 17:56:17,526 - INFO - extract_t_ocr_with_pytesseract - line 245 - t10「电子邮件协议」OCR提取完成 | 时间：618.0-724.7秒 | 有效帧：0
+2026-02-26 17:56:17,557 - INFO - extract_t_ocr_with_pytesseract - line 245 - t11「动态主机配置协议DHCP」OCR提取完成 | 时间：725.4-766.4秒 | 有效帧：0
+2026-02-26 17:56:17,587 - INFO - extract_t_ocr_with_pytesseract - line 245 - t12「应用层协议总结表」OCR提取完成 | 时间：768.6-802.9秒 | 有效帧：0
+2026-02-26 17:56:17,619 - INFO - extract_t_ocr_with_pytesseract - line 245 - t13「课程总结与练习题预告」OCR提取完成 | 时间：803.8-850.6秒 | 有效帧：0
+2026-02-26 17:56:19,249 - INFO - generate_questions_for_knowledge_points - line 391 - t1「应用层概述」题目生成成功（7.7-45.8秒）
+2026-02-26 17:56:20,835 - INFO - generate_questions_for_knowledge_points - line 391 - t2「DNS域名系统」题目生成成功（46.3-114.1秒）
+2026-02-26 17:56:22,741 - INFO - generate_questions_for_knowledge_points - line 391 - t3「域名结构与分类」题目生成成功（114.9-274.5秒）
+2026-02-26 17:56:24,384 - INFO - generate_questions_for_knowledge_points - line 391 - t4「DNS相关习题解析」题目生成成功（275.9-307.9秒）
+2026-02-26 17:56:26,043 - INFO - generate_questions_for_knowledge_points - line 391 - t5「文件传输协议FTP」题目生成成功（309.1-394.2秒）
+2026-02-26 17:56:28,220 - INFO - generate_questions_for_knowledge_points - line 391 - t6「FTP相关习题解析」题目生成成功（395.5-421.0秒）
+2026-02-26 17:56:29,826 - INFO - generate_questions_for_knowledge_points - line 391 - t7「远程登录协议Telnet」题目生成成功（422.0-458.1秒）
+2026-02-26 17:56:31,603 - INFO - generate_questions_for_knowledge_points - line 391 - t8「万维网WWW」题目生成成功（459.2-596.3秒）
+2026-02-26 17:56:33,401 - INFO - generate_questions_for_knowledge_points - line 391 - t9「万维网相关习题解析」题目生成成功（597.0-616.5秒）
+2026-02-26 17:56:35,558 - INFO - generate_questions_for_knowledge_points - line 391 - t10「电子邮件协议」题目生成成功（618.0-724.7秒）
+2026-02-26 17:56:37,211 - INFO - generate_questions_for_knowledge_points - line 391 - t11「动态主机配置协议DHCP」题目生成成功（725.4-766.4秒）
+2026-02-26 17:56:38,980 - INFO - generate_questions_for_knowledge_points - line 391 - t12「应用层协议总结表」题目生成成功（768.6-802.9秒）
+2026-02-26 17:56:40,982 - INFO - generate_questions_for_knowledge_points - line 391 - t13「课程总结与练习题预告」题目生成成功（803.8-850.6秒）
+2026-02-26 17:56:40,984 - INFO - generate_questions_for_knowledge_points - line 421 - 视频50题目生成完成 | 共13个差异化分段
+2026-02-26 18:01:45,492 - INFO - generate_questions_for_knowledge_points - line 267 - 开始为视频50生成差异化题目（OCR采样间隔2秒）
+2026-02-26 18:02:00,849 - INFO - extract_t_ocr_with_pytesseract - line 231 - t1「应用层概述」OCR提取完成 | 时间：7.7-45.8秒 | 有效帧：9
+2026-02-26 18:02:00,872 - INFO - extract_t_ocr_with_pytesseract - line 231 - t2「DNS域名系统」OCR提取完成 | 时间：46.3-114.1秒 | 有效帧：0
+2026-02-26 18:02:00,905 - INFO - extract_t_ocr_with_pytesseract - line 231 - t3「域名结构与分类」OCR提取完成 | 时间：114.9-274.5秒 | 有效帧：0
+2026-02-26 18:02:00,936 - INFO - extract_t_ocr_with_pytesseract - line 231 - t4「DNS相关习题解析」OCR提取完成 | 时间：275.9-307.9秒 | 有效帧：0
+2026-02-26 18:02:00,971 - INFO - extract_t_ocr_with_pytesseract - line 231 - t5「文件传输协议FTP」OCR提取完成 | 时间：309.1-394.2秒 | 有效帧：0
+2026-02-26 18:02:01,001 - INFO - extract_t_ocr_with_pytesseract - line 231 - t6「FTP相关习题解析」OCR提取完成 | 时间：395.5-421.0秒 | 有效帧：0
+2026-02-26 18:02:01,034 - INFO - extract_t_ocr_with_pytesseract - line 231 - t7「远程登录协议Telnet」OCR提取完成 | 时间：422.0-458.1秒 | 有效帧：0
+2026-02-26 18:02:01,065 - INFO - extract_t_ocr_with_pytesseract - line 231 - t8「万维网WWW」OCR提取完成 | 时间：459.2-596.3秒 | 有效帧：0
+2026-02-26 18:02:01,094 - INFO - extract_t_ocr_with_pytesseract - line 231 - t9「万维网相关习题解析」OCR提取完成 | 时间：597.0-616.5秒 | 有效帧：0
+2026-02-26 18:02:01,128 - INFO - extract_t_ocr_with_pytesseract - line 231 - t10「电子邮件协议」OCR提取完成 | 时间：618.0-724.7秒 | 有效帧：0
+2026-02-26 18:02:01,157 - INFO - extract_t_ocr_with_pytesseract - line 231 - t11「动态主机配置协议DHCP」OCR提取完成 | 时间：725.4-766.4秒 | 有效帧：0
+2026-02-26 18:02:01,196 - INFO - extract_t_ocr_with_pytesseract - line 231 - t12「应用层协议总结表」OCR提取完成 | 时间：768.6-802.9秒 | 有效帧：0
+2026-02-26 18:02:01,226 - INFO - extract_t_ocr_with_pytesseract - line 231 - t13「课程总结与练习题预告」OCR提取完成 | 时间：803.8-850.6秒 | 有效帧：0
+2026-02-26 18:02:01,231 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段1：标题=应用层概述 | 时间=7.72-45.80秒
+2026-02-26 18:02:01,231 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段2：标题=DNS域名系统 | 时间=46.30-114.14秒
+2026-02-26 18:02:01,231 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段3：标题=域名结构与分类 | 时间=114.92-274.52秒
+2026-02-26 18:02:01,231 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段4：标题=DNS相关习题解析 | 时间=275.94-307.92秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段5：标题=文件传输协议FTP | 时间=309.10-394.16秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段6：标题=FTP相关习题解析 | 时间=395.50-420.96秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段7：标题=远程登录协议Telnet | 时间=422.02-458.12秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段8：标题=万维网WWW | 时间=459.22-596.30秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段9：标题=万维网相关习题解析 | 时间=596.96-616.46秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段10：标题=电子邮件协议 | 时间=618.02-724.66秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段11：标题=动态主机配置协议DHCP | 时间=725.44-766.36秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段12：标题=应用层协议总结表 | 时间=768.64-802.92秒
+2026-02-26 18:02:01,232 - INFO - generate_questions_for_knowledge_points - line 284 - ✅ 读取分段13：标题=课程总结与练习题预告 | 时间=803.84-850.60秒
+2026-02-26 18:02:03,018 - INFO - generate_questions_for_knowledge_points - line 368 - t1「应用层概述」题目生成成功（7.7-45.8秒）
+2026-02-26 18:02:04,598 - INFO - generate_questions_for_knowledge_points - line 368 - t2「DNS域名系统」题目生成成功（46.3-114.1秒）
+2026-02-26 18:02:07,129 - INFO - generate_questions_for_knowledge_points - line 368 - t3「域名结构与分类」题目生成成功（114.9-274.5秒）
+2026-02-26 18:02:08,964 - INFO - generate_questions_for_knowledge_points - line 368 - t4「DNS相关习题解析」题目生成成功（275.9-307.9秒）
+2026-02-26 18:02:10,599 - INFO - generate_questions_for_knowledge_points - line 368 - t5「文件传输协议FTP」题目生成成功（309.1-394.2秒）
+2026-02-26 18:02:12,436 - INFO - generate_questions_for_knowledge_points - line 368 - t6「FTP相关习题解析」题目生成成功（395.5-421.0秒）
+2026-02-26 18:02:14,098 - INFO - generate_questions_for_knowledge_points - line 368 - t7「远程登录协议Telnet」题目生成成功（422.0-458.1秒）
+2026-02-26 18:02:15,896 - INFO - generate_questions_for_knowledge_points - line 368 - t8「万维网WWW」题目生成成功（459.2-596.3秒）
+2026-02-26 18:02:17,893 - INFO - generate_questions_for_knowledge_points - line 368 - t9「万维网相关习题解析」题目生成成功（597.0-616.5秒）
+2026-02-26 18:02:19,718 - INFO - generate_questions_for_knowledge_points - line 368 - t10「电子邮件协议」题目生成成功（618.0-724.7秒）
+2026-02-26 18:02:21,529 - INFO - generate_questions_for_knowledge_points - line 368 - t11「动态主机配置协议DHCP」题目生成成功（725.4-766.4秒）
+2026-02-26 18:02:23,422 - INFO - generate_questions_for_knowledge_points - line 368 - t12「应用层协议总结表」题目生成成功（768.6-802.9秒）
+2026-02-26 18:02:25,192 - INFO - generate_questions_for_knowledge_points - line 368 - t13「课程总结与练习题预告」题目生成成功（803.8-850.6秒）
+2026-02-26 18:02:25,194 - INFO - generate_questions_for_knowledge_points - line 398 - 视频50题目生成完成 | 共13个差异化分段
+2026-02-26 18:08:00,427 - INFO - generate_questions_for_knowledge_points - line 247 - 开始为视频50生成差异化题目（无简化OCR）
+2026-02-26 18:12:08,315 - INFO - generate_questions_for_knowledge_points - line 253 - 开始为视频50生成题目（原始像素OCR+2秒采样+帧变化检测）
+2026-02-26 18:12:08,333 - WARNING - extract_t_ocr_with_pytesseract - line 128 - 无分段文件，按整视频生成默认分段
+2026-02-26 18:12:33,413 - INFO - extract_t_ocr_with_pytesseract - line 222 - t1「默认知识点」OCR完成 | 时间：0.0-38.1秒 | 有效帧：10（原始像素）
+2026-02-26 18:12:33,417 - ERROR - generate_questions_for_knowledge_points - line 262 - 分段文件为空，无法生成题目
+2026-02-26 18:16:19,895 - INFO - generate_questions_for_knowledge_points - line 228 - 开始为视频50生成题目（原始像素OCR+2秒采样+帧变化检测）
+2026-02-26 18:16:40,194 - INFO - extract_t_ocr_with_pytesseract - line 198 - t1「应用层概述」OCR完成 | 时间：7.7-45.8秒 | 有效帧：8（原始像素）
+2026-02-26 18:16:40,226 - INFO - extract_t_ocr_with_pytesseract - line 198 - t2「DNS域名系统」OCR完成 | 时间：46.3-114.1秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,259 - INFO - extract_t_ocr_with_pytesseract - line 198 - t3「域名结构与分类」OCR完成 | 时间：114.9-274.5秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,288 - INFO - extract_t_ocr_with_pytesseract - line 198 - t4「DNS相关习题解析」OCR完成 | 时间：275.9-307.9秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,315 - INFO - extract_t_ocr_with_pytesseract - line 198 - t5「文件传输协议FTP」OCR完成 | 时间：309.1-394.2秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,345 - INFO - extract_t_ocr_with_pytesseract - line 198 - t6「FTP相关习题解析」OCR完成 | 时间：395.5-421.0秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,379 - INFO - extract_t_ocr_with_pytesseract - line 198 - t7「远程登录协议Telnet」OCR完成 | 时间：422.0-458.1秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,408 - INFO - extract_t_ocr_with_pytesseract - line 198 - t8「万维网WWW」OCR完成 | 时间：459.2-596.3秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,442 - INFO - extract_t_ocr_with_pytesseract - line 198 - t9「万维网相关习题解析」OCR完成 | 时间：597.0-616.5秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,475 - INFO - extract_t_ocr_with_pytesseract - line 198 - t10「电子邮件协议」OCR完成 | 时间：618.0-724.7秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,507 - INFO - extract_t_ocr_with_pytesseract - line 198 - t11「动态主机配置协议DHCP」OCR完成 | 时间：725.4-766.4秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,544 - INFO - extract_t_ocr_with_pytesseract - line 198 - t12「应用层协议总结表」OCR完成 | 时间：768.6-802.9秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,578 - INFO - extract_t_ocr_with_pytesseract - line 198 - t13「课程总结与练习题预告」OCR完成 | 时间：803.8-850.6秒 | 有效帧：0（原始像素）
+2026-02-26 18:16:40,584 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段1：应用层概述 | 7.72-45.80秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段2：DNS域名系统 | 46.30-114.14秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段3：域名结构与分类 | 114.92-274.52秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段4：DNS相关习题解析 | 275.94-307.92秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段5：文件传输协议FTP | 309.10-394.16秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段6：FTP相关习题解析 | 395.50-420.96秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段7：远程登录协议Telnet | 422.02-458.12秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段8：万维网WWW | 459.22-596.30秒
+2026-02-26 18:16:40,585 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段9：万维网相关习题解析 | 596.96-616.46秒
+2026-02-26 18:16:40,586 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段10：电子邮件协议 | 618.02-724.66秒
+2026-02-26 18:16:40,586 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段11：动态主机配置协议DHCP | 725.44-766.36秒
+2026-02-26 18:16:40,586 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段12：应用层协议总结表 | 768.64-802.92秒
+2026-02-26 18:16:40,586 - INFO - generate_questions_for_knowledge_points - line 239 - ✅ 分段13：课程总结与练习题预告 | 803.84-850.60秒
+2026-02-26 18:16:42,634 - INFO - generate_questions_for_knowledge_points - line 293 - t1题目生成成功
+2026-02-26 18:16:44,382 - INFO - generate_questions_for_knowledge_points - line 293 - t2题目生成成功
+2026-02-26 18:16:46,120 - INFO - generate_questions_for_knowledge_points - line 293 - t3题目生成成功
+2026-02-26 18:16:47,761 - INFO - generate_questions_for_knowledge_points - line 293 - t4题目生成成功
+2026-02-26 18:16:49,356 - INFO - generate_questions_for_knowledge_points - line 293 - t5题目生成成功
+2026-02-26 18:16:50,893 - INFO - generate_questions_for_knowledge_points - line 293 - t6题目生成成功
+2026-02-26 18:16:52,615 - INFO - generate_questions_for_knowledge_points - line 293 - t7题目生成成功
+2026-02-26 18:16:54,316 - INFO - generate_questions_for_knowledge_points - line 293 - t8题目生成成功
+2026-02-26 18:16:56,275 - INFO - generate_questions_for_knowledge_points - line 293 - t9题目生成成功
+2026-02-26 18:16:58,012 - INFO - generate_questions_for_knowledge_points - line 293 - t10题目生成成功
+2026-02-26 18:16:59,791 - INFO - generate_questions_for_knowledge_points - line 293 - t11题目生成成功
+2026-02-26 18:17:02,080 - INFO - generate_questions_for_knowledge_points - line 293 - t12题目生成成功
+2026-02-26 18:17:03,835 - INFO - generate_questions_for_knowledge_points - line 293 - t13题目生成成功
+2026-02-26 18:17:03,837 - INFO - generate_questions_for_knowledge_points - line 312 - 视频50题目生成完成，共13个分段
+2026-02-26 18:29:51,326 - INFO - generate_questions_for_knowledge_points - line 264 - 开始为视频50生成题目（原始像素OCR+真实分段时间）
+2026-02-26 18:30:15,948 - INFO - extract_t_ocr_with_pytesseract - line 234 - t1「应用层概述」OCR完成 | 时间：7.7-45.8秒 | 有效帧：16（原始像素）
+2026-02-26 18:30:15,978 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t2「DNS域名系统」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,011 - INFO - extract_t_ocr_with_pytesseract - line 234 - t2「DNS域名系统」OCR完成 | 时间：46.3-114.1秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,042 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t3「域名结构与分类」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,074 - INFO - extract_t_ocr_with_pytesseract - line 234 - t3「域名结构与分类」OCR完成 | 时间：114.9-274.5秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,105 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t4「DNS相关习题解析」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,137 - INFO - extract_t_ocr_with_pytesseract - line 234 - t4「DNS相关习题解析」OCR完成 | 时间：275.9-307.9秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,168 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t5「文件传输协议FTP」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,200 - INFO - extract_t_ocr_with_pytesseract - line 234 - t5「文件传输协议FTP」OCR完成 | 时间：309.1-394.2秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,229 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t6「FTP相关习题解析」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,259 - INFO - extract_t_ocr_with_pytesseract - line 234 - t6「FTP相关习题解析」OCR完成 | 时间：395.5-421.0秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,288 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t7「远程登录协议Telnet」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,323 - INFO - extract_t_ocr_with_pytesseract - line 234 - t7「远程登录协议Telnet」OCR完成 | 时间：422.0-458.1秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,355 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t8「万维网WWW」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,383 - INFO - extract_t_ocr_with_pytesseract - line 234 - t8「万维网WWW」OCR完成 | 时间：459.2-596.3秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,406 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t9「万维网相关习题解析」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,438 - INFO - extract_t_ocr_with_pytesseract - line 234 - t9「万维网相关习题解析」OCR完成 | 时间：597.0-616.5秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,468 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t10「电子邮件协议」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,499 - INFO - extract_t_ocr_with_pytesseract - line 234 - t10「电子邮件协议」OCR完成 | 时间：618.0-724.7秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,530 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t11「动态主机配置协议DHCP」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,563 - INFO - extract_t_ocr_with_pytesseract - line 234 - t11「动态主机配置协议DHCP」OCR完成 | 时间：725.4-766.4秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,594 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t12「应用层协议总结表」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,628 - INFO - extract_t_ocr_with_pytesseract - line 234 - t12「应用层协议总结表」OCR完成 | 时间：768.6-802.9秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,660 - WARNING - extract_t_ocr_with_pytesseract - line 184 - t13「课程总结与练习题预告」帧变化检测未触发，执行兜底提取（每隔5秒提取一帧）
+2026-02-26 18:30:16,689 - INFO - extract_t_ocr_with_pytesseract - line 234 - t13「课程总结与练习题预告」OCR完成 | 时间：803.8-850.6秒 | 有效帧：0（原始像素）
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段1：应用层概述 | 7.72-45.80秒
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段2：DNS域名系统 | 46.30-114.14秒
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段3：域名结构与分类 | 114.92-274.52秒
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段4：DNS相关习题解析 | 275.94-307.92秒
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段5：文件传输协议FTP | 309.10-394.16秒
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段6：FTP相关习题解析 | 395.50-420.96秒
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段7：远程登录协议Telnet | 422.02-458.12秒
+2026-02-26 18:30:16,694 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段8：万维网WWW | 459.22-596.30秒
+2026-02-26 18:30:16,695 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段9：万维网相关习题解析 | 596.96-616.46秒
+2026-02-26 18:30:16,695 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段10：电子邮件协议 | 618.02-724.66秒
+2026-02-26 18:30:16,695 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段11：动态主机配置协议DHCP | 725.44-766.36秒
+2026-02-26 18:30:16,695 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段12：应用层协议总结表 | 768.64-802.92秒
+2026-02-26 18:30:16,695 - INFO - generate_questions_for_knowledge_points - line 276 - ✅ 分段13：课程总结与练习题预告 | 803.84-850.60秒
+2026-02-26 18:30:19,133 - INFO - generate_questions_for_knowledge_points - line 333 - t1「应用层概述」题目生成成功（时间：7.7-45.8秒）
+2026-02-26 18:30:20,847 - INFO - generate_questions_for_knowledge_points - line 333 - t2「DNS域名系统」题目生成成功（时间：46.3-114.1秒）
+2026-02-26 18:30:22,771 - INFO - generate_questions_for_knowledge_points - line 333 - t3「域名结构与分类」题目生成成功（时间：114.9-274.5秒）
+2026-02-26 18:30:25,075 - INFO - generate_questions_for_knowledge_points - line 333 - t4「DNS相关习题解析」题目生成成功（时间：275.9-307.9秒）
+2026-02-26 18:30:27,275 - INFO - generate_questions_for_knowledge_points - line 333 - t5「文件传输协议FTP」题目生成成功（时间：309.1-394.2秒）
+2026-02-26 18:30:28,926 - INFO - generate_questions_for_knowledge_points - line 333 - t6「FTP相关习题解析」题目生成成功（时间：395.5-421.0秒）
+2026-02-26 18:30:30,936 - INFO - generate_questions_for_knowledge_points - line 333 - t7「远程登录协议Telnet」题目生成成功（时间：422.0-458.1秒）
+2026-02-26 18:30:33,008 - INFO - generate_questions_for_knowledge_points - line 333 - t8「万维网WWW」题目生成成功（时间：459.2-596.3秒）
+2026-02-26 18:30:34,836 - INFO - generate_questions_for_knowledge_points - line 333 - t9「万维网相关习题解析」题目生成成功（时间：597.0-616.5秒）
+2026-02-26 18:30:36,911 - INFO - generate_questions_for_knowledge_points - line 333 - t10「电子邮件协议」题目生成成功（时间：618.0-724.7秒）
+2026-02-26 18:30:39,776 - INFO - generate_questions_for_knowledge_points - line 333 - t11「动态主机配置协议DHCP」题目生成成功（时间：725.4-766.4秒）
+2026-02-26 18:30:41,929 - INFO - generate_questions_for_knowledge_points - line 333 - t12「应用层协议总结表」题目生成成功（时间：768.6-802.9秒）
+2026-02-26 18:30:43,434 - INFO - generate_questions_for_knowledge_points - line 333 - t13「课程总结与练习题预告」题目生成成功（时间：803.8-850.6秒）
+2026-02-26 18:30:43,437 - INFO - generate_questions_for_knowledge_points - line 363 - 视频50题目生成完成，共13个分段（时间精准匹配）
+2026-02-27 15:26:14,869 - INFO - generate_questions_by_batch - ===== 开始分批连续调用通义千问生成问题 =====
+2026-02-27 15:28:21,652 - INFO - generate_questions_by_batch - ===== 开始分批连续调用通义千问生成问题 =====
+2026-02-27 15:29:09,651 - INFO - generate_questions_by_batch - ===== 开始分批连续调用通义千问生成问题 =====

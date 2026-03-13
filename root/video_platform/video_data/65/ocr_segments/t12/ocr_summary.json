@@ -1,0 +1,128 @@
+{
+  "segment_folder": "t12",
+  "title": "知识点12",
+  "start_time": 768.64,
+  "end_time": 803.84,
+  "ocr_frames": [
+    {
+      "time": 768.7,
+      "ocr_text": "1F24 1月13日央二                                                                                 GP rave\nrm                      Cea                    a\nPSE\n” 常见应用层协议小结 了\n那最后呢\na GT en\nfo)                          <《\na)",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_768.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 769.7,
+      "ocr_text": "1F24 1月13日周二                                                                                         Ra!\nx                         Le Rt |                       @\ncE\n” 常见应用层协议小结\n我们是把常见的应用层的这些协议          .\ne@                                  <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_769.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 770.7,
+      "ocr_text": "1F24 1月13日周二                                                                                         Ra!\nX                         LR edt |                       oB«\nais\n常见应用层协议小结  国\n我们是把常见的应用层的这些协议\n@                                       <\na",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_770.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 771.7,
+      "ocr_text": "1F24 1月13日周二                                                                                         Rd\nX                         LR RD                       Bo -\ncE)\n常见应用层协议小结  国\n我们是把常见的应用层的这些协议\n@                                       <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_771.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 772.7,
+      "ocr_text": "1F24 1月13日周二                                         9 = = 97y\nX                      tL                    o-\naS\n” 常见应用层协议小结 本\n     r   a     ,      r    a   y   iY\n应用程序 。 DNS。 FTP数据链接 。 FTP控制链接 。 TELNET HTTP SMTP POP3\n使用协议 。 UDP   ce    TCP   TCP  TCP «TCP TCP\n熟知端口号 。 53    20     21    23   80 25 110\n|\na ars aan    ram    rar     asoc Tam\ne@                 Ke\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_772.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 773.7,
+      "ocr_text": "Slo LL bd                                                  ORs)\nX                              LR tot Ly                            i ed\nBE\n” 常见应用层协议小结 r\n\nci Oat Mat ee)\n\n使用协议   Uy)     TCP       TCP      TCP   TCP  TCP  TCP\n\nboro) [ahd   53      vi        21       Px}    cy   25   EU\n\n我们这个运输层的哪一个协议\nwr   ny   oor   crs    rd    oo     “Sea ‘oom\ne@                            《\n\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_773.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 774.7,
+      "ocr_text": "SPL DELL ba                                                  ORs)\nx                              LR rot Ly                            i ed\nBE\n” 常见应用层协议小结 x\n\" mes \"ons “Fresigntie \"Frpimieie \"TELNET \"HTTP “SMTP \"PoP3\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\n邹知端口号   53      20        21       Px}    cy   Po)   110\n我们这个运输层的哪一个协议\na    Tod    Sorry    or ras     Shamwwn     oo      |\ne@                            《\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_774.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 775.7,
+      "ocr_text": "SOL DELL ba                                                  Re)\n4                              LR Corot Lg                            i ed\nBE\n” 常见应用层协议小结 人\n和\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\nbooth ahd   53      yi        21       Px}    cy   Po)   110\n我们给大家整理了一张表\n人   ET   ae rs    Same    oo     ET ‘oom\nr                            <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_775.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 776.7,
+      "ocr_text": "SOL LL bd                                                  ee!\nx                              LR rot Ly                            i ed\nBE\n” 常见应用层协议小结 人\n人\n使用协议    TCP       TCP     TCP   TCP  TCP  TCP\n皂知端口号   53     20        21      Px}    cy   25   110\n我们给大家整理了一张表\n人   ET   aes    rd    oo     ee\ne@                          《\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_776.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 777.7,
+      "ocr_text": "SOL LL bd                                                  ORs)\nx                              LR not |                            i ed\nBE\n” 常见应用层协议小结 人\n人\n使用协议    TCP       TCP     TCP   TCP  TCP  TCP\n皂知端口号   53     20        21      区   Po)   110\nbag bee) Se Lee a\n人   ET    aes     rd    ‘er      re |\ne@                          《\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_777.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 778.7,
+      "ocr_text": "SOL LL bd                                                  OR ee)\nx                              LR rot Ly                            i ed\nBE\n” 常见应用层协议小结 人\n\n人\n\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\n\n皂知端口号   53      20        21       区   25   110\n\nbag bea) Se Le a\n人    ET    aed     Ca     oo      Sr ee |\ne@                            《\n\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_778.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 779.7,
+      "ocr_text": "1F24 1月13日央二                                                                   GP eso\nX                              LR not |                            i ed\nBE\n” 常见应用层协议小结 人\n\n\" mes \"ons “Fresigetie \"Frpimitie \"TELNET \"HTTP “SMTP \"PoP3\n\n使用协议     TCP       TCP      TCP   TCP  TCP  TCP\n\nmAwOs   53      vay        21       区   Po)   110\n\n每一种应用层协议\n人   ord    aed    haan    oo     ‘STE ‘oom\ne@                            《\n\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_779.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 780.7,
+      "ocr_text": "1F24 1月13日周二                                                         Sed\n多                      [晰版]课时6应用层                    oe\nBE\n” 常见应用层协议小结\n      mr       四       A     a er\nCi OM a ee A)\ncS a i Co      Tcp\nat a)     Fr)      2     2B 8 2 10\n每一种应用层协议\n而    ra    nn     ‘wana ‘an\n@                      <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_780.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 781.7,
+      "ocr_text": "SOL TELL 车                                                                                  Oram\nx                                              LR not Ly                                          i eo\nBE\n” 常见应用层协议小结\n人\n使用协议    UDP       TCP          TCP        TCP     TCP  TCP  TCP    全\n皂知端口号    53        va           21         区     25    110\n它是使用的运输层的哪一个协议\na aaa       coo        aes         rd        oo           |\n@                                       《\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_781.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 782.7,
+      "ocr_text": "SOL TELL 车                                                                                  OP rae\nx                                              LR rot Ly                                          i eo\nBE\n” 常见应用层协议小结\n人\n使用协议    UDP       TCP          TCP        TCP     TCP  TCP  TCP    全\n皂知端口号    53        20           21         区     25    110\n它是使用的运输层的哪一个协议\n人       coo        aes         rd        oo           oe\n@                                       《\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_782.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 783.7,
+      "ocr_text": "1824 1月13日周二                                                                                  Re\nx                                              LR not Ly                                          i eo\nBE\n” 常见应用层协议小结\n人\n使用协议       TCP           TCP         TCP     TCP  TCP  TCP    S\nmAwOs     53         20             21          区     yo)     110\n以及它连接的一个端口号分别是多少\n人       ET        ET         rd        a           “Sane ‘oom\n@                                            《\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_783.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 784.7,
+      "ocr_text": "SOL TELL ba                                                                                  有\nis                                              LR Det |                                          i ed\nBE\n” 常见应用层协议小结\n人\n使用协议       TCP          TCP        TCP     TCP  TCP  TCP\nboot lah    53        yi)           yay         B      ci)     25    110  下\n以及它连接的一个端口号分别是多少\n人       ET        Bers         cd        er           oy\n@                                       <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_784.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 785.7,
+      "ocr_text": "SOL DELL ba                                                                                  ORs)\nX                                              LR Corot Lg                                          i ed\nBE\n” 常见应用层协议小结\n人\n使用协议       TCP          TCP        TCP     TCP  TCP  TCP\nLoo Tah    53           a         B      80     25    110  S\n以及它连接的一个端口号分别是多少\n人       ET        CT         os        a           “Sanna ‘som\nr                                       <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_785.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 786.7,
+      "ocr_text": "SOL DELL ba                                                                                         CRs)\nx                              LR Dror Lg                            i ed\nBE\n” 常见应用层协议小结\n人\n使用协议      TCP         TCP       TCP    TCP  TCP  TCP\nLvl [ahd    53       vay          21        23     cy    23    pet  S\n以及它连接的一个端口号分别是多少\n全     ET     aes       rd      wa        “Sarma ‘oom\n@                                  <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_786.7s.txt",
+      "segment_folder": "t12"
+    },
+    {
+      "time": 787.7,
+      "ocr_text": "1824 1月13日周二                                                  OP eso 权\nX                      LR Corot Lg                    i ed\nBE\n” 常见应用层协议小结\n\"mes \"ons \"Fresigetie \"Frpiaieve \"TELNET \"HTTP “SMTP \"PoP3\n使用协议 UDP    TCP      TCP     TCP  TCP  TCP  TCP\nso fl a)     20       21      二 下二\n那这个咱们没有一个很好的记忆方法\nPS     a    sy    ‘aa     ‘carmen ‘ome\ne@                        <\n4",
+      "file_path": "/root/video_platform/video_data/65/ocr_segments/t12/ocr_787.7s.txt",
+      "segment_folder": "t12"
+    }
+  ]
+}

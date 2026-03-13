@@ -1,0 +1,17 @@
+1F21 1月13 bd                                                OP raceme
+x                      LR not Ly                    i
+Seep s+ 23) ae
+eSBs: s alas
+远程终端协议TELNET: 允许用户在其所在地通过 TCP 连接注册到远地的另一个主机上。
+Cre      ESET ae
+a3
+下述哪个协议用于安全的远程登录( 。 )
+A.FTP          B.TELNET        C.SSH          D.HTTP
+是一种远程登录协议，但它以明文形式传输数据，包括用户名、密码等敏感信息，在传输过程中
+容易被窃取，安全性较差
+建立在应用层和传输层基础上，为远程登录会话和其他网络服务提供安全性的协议。它采用加密
+技术对传输数据进行加密，可有效防止数据被窗听、臭改，用于安全的远程登录 。
+它是用于安丢的过个还梯登录鸭
+wr     od   corr    areerr    mw    re     asmemeaorcy 和am
+e@                          《
+4

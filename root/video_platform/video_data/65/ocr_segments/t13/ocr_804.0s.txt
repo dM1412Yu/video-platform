@@ -1,0 +1,11 @@
+SOL iL i                                                                                 aed
+x                                              LR De ot Ly                                          i ed
+BE
+” 常见应用层协议小结
+" mes "ons “Fresigetie "Frpimiewe "TELNET "HTTP “SMTP "PoP3
+使用协议       TCP          TCP        TCP     TCP  TCP  TCP
+mAwOs    53        va           21         区      80     Po)    110  T
+那最后呢
+人      iamwwe     oo       Sr ae
+e@                                       <
+4

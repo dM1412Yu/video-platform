@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>视学智问 - 教育视频智能助手</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:"Microsoft YaHei";}
+        .layout {display:flex; height:100vh;}
+        .sidebar {width:240px; background:#2c3e50; color:#fff; padding:20px;}
+        .sidebar-header h2 {margin-bottom:10px; font-size:20px;}
+        .sidebar-header p {color:#bdc3c7; font-size:14px;}
+        .sidebar-menu {margin-top:30px;}
+        .menu-item {display:block; padding:10px 15px; color:#fff; text-decoration:none; border-radius:4px; margin-bottom:8px;}
+        .menu-item.active {background:#3498db;}
+        .menu-item:hover {background:#34495e;}
+        .content {flex:1; padding:30px; background:#ecf0f1;}
+        .content-header {margin-bottom:20px;}
+        .content-header h1 {font-size:24px; color:#2c3e50;}
+        .card {background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+        .card h2 {color:#2c3e50; margin-bottom:15px;}
+        .video-list {list-style:none;}
+        .video-list li {padding:10px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;}
+        .video-info {display:flex; gap:20px;}
+        .video-name {color:#2c3e50; font-weight:500;}
+        .video-status {padding:4px 8px; border-radius:4px; font-size:12px;}
+        .video-status.processing {background:#f39c12; color:#fff;}
+        .video-status.completed {background:#27ae60; color:#fff;}
+        .video-status.failed {background:#e74c3c; color:#fff;}
+        .btn-view {padding:6px 12px; background:#3498db; color:#fff; text-decoration:none; border-radius:4px; font-size:14px; margin-right:8px;}
+        .btn-delete {padding:6px 12px; background:#e74c3c; color:#fff; text-decoration:none; border-radius:4px; font-size:14px; border:none; cursor:pointer;}
+        .empty-tip {color:#7f8c8d; text-align:center; padding:20px;}
+        .action-group {display:flex; align-items:center;}
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <!-- 左侧侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>视学智问</h2>
+                <p>教育视频智能助手</p>
+            </div>
+            <div class="sidebar-menu">
+                <a href="/upload" class="menu-item">
+                    <span>📤</span> 上传教育视频
+                </a>
+                <a href="/" class="menu-item active">
+                    <span>📚</span> 学习历史记录
+                </a>
+            </div>
+        </div>
+        <!-- 右侧内容区 -->
+        <div class="content">
+            <div class="content-header">
+                <h1>学习历史记录</h1>
+            </div>
+            <div class="content-body">
+                <div class="card">
+                    <h2>视频列表</h2>
+                    {% if videos %}
+                        <ul class="video-list">
+                            {% for video in videos %}
+                                <li>
+                                    <div class="video-info">
+                                        <span class="video-name">{{ video.filename }}</span>
+                                        <span class="video-status {{ video.status }}">
+                                            {% if video.status == 'processing' %}处理中{% endif %}
+                                            {% if video.status == 'completed' %}已完成{% endif %}
+                                            {% if video.status == 'failed' %}失败{% endif %}
+                                        </span>
+                                    </div>
+                                    <div class="action-group">
+                                        {% if video.status == 'completed' %}
+                                        <a href="/video_detail/{{ video.id }}" class="btn-view">查看</a>
+                                        {% else %}
+                                        <span>-</span>
+                                        {% endif %}
+                                        <!-- 新增删除按钮 -->
+                                        <form action="/delete/{{ video.id }}" method="POST" style="display:inline;" onsubmit="return confirm('确定要删除这条记录吗？');">
+                                            <button type="submit" class="btn-delete">删除</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="empty-tip">暂无视频记录，请先上传视频</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

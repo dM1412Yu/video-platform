@@ -1,0 +1,12 @@
+1F24 1月13日周二                                         9 = = 97y
+X                      tL                    o-
+aS
+” 常见应用层协议小结 本
+     r   a     ,      r    a   y   iY
+应用程序 。 DNS。 FTP数据链接 。 FTP控制链接 。 TELNET HTTP SMTP POP3
+使用协议 。 UDP   ce    TCP   TCP  TCP «TCP TCP
+熟知端口号 。 53    20     21    23   80 25 110
+|
+a ars aan    ram    rar     asoc Tam
+e@                 Ke
+4

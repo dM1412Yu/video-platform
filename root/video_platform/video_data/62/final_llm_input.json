@@ -1,0 +1,505 @@
+{
+  "metadata": {
+    "generate_time": "2026-03-05 10:26:43",
+    "video_id": "62",
+    "video_count": 11,
+    "description": "批次内+跨批次完整子视频关系网（兼容多字段，带容错）"
+  },
+  "subvideo_summaries": {
+    "62_1": {
+      "subvideo_id": "62_1",
+      "start_time": 7.72,
+      "end_time": 45.8,
+      "summary": "应用层概述",
+      "title": "应用层概述"
+    },
+    "62_2": {
+      "subvideo_id": "62_2",
+      "start_time": 63.98,
+      "end_time": 271.58,
+      "summary": "DNS域名系统与域名结构",
+      "title": "DNS域名系统与域名结构"
+    },
+    "62_3": {
+      "subvideo_id": "62_3",
+      "start_time": 275.94,
+      "end_time": 307.92,
+      "summary": "DNS相关习题解析",
+      "title": "DNS相关习题解析"
+    },
+    "62_4": {
+      "subvideo_id": "62_4",
+      "start_time": 309.08,
+      "end_time": 420.96,
+      "summary": "文件传输协议FTP",
+      "title": "文件传输协议FTP"
+    },
+    "62_5": {
+      "subvideo_id": "62_5",
+      "start_time": 422.02,
+      "end_time": 459.22,
+      "summary": "远程登录协议Telnet",
+      "title": "远程登录协议Telnet"
+    },
+    "62_6": {
+      "subvideo_id": "62_6",
+      "start_time": 459.32,
+      "end_time": 599.02,
+      "summary": "万维网WWW的组成",
+      "title": "万维网WWW的组成"
+    },
+    "62_7": {
+      "subvideo_id": "62_7",
+      "start_time": 599.12,
+      "end_time": 616.46,
+      "summary": "万维网相关习题解析",
+      "title": "万维网相关习题解析"
+    },
+    "62_8": {
+      "subvideo_id": "62_8",
+      "start_time": 618.02,
+      "end_time": 724.66,
+      "summary": "电子邮件协议与格式",
+      "title": "电子邮件协议与格式"
+    },
+    "62_9": {
+      "subvideo_id": "62_9",
+      "start_time": 725.44,
+      "end_time": 766.36,
+      "summary": "动态主机配置协议DHCP",
+      "title": "动态主机配置协议DHCP"
+    },
+    "62_10": {
+      "subvideo_id": "62_10",
+      "start_time": 768.64,
+      "end_time": 803.84,
+      "summary": "应用层协议总结与表格归纳",
+      "title": "应用层协议总结与表格归纳"
+    },
+    "62_11": {
+      "subvideo_id": "62_11",
+      "start_time": 803.94,
+      "end_time": 850.6,
+      "summary": "课程总结与练习题预告",
+      "title": "课程总结与练习题预告"
+    }
+  },
+  "custom_knowledge_graph": {
+    "concept_hierarchy": [
+      {
+        "parent": "数学核心概念",
+        "children": [],
+        "description": "兜底概念（生成失败）",
+        "related_video_names": [
+          "62"
+        ],
+        "related_video_ids": [
+          62
+        ]
+      }
+    ],
+    "preset_relations_adjusted": [],
+    "video_specific_relations": [
+      {
+        "video_name": "62",
+        "relation": "兜底关系",
+        "description": "视频62知识图谱生成失败：❌ generate_video_kg：视频62生成失败：module 'dashscope' ha"
+      }
+    ],
+    "explanation": "视频62知识图谱生成失败，使用兜底数据",
+    "error_info": "❌ generate_video_kg：视频62生成失败：module 'dashscope' has no attribute 'api_error'"
+  },
+  "subvideo_relation_network": {
+    "nodes": [
+      {
+        "video_name": "62_1",
+        "video_id": "",
+        "title": "应用层概述",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_2",
+        "video_id": "",
+        "title": "DNS域名系统与域名结构",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_3",
+        "video_id": "",
+        "title": "DNS相关习题解析",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_4",
+        "video_id": "",
+        "title": "文件传输协议FTP",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_5",
+        "video_id": "",
+        "title": "远程登录协议Telnet",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_6",
+        "video_id": "",
+        "title": "万维网WWW的组成",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_7",
+        "video_id": "",
+        "title": "万维网相关习题解析",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_8",
+        "video_id": "",
+        "title": "电子邮件协议与格式",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_9",
+        "video_id": "",
+        "title": "动态主机配置协议DHCP",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_10",
+        "video_id": "",
+        "title": "应用层协议总结与表格归纳",
+        "key_concepts": [],
+        "logic_flow": ""
+      },
+      {
+        "video_name": "62_11",
+        "video_id": "",
+        "title": "课程总结与练习题预告",
+        "key_concepts": [],
+        "logic_flow": ""
+      }
+    ],
+    "batch_edges": [
+      {
+        "source": "62_1",
+        "target": "62_2",
+        "relation_type": "prerequisite",
+        "reason": "应用层概述为DNS学习提供基础概念框架，是理解具体应用层协议（如DNS）的前置知识。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_1",
+        "target": "62_4",
+        "relation_type": "prerequisite",
+        "reason": "应用层概述为FTP学习提供基础概念框架，是理解具体应用层协议（如FTP）的前置知识。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_1",
+        "target": "62_5",
+        "relation_type": "prerequisite",
+        "reason": "应用层概述为Telnet学习提供基础概念框架，是理解具体应用层协议（如Telnet）的前置知识。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_2",
+        "target": "62_3",
+        "relation_type": "progressive",
+        "reason": "DNS相关习题解析在DNS域名系统与域名结构内容基础上进行巩固与深化，体现从概念到应用的递进关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_2",
+        "target": "62_4",
+        "relation_type": "parallel",
+        "reason": "DNS与FTP同属应用层典型协议，地位并列、功能独立，无直接依赖关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_2",
+        "target": "62_5",
+        "relation_type": "parallel",
+        "reason": "DNS与Telnet同属应用层典型协议，地位并列、功能独立，无直接依赖关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_4",
+        "target": "62_5",
+        "relation_type": "parallel",
+        "reason": "FTP与Telnet同属应用层典型协议，地位并列、功能独立，无直接依赖关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_6",
+        "target": "62_7",
+        "relation_type": "progressive",
+        "reason": "视频62_7是对62_6中万维网概念的习题化延伸与应用，体现从知识讲解到解题训练的递进逻辑",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_6",
+        "target": "62_10",
+        "relation_type": "supplementary",
+        "reason": "62_10对应用层协议进行全局归纳，62_6作为其中一类协议（WWW）提供具体实例支撑，构成局部与整体的补充关系",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_8",
+        "target": "62_10",
+        "relation_type": "supplementary",
+        "reason": "62_8介绍电子邮件协议（如SMTP/POP3/IMAP），是62_10中应用层协议表格的具体子项，提供专项内容以补充总结性框架",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_9",
+        "target": "62_10",
+        "relation_type": "supplementary",
+        "reason": "62_9讲解DHCP协议，属于应用层典型协议之一，为62_10的归纳表格提供独立协议案例支撑",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_10",
+        "target": "62_6",
+        "relation_type": "prerequisite",
+        "reason": "62_10作为总结性视频，其表格归纳依赖对各协议（含WWW）的先行理解；但62_6本身不依赖62_10，故反向为prerequisite关系（即62_10以62_6为基础）",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_10",
+        "target": "62_8",
+        "relation_type": "prerequisite",
+        "reason": "62_10的归纳需以各协议（如邮件协议）的独立讲解为前提，62_8提供该前提知识",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_10",
+        "target": "62_9",
+        "relation_type": "prerequisite",
+        "reason": "62_10的协议表格归纳以DHCP等具体协议讲解为认知基础，62_9提供该基础",
+        "kg_concept_relation": null
+      }
+    ],
+    "cross_edges": [
+      {
+        "source": "62_1",
+        "target": "62_6",
+        "relation_type": "progressive",
+        "reason": "第1批以应用层概述开篇，第2批以万维网WWW组成承接，WWW是应用层核心子系统之一，构成知识演进的递进关系",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_5",
+        "target": "62_6",
+        "relation_type": "progressive",
+        "reason": "Telnet作为应用层远程登录协议，与WWW同属应用层典型协议；第1批末尾协议讲解自然过渡到第2批WWW这一更复杂、更综合的应用层系统",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_3",
+        "target": "62_7",
+        "relation_type": "parallel",
+        "reason": "DNS习题解析（62_3）与WWW习题解析（62_7）均为对应协议/系统的巩固练习环节，功能定位一致，分属不同但并列的应用层子主题",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_10",
+        "target": "62_11",
+        "relation_type": "summary",
+        "reason": "第2批末尾的‘应用层协议总结与表格归纳’（62_10）是对全批次（含第1、2批）协议内容的结构化梳理，直接服务于第3批唯一视频‘课程总结与练习题预告’（62_11），构成总-分式课程收束逻辑",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_1",
+        "target": "62_11",
+        "relation_type": "prerequisite",
+        "reason": "‘应用层概述’（62_1）是整套视频的知识起点和认知锚点，为最终课程总结（62_11）提供最基础的概念框架，所有后续内容均依赖此前提理解",
+        "kg_concept_relation": "数学核心概念"
+      }
+    ],
+    "all_edges": [
+      {
+        "source": "62_1",
+        "target": "62_2",
+        "relation_type": "prerequisite",
+        "reason": "应用层概述为DNS学习提供基础概念框架，是理解具体应用层协议（如DNS）的前置知识。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_1",
+        "target": "62_4",
+        "relation_type": "prerequisite",
+        "reason": "应用层概述为FTP学习提供基础概念框架，是理解具体应用层协议（如FTP）的前置知识。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_1",
+        "target": "62_5",
+        "relation_type": "prerequisite",
+        "reason": "应用层概述为Telnet学习提供基础概念框架，是理解具体应用层协议（如Telnet）的前置知识。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_2",
+        "target": "62_3",
+        "relation_type": "progressive",
+        "reason": "DNS相关习题解析在DNS域名系统与域名结构内容基础上进行巩固与深化，体现从概念到应用的递进关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_2",
+        "target": "62_4",
+        "relation_type": "parallel",
+        "reason": "DNS与FTP同属应用层典型协议，地位并列、功能独立，无直接依赖关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_2",
+        "target": "62_5",
+        "relation_type": "parallel",
+        "reason": "DNS与Telnet同属应用层典型协议，地位并列、功能独立，无直接依赖关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_4",
+        "target": "62_5",
+        "relation_type": "parallel",
+        "reason": "FTP与Telnet同属应用层典型协议，地位并列、功能独立，无直接依赖关系。",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_6",
+        "target": "62_7",
+        "relation_type": "progressive",
+        "reason": "视频62_7是对62_6中万维网概念的习题化延伸与应用，体现从知识讲解到解题训练的递进逻辑",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_6",
+        "target": "62_10",
+        "relation_type": "supplementary",
+        "reason": "62_10对应用层协议进行全局归纳，62_6作为其中一类协议（WWW）提供具体实例支撑，构成局部与整体的补充关系",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_8",
+        "target": "62_10",
+        "relation_type": "supplementary",
+        "reason": "62_8介绍电子邮件协议（如SMTP/POP3/IMAP），是62_10中应用层协议表格的具体子项，提供专项内容以补充总结性框架",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_9",
+        "target": "62_10",
+        "relation_type": "supplementary",
+        "reason": "62_9讲解DHCP协议，属于应用层典型协议之一，为62_10的归纳表格提供独立协议案例支撑",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_10",
+        "target": "62_6",
+        "relation_type": "prerequisite",
+        "reason": "62_10作为总结性视频，其表格归纳依赖对各协议（含WWW）的先行理解；但62_6本身不依赖62_10，故反向为prerequisite关系（即62_10以62_6为基础）",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_10",
+        "target": "62_8",
+        "relation_type": "prerequisite",
+        "reason": "62_10的归纳需以各协议（如邮件协议）的独立讲解为前提，62_8提供该前提知识",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_10",
+        "target": "62_9",
+        "relation_type": "prerequisite",
+        "reason": "62_10的协议表格归纳以DHCP等具体协议讲解为认知基础，62_9提供该基础",
+        "kg_concept_relation": null
+      },
+      {
+        "source": "62_1",
+        "target": "62_6",
+        "relation_type": "progressive",
+        "reason": "第1批以应用层概述开篇，第2批以万维网WWW组成承接，WWW是应用层核心子系统之一，构成知识演进的递进关系",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_5",
+        "target": "62_6",
+        "relation_type": "progressive",
+        "reason": "Telnet作为应用层远程登录协议，与WWW同属应用层典型协议；第1批末尾协议讲解自然过渡到第2批WWW这一更复杂、更综合的应用层系统",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_3",
+        "target": "62_7",
+        "relation_type": "parallel",
+        "reason": "DNS习题解析（62_3）与WWW习题解析（62_7）均为对应协议/系统的巩固练习环节，功能定位一致，分属不同但并列的应用层子主题",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_10",
+        "target": "62_11",
+        "relation_type": "summary",
+        "reason": "第2批末尾的‘应用层协议总结与表格归纳’（62_10）是对全批次（含第1、2批）协议内容的结构化梳理，直接服务于第3批唯一视频‘课程总结与练习题预告’（62_11），构成总-分式课程收束逻辑",
+        "kg_concept_relation": "数学核心概念"
+      },
+      {
+        "source": "62_1",
+        "target": "62_11",
+        "relation_type": "prerequisite",
+        "reason": "‘应用层概述’（62_1）是整套视频的知识起点和认知锚点，为最终课程总结（62_11）提供最基础的概念框架，所有后续内容均依赖此前提理解",
+        "kg_concept_relation": "数学核心概念"
+      }
+    ],
+    "overall_structure": "\n        1. 批次内关系：共14条有效边，覆盖所有批次内视频关联；\n        2. 跨批次关系：共5条有效边，覆盖跨批次视频关联；\n        3. 总关系边数：19条；\n        4. 总节点数：11个。\n        ",
+    "coverage_check": {
+      "total_videos": 11,
+      "batch_coverage": [
+        5,
+        5,
+        1
+      ],
+      "cross_coverage": [
+        "62_1",
+        "62_3",
+        "62_5",
+        "62_6",
+        "62_7",
+        "62_10",
+        "62_11"
+      ],
+      "merged_node_names": [
+        "62_1",
+        "62_2",
+        "62_3",
+        "62_4",
+        "62_5",
+        "62_6",
+        "62_7",
+        "62_8",
+        "62_9",
+        "62_10",
+        "62_11"
+      ]
+    },
+    "batch_info": {
+      "batch_size": 5,
+      "total_batches": 3,
+      "api_timeout": 120,
+      "retry_config": {
+        "retry_times": 3,
+        "retry_delay": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,636 @@
+{
+  "nodes": [
+    {
+      "video_name": "65_1",
+      "video_id": "",
+      "title": "应用层概述",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_2",
+      "video_id": "",
+      "title": "DNS域名系统",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_3",
+      "video_id": "",
+      "title": "域名结构与分类",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_4",
+      "video_id": "",
+      "title": "DNS相关习题解析",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_5",
+      "video_id": "",
+      "title": "文件传输协议FTP",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_6",
+      "video_id": "",
+      "title": "FTP端口习题解析",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_7",
+      "video_id": "",
+      "title": "远程登录协议Telnet",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_8",
+      "video_id": "",
+      "title": "万维网WWW",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_9",
+      "video_id": "",
+      "title": "万维网习题解析",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_10",
+      "video_id": "",
+      "title": "电子邮件协议",
+      "key_concepts": [],
+      "logic_flow": ""
+    },
+    {
+      "video_name": "65_11",
+      "video_id": "",
+      "title": "动态主机配置协议DHCP",
+      "key_concepts": [
+        "DORA四阶段流程",
+        "租约时间与续租机制",
+        "DHCP中继代理跨子网工作原理"
+      ],
+      "logic_flow": "从协议功能定位出发，建模客户端与服务器间Discover-Offer-Request-Ack时序交互，延伸至租约生命周期管理及跨子网部署约束"
+    },
+    {
+      "video_name": "65_12",
+      "video_id": "",
+      "title": "应用层协议总结表",
+      "key_concepts": [
+        "均运行于TCP或UDP之上",
+        "多数采用客户机/服务器模型",
+        "普遍使用熟知端口号进行初始握手"
+      ],
+      "logic_flow": "横向整合DNS、FTP、Telnet、WWW、电子邮件、DHCP等协议的底层依赖、交互范式与端口规范，提炼共性并构建可迁移的协议选择决策框架"
+    },
+    {
+      "video_name": "65_13",
+      "video_id": "",
+      "title": "课程总结与练习题预告",
+      "key_concepts": [
+        "综合拓扑中混合协议流量冲突排查策略",
+        "DNS劫持干扰HTTPS证书校验"
+      ],
+      "logic_flow": "以真实排障场景为锚点，回溯并串联各协议在典型网络故障中的耦合影响路径，预告高阶综合应用任务"
+    }
+  ],
+  "batch_edges": [
+    {
+      "source": "65_1",
+      "target": "65_2",
+      "relation_type": "prerequisite",
+      "reason": "视频65_1作为应用层总览，确立协议分层定位与服务边界，为后续所有具体协议（含DNS）提供概念前提和上下文框架",
+      "kg_concept_relation": "introduces → DNS域名系统"
+    },
+    {
+      "source": "65_2",
+      "target": "65_3",
+      "relation_type": "progressive",
+      "reason": "视频65_2讲解DNS整体机制，视频65_3聚焦其子概念'域名层次结构'并进一步细分为ccTLD/gTLD语义规则，构成由总到分、逐层深化的知识递进",
+      "kg_concept_relation": "classifies → 域名层次结构"
+    },
+    {
+      "source": "65_3",
+      "target": "65_4",
+      "relation_type": "progressive",
+      "reason": "视频65_3建立域名结构分类认知，视频65_4在此基础上应用'DNS资源记录类型'知识解决链路故障下的CNAME跳转失效问题，体现从结构理解到故障推演的能力跃迁",
+      "kg_concept_relation": "applies → DNS资源记录类型（A、CNAME、MX等）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_5",
+      "relation_type": "prerequisite",
+      "reason": "视频65_1定义应用层共性（如客户机/服务器模型、熟知端口），是理解FTP双通道设计及其端口行为差异的前提基础",
+      "kg_concept_relation": "introduces → FTP文件传输协议"
+    },
+    {
+      "source": "65_2",
+      "target": "65_5",
+      "relation_type": "parallel",
+      "reason": "视频65_2（DNS）与视频65_5（FTP）同属应用层六大核心协议，分别独立展开，无内容依赖或顺序约束，面向不同功能场景并行教学",
+      "kg_concept_relation": "none (cross-protocol sibling under 应用层)"
+    },
+    {
+      "source": "65_6",
+      "target": "65_7",
+      "relation_type": "parallel",
+      "reason": "同属应用层独立协议模块，FTP与Telnet无教学依赖或递进关系，均以‘协议机制—安全特性—典型问题’为平行分析范式。",
+      "kg_concept_relation": "FTP文件传输协议 ↔ Telnet远程登录协议"
+    },
+    {
+      "source": "65_8",
+      "target": "65_9",
+      "relation_type": "progressive",
+      "reason": "视频65_8（万维网WWW）系统讲授URL、HTTP、MIME等核心概念，视频65_9（万维网习题解析）基于前述内容开展状态码判定、缓存协商等高阶应用，构成‘概念建构→问题求解’的递进逻辑。",
+      "kg_concept_relation": "WWW万维网 → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_6",
+      "target": "65_8",
+      "relation_type": "parallel",
+      "reason": "FTP与WWW均为典型客户机/服务器模型应用层协议，分别聚焦文件传输与超媒体访问，教学定位并列，无前置或后续依赖。",
+      "kg_concept_relation": "FTP文件传输协议 ↔ WWW万维网"
+    },
+    {
+      "source": "65_7",
+      "target": "65_10",
+      "relation_type": "parallel",
+      "reason": "Telnet与电子邮件协议同为应用层独立协议，前者解决远程终端交互，后者支撑异步消息传递，二者在协议栈中层级相同、功能正交，教学上无交叉前提。",
+      "kg_concept_relation": "Telnet远程登录协议 ↔ 电子邮件协议"
+    },
+    {
+      "source": "65_8",
+      "target": "65_10",
+      "relation_type": "parallel",
+      "reason": "WWW与电子邮件协议分属不同服务领域（信息浏览 vs 消息通信），均依赖TCP且使用熟知端口，知识粒度与抽象层级一致，课程中作为并列典型案例展开。",
+      "kg_concept_relation": "WWW万维网 ↔ 电子邮件协议"
+    },
+    {
+      "source": "65_11",
+      "target": "65_12",
+      "relation_type": "prerequisite",
+      "reason": "视频65_11对DHCP协议的时序敏感性与部署约束的深入建模，为视频65_12中‘应用层协议共性分析’节点提供关键实证案例，支撑其归纳‘均依赖UDP、具容错性设计’等共性特征",
+      "kg_concept_relation": "DHCP动态主机配置协议 → 应用层协议共性分析"
+    },
+    {
+      "source": "65_12",
+      "target": "65_13",
+      "relation_type": "progressive",
+      "reason": "视频65_12通过协议共性升维形成决策矩阵，为视频65_13中‘混合协议流量冲突排查’提供方法论基础与比较维度，体现从知识归纳到复杂问题拆解的能力进阶",
+      "kg_concept_relation": "应用层协议共性分析 → 应用层"
+    }
+  ],
+  "cross_edges": [
+    {
+      "source": "65_1",
+      "target": "65_6",
+      "relation_type": "prerequisite",
+      "reason": "视频'65_1'（应用层概述）建立应用层整体定位与协议共性认知，是理解后续所有具体协议（包括FTP端口机制）的前提；'65_6'（FTP端口习题解析）需调用'65_1'中确立的'熟知端口''客户机/服务器模型'等基础框架才能解析Wireshark抓包逻辑。",
+      "kg_concept_relation": "应用层 → 控制连接（端口21）与数据连接（动态端口或端口20）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_7",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'定义应用层服务边界与协议栈位置，为'65_7'（Telnet）中'明文传输特性与安全缺陷'提供对比基准（如与传输层加密缺失的关联），是理解其安全局限性的前提。",
+      "kg_concept_relation": "应用层 → 明文传输特性与安全缺陷"
+    },
+    {
+      "source": "65_1",
+      "target": "65_8",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'引入应用层核心范式（URL、客户机/服务器、MIME协商雏形），构成'65_8'（WWW）中URI/URL/URN辨析及HTTP架构理解的必要基础。",
+      "kg_concept_relation": "应用层 → URL语法构成（scheme://host:port/path?query#fragment）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_9",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'确立的应用层协议通用行为模型（如请求-响应、状态管理）是'65_9'（万维网习题解析）中分析304缓存协商判定树的逻辑起点。",
+      "kg_concept_relation": "应用层 → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_1",
+      "target": "65_10",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'明确应用层协议功能分域思想，支撑'65_10'（电子邮件协议）对SMTP/POP3/IMAP三协议角色分工与端口契约的系统性理解。",
+      "kg_concept_relation": "应用层 → SMTP发送邮件（端口25/587）、POP3接收下载（端口110）、IMAP同步管理（端口143/993）功能对比"
+    },
+    {
+      "source": "65_1",
+      "target": "65_11",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'阐述应用层协议依赖UDP/TCP及广播/单播通信模式，是'65_11'（DHCP）理解DORA四阶段中Discover广播与Offer单播差异的前提。",
+      "kg_concept_relation": "应用层 → DORA四阶段流程（Discover-Offer-Request-Ack）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_1'作为起始概览，提出应用层协议多样性问题；'65_12'（应用层协议总结表）在全系列学习后升华为共性提炼，体现从现象认知到规律抽象的教学进阶。",
+      "kg_concept_relation": "应用层 → 应用层协议共性分析"
+    },
+    {
+      "source": "65_1",
+      "target": "65_13",
+      "relation_type": "summary",
+      "reason": "'65_13'（课程总结与练习题预告）回溯并整合'65_1'提出的顶层目标（如服务边界、协议协同），以混合协议排障场景（DNS劫持干扰HTTPS）实现闭环总结，具有总领性收束功能。",
+      "kg_concept_relation": "应用层 → 综合拓扑中混合协议流量冲突排查策略（如DNS劫持干扰HTTPS证书校验）"
+    },
+    {
+      "source": "65_2",
+      "target": "65_6",
+      "relation_type": "supplementary",
+      "reason": "'65_2'（DNS域名系统）讲解递归/迭代查询机制，其'查询-响应'交互范式与'65_6'（FTP端口习题解析）中PASV响应字段解析形成跨协议的报文结构解析能力互补。",
+      "kg_concept_relation": "DNS域名系统 → 控制连接（端口21）与数据连接（动态端口或端口20）"
+    },
+    {
+      "source": "65_2",
+      "target": "65_9",
+      "relation_type": "parallel",
+      "reason": "'65_2'（DNS）与'65_9'（WWW习题解析）均聚焦协议状态码/响应字段的语义推演：前者解析CNAME跳转失效路径，后者构建304缓存判定树，二者在‘基于响应决策行为’层面形成平行建模能力训练。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_2",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_2'详述DNS协议细节（如资源记录类型），为'65_12'（应用层协议总结表）中归纳‘协议选择决策矩阵’提供关键案例支撑，体现从个案到通则的深化过程。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_3",
+      "target": "65_8",
+      "relation_type": "supplementary",
+      "reason": "'65_3'（域名结构与分类）解析域名层次结构与语义规则（如ccTLD/gTLD），补充'65_8'（WWW）中URL语法构成中host部分的命名空间依据，强化URL中域名段的理解深度。",
+      "kg_concept_relation": "域名层次结构 → URL语法构成（scheme://host:port/path?query#fragment）"
+    },
+    {
+      "source": "65_4",
+      "target": "65_9",
+      "relation_type": "parallel",
+      "reason": "'65_4'（DNS习题解析）进行CNAME跳转失效路径推演，'65_9'（WWW习题解析）进行304缓存协商触发条件判定，二者同属‘基于协议状态链路进行故障路径反向推演’的高阶思维训练，构成平行能力模块。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_4",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_4'对DNS资源记录的实操推演，为'65_12'中‘协议选择决策矩阵’提供安全性（如MX记录易受伪造）、可靠性（如CNAME链过长导致超时）等维度的具体证据。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_5",
+      "target": "65_6",
+      "relation_type": "progressive",
+      "reason": "'65_5'（FTP）介绍主动/被动模式基本原理，'65_6'（FTP端口习题解析）在此基础上深入Wireshark抓包实证，构成‘概念→实操验证’的渐进关系。",
+      "kg_concept_relation": "FTP文件传输协议 → 控制连接（端口21）与数据连接（动态端口或端口20）"
+    },
+    {
+      "source": "65_5",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_5'揭示FTP双通道分离设计对防火墙穿透的影响，为'65_12'中‘协议选择决策矩阵’的部署复杂度维度提供典型例证，推动从单一协议认知到多维评估跃迁。",
+      "kg_concept_relation": "FTP文件传输协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_7",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_7'（Telnet）通过与SSH对比凸显明文传输缺陷，为'65_12'中协议选择决策矩阵的安全性权重提供核心判据，实现从现象批判到工程权衡的升华。",
+      "kg_concept_relation": "Telnet远程登录协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_8",
+      "target": "65_9",
+      "relation_type": "progressive",
+      "reason": "'65_8'（WWW）定义URL语法与HTTP基础，'65_9'（WWW习题解析）在其基础上开展状态码深度分析，构成‘概念输入→问题求解’的标准教学递进。",
+      "kg_concept_relation": "WWW万维网 → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_8",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_8'中WWW的MIME类型协商机制，为'65_12'协议选择矩阵中的‘内容协商能力’维度提供实证基础，支撑多维评估体系构建。",
+      "kg_concept_relation": "WWW万维网 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_10",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_10'（电子邮件协议）对比POP3/IMAP存储模型差异，直接贡献于'65_12'协议选择矩阵中‘数据一致性’与‘部署复杂度’的量化评估依据。",
+      "kg_concept_relation": "电子邮件协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_11",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_11'（DHCP）详述DORA流程及时序敏感性，为'65_12'协议选择矩阵中‘实时性’与‘容错性’维度提供关键参数（如租约时间、中继代理延迟）。",
+      "kg_concept_relation": "DHCP动态主机配置协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_12",
+      "target": "65_13",
+      "relation_type": "summary",
+      "reason": "'65_12'（应用层协议总结表）完成共性提炼与决策矩阵构建，'65_13'（课程总结与练习题预告）以此为理论工具，预演真实拓扑中混合协议冲突排查，实现知识到能力的最终闭环总结。",
+      "kg_concept_relation": "应用层协议共性分析 → 综合拓扑中混合协议流量冲突排查策略（如DNS劫持干扰HTTPS证书校验）"
+    }
+  ],
+  "all_edges": [
+    {
+      "source": "65_1",
+      "target": "65_2",
+      "relation_type": "prerequisite",
+      "reason": "视频65_1作为应用层总览，确立协议分层定位与服务边界，为后续所有具体协议（含DNS）提供概念前提和上下文框架",
+      "kg_concept_relation": "introduces → DNS域名系统"
+    },
+    {
+      "source": "65_2",
+      "target": "65_3",
+      "relation_type": "progressive",
+      "reason": "视频65_2讲解DNS整体机制，视频65_3聚焦其子概念'域名层次结构'并进一步细分为ccTLD/gTLD语义规则，构成由总到分、逐层深化的知识递进",
+      "kg_concept_relation": "classifies → 域名层次结构"
+    },
+    {
+      "source": "65_3",
+      "target": "65_4",
+      "relation_type": "progressive",
+      "reason": "视频65_3建立域名结构分类认知，视频65_4在此基础上应用'DNS资源记录类型'知识解决链路故障下的CNAME跳转失效问题，体现从结构理解到故障推演的能力跃迁",
+      "kg_concept_relation": "applies → DNS资源记录类型（A、CNAME、MX等）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_5",
+      "relation_type": "prerequisite",
+      "reason": "视频65_1定义应用层共性（如客户机/服务器模型、熟知端口），是理解FTP双通道设计及其端口行为差异的前提基础",
+      "kg_concept_relation": "introduces → FTP文件传输协议"
+    },
+    {
+      "source": "65_2",
+      "target": "65_5",
+      "relation_type": "parallel",
+      "reason": "视频65_2（DNS）与视频65_5（FTP）同属应用层六大核心协议，分别独立展开，无内容依赖或顺序约束，面向不同功能场景并行教学",
+      "kg_concept_relation": "none (cross-protocol sibling under 应用层)"
+    },
+    {
+      "source": "65_6",
+      "target": "65_7",
+      "relation_type": "parallel",
+      "reason": "同属应用层独立协议模块，FTP与Telnet无教学依赖或递进关系，均以‘协议机制—安全特性—典型问题’为平行分析范式。",
+      "kg_concept_relation": "FTP文件传输协议 ↔ Telnet远程登录协议"
+    },
+    {
+      "source": "65_8",
+      "target": "65_9",
+      "relation_type": "progressive",
+      "reason": "视频65_8（万维网WWW）系统讲授URL、HTTP、MIME等核心概念，视频65_9（万维网习题解析）基于前述内容开展状态码判定、缓存协商等高阶应用，构成‘概念建构→问题求解’的递进逻辑。",
+      "kg_concept_relation": "WWW万维网 → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_6",
+      "target": "65_8",
+      "relation_type": "parallel",
+      "reason": "FTP与WWW均为典型客户机/服务器模型应用层协议，分别聚焦文件传输与超媒体访问，教学定位并列，无前置或后续依赖。",
+      "kg_concept_relation": "FTP文件传输协议 ↔ WWW万维网"
+    },
+    {
+      "source": "65_7",
+      "target": "65_10",
+      "relation_type": "parallel",
+      "reason": "Telnet与电子邮件协议同为应用层独立协议，前者解决远程终端交互，后者支撑异步消息传递，二者在协议栈中层级相同、功能正交，教学上无交叉前提。",
+      "kg_concept_relation": "Telnet远程登录协议 ↔ 电子邮件协议"
+    },
+    {
+      "source": "65_8",
+      "target": "65_10",
+      "relation_type": "parallel",
+      "reason": "WWW与电子邮件协议分属不同服务领域（信息浏览 vs 消息通信），均依赖TCP且使用熟知端口，知识粒度与抽象层级一致，课程中作为并列典型案例展开。",
+      "kg_concept_relation": "WWW万维网 ↔ 电子邮件协议"
+    },
+    {
+      "source": "65_11",
+      "target": "65_12",
+      "relation_type": "prerequisite",
+      "reason": "视频65_11对DHCP协议的时序敏感性与部署约束的深入建模，为视频65_12中‘应用层协议共性分析’节点提供关键实证案例，支撑其归纳‘均依赖UDP、具容错性设计’等共性特征",
+      "kg_concept_relation": "DHCP动态主机配置协议 → 应用层协议共性分析"
+    },
+    {
+      "source": "65_12",
+      "target": "65_13",
+      "relation_type": "progressive",
+      "reason": "视频65_12通过协议共性升维形成决策矩阵，为视频65_13中‘混合协议流量冲突排查’提供方法论基础与比较维度，体现从知识归纳到复杂问题拆解的能力进阶",
+      "kg_concept_relation": "应用层协议共性分析 → 应用层"
+    },
+    {
+      "source": "65_1",
+      "target": "65_6",
+      "relation_type": "prerequisite",
+      "reason": "视频'65_1'（应用层概述）建立应用层整体定位与协议共性认知，是理解后续所有具体协议（包括FTP端口机制）的前提；'65_6'（FTP端口习题解析）需调用'65_1'中确立的'熟知端口''客户机/服务器模型'等基础框架才能解析Wireshark抓包逻辑。",
+      "kg_concept_relation": "应用层 → 控制连接（端口21）与数据连接（动态端口或端口20）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_7",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'定义应用层服务边界与协议栈位置，为'65_7'（Telnet）中'明文传输特性与安全缺陷'提供对比基准（如与传输层加密缺失的关联），是理解其安全局限性的前提。",
+      "kg_concept_relation": "应用层 → 明文传输特性与安全缺陷"
+    },
+    {
+      "source": "65_1",
+      "target": "65_8",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'引入应用层核心范式（URL、客户机/服务器、MIME协商雏形），构成'65_8'（WWW）中URI/URL/URN辨析及HTTP架构理解的必要基础。",
+      "kg_concept_relation": "应用层 → URL语法构成（scheme://host:port/path?query#fragment）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_9",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'确立的应用层协议通用行为模型（如请求-响应、状态管理）是'65_9'（万维网习题解析）中分析304缓存协商判定树的逻辑起点。",
+      "kg_concept_relation": "应用层 → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_1",
+      "target": "65_10",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'明确应用层协议功能分域思想，支撑'65_10'（电子邮件协议）对SMTP/POP3/IMAP三协议角色分工与端口契约的系统性理解。",
+      "kg_concept_relation": "应用层 → SMTP发送邮件（端口25/587）、POP3接收下载（端口110）、IMAP同步管理（端口143/993）功能对比"
+    },
+    {
+      "source": "65_1",
+      "target": "65_11",
+      "relation_type": "prerequisite",
+      "reason": "'65_1'阐述应用层协议依赖UDP/TCP及广播/单播通信模式，是'65_11'（DHCP）理解DORA四阶段中Discover广播与Offer单播差异的前提。",
+      "kg_concept_relation": "应用层 → DORA四阶段流程（Discover-Offer-Request-Ack）"
+    },
+    {
+      "source": "65_1",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_1'作为起始概览，提出应用层协议多样性问题；'65_12'（应用层协议总结表）在全系列学习后升华为共性提炼，体现从现象认知到规律抽象的教学进阶。",
+      "kg_concept_relation": "应用层 → 应用层协议共性分析"
+    },
+    {
+      "source": "65_1",
+      "target": "65_13",
+      "relation_type": "summary",
+      "reason": "'65_13'（课程总结与练习题预告）回溯并整合'65_1'提出的顶层目标（如服务边界、协议协同），以混合协议排障场景（DNS劫持干扰HTTPS）实现闭环总结，具有总领性收束功能。",
+      "kg_concept_relation": "应用层 → 综合拓扑中混合协议流量冲突排查策略（如DNS劫持干扰HTTPS证书校验）"
+    },
+    {
+      "source": "65_2",
+      "target": "65_6",
+      "relation_type": "supplementary",
+      "reason": "'65_2'（DNS域名系统）讲解递归/迭代查询机制，其'查询-响应'交互范式与'65_6'（FTP端口习题解析）中PASV响应字段解析形成跨协议的报文结构解析能力互补。",
+      "kg_concept_relation": "DNS域名系统 → 控制连接（端口21）与数据连接（动态端口或端口20）"
+    },
+    {
+      "source": "65_2",
+      "target": "65_9",
+      "relation_type": "parallel",
+      "reason": "'65_2'（DNS）与'65_9'（WWW习题解析）均聚焦协议状态码/响应字段的语义推演：前者解析CNAME跳转失效路径，后者构建304缓存判定树，二者在‘基于响应决策行为’层面形成平行建模能力训练。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_2",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_2'详述DNS协议细节（如资源记录类型），为'65_12'（应用层协议总结表）中归纳‘协议选择决策矩阵’提供关键案例支撑，体现从个案到通则的深化过程。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_3",
+      "target": "65_8",
+      "relation_type": "supplementary",
+      "reason": "'65_3'（域名结构与分类）解析域名层次结构与语义规则（如ccTLD/gTLD），补充'65_8'（WWW）中URL语法构成中host部分的命名空间依据，强化URL中域名段的理解深度。",
+      "kg_concept_relation": "域名层次结构 → URL语法构成（scheme://host:port/path?query#fragment）"
+    },
+    {
+      "source": "65_4",
+      "target": "65_9",
+      "relation_type": "parallel",
+      "reason": "'65_4'（DNS习题解析）进行CNAME跳转失效路径推演，'65_9'（WWW习题解析）进行304缓存协商触发条件判定，二者同属‘基于协议状态链路进行故障路径反向推演’的高阶思维训练，构成平行能力模块。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_4",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_4'对DNS资源记录的实操推演，为'65_12'中‘协议选择决策矩阵’提供安全性（如MX记录易受伪造）、可靠性（如CNAME链过长导致超时）等维度的具体证据。",
+      "kg_concept_relation": "DNS资源记录类型（A、CNAME、MX等） → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_5",
+      "target": "65_6",
+      "relation_type": "progressive",
+      "reason": "'65_5'（FTP）介绍主动/被动模式基本原理，'65_6'（FTP端口习题解析）在此基础上深入Wireshark抓包实证，构成‘概念→实操验证’的渐进关系。",
+      "kg_concept_relation": "FTP文件传输协议 → 控制连接（端口21）与数据连接（动态端口或端口20）"
+    },
+    {
+      "source": "65_5",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_5'揭示FTP双通道分离设计对防火墙穿透的影响，为'65_12'中‘协议选择决策矩阵’的部署复杂度维度提供典型例证，推动从单一协议认知到多维评估跃迁。",
+      "kg_concept_relation": "FTP文件传输协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_7",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_7'（Telnet）通过与SSH对比凸显明文传输缺陷，为'65_12'中协议选择决策矩阵的安全性权重提供核心判据，实现从现象批判到工程权衡的升华。",
+      "kg_concept_relation": "Telnet远程登录协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_8",
+      "target": "65_9",
+      "relation_type": "progressive",
+      "reason": "'65_8'（WWW）定义URL语法与HTTP基础，'65_9'（WWW习题解析）在其基础上开展状态码深度分析，构成‘概念输入→问题求解’的标准教学递进。",
+      "kg_concept_relation": "WWW万维网 → HTTP请求方法（GET/POST等）与状态码含义"
+    },
+    {
+      "source": "65_8",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_8'中WWW的MIME类型协商机制，为'65_12'协议选择矩阵中的‘内容协商能力’维度提供实证基础，支撑多维评估体系构建。",
+      "kg_concept_relation": "WWW万维网 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_10",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_10'（电子邮件协议）对比POP3/IMAP存储模型差异，直接贡献于'65_12'协议选择矩阵中‘数据一致性’与‘部署复杂度’的量化评估依据。",
+      "kg_concept_relation": "电子邮件协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_11",
+      "target": "65_12",
+      "relation_type": "progressive",
+      "reason": "'65_11'（DHCP）详述DORA流程及时序敏感性，为'65_12'协议选择矩阵中‘实时性’与‘容错性’维度提供关键参数（如租约时间、中继代理延迟）。",
+      "kg_concept_relation": "DHCP动态主机配置协议 → 协议选择决策矩阵（实时性/可靠性/安全性/部署复杂度加权评估）"
+    },
+    {
+      "source": "65_12",
+      "target": "65_13",
+      "relation_type": "summary",
+      "reason": "'65_12'（应用层协议总结表）完成共性提炼与决策矩阵构建，'65_13'（课程总结与练习题预告）以此为理论工具，预演真实拓扑中混合协议冲突排查，实现知识到能力的最终闭环总结。",
+      "kg_concept_relation": "应用层协议共性分析 → 综合拓扑中混合协议流量冲突排查策略（如DNS劫持干扰HTTPS证书校验）"
+    }
+  ],
+  "overall_structure": "\n        1. 批次内关系：共12条有效边，覆盖所有批次内视频关联；\n        2. 跨批次关系：共22条有效边，覆盖跨批次视频关联；\n        3. 总关系边数：34条；\n        4. 总节点数：13个。\n        ",
+  "coverage_check": {
+    "total_videos": 13,
+    "batch_coverage": [
+      5,
+      5,
+      3
+    ],
+    "cross_coverage": [
+      "65_1",
+      "65_2",
+      "65_3",
+      "65_4",
+      "65_5",
+      "65_6",
+      "65_7",
+      "65_8",
+      "65_9",
+      "65_10",
+      "65_11",
+      "65_12",
+      "65_13"
+    ],
+    "merged_node_names": [
+      "65_1",
+      "65_2",
+      "65_3",
+      "65_4",
+      "65_5",
+      "65_6",
+      "65_7",
+      "65_8",
+      "65_9",
+      "65_10",
+      "65_11",
+      "65_12",
+      "65_13"
+    ]
+  },
+  "batch_info": {
+    "batch_size": 5,
+    "total_batches": 3,
+    "api_timeout": 120,
+    "retry_config": {
+      "retry_times": 3,
+      "retry_delay": 2
+    }
+  }
+}

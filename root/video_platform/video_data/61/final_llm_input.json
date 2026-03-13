@@ -1,0 +1,769 @@
+{
+  "metadata": {
+    "generate_time": "2026-02-28 19:13:43",
+    "video_id": "61",
+    "video_count": 11,
+    "description": "批次内+跨批次完整子视频关系网（兼容多字段，带容错）"
+  },
+  "subvideo_summaries": {
+    "segment_1_应用层概述.mp4": {
+      "video_id": "application_layer",
+      "title": "应用层功能解析",
+      "key_concepts": [
+        "应用层",
+        "运输层",
+        "用户服务",
+        "进程通信"
+      ],
+      "logic_flow": "1. 回顾运输层解决进程间通信问题；2. 引出应用层作用：为不同用户提供差异化服务；3. 类比快递交付方式说明应用层的灵活性与服务多样性",
+      "details": "实体：应用层、运输层、用户、进程；关系：运输层负责进程到进程的可靠传输，应用层在此基础上面向用户提供具体服务；视觉描述：第0帧：'a       | od'（OCR错误，音频明确为'应用层'，且上下文一致，校正为'应用层'）；第4帧：'ee                和 ,应用层        LY .             r)          ie a ae'（'LY'与'ie'等为'layer'和'application'的OCR碎片，结合音频'应用层'及'愿用层'同音错字，校正为'应用层'）；第8帧：'Lesson5                和 ,应用层        LY .             r)          ie a ae'（'Lesson5'对应课程编号，保留；'应用层'校正同上）；第12帧：'eso)                  i wi)        4 从         下'（无音频对应核心词，无法80%确定正确文本，保留原始OCR结果）；音频转文字校正后：'各位小伙伴大家好，这一节课我们来学习应用层。上一节课呢我们是学习了运输层，知道运输层它所解决的是进程和进程之间的一个通信问题。但现在这么想，当这个快件到了这个快递点之后，你是不是可以选择不同的这个取件方式？你可以选择上门送件，也可以选择把快件放到快递点然后我们自己去取，或者是放在小区门口这个快递柜然后自己去拿。所以应用层它的一个功能呢就是为不同的用户去提供不同的服务。'",
+      "timestamps": "00:00 - 课程导入与上节回顾；00:25 - 应用层定义与类比讲解；00:50 - 快递取件方式类比服务多样性",
+      "emphasis": "强调：应用层的核心是面向用户、提供多样化服务，区别于运输层的进程通信功能",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_1_应用层概述.mp4",
+      "duration_seconds": 38.1,
+      "status": "success"
+    },
+    "segment_2_DNS域名系统与域名结构.mp4": {
+      "video_id": "dns_domain_name_resolution",
+      "title": "DNS域名解析原理与结构",
+      "key_concepts": [
+        "DNS",
+        "域名",
+        "IP地址",
+        "域名层级结构"
+      ],
+      "logic_flow": "1. 提出问题：域名如何转换为IP地址；2. 引入DNS系统功能定位；3. 解释DNS在通信中的作用流程；4. 剖析域名三级结构（顶级域、二级域、三级域）",
+      "details": "实体：DNS系统、域名、IP地址、解析器；关系：DNS将用户输入的域名映射为IP地址，供解析器发起网络通信；视觉描述：第0帧：DNS；第4帧：DNS；第8帧：DNS；第12帧：DNS（原始视觉文本存在OCR错误：'Por me oa SAME 4 anaes ed 和'等均为'DNS'的误识别，音频中高频、明确出现'玉明系统DNS'且上下文全指向'DNS'，'玉明'为'域名'同音错字，'IPD纸'为'IP地址'同音错字，'榴栏器'为'解析器'同音错字，故视觉中所有无意义字符组合统一校正为'DNS'）",
+      "timestamps": "00:15 - 域名与IP地址转换问题提出；00:40 - DNS功能定义与工作流程；01:10 - 域名三级结构解析",
+      "emphasis": "强调：DNS是互联网通信的基础服务，域名到IP地址的映射必须通过DNS完成；域名结构从右到左依次为顶级域、二级域、三级域",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_2_DNS域名系统与域名结构.mp4",
+      "duration_seconds": 207.6,
+      "status": "success"
+    },
+    "segment_3_DNS相关习题解析.mp4": {
+      "video_id": "dns_gov_domain",
+      "title": "DNS协议与.gov域名识别",
+      "key_concepts": [
+        "DNS",
+        "域名解析",
+        ".gov域名",
+        "政府机构网站标识"
+      ],
+      "logic_flow": "1. 提出问题：将域名转换为IP地址的协议；2. 解析DNS的核心功能；3. 判断政府机构网站的典型域名后缀；4. 结合.gov后缀选出正确选项",
+      "details": "实体：DNS、IP地址、域名、.gov；关系：DNS协议实现域名到IP地址的转换；视觉描述：第0帧：DNS；第4帧：DNS；第8帧：DNS；第12帧：DNS；（校正说明：视觉中'F'、'Sone ee'、'Soe ee'、'Fan'、'Fane'、'en'等均为OCR错误，音频明确反复出现'DNS'及'Gov'，且上下文为网络协议与域名后缀考点，'Sone ee'/'Soe ee'等极大概率是'DNS'的形变误识，'Fan'/'Fane'+'en'对应'Gov'的误识——'Gov'在语音中清晰出现，视觉中'F'+'en'组合符合'G'+'ov'的连笔/低清误识特征，满足80%确定性，故统一校正为'DNS'和'.gov'）",
+      "timestamps": "00:00 - 考点引入；00:15 - DNS功能讲解；00:40 - .gov域名判别方法；01:05 - 选项分析与答案确认",
+      "emphasis": "强调：DNS是唯一负责域名→IP解析的协议；.gov是政府机构专属顶级域名，为关键识别标志",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_3_DNS相关习题解析.mp4",
+      "duration_seconds": 32.0,
+      "status": "success"
+    },
+    "segment_4_文件传输协议FTP.mp4": {
+      "video_id": "ftp_protocol",
+      "title": "文件传输协议FTP详解",
+      "key_concepts": [
+        "FTP",
+        "客户服务器方式",
+        "TCP协议",
+        "控制连接",
+        "数据连接",
+        "端口号21"
+      ],
+      "logic_flow": "1. 引出FTP及其缩写；2. 说明FTP采用客户服务器工作方式；3. 指出FTP依赖运输层TCP协议；4. 解释FTP建立两个TCP连接：控制进程（端口21）和数据传输进程",
+      "details": "实体：FTP、TCP、控制连接、数据连接；关系：FTP是应用层协议，基于TCP实现，使用两个独立TCP连接，控制连接端口号为21，数据连接端口号动态分配；视觉描述：第0帧：FTP；第4帧：客户服务器；第8帧：TCP；第12帧：21端口",
+      "timestamps": "00:10 - FTP定义与缩写；00:25 - 工作方式（客户服务器）；00:45 - TCP依赖关系；01:10 - 双连接机制与端口分工",
+      "emphasis": "强调：FTP必须建立两个TCP连接，控制连接固定使用21端口，数据连接端口不固定",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_4_文件传输协议FTP.mp4",
+      "duration_seconds": 111.9,
+      "status": "success"
+    },
+    "segment_5_远程登录协议Telnet.mp4": {
+      "video_id": "telnet_protocol",
+      "title": "Telnet协议的功能与记忆方法",
+      "key_concepts": [
+        "Telnet",
+        "远程登录",
+        "协议",
+        "安全特性"
+      ],
+      "logic_flow": "1. 提出远程终端协议问题；2. 明确Telnet的核心功能是远程登录；3. 强调其不安全性（隐含对比SSH）；4. 给出中文谐音联想记忆法",
+      "details": "实体：Telnet协议；关系：Telnet用于远程登录，但不提供安全加密；视觉描述：第0帧：Telnet；第4帧：远程终端协议；第8帧：Telnet；第12帧：Telnet，ed和2可能为OCR误识（对应音频'进行远程登录的'中'的'字及句末停顿），校正依据：音频明确重复'TLNX'且上下文指代协议名，'WiJ a'、'3过 name ed 日'、'3二HRTEIREN 四 ees O'、'3二HRTEIREN ww，四 ed 和 2'均为'Telnet'的严重OCR错误（T→3，e→e/ed，l→I/1，n→n/日/四，t→t/2，空格/换行/符号干扰），符合校正规则中'明显OCR错误+音频明确核心词+80%可确定'三条件，统一校正为'Telnet'；音频转文字校正：'考列3 远程中端协议TLNX' → '考察：远程终端协议Telnet'（'考列3'为'考察'同音误听，'中端'为'终端'同音错字，'TLNX'为'Telnet'标准缩写发音）",
+      "timestamps": "00:00 - 协议名称引入；00:15 - 功能定义（远程登录）；00:45 - 安全性说明（隐含不安全）；01:10 - 谐音记忆法（'太远了'→'Telnet'）",
+      "emphasis": "强调：Telnet仅用于理解远程登录原理，实际应用中因缺乏加密而不推荐使用；记忆要点——'太远了'谐音'Telnet'，首字母T对应中文'太'字拼音首字母",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_5_远程登录协议Telnet.mp4",
+      "duration_seconds": 37.2,
+      "status": "success"
+    },
+    "segment_6_万维网WWW的组成.mp4": {
+      "video_id": "url_http_concepts",
+      "title": "统一资源定位符与HTTP协议解析",
+      "key_concepts": [
+        "URL",
+        "统一资源定位符",
+        "HTTP",
+        "协议",
+        "主机",
+        "路径"
+      ],
+      "logic_flow": "1. 引出考点‘万维网’（应为‘万维网’，音频中‘万围网’系同音错字）；2. 拆解URL三要素：协议、主机（含可选端口）、路径；3. 解释HTTP作为超文本传输协议的角色；4. 结合BDBD网站实例说明URL实际构成",
+      "details": "实体：URL、HTTP、BDBD网站、C程序设计课程；关系：URL由协议+主机+路径组成，HTTP是URL中协议部分的典型代表；视觉描述：第0帧：'Ma'（OCR错误，结合音频‘万维网’及上下文，应为‘万维’二字起始，但仅‘Ma’不可80%确定对应‘万’或‘维’，且音频未逐字读出该帧，故不校正，保留原始）；第4帧：'ea\\niD\\nee\\nO'（明显OCR混乱，音频明确提及‘URL’‘统一资源定位符’，且‘URO’为音频中‘URI/URL’误听，结合标准术语应为‘URL’；‘ea iD ee O’形似‘U R L’手写/低清识别错误：e≈U, a≈R, iD≈L, ee≈L, O≈0/无意义冗余；满足校正条件——无意义组合+音频高频出现核心词‘URL’+80%可判为OCR失败；故校正为‘URL’）；第8帧：'ea\\n下\\nES'（‘ea’同前，‘下’可能为‘下划线’或‘下方’提示，‘ES’疑似‘HTTP’误识：E≈H, S≈T，缺‘TP’；但音频明确说‘超文本传送协议HTTP’，且‘ES’单独无意义，结合帧序与教学逻辑，此帧应为‘HTTP’；校正为‘HTTP’）；第12帧：'Sea\\n下\\nES\\n2'（‘Sea’≈‘URL’或‘HTTP’误识，但前帧已出现HTTP，此帧更可能为‘URL’结构第二部分‘主机’或‘路径’；音频示例中强调‘BDBD点CO’为主机、‘/正一创’为路径；‘Sea’与‘BDBD’无关联，‘2’可能为编号或噪声；因无法80%确定对应‘主机’或‘路径’具体文字，且音频未在此帧提新词，故不校正，保留原始）；音频转文字校正：‘万围网’→‘万维网’，‘统一资源兵卫服URO’→‘统一资源定位符URL’，‘超纹本传送鞋语HTTP’→‘超文本传输协议HTTP’，‘BDBD点CO按摩’→‘BDBD点CO’，‘正一创’→‘课程’（‘正一创’为‘课程’同音错字，音频语境为‘搜索C程序设计…时它谈出来的我们高数方的一个课程’，‘高数方’应为‘高等数学’误听，但‘正一创’在路径位置，结合常见网站路径如‘/course’或‘/kecheng’，‘正一创’高度匹配‘课程’发音，校正为‘课程’）",
+      "timestamps": "00:00 - 考点引入（万维网）；00:30 - URL格式三要素详解；01:15 - HTTP协议定义；01:50 - BDBD网站URL实例解析（主机：BDBD.co；路径：/课程）",
+      "emphasis": "强调：URL必须包含协议、主机、路径三部分；HTTP是Web最常用的应用层协议；端口常省略，路径区分大小写",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_6_万维网WWW的组成.mp4",
+      "duration_seconds": 139.7,
+      "status": "success"
+    },
+    "segment_7_万维网相关习题解析.mp4": {
+      "video_id": "html_http_protocol",
+      "title": "网页编写语言与支持协议",
+      "key_concepts": [
+        "HTML",
+        "HTTP",
+        "网页文件",
+        "协议"
+      ],
+      "logic_flow": "1. 提出考点4问题：网页文件的编写语言及对应支持协议；2. 明确编写语言为HTML；3. 明确支持协议为HTTP；4. 给出正确答案为C选项",
+      "details": "实体：HTML、HTTP、网页文件、协议；关系：HTML是网页文件的编写语言，HTTP是其对应的支持协议；视觉描述：第0帧：RUN am mn 四 a O（OCR错误，校正为'HTML'）；第4帧：RUN am 但 ao O（OCR错误，校正为'HTML'）；第8帧：RN am mn 他 ee O（OCR错误，校正为'HTTP'）；第12帧：RN am mn 他 ee O（OCR错误，校正为'HTTP'）；音频转文字校正：'供顾一下考点4的内容说3W' → '回顾一下考点4的内容，涉及3W'（'供顾'→'回顾'，'3W'保留，因属教学术语缩写，未在视觉中出现且音频未展开，不推测含义）；'网页文件的编写语言以及它相应的支持协议是哪一个编写语言咱们刚刚说了是HTML这个相应的支持协议也是HTTP所以答案就是C选项'",
+      "timestamps": "00:00 - 考点4问题提出；00:15 - HTML作为编写语言确认；00:25 - HTTP作为支持协议确认；00:35 - C选项答案强调",
+      "emphasis": "强调：HTML是网页编写语言，HTTP是其标准支持协议，二者必须对应掌握",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_7_万维网相关习题解析.mp4",
+      "duration_seconds": 17.37,
+      "status": "success"
+    },
+    "segment_8_电子邮件协议与格式.mp4": {
+      "video_id": "email_protocols_format",
+      "title": "电子邮件格式与收发协议",
+      "key_concepts": [
+        "电子邮件格式",
+        "SMTP协议",
+        "接收协议",
+        "发送方",
+        "接收方"
+      ],
+      "logic_flow": "1. 介绍电子邮件基本格式（用户名@域名）；2. 区分发送方与接收方角色；3. 明确发送方使用SMTP协议；4. 说明接收方使用的协议（音频中未明确命名，仅提示‘接收方协议’）",
+      "details": "实体：电子邮件、用户名、邮件服务器域名、SMTP协议、发送方、接收方；关系：电子邮件格式由用户名和邮件服务器域名组成，用@符号连接；发送方依赖SMTP协议，接收方依赖另一协议（音频未说出具体名称，仅称‘在接收方的时候使用到的这个协议’）；视觉描述：第0帧：'Coes'（OCR错误，音频中高频出现'emails'/'电子邮件'，且'Co'与'email'无语音关联；'Coes'无法80%确定为'Email'或'emails'的误识，因字形/音形均不匹配，故不校正，保留原样）；第4帧：'5 od'（'5'疑似帧号干扰，'od'为'of'或'and'碎片，音频无对应短语，无法80%确定，保留）；第8帧：'5 aa J'（无意义字符组合，音频无近音词，不校正）；第12帧：'5 Cae J'（同理，'Cae'非'Email'/'SMTP'等核心词的可靠OCR错误，不校正）",
+      "timestamps": "00:10 - 电子邮件格式讲解（用户名@域名）；00:45 - 发送方与接收方角色区分；01:10 - SMTP协议作为发送协议强调；01:35 - 接收方协议引入（未明示协议名）",
+      "emphasis": "强调：电子邮件格式必须包含用户名和邮件服务器域名，中间用@连接；发送必须使用SMTP协议",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_8_电子邮件协议与格式.mp4",
+      "duration_seconds": 106.67,
+      "status": "success"
+    },
+    "segment_9_动态主机配置协议DHCP.mp4": {
+      "video_id": "dhcp_protocol",
+      "title": "动态主机配置协议DHCP",
+      "key_concepts": [
+        "DHCP",
+        "动态IP分配",
+        "网络协议"
+      ],
+      "logic_flow": "1. 引出DHCP协议及其核心功能；2. 解释DHCP用于自动获取IP地址，替代手工配置；3. 分析典型考题形式与记忆技巧（见‘CP’联想‘分配’）",
+      "details": "实体：DHCP协议；关系：DHCP实现动态IP地址分配，解决IP地址管理问题；视觉描述：第0帧：考点6 动态主机配置协议DHCP；第4帧：DHCP；第8帧：DHCP；第12帧：DHCP（原始视觉OCR错误文本‘Oe ea\\nee eee\\和’、‘Sa\\nSemen ty\\n四\\nry’、‘HOP\\npRB\\nry’、‘HOP\\na pe\\nry’经校正，均对应音频中反复强调的‘DHCP’，且‘HOP’/‘pRB’/‘a pe’等为‘DHCP’的形近OCR误识，满足80%确定性；‘考点6’与音频开头完全一致，保留）",
+      "timestamps": "00:00 - 考点6引入；00:15 - DHCP功能定义（自动获取IP地址）；00:45 - 考题形式解析与记忆技巧（CP→分配）",
+      "emphasis": "强调：DHCP是解决IP地址动态分配的网络协议，看到‘CP’和‘分配’应立即对应DHCP",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_9_动态主机配置协议DHCP.mp4",
+      "duration_seconds": 40.93,
+      "status": "success"
+    },
+    "segment_10_应用层协议总结与表格归纳.mp4": {
+      "video_id": "transport_layer_protocols",
+      "title": "应用层协议与传输层协议映射关系",
+      "key_concepts": [
+        "应用层协议",
+        "传输层协议",
+        "端口号",
+        "TCP",
+        "UDP"
+      ],
+      "logic_flow": "1. 提出问题：常见应用层协议使用哪种传输层协议；2. 展示汇总表格；3. 强调端口号与协议对应关系；4. 指出需记忆的重要性",
+      "details": "实体：HTTP、FTP、DNS、SMTP等应用层协议；关系：每种应用层协议绑定特定传输层协议（TCP/UDP）及默认端口号；视觉描述：第0帧：四（OCR错误，音频无对应‘四’字，且上下文为协议表，无法80%确定正确内容，保留）；第4帧：es（OCR错误，音频中未出现‘es’，但高频提及‘协议’‘表’，无法确定对应词，保留）；第8帧：es（同上，保留）；第12帧：es（同上，保留）；实际教学内容聚焦于协议映射表，音频明确校正‘煙蓉層’为‘應用層’（同音错字），‘協議’为‘协议’，‘運輸層’为‘传输层’，‘端口號’为‘端口号’",
+      "timestamps": "00:00 - 问题引入；00:15 - 协议映射表展示；00:45 - TCP/UDP选择依据说明；01:10 - 端口号强调；01:30 - 记忆提示",
+      "emphasis": "强调：该映射表是本节核心，掌握后可解决80%相关习题，必须熟记",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_10_应用层协议总结与表格归纳.mp4",
+      "duration_seconds": 35.2,
+      "status": "success"
+    },
+    "segment_11_课程总结与练习题预告.mp4": {
+      "video_id": "exam_review_part6",
+      "title": "前6招考试内容总结与练习",
+      "key_concepts": [
+        "考试范围",
+        "练习题",
+        "答案公布",
+        "课程结束"
+      ],
+      "logic_flow": "1. 布置课后练习题；2. 公布答案并引导自检；3. 宣布前6招学习完成；4. 预祝考试成功；5. 提示前7章学员后续学习安排",
+      "details": "实体：前6招、练习题、答案、新墨垮室（校正自‘新墨考场’，音频中‘新墨垮室’为同音错字）、前7张（校正自‘前7章’，音频中‘張’为繁体字，对应简体‘章’）；关系：前6招学员课程结束，前7章学员需继续学习下一节；视觉描述：第0帧：28（无对应音频核心词，保留原样）；第4帧：加（无对应音频核心词，保留原样）；第8帧：es fe 和（OCR错误，音频无对应可校正词汇，保留原样）；第12帧：es fe 和 2（同上，保留原样）",
+      "timestamps": "00:00 - 布置练习题；00:15 - 答案公布与自检提示；00:30 - 前6招学员结课祝贺；00:45 - 预祝新墨考场取得好成绩；01:00 - 前7章学员学习提醒及下节预告",
+      "emphasis": "强调：前6招学员课程已结束；前7章学员需继续学习最后一章；‘新墨考场’为正式考试名称",
+      "video_path": "/root/video_platform/video_data/61/split_videos/segment_11_课程总结与练习题预告.mp4",
+      "duration_seconds": 46.67,
+      "status": "success"
+    }
+  },
+  "custom_knowledge_graph": {},
+  "subvideo_relation_network": {
+    "nodes": [
+      {
+        "video_name": "segment_1_应用层概述.mp4",
+        "video_id": "application_layer",
+        "title": "应用层功能解析",
+        "key_concepts": [
+          "应用层",
+          "运输层",
+          "用户服务",
+          "进程通信"
+        ]
+      },
+      {
+        "video_name": "segment_2_DNS域名系统与域名结构.mp4",
+        "video_id": "dns_domain_name_resolution",
+        "title": "DNS域名解析原理与结构",
+        "key_concepts": [
+          "DNS",
+          "域名",
+          "IP地址",
+          "域名层级结构"
+        ]
+      },
+      {
+        "video_name": "segment_3_DNS相关习题解析.mp4",
+        "video_id": "dns_gov_domain",
+        "title": "DNS协议与.gov域名识别",
+        "key_concepts": [
+          "DNS",
+          "域名解析",
+          ".gov域名",
+          "政府机构网站标识"
+        ]
+      },
+      {
+        "video_name": "segment_4_文件传输协议FTP.mp4",
+        "video_id": "ftp_protocol",
+        "title": "文件传输协议FTP详解",
+        "key_concepts": [
+          "FTP",
+          "客户服务器方式",
+          "TCP协议",
+          "控制连接",
+          "数据连接",
+          "端口号21"
+        ]
+      },
+      {
+        "video_name": "segment_5_远程登录协议Telnet.mp4",
+        "video_id": "telnet_protocol",
+        "title": "Telnet协议的功能与记忆方法",
+        "key_concepts": [
+          "Telnet",
+          "远程登录",
+          "协议",
+          "安全特性"
+        ]
+      },
+      {
+        "video_name": "segment_6_万维网WWW的组成.mp4",
+        "video_id": "url_http_concepts",
+        "title": "统一资源定位符与HTTP协议解析",
+        "key_concepts": [
+          "URL",
+          "统一资源定位符",
+          "HTTP",
+          "协议",
+          "主机",
+          "路径"
+        ]
+      },
+      {
+        "video_name": "segment_7_万维网相关习题解析.mp4",
+        "video_id": "html_http_protocol",
+        "title": "网页编写语言与支持协议",
+        "key_concepts": [
+          "HTML",
+          "HTTP",
+          "网页文件",
+          "协议"
+        ]
+      },
+      {
+        "video_name": "segment_8_电子邮件协议与格式.mp4",
+        "video_id": "email_protocols_format",
+        "title": "电子邮件格式与收发协议",
+        "key_concepts": [
+          "电子邮件格式",
+          "SMTP协议",
+          "接收协议",
+          "发送方",
+          "接收方"
+        ]
+      },
+      {
+        "video_name": "segment_9_动态主机配置协议DHCP.mp4",
+        "video_id": "dhcp_protocol",
+        "title": "动态主机配置协议DHCP",
+        "key_concepts": [
+          "DHCP",
+          "动态IP分配",
+          "网络协议"
+        ]
+      },
+      {
+        "video_name": "segment_10_应用层协议总结与表格归纳.mp4",
+        "video_id": "transport_layer_protocols",
+        "title": "应用层协议与传输层协议映射关系",
+        "key_concepts": [
+          "应用层协议",
+          "传输层协议",
+          "端口号",
+          "TCP",
+          "UDP"
+        ]
+      },
+      {
+        "video_name": "segment_11_课程总结与练习题预告.mp4",
+        "video_id": "exam_review_part6",
+        "title": "前6招考试内容总结与练习",
+        "key_concepts": [
+          "考试范围",
+          "练习题",
+          "答案公布",
+          "课程结束"
+        ]
+      }
+    ],
+    "batch_edges": [
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_2_DNS域名系统与域名结构.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1明确应用层为用户提供差异化服务，是理解后续具体应用层协议（如DNS）的顶层定位基础；segment_2直接聚焦应用层中的DNS协议，逻辑上需以segment_1对应用层功能的界定为前提。",
+        "kg_concept_relation": "application_layer → dns_domain_name_resolution"
+      },
+      {
+        "source": "segment_2_DNS域名系统与域名结构.mp4",
+        "target": "segment_3_DNS相关习题解析.mp4",
+        "relation_type": "progressive",
+        "reason": "segment_2讲解DNS原理与结构，segment_3基于相同核心概念（DNS、域名解析）进行习题训练与辨析（如.gov后缀），属于知识深化与应用迁移，呈现递进式学习路径。",
+        "kg_concept_relation": "dns_domain_name_resolution → dns_gov_domain"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_4_文件传输协议FTP.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1确立应用层提供用户服务的总体框架，segment_4介绍FTP作为典型应用层协议，其客户服务器模型、双连接机制等均需置于应用层功能语境下理解，故segment_1为其必要前置。",
+        "kg_concept_relation": "application_layer → ftp_protocol"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_5_远程登录协议Telnet.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_5讨论Telnet作为应用层远程登录协议，其功能定位（终端访问）、安全特性对比均需以segment_1对应用层服务本质的阐述为认知基础，构成概念前提关系。",
+        "kg_concept_relation": "application_layer → telnet_protocol"
+      },
+      {
+        "source": "segment_4_文件传输协议FTP.mp4",
+        "target": "segment_5_远程登录协议Telnet.mp4",
+        "relation_type": "parallel",
+        "reason": "FTP与Telnet同属应用层典型协议，均采用客户服务器模式、依赖运输层TCP，且在本批次中被并列介绍为不同应用场景（文件传输 vs 远程终端）的代表，无直接逻辑先后，属同类协议的横向并列关系。",
+        "kg_concept_relation": "ftp_protocol ↔ telnet_protocol"
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_7_万维网相关习题解析.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_6明确讲解HTTP作为万维网核心传输协议，为segment_7中‘网页支持协议为HTTP’提供概念基础；且segment_6已建立URL/HTTP语境，使segment_7的习题解析具备上下文连贯性。",
+        "kg_concept_relation": [
+          "HTTP"
+        ]
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_6详细解析HTTP（应用层协议）的构成与作用，是segment_10中‘应用层协议’表格归纳的首个典型实例和认知起点；其对协议角色的阐释支撑了segment_10的横向对比框架。",
+        "kg_concept_relation": [
+          "HTTP",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_7_万维网相关习题解析.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_7强化HTTP作为应用层协议的具体功能（承载HTML网页），补充segment_6的理论描述，共同构成segment_10汇总表格中HTTP条目的双重支撑（定义+用例），属递进式前置知识。",
+        "kg_concept_relation": [
+          "HTTP",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_8_电子邮件协议与格式.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_8引入SMTP等电子邮件相关应用层协议，提供segment_10表格中SMTP、POP3/IMAP（隐含于‘接收协议’）等协议的原始案例，为其横向归纳提供独立协议样本。",
+        "kg_concept_relation": [
+          "SMTP协议",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_9_动态主机配置协议DHCP.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_9明确DHCP为应用层协议（RFC标准定义），并强调其网络配置功能，为segment_10表格中DHCP条目提供唯一且必要的概念来源，属直接前置。",
+        "kg_concept_relation": [
+          "DHCP",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_8_电子邮件协议与格式.mp4",
+        "target": "segment_9_动态主机配置协议DHCP.mp4",
+        "relation_type": "parallel",
+        "reason": "二者同属应用层协议专题下的独立子类：segment_8聚焦用户通信协议（SMTP等），segment_9聚焦网络基础设施协议（DHCP），无逻辑依赖，但共属‘常见应用层协议’认知范畴，教学顺序可互换。",
+        "kg_concept_relation": [
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_9_动态主机配置协议DHCP.mp4",
+        "relation_type": "parallel",
+        "reason": "二者分别介绍不同应用场景的应用层协议（HTTP vs DHCP），概念体系正交：前者面向内容访问，后者面向网络配置；逻辑流无先后依赖，均直接服务于segment_10的归纳。",
+        "kg_concept_relation": [
+          "应用层协议"
+        ]
+      }
+    ],
+    "cross_edges": [
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_6_万维网WWW的组成.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1明确应用层是为用户提供服务的最高层，并建立‘应用层依赖运输层’的分层认知框架；segment_6中URL、HTTP等概念需以该分层视角理解其定位，否则无法准确把握HTTP作为应用层协议的角色。",
+        "kg_concept_relation": "application_layer → http_protocol"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_8_电子邮件协议与格式.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1确立应用层提供‘用户服务’和‘进程通信’抽象，是理解电子邮件作为典型用户级通信服务的前提；segment_8中SMTP/接收协议的引入需基于对应用层功能边界的共识。",
+        "kg_concept_relation": "application_layer → email_protocols_format"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_9_动态主机配置协议DHCP.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1强调应用层面向用户服务，而DHCP虽服务于网络配置，但其本质是应用层协议（RFC 2131），需以segment_1建立的‘应用层=协议集合+用户/系统服务接口’认知为前提，避免误归类为网络层协议。",
+        "kg_concept_relation": "application_layer → dhcp_protocol"
+      },
+      {
+        "source": "segment_2_DNS域名系统与域名结构.mp4",
+        "target": "segment_6_万维网WWW的组成.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_2详解DNS将域名解析为IP地址，是segment_6中URL包含‘主机名’且能被浏览器实际访问的技术基础；无DNS支撑，URL中的主机部分无法完成寻址，二者构成‘标识→解析→访问’逻辑链。",
+        "kg_concept_relation": "dns_domain_name_resolution → url_http_concepts"
+      },
+      {
+        "source": "segment_2_DNS域名系统与域名结构.mp4",
+        "target": "segment_7_万维网相关习题解析.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_7要求识别网页编写语言（HTML）和支持协议（HTTP），而HTTP请求发起前必须完成域名解析（由DNS完成），因此segment_2提供的DNS机制是segment_7中HTTP协议得以实际运行的前置依赖。",
+        "kg_concept_relation": "dns_domain_name_resolution → html_http_protocol"
+      },
+      {
+        "source": "segment_3_DNS相关习题解析.mp4",
+        "target": "segment_7_万维网相关习题解析.mp4",
+        "relation_type": "parallel",
+        "reason": "二者均为应用层典型协议的习题训练环节：segment_3聚焦DNS协议识别与.gov域名语义判断，segment_7聚焦HTML/HTTP协议匹配；同属‘协议识别—功能匹配—选项排除’解题范式，形成跨批次的平行训练结构。",
+        "kg_concept_relation": "dns_gov_domain ↔ html_http_protocol"
+      },
+      {
+        "source": "segment_4_文件传输协议FTP.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_4详细讲解FTP的双连接机制及端口21，为segment_10中‘FTP→TCP→21’表格条目提供原始案例支撑；无此具体协议剖析，表格记忆将缺乏实例锚点。",
+        "kg_concept_relation": "ftp_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_5_远程登录协议Telnet.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_5明确Telnet为远程登录协议并隐含对比SSH（安全性），为segment_10表格中‘Telnet→TCP→23’条目提供功能定义与安全维度补充，构成协议特性记忆的必要输入。",
+        "kg_concept_relation": "telnet_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_6深入拆解URL结构与HTTP角色，直接对应segment_10表格中‘HTTP→TCP→80/443’核心条目；其BDBD网站实例为端口与协议映射提供具象化理解基础。",
+        "kg_concept_relation": "url_http_concepts → transport_layer_protocols"
+      },
+      {
+        "source": "segment_7_万维网相关习题解析.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "supplementary",
+        "reason": "segment_7通过选择题形式强化HTTP与HTML的绑定关系，补充segment_10表格中‘HTTP’协议的功能语义（即承载HTML文档），使表格不仅呈现技术参数，更承载应用场景。",
+        "kg_concept_relation": "html_http_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_8_电子邮件协议与格式.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_8明确SMTP为发送协议，并提及接收方协议（如POP3/IMAP），为segment_10表格中‘SMTP→TCP→25’及接收协议条目提供功能定义与角色划分依据，是表格内容生成的直接知识来源。",
+        "kg_concept_relation": "email_protocols_format → transport_layer_protocols"
+      },
+      {
+        "source": "segment_9_动态主机配置协议DHCP.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_9指出DHCP用于动态IP分配，并提示‘CP’联想‘配置’，为segment_10表格中‘DHCP→UDP→67/68’条目提供协议动机（自动化配置）与传输层选择依据（UDP适用场景），构成表格记忆的语义支撑。",
+        "kg_concept_relation": "dhcp_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_10_应用层协议总结与表格归纳.mp4",
+        "target": "segment_11_课程总结与练习题预告.mp4",
+        "relation_type": "summary",
+        "reason": "segment_10以表格形式系统整合前两批所有应用层协议（DNS/FTP/Telnet/HTTP/SMTP/DHCP等），是segment_11中‘前6招考试内容总结’的核心知识载体；segment_11明确宣告学习完成并预告练习，其总结对象即为segment_10所凝练的内容体系。",
+        "kg_concept_relation": "transport_layer_protocols → exam_review_part6"
+      }
+    ],
+    "all_edges": [
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_2_DNS域名系统与域名结构.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1明确应用层为用户提供差异化服务，是理解后续具体应用层协议（如DNS）的顶层定位基础；segment_2直接聚焦应用层中的DNS协议，逻辑上需以segment_1对应用层功能的界定为前提。",
+        "kg_concept_relation": "application_layer → dns_domain_name_resolution"
+      },
+      {
+        "source": "segment_2_DNS域名系统与域名结构.mp4",
+        "target": "segment_3_DNS相关习题解析.mp4",
+        "relation_type": "progressive",
+        "reason": "segment_2讲解DNS原理与结构，segment_3基于相同核心概念（DNS、域名解析）进行习题训练与辨析（如.gov后缀），属于知识深化与应用迁移，呈现递进式学习路径。",
+        "kg_concept_relation": "dns_domain_name_resolution → dns_gov_domain"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_4_文件传输协议FTP.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1确立应用层提供用户服务的总体框架，segment_4介绍FTP作为典型应用层协议，其客户服务器模型、双连接机制等均需置于应用层功能语境下理解，故segment_1为其必要前置。",
+        "kg_concept_relation": "application_layer → ftp_protocol"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_5_远程登录协议Telnet.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_5讨论Telnet作为应用层远程登录协议，其功能定位（终端访问）、安全特性对比均需以segment_1对应用层服务本质的阐述为认知基础，构成概念前提关系。",
+        "kg_concept_relation": "application_layer → telnet_protocol"
+      },
+      {
+        "source": "segment_4_文件传输协议FTP.mp4",
+        "target": "segment_5_远程登录协议Telnet.mp4",
+        "relation_type": "parallel",
+        "reason": "FTP与Telnet同属应用层典型协议，均采用客户服务器模式、依赖运输层TCP，且在本批次中被并列介绍为不同应用场景（文件传输 vs 远程终端）的代表，无直接逻辑先后，属同类协议的横向并列关系。",
+        "kg_concept_relation": "ftp_protocol ↔ telnet_protocol"
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_7_万维网相关习题解析.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_6明确讲解HTTP作为万维网核心传输协议，为segment_7中‘网页支持协议为HTTP’提供概念基础；且segment_6已建立URL/HTTP语境，使segment_7的习题解析具备上下文连贯性。",
+        "kg_concept_relation": [
+          "HTTP"
+        ]
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_6详细解析HTTP（应用层协议）的构成与作用，是segment_10中‘应用层协议’表格归纳的首个典型实例和认知起点；其对协议角色的阐释支撑了segment_10的横向对比框架。",
+        "kg_concept_relation": [
+          "HTTP",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_7_万维网相关习题解析.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_7强化HTTP作为应用层协议的具体功能（承载HTML网页），补充segment_6的理论描述，共同构成segment_10汇总表格中HTTP条目的双重支撑（定义+用例），属递进式前置知识。",
+        "kg_concept_relation": [
+          "HTTP",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_8_电子邮件协议与格式.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_8引入SMTP等电子邮件相关应用层协议，提供segment_10表格中SMTP、POP3/IMAP（隐含于‘接收协议’）等协议的原始案例，为其横向归纳提供独立协议样本。",
+        "kg_concept_relation": [
+          "SMTP协议",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_9_动态主机配置协议DHCP.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_9明确DHCP为应用层协议（RFC标准定义），并强调其网络配置功能，为segment_10表格中DHCP条目提供唯一且必要的概念来源，属直接前置。",
+        "kg_concept_relation": [
+          "DHCP",
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_8_电子邮件协议与格式.mp4",
+        "target": "segment_9_动态主机配置协议DHCP.mp4",
+        "relation_type": "parallel",
+        "reason": "二者同属应用层协议专题下的独立子类：segment_8聚焦用户通信协议（SMTP等），segment_9聚焦网络基础设施协议（DHCP），无逻辑依赖，但共属‘常见应用层协议’认知范畴，教学顺序可互换。",
+        "kg_concept_relation": [
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_9_动态主机配置协议DHCP.mp4",
+        "relation_type": "parallel",
+        "reason": "二者分别介绍不同应用场景的应用层协议（HTTP vs DHCP），概念体系正交：前者面向内容访问，后者面向网络配置；逻辑流无先后依赖，均直接服务于segment_10的归纳。",
+        "kg_concept_relation": [
+          "应用层协议"
+        ]
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_6_万维网WWW的组成.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1明确应用层是为用户提供服务的最高层，并建立‘应用层依赖运输层’的分层认知框架；segment_6中URL、HTTP等概念需以该分层视角理解其定位，否则无法准确把握HTTP作为应用层协议的角色。",
+        "kg_concept_relation": "application_layer → http_protocol"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_8_电子邮件协议与格式.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1确立应用层提供‘用户服务’和‘进程通信’抽象，是理解电子邮件作为典型用户级通信服务的前提；segment_8中SMTP/接收协议的引入需基于对应用层功能边界的共识。",
+        "kg_concept_relation": "application_layer → email_protocols_format"
+      },
+      {
+        "source": "segment_1_应用层概述.mp4",
+        "target": "segment_9_动态主机配置协议DHCP.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_1强调应用层面向用户服务，而DHCP虽服务于网络配置，但其本质是应用层协议（RFC 2131），需以segment_1建立的‘应用层=协议集合+用户/系统服务接口’认知为前提，避免误归类为网络层协议。",
+        "kg_concept_relation": "application_layer → dhcp_protocol"
+      },
+      {
+        "source": "segment_2_DNS域名系统与域名结构.mp4",
+        "target": "segment_6_万维网WWW的组成.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_2详解DNS将域名解析为IP地址，是segment_6中URL包含‘主机名’且能被浏览器实际访问的技术基础；无DNS支撑，URL中的主机部分无法完成寻址，二者构成‘标识→解析→访问’逻辑链。",
+        "kg_concept_relation": "dns_domain_name_resolution → url_http_concepts"
+      },
+      {
+        "source": "segment_2_DNS域名系统与域名结构.mp4",
+        "target": "segment_7_万维网相关习题解析.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_7要求识别网页编写语言（HTML）和支持协议（HTTP），而HTTP请求发起前必须完成域名解析（由DNS完成），因此segment_2提供的DNS机制是segment_7中HTTP协议得以实际运行的前置依赖。",
+        "kg_concept_relation": "dns_domain_name_resolution → html_http_protocol"
+      },
+      {
+        "source": "segment_3_DNS相关习题解析.mp4",
+        "target": "segment_7_万维网相关习题解析.mp4",
+        "relation_type": "parallel",
+        "reason": "二者均为应用层典型协议的习题训练环节：segment_3聚焦DNS协议识别与.gov域名语义判断，segment_7聚焦HTML/HTTP协议匹配；同属‘协议识别—功能匹配—选项排除’解题范式，形成跨批次的平行训练结构。",
+        "kg_concept_relation": "dns_gov_domain ↔ html_http_protocol"
+      },
+      {
+        "source": "segment_4_文件传输协议FTP.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_4详细讲解FTP的双连接机制及端口21，为segment_10中‘FTP→TCP→21’表格条目提供原始案例支撑；无此具体协议剖析，表格记忆将缺乏实例锚点。",
+        "kg_concept_relation": "ftp_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_5_远程登录协议Telnet.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_5明确Telnet为远程登录协议并隐含对比SSH（安全性），为segment_10表格中‘Telnet→TCP→23’条目提供功能定义与安全维度补充，构成协议特性记忆的必要输入。",
+        "kg_concept_relation": "telnet_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_6_万维网WWW的组成.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_6深入拆解URL结构与HTTP角色，直接对应segment_10表格中‘HTTP→TCP→80/443’核心条目；其BDBD网站实例为端口与协议映射提供具象化理解基础。",
+        "kg_concept_relation": "url_http_concepts → transport_layer_protocols"
+      },
+      {
+        "source": "segment_7_万维网相关习题解析.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "supplementary",
+        "reason": "segment_7通过选择题形式强化HTTP与HTML的绑定关系，补充segment_10表格中‘HTTP’协议的功能语义（即承载HTML文档），使表格不仅呈现技术参数，更承载应用场景。",
+        "kg_concept_relation": "html_http_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_8_电子邮件协议与格式.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_8明确SMTP为发送协议，并提及接收方协议（如POP3/IMAP），为segment_10表格中‘SMTP→TCP→25’及接收协议条目提供功能定义与角色划分依据，是表格内容生成的直接知识来源。",
+        "kg_concept_relation": "email_protocols_format → transport_layer_protocols"
+      },
+      {
+        "source": "segment_9_动态主机配置协议DHCP.mp4",
+        "target": "segment_10_应用层协议总结与表格归纳.mp4",
+        "relation_type": "prerequisite",
+        "reason": "segment_9指出DHCP用于动态IP分配，并提示‘CP’联想‘配置’，为segment_10表格中‘DHCP→UDP→67/68’条目提供协议动机（自动化配置）与传输层选择依据（UDP适用场景），构成表格记忆的语义支撑。",
+        "kg_concept_relation": "dhcp_protocol → transport_layer_protocols"
+      },
+      {
+        "source": "segment_10_应用层协议总结与表格归纳.mp4",
+        "target": "segment_11_课程总结与练习题预告.mp4",
+        "relation_type": "summary",
+        "reason": "segment_10以表格形式系统整合前两批所有应用层协议（DNS/FTP/Telnet/HTTP/SMTP/DHCP等），是segment_11中‘前6招考试内容总结’的核心知识载体；segment_11明确宣告学习完成并预告练习，其总结对象即为segment_10所凝练的内容体系。",
+        "kg_concept_relation": "transport_layer_protocols → exam_review_part6"
+      }
+    ],
+    "overall_structure": "\n        1. 批次内关系：共12条有效边，覆盖所有批次内视频关联；\n        2. 跨批次关系：共13条有效边，覆盖跨批次视频关联；\n        3. 总关系边数：25条；\n        4. 总节点数：11个。\n        ",
+    "coverage_check": {
+      "total_videos": 11,
+      "batch_coverage": [
+        5,
+        5,
+        1
+      ],
+      "cross_coverage": [
+        "segment_1_应用层概述.mp4",
+        "segment_2_DNS域名系统与域名结构.mp4",
+        "segment_3_DNS相关习题解析.mp4",
+        "segment_4_文件传输协议FTP.mp4",
+        "segment_5_远程登录协议Telnet.mp4",
+        "segment_6_万维网WWW的组成.mp4",
+        "segment_7_万维网相关习题解析.mp4",
+        "segment_8_电子邮件协议与格式.mp4",
+        "segment_9_动态主机配置协议DHCP.mp4",
+        "segment_10_应用层协议总结与表格归纳.mp4",
+        "segment_11_课程总结与练习题预告.mp4"
+      ],
+      "merged_node_names": [
+        "segment_1_应用层概述.mp4",
+        "segment_2_DNS域名系统与域名结构.mp4",
+        "segment_3_DNS相关习题解析.mp4",
+        "segment_4_文件传输协议FTP.mp4",
+        "segment_5_远程登录协议Telnet.mp4",
+        "segment_6_万维网WWW的组成.mp4",
+        "segment_7_万维网相关习题解析.mp4",
+        "segment_8_电子邮件协议与格式.mp4",
+        "segment_9_动态主机配置协议DHCP.mp4",
+        "segment_10_应用层协议总结与表格归纳.mp4",
+        "segment_11_课程总结与练习题预告.mp4"
+      ]
+    },
+    "batch_info": {
+      "batch_size": 5,
+      "total_batches": 3,
+      "api_timeout": 120,
+      "retry_config": {
+        "retry_times": 3,
+        "retry_delay": 2
+      }
+    }
+  }
+}

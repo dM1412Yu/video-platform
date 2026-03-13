@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "generate_time": "2026-03-05 12:53:40",
+    "video_id": "57",
+    "video_count": 0,
+    "description": "批次内+跨批次完整子视频关系网（兼容多字段，带容错）"
+  },
+  "subvideo_summaries": {},
+  "custom_knowledge_graph": {},
+  "subvideo_relation_network": {
+    "nodes": [],
+    "batch_edges": [],
+    "cross_edges": [],
+    "all_edges": [],
+    "overall_structure": "\n        1. 批次内关系：共0条有效边，覆盖所有批次内视频关联；\n        2. 跨批次关系：共0条有效边，覆盖跨批次视频关联；\n        3. 总关系边数：0条；\n        4. 总节点数：0个。\n        ",
+    "coverage_check": {
+      "total_videos": 0,
+      "batch_coverage": [],
+      "cross_coverage": [],
+      "merged_node_names": []
+    },
+    "batch_info": {
+      "batch_size": 5,
+      "total_batches": 0,
+      "api_timeout": 120,
+      "retry_config": {
+        "retry_times": 3,
+        "retry_delay": 2
+      }
+    }
+  }
+}

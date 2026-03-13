@@ -1,0 +1,11 @@
+1824 1月13日周二                                                  OP eso 权
+X                      LR Corot Lg                    i ed
+BE
+” 常见应用层协议小结
+"mes "ons "Fresigetie "Frpiaieve "TELNET "HTTP “SMTP "PoP3
+使用协议 UDP    TCP      TCP     TCP  TCP  TCP  TCP
+so fl a)     20       21      二 下二
+那这个咱们没有一个很好的记忆方法
+PS     a    sy    ‘aa     ‘carmen ‘ome
+e@                        <
+4

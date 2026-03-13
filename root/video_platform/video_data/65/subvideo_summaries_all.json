@@ -1,0 +1,93 @@
+[
+  {
+    "subvideo_id": "65_1",
+    "start_time": 7.72,
+    "end_time": 45.8,
+    "summary": "应用层概述",
+    "title": "应用层概述"
+  },
+  {
+    "subvideo_id": "65_2",
+    "start_time": 46.3,
+    "end_time": 112.36,
+    "summary": "DNS域名系统",
+    "title": "DNS域名系统"
+  },
+  {
+    "subvideo_id": "65_3",
+    "start_time": 112.94,
+    "end_time": 275.94,
+    "summary": "域名结构与分类",
+    "title": "域名结构与分类"
+  },
+  {
+    "subvideo_id": "65_4",
+    "start_time": 278.08,
+    "end_time": 307.92,
+    "summary": "DNS相关习题解析",
+    "title": "DNS相关习题解析"
+  },
+  {
+    "subvideo_id": "65_5",
+    "start_time": 309.08,
+    "end_time": 394.16,
+    "summary": "文件传输协议FTP",
+    "title": "文件传输协议FTP"
+  },
+  {
+    "subvideo_id": "65_6",
+    "start_time": 395.5,
+    "end_time": 420.96,
+    "summary": "FTP端口习题解析",
+    "title": "FTP端口习题解析"
+  },
+  {
+    "subvideo_id": "65_7",
+    "start_time": 422.02,
+    "end_time": 459.22,
+    "summary": "远程登录协议Telnet",
+    "title": "远程登录协议Telnet"
+  },
+  {
+    "subvideo_id": "65_8",
+    "start_time": 459.32,
+    "end_time": 596.96,
+    "summary": "万维网WWW",
+    "title": "万维网WWW"
+  },
+  {
+    "subvideo_id": "65_9",
+    "start_time": 597.06,
+    "end_time": 616.46,
+    "summary": "万维网习题解析",
+    "title": "万维网习题解析"
+  },
+  {
+    "subvideo_id": "65_10",
+    "start_time": 618.02,
+    "end_time": 724.66,
+    "summary": "电子邮件协议",
+    "title": "电子邮件协议"
+  },
+  {
+    "subvideo_id": "65_11",
+    "start_time": 725.44,
+    "end_time": 766.36,
+    "summary": "动态主机配置协议DHCP",
+    "title": "动态主机配置协议DHCP"
+  },
+  {
+    "subvideo_id": "65_12",
+    "start_time": 768.64,
+    "end_time": 803.84,
+    "summary": "应用层协议总结表",
+    "title": "应用层协议总结表"
+  },
+  {
+    "subvideo_id": "65_13",
+    "start_time": 803.94,
+    "end_time": 850.6,
+    "summary": "课程总结与练习题预告",
+    "title": "课程总结与练习题预告"
+  }
+]

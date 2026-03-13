@@ -1,0 +1,249 @@
+{
+  "concept_hierarchy": [
+    {
+      "parent": "应用层",
+      "children": [
+        "DNS域名系统",
+        "FTP文件传输协议",
+        "Telnet远程登录协议",
+        "万维网WWW",
+        "电子邮件系统",
+        "DHCP动态主机配置协议"
+      ],
+      "description": "OSI模型第七层，直接面向用户应用程序提供网络服务。",
+      "related_video_names": [
+        "1_应用层概述",
+        "10_应用层协议总结表",
+        "11_课程总结与练习题预告"
+      ],
+      "related_video_ids": [
+        63,
+        63,
+        63
+      ]
+    },
+    {
+      "parent": "DNS域名系统",
+      "children": [
+        "根域、顶级域、权威域与递归查询结构",
+        "迭代查询与递归查询机制",
+        "DNS资源记录类型（A、CNAME、MX等）"
+      ],
+      "description": "将人类可读的域名映射为IP地址的分布式数据库系统。",
+      "related_video_names": [
+        "2_DNS域名系统与域名结构",
+        "3_DNS相关习题解析"
+      ],
+      "related_video_ids": [
+        63,
+        63
+      ]
+    },
+    {
+      "parent": "FTP文件传输协议",
+      "children": [
+        "主动模式（PORT）与被动模式（PASV）端口协商机制",
+        "控制连接与数据连接分离设计"
+      ],
+      "description": "基于TCP的应用层协议，支持双向文件上传/下载及目录操作。",
+      "related_video_names": [
+        "4_文件传输协议FTP"
+      ],
+      "related_video_ids": [
+        63
+      ]
+    },
+    {
+      "parent": "Telnet远程登录协议",
+      "children": [
+        "NVT（网络虚拟终端）抽象规范",
+        "明文传输的安全缺陷与替代方案（SSH）"
+      ],
+      "description": "早期用于远程命令行访问的文本交互式协议。",
+      "related_video_names": [
+        "5_远程登录协议Telnet"
+      ],
+      "related_video_ids": [
+        63
+      ]
+    },
+    {
+      "parent": "万维网WWW",
+      "children": [
+        "URL语法构成（scheme://host:port/path?query#fragment）",
+        "HTTP请求方法（GET/POST/HEAD等）与状态码分类（1xx–5xx）",
+        "HTML文档结构与超链接本质"
+      ],
+      "description": "基于客户端-服务器架构的信息空间，由URI、HTTP和HTML三大支柱支撑。",
+      "related_video_names": [
+        "6_万维网WWW的组成",
+        "7_万维网相关习题解析"
+      ],
+      "related_video_ids": [
+        63,
+        63
+      ]
+    },
+    {
+      "parent": "电子邮件系统",
+      "children": [
+        "MIME扩展对非ASCII内容的支持机制",
+        "SMTP发送流程与POP3/IMAP接收差异（存储位置与同步策略）"
+      ],
+      "description": "异步消息传递系统，依赖多种协作协议实现邮件创建、传输、存储与检索。",
+      "related_video_names": [
+        "8_电子邮件协议与格式"
+      ],
+      "related_video_ids": [
+        63
+      ]
+    },
+    {
+      "parent": "DHCP动态主机配置协议",
+      "children": [
+        "DORA四阶段过程（Discover-Offer-Request-Acknowledge）",
+        "租约时间管理与续租触发条件"
+      ],
+      "description": "自动分配IPv4参数（IP、子网掩码、网关、DNS服务器）的无状态配置协议。",
+      "related_video_names": [
+        "9_动态主机配置协议DHCP"
+      ],
+      "related_video_ids": [
+        63
+      ]
+    },
+    {
+      "parent": "应用层协议比较分析",
+      "children": [
+        "连接导向性（如FTP/Telnet vs HTTP/1.1持久连接）",
+        "是否内置加密（TLS集成能力对比）",
+        "典型端口号与默认安全变体"
+      ],
+      "description": "跨协议横向维度归纳，服务于工程选型与故障排查认知框架构建。",
+      "related_video_names": [
+        "10_应用层协议总结表"
+      ],
+      "related_video_ids": [
+        63
+      ]
+    }
+  ],
+  "preset_relations_adjusted": [
+    {
+      "source": "应用层",
+      "target": "DNS域名系统",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "应用层",
+      "target": "FTP文件传输协议",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "应用层",
+      "target": "Telnet远程登录协议",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "应用层",
+      "target": "万维网WWW",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "应用层",
+      "target": "电子邮件系统",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "应用层",
+      "target": "DHCP动态主机配置协议",
+      "type": "contains",
+      "weight": 1
+    }
+  ],
+  "video_specific_relations": [
+    {
+      "video_id": 63,
+      "video_name": "1_应用层概述",
+      "relation_type": "introduces",
+      "source": "应用层",
+      "target": "分层体系定位与服务接口语义"
+    },
+    {
+      "video_id": 63,
+      "video_name": "2_DNS域名系统与域名结构",
+      "relation_type": "defines",
+      "source": "DNS域名系统",
+      "target": "层次化命名树与委托授权模型"
+    },
+    {
+      "video_id": 63,
+      "video_name": "3_DNS相关习题解析",
+      "relation_type": "illustrates_with_example",
+      "source": "DNS资源记录类型（A、CNAME、MX等）",
+      "target": "真实域名解析链路追踪实例（如www.example.com→CNAME→A）"
+    },
+    {
+      "video_id": 63,
+      "video_name": "4_文件传输协议FTP",
+      "relation_type": "specifies",
+      "source": "FTP文件传输协议",
+      "target": "双通道通信时序图（含21/20端口角色切换）"
+    },
+    {
+      "video_id": 63,
+      "video_name": "5_远程登录协议Telnet",
+      "relation_type": "contrasts",
+      "source": "Telnet远程登录协议",
+      "target": "SSH协议在认证密钥交换与会话加密层面的优势"
+    },
+    {
+      "video_id": 63,
+      "video_name": "6_万维网WWW的组成",
+      "relation_type": "decomposes",
+      "source": "万维网WWW",
+      "target": "三要素协同工作流：浏览器发起HTTP请求 → Web服务器响应HTML+内嵌资源 → 渲染引擎合成页面"
+    },
+    {
+      "video_id": 63,
+      "video_name": "7_万维网相关习题解析",
+      "relation_type": "demonstrates",
+      "source": "HTTP状态码分类（1xx–5xx）",
+      "target": "常见错误场景匹配（如404 Not Found / 503 Service Unavailable）"
+    },
+    {
+      "video_id": 63,
+      "video_name": "8_电子邮件协议与格式",
+      "relation_type": "extends",
+      "source": "电子邮件系统",
+      "target": "RFC 5322标准定义的消息头字段（From, To, Date, Message-ID）及其语义约束"
+    },
+    {
+      "video_id": 63,
+      "video_name": "9_动态主机配置协议DHCP",
+      "relation_type": "models",
+      "source": "DHCP动态主机配置协议",
+      "target": "有限状态机（FSM）表示客户机生命周期（INIT → SELECTING → REQUESTING → BOUND）"
+    },
+    {
+      "video_id": 63,
+      "video_name": "10_应用层协议总结表",
+      "relation_type": "synthesizes",
+      "source": "应用层协议比较分析",
+      "target": "二维对照矩阵（横轴：功能特性；纵轴：协议名称）并标注‘必考易错点’标记"
+    },
+    {
+      "video_id": 63,
+      "video_name": "11_课程总结与练习题预告",
+      "relation_type": "recaps_and_forecasts",
+      "source": "应用层",
+      "target": "核心考点分布热力图（DNS/DHCP/HTTP权重最高）与下一模块衔接提示（运输层UDP/TCP）"
+    }
+  ],
+  "explanation": "本定制化知识图谱严格依据全部11个子视频的实际教学内容构建：① 视频1确立'应用层'作为顶层父概念，并锚定其在网络体系中的承上启下地位；② 视频2-3聚焦DNS，引入'层次化命名树'与'真实解析链路追踪'两个特有概念，强化结构性理解；③ 视频4突出FTP双通道时序这一区别于其他协议的关键特征；④ 视频5通过与SSH对比凸显Telnet安全性缺陷，形成批判性认知支点；⑤ 视频6-7以WWW三要素分解和HTTP状态码场景化匹配深化Web工作机制；⑥ 视频8延伸至RFC 5322标准细节，超越基础协议介绍；⑦ 视频9采用有限状态机建模DHCP客户端行为，提升形式化表达能力；⑧ 视频10不满足于罗列，而是构建带考试权重标识的二维对照矩阵；⑨ 视频11完成闭环——既回溯全章高频考点热力分布，又明确指向运输层进阶路径。所有预设冗余节点（如SNMP、SIP等未出现协议）均已裁剪，每项新增概念均绑定唯一视频ID与名称，层级顺序完全遵循授课逻辑演进脉络。"
+}

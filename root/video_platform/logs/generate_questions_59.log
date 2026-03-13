@@ -1,0 +1,130 @@
+2026-02-28 17:25:46,502 - INFO - generate_questions_for_knowledge_points - line 323 - ===== 开始生成题目 =====
+2026-02-28 17:25:46,503 - INFO - init_base_context - line 267 - ✅ 第一次传入：全局矫正ASR完成
+2026-02-28 17:25:46,503 - INFO - init_base_context - line 280 - ✅ 第二次传入：final_llm_input.json完成
+2026-02-28 17:25:46,503 - INFO - init_base_context - line 282 - ✅ 上下文初始化完成（分两次传入ASR+LLM输入）
+2026-02-28 17:25:46,504 - WARNING - load_all_t_segments_ocr - line 293 - ⚠️ OCR不存在，自动提取
+2026-02-28 18:09:59,370 - INFO - generate_questions_for_knowledge_points - line 323 - ===== 开始生成题目 =====
+2026-02-28 18:09:59,370 - INFO - init_base_context - line 267 - ✅ 第一次传入：全局矫正ASR完成
+2026-02-28 18:09:59,370 - INFO - init_base_context - line 280 - ✅ 第二次传入：final_llm_input.json完成
+2026-02-28 18:09:59,370 - INFO - init_base_context - line 282 - ✅ 上下文初始化完成（分两次传入ASR+LLM输入）
+2026-02-28 18:09:59,370 - WARNING - load_all_t_segments_ocr - line 293 - ⚠️ OCR不存在，自动提取
+2026-02-28 18:10:14,729 - INFO - extract_t_ocr_with_pytesseract - line 218 - t1 应用层概述 | 提取帧：20
+2026-02-28 18:10:14,749 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t2 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,770 - INFO - extract_t_ocr_with_pytesseract - line 218 - t2 DNS域名系统与域名结构 | 提取帧：0
+2026-02-28 18:10:14,786 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t3 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,800 - INFO - extract_t_ocr_with_pytesseract - line 218 - t3 DNS相关习题解析 | 提取帧：0
+2026-02-28 18:10:14,815 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t4 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,830 - INFO - extract_t_ocr_with_pytesseract - line 218 - t4 文件传输协议FTP | 提取帧：0
+2026-02-28 18:10:14,846 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t5 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,862 - INFO - extract_t_ocr_with_pytesseract - line 218 - t5 远程登录协议Telnet | 提取帧：0
+2026-02-28 18:10:14,879 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t6 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,895 - INFO - extract_t_ocr_with_pytesseract - line 218 - t6 万维网WWW的组成 | 提取帧：0
+2026-02-28 18:10:14,911 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t7 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,926 - INFO - extract_t_ocr_with_pytesseract - line 218 - t7 万维网相关习题解析 | 提取帧：0
+2026-02-28 18:10:14,940 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t8 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,956 - INFO - extract_t_ocr_with_pytesseract - line 218 - t8 电子邮件协议与格式 | 提取帧：0
+2026-02-28 18:10:14,972 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t9 无变化帧，5秒兜底提取
+2026-02-28 18:10:14,985 - INFO - extract_t_ocr_with_pytesseract - line 218 - t9 动态主机配置协议DHCP | 提取帧：0
+2026-02-28 18:10:14,995 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t10 无变化帧，5秒兜底提取
+2026-02-28 18:10:15,009 - INFO - extract_t_ocr_with_pytesseract - line 218 - t10 应用层协议与传输层对应关系总结 | 提取帧：0
+2026-02-28 18:10:15,032 - WARNING - extract_t_ocr_with_pytesseract - line 176 - t11 无变化帧，5秒兜底提取
+2026-02-28 18:10:15,047 - INFO - extract_t_ocr_with_pytesseract - line 218 - t11 课程总结与练习题预告 | 提取帧：0
+2026-02-28 18:10:15,050 - INFO - extract_t_ocr_with_pytesseract - line 229 - ✅ OCR 完成
+2026-02-28 18:10:15,051 - INFO - load_all_t_segments_ocr - line 317 - ✅ 读取分段：11 个
+2026-02-28 18:10:15,051 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t1
+2026-02-28 18:10:15,352 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t1 使用兜底题
+2026-02-28 18:10:15,353 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t2
+2026-02-28 18:10:15,806 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t2 使用兜底题
+2026-02-28 18:10:15,806 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t3
+2026-02-28 18:10:16,257 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t3 使用兜底题
+2026-02-28 18:10:16,257 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t4
+2026-02-28 18:10:16,651 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t4 使用兜底题
+2026-02-28 18:10:16,651 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t5
+2026-02-28 18:10:17,109 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t5 使用兜底题
+2026-02-28 18:10:17,110 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t6
+2026-02-28 18:10:17,757 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t6 使用兜底题
+2026-02-28 18:10:17,757 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t7
+2026-02-28 18:10:18,113 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t7 使用兜底题
+2026-02-28 18:10:18,114 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t8
+2026-02-28 18:10:18,485 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t8 使用兜底题
+2026-02-28 18:10:18,486 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t9
+2026-02-28 18:10:18,955 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t9 使用兜底题
+2026-02-28 18:10:18,956 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t10
+2026-02-28 18:10:19,629 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t10 使用兜底题
+2026-02-28 18:10:19,630 - INFO - generate_questions_for_knowledge_points - line 335 - ➡️ 处理 t11
+2026-02-28 18:10:19,888 - WARNING - generate_questions_for_knowledge_points - line 386 - ⚠️ t11 使用兜底题
+2026-02-28 18:10:19,890 - INFO - generate_questions_for_knowledge_points - line 392 - ===== 生成完成！保存到：/root/video_platform/video_data/59/knowledge_questions.json =====
+2026-02-28 18:47:02,239 - INFO - generate_questions_for_knowledge_points - line 345 - ===== 开始生成题目 =====
+2026-02-28 18:47:02,239 - INFO - init_base_context - line 263 - 📤 第一次传入：final_llm_input.json
+2026-02-28 18:47:02,240 - INFO - init_base_context - line 270 - ✅ final_llm_input.json加载成功（包含0个分段）
+2026-02-28 18:47:02,240 - INFO - init_base_context - line 284 - 📤 第二次传入：全局矫正ASR
+2026-02-28 18:47:02,240 - INFO - init_base_context - line 291 - ✅ 矫正ASR加载成功（长度：4086字）
+2026-02-28 18:47:02,240 - INFO - init_base_context - line 304 - ✅ 上下文初始化完成（严格按顺序：先传final_llm_input → 再传矫正ASR）
+2026-02-28 18:47:02,240 - INFO - load_all_t_segments_ocr - line 339 - ✅ 读取分段：11 个
+2026-02-28 18:47:02,241 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t1 | 标题：应用层概述
+2026-02-28 18:47:07,212 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t1 AI出题成功
+2026-02-28 18:47:07,213 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t2 | 标题：DNS域名系统与域名结构
+2026-02-28 18:47:13,268 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t2 AI出题成功
+2026-02-28 18:47:13,269 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t3 | 标题：DNS相关习题解析
+2026-02-28 18:47:17,290 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t3 AI出题成功
+2026-02-28 18:47:17,291 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t4 | 标题：文件传输协议FTP
+2026-02-28 18:47:22,930 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t4 AI出题成功
+2026-02-28 18:47:22,930 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t5 | 标题：远程登录协议Telnet
+2026-02-28 18:47:28,152 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t5 AI出题成功
+2026-02-28 18:47:28,152 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t6 | 标题：万维网WWW的组成
+2026-02-28 18:47:33,210 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t6 AI出题成功
+2026-02-28 18:47:33,211 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t7 | 标题：万维网相关习题解析
+2026-02-28 18:47:38,495 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t7 AI出题成功
+2026-02-28 18:47:38,495 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t8 | 标题：电子邮件协议与格式
+2026-02-28 18:47:43,178 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t8 AI出题成功
+2026-02-28 18:47:43,179 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t9 | 标题：动态主机配置协议DHCP
+2026-02-28 18:47:47,936 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t9 AI出题成功
+2026-02-28 18:47:47,936 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t10 | 标题：应用层协议与传输层对应关系总结
+2026-02-28 18:47:53,626 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t10 AI出题成功
+2026-02-28 18:47:53,627 - INFO - generate_questions_for_knowledge_points - line 359 - ➡️ 处理 t11 | 标题：课程总结与练习题预告
+2026-02-28 18:47:59,536 - INFO - generate_questions_for_knowledge_points - line 404 - ✅ t11 AI出题成功
+2026-02-28 18:47:59,539 - INFO - generate_questions_for_knowledge_points - line 428 - ===== 生成完成！题目已保存到：/root/video_platform/video_data/59/knowledge_questions.json =====
+2026-02-28 18:52:51,434 - INFO - generate_questions_for_knowledge_points - line 347 - ===== 开始生成题目 =====
+2026-02-28 18:52:51,434 - INFO - init_base_context - line 263 - 📤 第一次传入：final_llm_input.json
+2026-02-28 18:52:51,435 - INFO - init_base_context - line 271 - ✅ final_llm_input.json加载成功（包含11个分段）
+2026-02-28 18:52:51,436 - INFO - init_base_context - line 286 - 📤 第二次传入：全局矫正ASR
+2026-02-28 18:52:51,436 - INFO - init_base_context - line 293 - ✅ 矫正ASR加载成功（长度：4086字）
+2026-02-28 18:52:51,436 - INFO - init_base_context - line 306 - ✅ 上下文初始化完成（严格按顺序：先传final_llm_input → 再传矫正ASR）
+2026-02-28 18:52:51,436 - INFO - load_all_t_segments_ocr - line 341 - ✅ 读取分段：11 个
+2026-02-28 18:52:51,436 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t1 | 标题：应用层概述
+2026-02-28 18:52:56,470 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t1 AI出题成功
+2026-02-28 18:52:56,471 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t2 | 标题：DNS域名系统与域名结构
+2026-02-28 18:53:01,400 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t2 AI出题成功
+2026-02-28 18:53:01,401 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t3 | 标题：DNS相关习题解析
+2026-02-28 18:53:06,611 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t3 AI出题成功
+2026-02-28 18:53:06,611 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t4 | 标题：文件传输协议FTP
+2026-02-28 18:53:12,196 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t4 AI出题成功
+2026-02-28 18:53:12,196 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t5 | 标题：远程登录协议Telnet
+2026-02-28 18:53:22,063 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t5 AI出题成功
+2026-02-28 18:53:22,063 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t6 | 标题：万维网WWW的组成
+2026-02-28 18:53:26,829 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t6 AI出题成功
+2026-02-28 18:53:26,830 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t7 | 标题：万维网相关习题解析
+2026-02-28 18:53:31,007 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t7 AI出题成功
+2026-02-28 18:53:31,007 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t8 | 标题：电子邮件协议与格式
+2026-02-28 18:53:36,210 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t8 AI出题成功
+2026-02-28 18:53:36,210 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t9 | 标题：动态主机配置协议DHCP
+2026-02-28 18:53:40,427 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t9 AI出题成功
+2026-02-28 18:53:40,427 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t10 | 标题：应用层协议与传输层对应关系总结
+2026-02-28 18:53:45,922 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t10 AI出题成功
+2026-02-28 18:53:45,922 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t11 | 标题：课程总结与练习题预告
+2026-02-28 18:53:50,396 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t11 AI出题成功
+2026-02-28 18:53:50,398 - INFO - generate_questions_for_knowledge_points - line 430 - ===== 生成完成！题目已保存到：/root/video_platform/video_data/59/knowledge_questions.json =====
+2026-03-05 12:58:38,277 - INFO - generate_questions_for_knowledge_points - line 347 - ===== 开始生成题目 =====
+2026-03-05 12:58:38,279 - INFO - init_base_context - line 263 - 📤 第一次传入：final_llm_input.json
+2026-03-05 12:58:38,279 - WARNING - init_base_context - line 278 - ⚠️ final_llm_input.json不存在：/root/video_platform/video_data/59/final_llm_input.json
+2026-03-05 12:58:38,279 - INFO - init_base_context - line 286 - 📤 第二次传入：全局矫正ASR
+2026-03-05 12:58:38,279 - WARNING - init_base_context - line 299 - ⚠️ 矫正ASR文件不存在：/root/video_platform/video_data/59/corrected_asr.txt
+2026-03-05 12:58:38,279 - INFO - init_base_context - line 306 - ✅ 上下文初始化完成（严格按顺序：先传final_llm_input → 再传矫正ASR）
+2026-03-05 12:58:38,280 - WARNING - load_all_t_segments_ocr - line 317 - ⚠️ OCR不存在，自动提取
+2026-03-05 12:58:38,302 - WARNING - extract_t_ocr_with_pytesseract - line 105 - ⚠️ 无分段文件，使用全视频分段
+2026-03-05 12:59:16,086 - INFO - extract_t_ocr_with_pytesseract - line 218 - t1 知识点 | 提取帧：20
+2026-03-05 12:59:16,092 - INFO - extract_t_ocr_with_pytesseract - line 229 - ✅ OCR 完成
+2026-03-05 12:59:16,093 - INFO - load_all_t_segments_ocr - line 341 - ✅ 读取分段：1 个
+2026-03-05 12:59:16,093 - INFO - generate_questions_for_knowledge_points - line 361 - ➡️ 处理 t1 | 标题：知识点
+2026-03-05 12:59:19,814 - INFO - generate_questions_for_knowledge_points - line 406 - ✅ t1 AI出题成功
+2026-03-05 12:59:19,815 - INFO - generate_questions_for_knowledge_points - line 430 - ===== 生成完成！题目已保存到：/root/video_platform/video_data/59/knowledge_questions.json =====
