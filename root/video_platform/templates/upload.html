@@ -31,10 +31,9 @@
 
         body {
             background-color: var(--bg-base); color: var(--text-main);
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            overflow: hidden; position: relative; padding: 24px;
-            padding-top: 80px; 
-            min-height: calc(100vh - 80px);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            overflow-x: hidden; overflow-y: auto; position: relative;
+            padding: 88px 24px 24px;
         }
 
         /* ================= 动态流体光晕背景 ================= */
@@ -58,7 +57,8 @@
 
         /* ================= 浮动布局框架 ================= */
         .layout {
-            display: flex; gap: 24px; width: 100%; max-width: 1400px; height: 100%;
+            display: flex; gap: 24px; width: 100%; max-width: 1400px;
+            min-height: calc(100vh - 112px);
             animation: layoutFadeIn 0.8s var(--ease-apple) forwards;
         }
 
@@ -186,6 +186,24 @@
             border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s;
         }
         .global-navbar .btn-outline:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.06); transform: translateY(-1px); }
+
+        @media (max-width: 1200px) {
+            .layout { flex-direction: column; min-height: auto; }
+            .sidebar { width: 100%; }
+            .content-body { max-width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 76px 12px 12px; }
+            .layout { gap: 12px; }
+            .sidebar { padding: 20px 16px; }
+            .content { padding: 20px 16px; }
+            .upload-card { padding: 24px 16px; }
+            .upload-zone { padding: 36px 14px; }
+            .global-navbar { padding: 0 16px; height: 56px; }
+            .global-navbar .btn-text { display: none; }
+            .global-navbar .btn-outline { padding: 8px 14px; }
+        }
     </style>
 </head>
 <body>

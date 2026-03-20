@@ -1,0 +1,8 @@
+.venv/
+.venv-ai/
+__pycache__/
+*.pyc
+.env.docker
+.docker-config/
+root/video_platform/static/uploads/
+root/video_platform/uploads/
