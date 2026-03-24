@@ -1,0 +1,14 @@
+services:
+  video-platform:
+    build:
+      args:
+        TORCH_INDEX_URL: https://download.pytorch.org/whl/cu121
+        TORCH_PACKAGE: torch==2.1.0+cu121
+        TORCHVISION_PACKAGE: torchvision==0.16.0+cu121
+    image: video-platform-ai:gpu
+    container_name: video-platform-ai-gpu
+    environment:
+      EXPECT_CUDA: "1"
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    gpus: all

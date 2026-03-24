@@ -27,9 +27,12 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif; -webkit-font-smoothing: antialiased; }
   
-  body { background-color: var(--bg-base); color: var(--text-main); height: 100vh; overflow: hidden; position: relative; 
-      padding-top: 50px;
-  }
+    body {
+      background-color: var(--bg-base); color: var(--text-main);
+      min-height: 100vh; overflow-x: hidden; overflow-y: auto; position: relative;
+      padding-top: 64px;
+    }
+    html { scroll-behavior: smooth; }
 
   /* ================= 动态流体光晕背景 ================= */
   .mesh-background { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; overflow: hidden; background: var(--bg-base); }
@@ -40,7 +43,13 @@
   @keyframes float { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(3%, 6%) scale(1.05); } 100% { transform: translate(-3%, -3%) scale(0.95); } }
 
   /* ================= 三分屏浮动工作台布局 ================= */
-  .layout { display: flex; gap: 24px; width: 100%; max-width: 1800px; height: 100vh; padding: 24px; margin: 0 auto; animation: layoutFadeIn 0.8s var(--ease-apple) forwards; }
+  .layout {
+      display: flex; gap: 24px; width: 100%; max-width: 1800px;
+      height: calc(100vh - 88px); max-height: calc(100vh - 88px);
+      padding: 24px; margin: 0 auto;
+      overflow: hidden;
+      animation: layoutFadeIn 0.8s var(--ease-apple) forwards;
+  }
   
   .glass-panel {
       background: var(--glass-bg); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
@@ -53,9 +62,24 @@
   .glass-panel::-webkit-scrollbar-thumb, .panel-body::-webkit-scrollbar-thumb, .answer-area::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
 
   /* 侧边栏：知识点列表 */
-  .sidebar { width: 340px; flex-shrink: 0; padding: 28px 24px; display: flex; flex-direction: column; }
+  .sidebar {
+      width: 340px;
+      flex-shrink: 0;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      height: 100%;
+    }
   .panel-title { font-size: 20px; font-weight: 700; color: var(--text-main); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
-  .panel-body { flex: 1; overflow-y: auto; padding-right: 8px; }
+  .panel-body {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+      padding-right: 8px;
+    }
 
   .segment {
       padding: 16px; border: 1px solid rgba(255,255,255,0.6); border-radius: var(--radius-md);
@@ -77,7 +101,7 @@
   .view-questions-btn:hover { background: var(--accent-blue); color: #fff; }
 
   /* 主视窗：视频与摘要 */
-  .main { flex: 1; padding: 28px 32px; overflow-y: auto; display: flex; flex-direction: column; }
+  .main { flex: 1; padding: 28px 32px; overflow-y: auto; display: flex; flex-direction: column; min-height: 0; height: 100%; }
   .main-title { font-size: 26px; font-weight: 700; margin-bottom: 24px; letter-spacing: 0.5px; }
   
   .video-box { position: relative; width: 100%; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,0.1); margin-bottom: 28px; background: #000; }
@@ -87,25 +111,234 @@
   .summary-box h3 { font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 
   /* 右侧面板：AI 智能问答 */
-  .question-panel { width: 360px; flex-shrink: 0; padding: 28px 24px; display: flex; flex-direction: column; }
-  .qa-input-box { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .question-panel {
+      width: 380px;
+      flex-shrink: 0;
+      padding: 22px 20px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 10px;
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    .tutor-head { margin-bottom: 14px; }
+    .tutor-subtitle { color: var(--text-sec); font-size: 13px; line-height: 1.45; margin-top: 6px; }
+
+    .suggestion-box {
+      margin-bottom: 14px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.48);
+    }
+    .suggestion-title { font-size: 12px; color: #5b6472; font-weight: 700; margin-bottom: 10px; }
+    .suggestion-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .suggestion-chip {
+      border: 1px solid rgba(11, 95, 215, 0.18);
+      background: rgba(11, 95, 215, 0.08);
+      color: #0b5fd7;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: all 0.2s var(--ease-apple);
+    }
+    .suggestion-chip:hover { background: #0b5fd7; color: #fff; transform: translateY(-1px); }
+
+    .qa-input-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+  .input-shell {
+      position: relative;
+      width: 100%;
+  }
   
-  input[type="text"] {
+    input[type="text"] {
       width: 100%; padding: 16px 16px; border: 1px solid rgba(255,255,255,0.8); border-radius: 16px;
       font-size: 15px; background: rgba(255,255,255,0.6); transition: all 0.3s var(--ease-apple);
       box-shadow: 0 2px 8px rgba(0,0,0,0.02) inset; outline: none;
+      padding-right: 64px;
   }
   input[type="text"]:focus { background: #fff; border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15); }
-  
-  .btn-primary {
-      padding: 16px 24px; background: var(--accent-blue); color: #fff; border: none;
-      border-radius: 16px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s;
-      box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25); width: 100%;
-  }
-  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0, 113, 227, 0.35); }
-  .btn-primary:active { transform: scale(0.98); }
 
-  .answer-area { flex: 1; padding: 20px; background: rgba(255,255,255,0.5); border-radius: 16px; overflow-y: auto; font-size: 15px; line-height: 1.6; border: 1px solid rgba(255,255,255,0.7); white-space: pre-wrap; }
+    .send-icon-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(11, 95, 215, 0.2);
+      background: linear-gradient(135deg, #0b5fd7, #3b82f6);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(59,130,246,0.25);
+      transition: all 0.22s var(--ease-apple);
+    }
+      .send-icon-btn svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+        transform: translateX(1px);
+      }
+    .send-icon-btn:hover {
+      transform: translateY(-50%) scale(1.04);
+      box-shadow: 0 10px 22px rgba(59,130,246,0.32);
+    }
+    .send-icon-btn:active {
+      transform: translateY(-50%) scale(0.96);
+    }
+
+    .answer-area {
+      flex: 1;
+        min-height: 0;
+      padding: 14px;
+      background: rgba(255,255,255,0.52);
+      border-radius: 16px;
+      overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+      border: 1px solid rgba(255,255,255,0.75);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+        align-self: stretch;
+    }
+    .msg {
+      max-width: 92%;
+      border-radius: 14px;
+      padding: 10px 12px;
+      line-height: 1.55;
+      font-size: 14px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .msg.assistant {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(203, 213, 225, 0.45);
+      color: #111827;
+    }
+    .msg.user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, #0b5fd7, #3b82f6);
+      color: #fff;
+      border: 1px solid rgba(11,95,215,0.4);
+      box-shadow: 0 8px 18px rgba(59,130,246,0.26);
+    }
+    .msg.thinking {
+      color: #0b5fd7;
+      background: rgba(11,95,215,0.08);
+      border: 1px dashed rgba(11,95,215,0.25);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .msg-meta {
+      font-size: 11px;
+      opacity: 0.75;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+    .qa-hint { font-size: 12px; color: var(--text-sec); text-align: center; }
+
+    .insight-board {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      max-height: 34vh;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    @media (min-width: 1700px) {
+      .insight-board {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .coach-card {
+      background: linear-gradient(155deg, rgba(255,255,255,0.96), rgba(242,248,255,0.88));
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 18px;
+      padding: 14px;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 0 10px 28px rgba(16, 24, 40, 0.06);
+      min-height: 0;
+      transition: transform 0.25s var(--ease-apple), box-shadow 0.25s var(--ease-apple);
+    }
+    .coach-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(16, 24, 40, 0.1);
+    }
+    .coach-card h4 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #1d1d1f;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .coach-kpi {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .coach-kpi strong {
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.4px;
+      color: #0b5fd7;
+    }
+    .coach-kpi span {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 600;
+    }
+    .coach-highlight {
+      background: rgba(11, 95, 215, 0.08);
+      border: 1px solid rgba(11, 95, 215, 0.16);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: #123b77;
+      font-weight: 600;
+    }
+    .coach-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .coach-tag {
+      font-size: 12px;
+      color: #334155;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-weight: 600;
+    }
+  .coach-muted { color: var(--text-sec); }
+  .coach-list { margin: 0; padding-left: 18px; }
+  .coach-list li { margin: 4px 0; }
 
   /* ================= 随堂测验悬浮舱 (Core Glass UI) ================= */
   .quiz-popup {
@@ -167,13 +400,51 @@
   /* ================= 统一全局毛玻璃导航栏 ================= */
         .global-navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: 64px;
-            padding: 0 40px; display: flex; justify-content: space-between; align-items: center;
+          padding: 0 24px; display: flex; justify-content: flex-start; align-items: center; gap: 16px;
             z-index: 9999; background: rgba(251, 251, 253, 0.7);
             backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
+        .global-navbar .nav-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
         .global-navbar .logo { font-size: 20px; font-weight: 700; color: #1d1d1f; text-decoration: none; letter-spacing: -0.5px; }
-        .global-navbar .nav-actions { display: flex; gap: 12px; align-items: center; }
+        .global-navbar .feature-nav {
+          display: flex; align-items: center; gap: 8px;
+          white-space: nowrap; overflow-x: auto; overflow-y: hidden;
+          scrollbar-width: none; -ms-overflow-style: none;
+        }
+        .global-navbar .feature-nav::-webkit-scrollbar { display: none; }
+        .global-navbar .feature-link {
+          color: #1f2937; text-decoration: none; font-size: 13px; font-weight: 700;
+          padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.08);
+          background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(240,246,255,0.9));
+          box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255,255,255,0.8);
+          transition: all 0.25s var(--ease-apple);
+          display: inline-flex; align-items: center; gap: 6px;
+        }
+        .global-navbar .feature-link:hover {
+          color: #0b5fd7;
+          border-color: rgba(11,95,215,0.22);
+          transform: translateY(-1px);
+          box-shadow: 0 8px 18px rgba(11,95,215,0.18), inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+        .global-navbar .feature-link .feature-icon {
+          width: 18px; height: 18px; border-radius: 999px;
+          display: inline-flex; align-items: center; justify-content: center;
+          font-size: 11px; font-weight: 700;
+          background: rgba(11,95,215,0.12);
+          color: #0b5fd7;
+        }
+        .global-navbar .feature-link.active {
+          color: #fff;
+          border-color: rgba(11,95,215,0.35);
+          background: linear-gradient(135deg, #0b5fd7, #3b82f6);
+          box-shadow: 0 10px 20px rgba(11,95,215,0.28);
+        }
+        .global-navbar .feature-link.active .feature-icon {
+          background: rgba(255,255,255,0.22);
+          color: #fff;
+        }
+        .global-navbar .nav-actions { display: flex; gap: 12px; align-items: center; margin-left: auto; }
         .global-navbar .btn-text { color: #86868b; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; transition: color 0.3s; }
         .global-navbar .btn-text:hover { color: #1d1d1f; }
         .global-navbar .btn-outline {
@@ -182,6 +453,36 @@
             border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s;
         }
         .global-navbar .btn-outline:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.06); transform: translateY(-1px); }
+
+      @media (max-width: 1400px) {
+        .layout { flex-wrap: wrap; height: auto; max-height: none; overflow: visible; }
+        .sidebar { width: 100%; }
+        .question-panel { width: 100%; }
+        .main { min-width: 0; }
+      }
+
+      @media (max-width: 768px) {
+        body { padding-top: 56px; }
+        .layout { gap: 12px; padding: 12px; height: auto; max-height: none; overflow: visible; }
+        .sidebar, .main, .question-panel { padding: 16px; }
+        .main-title { font-size: 20px; margin-bottom: 16px; }
+        .summary-box { padding: 16px; }
+        .insight-board { grid-template-columns: 1fr; }
+        .insight-board { max-height: none; overflow: visible; }
+        .coach-card { min-height: 160px; padding: 14px; }
+        .coach-kpi strong { font-size: 24px; }
+        .question-panel { width: 100%; }
+        .question-panel { height: auto; }
+        .suggestion-box { padding: 10px; }
+        .quiz-popup { width: calc(100% - 24px); padding: 20px; }
+        .modal-content { width: calc(100% - 24px); padding: 20px; }
+        .global-navbar { padding: 0 16px; height: 56px; }
+          .global-navbar .feature-nav { display: flex; max-width: 48vw; }
+          .global-navbar .feature-link { font-size: 12px; padding: 6px 10px; }
+        .global-navbar .btn-text { display: none; }
+        .global-navbar .btn-outline { padding: 8px 14px; }
+      }
+
 </style>
 </head>
 <body>
@@ -194,7 +495,15 @@
 </div>
 
 <nav class="global-navbar">
-    <a href="/" class="logo">视学智问</a>
+    <div class="nav-left">
+      <a href="/" class="logo">视学智问</a>
+      <div class="feature-nav">
+        <a href="/video_insights/{{ video_id }}" class="feature-link" aria-label="打开学习分析页">
+          <span class="feature-icon">析</span>
+          学习分析
+        </a>
+      </div>
+    </div>
     <div class="nav-actions">
         {% if session.get('user') %}
             <span class="btn-text">Hi, {{ session.user }}</span>
@@ -226,7 +535,7 @@
   </div>
 
   <!-- 中间：核心沉浸视窗 -->
-  <div class="glass-panel main">
+  <div class="glass-panel main" id="mainPanel">
     <h2 class="main-title">{{ title }}</h2>
     
     <div class="video-box">
@@ -266,20 +575,44 @@
       <h3>📝 智能视频摘要</h3>
       <p>{{ summary }}</p>
     </div>
+
   </div>
 
   <!-- 右侧：AI 智能助教 -->
   <div class="glass-panel question-panel">
-    <div class="panel-title">✨ AI 智能助教</div>
-    <div class="qa-input-box">
-      <input type="text" id="question" placeholder="关于这个视频，你有什么疑问？">
-      <button class="btn-primary" onclick="askAI()">向 AI 提问</button>
+    <div class="tutor-head">
+      <div class="panel-title">✨ AI 智能助教</div>
+      <div class="tutor-subtitle">参考主流问答模型的对话体验：支持连续提问、推荐问题和结构化回答。</div>
     </div>
+
+    <div class="suggestion-box">
+      <div class="suggestion-title">推荐问题（点击可直接提问）</div>
+      <div class="suggestion-list">
+        {% for q in recommended_questions %}
+          <button class="suggestion-chip" type="button" data-question="{{ q }}">{{ q }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
     <div class="answer-area" id="answer">
-      <span style="color: var(--text-sec); text-align: center; display: block; margin-top: 40px;">
-        AI 助教已就绪，随时为您解答疑惑...
-      </span>
+      <div class="msg assistant">
+        <div class="msg-meta">AI 助教</div>
+        我是你的学习助教。你可以直接问定义、计算步骤、易错点，或点击上面的推荐问题。
+      </div>
     </div>
+
+    <div class="qa-input-box">
+      <div class="input-shell">
+        <input type="text" id="question" placeholder="关于这个视频，你有什么疑问？">
+        <button class="send-icon-btn" type="button" onclick="askAI()" aria-label="发送">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 20L20 12L4 4L7 12L4 20Z" fill="currentColor" />
+          </svg>
+        </button>
+      </div>
+      <div class="qa-hint">按 Enter 快速发送，Shift+Enter 可换行。</div>
+    </div>
+
   </div>
 
 </div>
@@ -304,6 +637,8 @@ const showAnalysisBtn = document.getElementById('showAnalysisBtn');
 const answerAnalysis = document.getElementById('answerAnalysis');
 const standardAnswer = document.getElementById('standardAnswer');
 const answerAnalysisText = document.getElementById('answerAnalysisText');
+const answerBox = document.getElementById('answer');
+const questionInput = document.getElementById('question');
 
 const segments = {{ knowledge_segments|tojson }};
 let currentSeg = null;
@@ -391,6 +726,8 @@ async function submitAnswer() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        video_id: {{ video_id }},
+        segment_title: currentSeg ? currentSeg.title : '当前知识点',
         question: currentQuizInfo.question,        
         user_answer: userAns,                     
         standard_answer: currentQuizInfo.standardAnswer 
@@ -404,6 +741,7 @@ async function submitAnswer() {
     standardAnswer.innerText = data.standard_answer;
     answerAnalysisText.innerText = data.analysis;
     showAnalysisBtn.style.display = 'inline-block';
+    renderLearningCoach(data);
     answered = true;
     
     if (data.is_correct) {
@@ -419,8 +757,40 @@ async function submitAnswer() {
       ? '你的回答准确覆盖了核心知识点，表述清晰。'
       : '你的回答缺少核心要点，建议参考标准答案完善。';
     showAnalysisBtn.style.display = 'inline-block';
+    renderLearningCoach({
+      evaluation: {
+        score: isCorrect ? 75 : 45,
+        level: isCorrect ? '良好' : '待提升',
+        comment: isCorrect ? '离优秀很近，再补一条应用场景即可。' : '建议补充关键术语并结合例子。',
+        strengths: isCorrect ? ['抓住了问题主干'] : ['有主动作答意识'],
+        weaknesses: isCorrect ? ['可增加例子让答案更有说服力'] : ['关键术语覆盖不足']
+      },
+      student_profile: {
+        mastery_level: isCorrect ? '中' : '基础',
+        learning_style: '均衡型',
+        confidence: isCorrect ? 72 : 58,
+        recommended_difficulty: isCorrect ? '进阶' : '基础',
+        accuracy: isCorrect ? 70 : 45
+      },
+      student_memory: {
+        attempts: 1,
+        accuracy: isCorrect ? 70 : 45,
+        weak_topics: isCorrect ? [] : [currentSeg ? currentSeg.title : '当前知识点'],
+        recent_records: [{ segment_title: currentSeg ? currentSeg.title : '当前知识点', score: isCorrect ? 75 : 45, is_correct: isCorrect }]
+      },
+      learning_path: {
+        action: isCorrect ? '稳步进阶' : '回看复盘',
+        recommendation: isCorrect
+          ? '建议在当前知识点继续进阶练习，逐步提升到挑战难度。'
+          : '建议先回看本知识点关键定义，再完成1道基础题巩固。'
+      }
+    });
     answered = true;
   }
+}
+
+function renderLearningCoach(data) {
+  // 学习分析已迁移到独立页面，视频页不再渲染分析区。
 }
 
 document.querySelectorAll('.segment').forEach(el => {
@@ -490,12 +860,13 @@ function closeModal() {
 }
 
 async function askAI() {
-  const q = document.getElementById('question').value;
+  const q = (questionInput.value || '').trim();
   if (!q) return;
-  
-  const answerBox = document.getElementById('answer');
-  answerBox.innerHTML = '<span style="color:var(--accent-blue)">🔄 AI 正在光速思考中...</span>';
-  
+
+  appendMessage('user', q, '');
+  questionInput.value = '';
+  const thinkingNode = appendMessage('thinking', 'AI 正在思考中...', 'AI 助教');
+
   try {
       const res = await fetch('/api/ask', {
         method: 'POST',
@@ -503,11 +874,54 @@ async function askAI() {
         body: JSON.stringify({ video_id: {{ video_id }}, question: q })
       });
       const data = await res.json();
-      answerBox.innerText = data.answer || '暂时无法获取回答，请稍后再试。';
+      if (thinkingNode && thinkingNode.parentNode) {
+        thinkingNode.parentNode.removeChild(thinkingNode);
+      }
+      appendMessage('assistant', data.answer || '暂时无法获取回答，请稍后再试。', 'AI 助教');
   } catch (e) {
-      answerBox.innerHTML = '<span style="color:#d93025">❌ 网络连接异常，请重试。</span>';
+      if (thinkingNode && thinkingNode.parentNode) {
+        thinkingNode.parentNode.removeChild(thinkingNode);
+      }
+      appendMessage('assistant', '网络连接异常，请重试。', 'AI 助教');
   }
 }
+
+function appendMessage(role, text, author) {
+  const msg = document.createElement('div');
+  const baseClass = role === 'user' ? 'user' : (role === 'thinking' ? 'thinking assistant' : 'assistant');
+  msg.className = `msg ${baseClass}`;
+  const safeAuthor = author !== undefined ? author : (role === 'user' ? '' : 'AI 助教');
+  const metaHtml = safeAuthor ? `<div class="msg-meta">${safeAuthor}</div>` : '';
+  msg.innerHTML = `${metaHtml}${escapeHtml(text).replace(/\n/g, '<br>')}`;
+  answerBox.appendChild(msg);
+  answerBox.scrollTop = answerBox.scrollHeight;
+  return msg;
+}
+
+function escapeHtml(input) {
+  const div = document.createElement('div');
+  div.innerText = input || '';
+  return div.innerHTML;
+}
+
+function askSuggested(text) {
+  questionInput.value = text;
+  askAI();
+}
+
+document.querySelectorAll('.suggestion-chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    const q = this.getAttribute('data-question') || this.innerText.trim();
+    askSuggested(q);
+  });
+});
+
+questionInput.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault();
+    askAI();
+  }
+});
 
 function closePopup() {
   popup.style.display = 'none';
@@ -526,6 +940,29 @@ function showAnswerAnalysis() {
   // 滚动到底部让解析完全露出
   popup.scrollTop = popup.scrollHeight;
 }
+
+function bindWheelScroll(container) {
+  if (!container) return;
+
+  container.addEventListener('wheel', function(event) {
+    const canScroll = container.scrollHeight > container.clientHeight;
+    if (!canScroll) {
+      return;
+    }
+
+    const atTop = container.scrollTop <= 0;
+    const atBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 1;
+    const down = event.deltaY > 0;
+
+    if ((down && !atBottom) || (!down && !atTop)) {
+      event.preventDefault();
+      container.scrollTop += event.deltaY;
+    }
+  }, { passive: false });
+}
+
+bindWheelScroll(document.querySelector('.panel-body'));
+bindWheelScroll(document.getElementById('answer'));
 </script>
 </body>
 </html>

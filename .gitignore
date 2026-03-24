@@ -1,0 +1,6 @@
+.venv/
+.venv-ai/
+__pycache__/
+*.pyc
+.env.docker
+.docker-config/
