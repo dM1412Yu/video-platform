@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - 学习分析</title>
+  <style>
+    :root {
+      --bg-base: #f7f8fc;
+      --text-main: #1d1d1f;
+      --text-sec: #6b7280;
+      --accent: #0b5fd7;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(255, 255, 255, 0.95);
+      --radius-lg: 18px;
+      --shadow: 0 12px 28px rgba(16, 24, 40, 0.08);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-top: 64px;
+    }
+
+    .global-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(251, 251, 253, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 100;
+    }
+
+    .logo {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1f2937;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffffff, #eef5ff);
+      border: 1px solid rgba(11, 95, 215, 0.2);
+      transition: all 0.2s var(--ease);
+    }
+
+    .pill:hover {
+      color: #0b5fd7;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(11, 95, 215, 0.18);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+
+    .hero p {
+      color: var(--text-sec);
+      font-size: 14px;
+    }
+
+    .refresh-note {
+      margin-top: 8px;
+      color: #4b5563;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .refresh-note strong {
+      color: #0b5fd7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(242, 248, 255, 0.88));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      min-height: 220px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .kpi {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .kpi strong {
+      font-size: 30px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .kpi span {
+      color: var(--text-sec);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tip {
+      background: rgba(11, 95, 215, 0.08);
+      border: 1px solid rgba(11, 95, 215, 0.16);
+      border-radius: 12px;
+      padding: 10px;
+      color: #123b77;
+      font-size: 13px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: #374151;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .list li {
+      margin: 4px 0;
+    }
+
+    .empty {
+      color: var(--text-sec);
+      font-size: 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(255, 255, 255, 0.85);
+      color: #334155;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .container { padding: 12px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; }
+      .hero h1 { font-size: 20px; }
+      .global-navbar { height: 56px; padding: 0 12px; }
+      body { padding-top: 56px; }
+      .logo { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="global-navbar">
+    <a href="/" class="logo">视学智问</a>
+    <div class="nav-actions">
+      <a href="/video_detail/{{ video_id }}" class="pill">返回视频页</a>
+      <a href="/workspace" class="pill">学习记录</a>
+    </div>
+  </nav>
+
+  <main class="container" id="insightsContainer" data-video-id="{{ video_id }}">
+    <section class="hero">
+      <h1>{{ title }}</h1>
+      <p>学习分析面板（独立界面）。这里专门展示学生回答评价、画像、记忆和路径推荐，不再挤占视频空间。</p>
+      <div class="refresh-note">自动刷新：每 5 秒同步一次最新答题结果，最后更新时间 <strong id="lastUpdated">--:--:--</strong></div>
+    </section>
+
+    <section class="grid">
+      <article class="card" id="evalModule">
+        <h3>🧪 学生回答评价</h3>
+        <div class="kpi"><strong id="evalScore">{{ insights.evaluation.score }}</strong><span id="evalLevel">/100 · {{ insights.evaluation.level }}</span></div>
+        <div class="tip" id="evalComment">{{ insights.evaluation.comment }}</div>
+        <ul class="list" id="evalList">
+          {% for item in insights.evaluation.strengths %}
+            <li>{{ item }}</li>
+          {% endfor %}
+          {% for item in insights.evaluation.weaknesses %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+
+      <article class="card" id="profileModule">
+        <h3>👤 学生画像</h3>
+        <div class="kpi"><strong id="profileConfidence">{{ insights.profile.confidence }}</strong><span>学习信心指数</span></div>
+        <div class="tag-row">
+          <span class="tag" id="profileMastery">掌握水平：{{ insights.profile.mastery_level }}</span>
+          <span class="tag" id="profileStyle">学习风格：{{ insights.profile.learning_style }}</span>
+          <span class="tag" id="profileDifficulty">推荐难度：{{ insights.profile.recommended_difficulty }}</span>
+        </div>
+        <div class="tip" style="margin-top:10px;" id="profileAccuracy">当前正确率：{{ insights.profile.accuracy }}%</div>
+      </article>
+
+      <article class="card" id="memoryModule">
+        <h3>🧠 学习记忆</h3>
+        <div class="kpi"><strong id="memoryAttempts">{{ insights.memory.attempts }}</strong><span>累计答题次数</span></div>
+        <div class="tip" id="memoryAccuracy">累计正确率：{{ insights.memory.accuracy }}%</div>
+        <ul class="list" id="memoryWeakTopics">
+          {% if insights.memory.weak_topics %}
+            {% for topic in insights.memory.weak_topics %}
+              <li>薄弱点：{{ topic }}</li>
+            {% endfor %}
+          {% else %}
+            <li>暂无薄弱知识点记录</li>
+          {% endif %}
+        </ul>
+      </article>
+
+      <article class="card" id="pathModule">
+        <h3>🗺 学习路径推荐</h3>
+        <div class="kpi"><strong id="pathAction">{{ insights.path.action }}</strong><span>建议动作</span></div>
+        <div class="tip" id="pathRecommendation">{{ insights.path.recommendation }}</div>
+        <div class="tag-row">
+          <span class="tag">深入学习</span>
+          <span class="tag">回看复盘</span>
+          <span class="tag">补齐前置</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const container = document.getElementById('insightsContainer');
+    const videoId = Number(container ? container.dataset.videoId : 0);
+    let refreshTimer = null;
+
+    function fillList(containerId, items, prefix) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const safeItems = (items && items.length) ? items : ['暂无'];
+      const html = safeItems
+        .map(item => `<li>${prefix ? `${prefix}${item}` : item}</li>`)
+        .join('');
+      container.innerHTML = html;
+    }
+
+    function renderInsights(data) {
+      const evaluation = data.evaluation || {};
+      const profile = data.profile || {};
+      const memory = data.memory || {};
+      const path = data.path || {};
+
+      const evalScore = document.getElementById('evalScore');
+      const evalLevel = document.getElementById('evalLevel');
+      const evalComment = document.getElementById('evalComment');
+      if (evalScore) evalScore.textContent = evaluation.score ?? '-';
+      if (evalLevel) evalLevel.textContent = `/100 · ${evaluation.level || '未评级'}`;
+      if (evalComment) evalComment.textContent = evaluation.comment || '等待新答题数据';
+      fillList('evalList', [...(evaluation.strengths || []), ...(evaluation.weaknesses || [])], '');
+
+      const profileConfidence = document.getElementById('profileConfidence');
+      const profileMastery = document.getElementById('profileMastery');
+      const profileStyle = document.getElementById('profileStyle');
+      const profileDifficulty = document.getElementById('profileDifficulty');
+      const profileAccuracy = document.getElementById('profileAccuracy');
+      if (profileConfidence) profileConfidence.textContent = profile.confidence ?? '-';
+      if (profileMastery) profileMastery.textContent = `掌握水平：${profile.mastery_level || '-'}`;
+      if (profileStyle) profileStyle.textContent = `学习风格：${profile.learning_style || '-'}`;
+      if (profileDifficulty) profileDifficulty.textContent = `推荐难度：${profile.recommended_difficulty || '-'}`;
+      if (profileAccuracy) profileAccuracy.textContent = `当前正确率：${profile.accuracy ?? '-'}%`;
+
+      const memoryAttempts = document.getElementById('memoryAttempts');
+      const memoryAccuracy = document.getElementById('memoryAccuracy');
+      if (memoryAttempts) memoryAttempts.textContent = memory.attempts ?? 0;
+      if (memoryAccuracy) memoryAccuracy.textContent = `累计正确率：${memory.accuracy ?? '-'}%`;
+      fillList('memoryWeakTopics', (memory.weak_topics || []).map(topic => `薄弱点：${topic}`), '');
+
+      const pathAction = document.getElementById('pathAction');
+      const pathRecommendation = document.getElementById('pathRecommendation');
+      if (pathAction) pathAction.textContent = path.action || '待生成';
+      if (pathRecommendation) pathRecommendation.textContent = path.recommendation || '完成答题后会自动推荐学习路径。';
+
+      const now = new Date();
+      const text = now.toLocaleTimeString('zh-CN', { hour12: false });
+      const lastUpdated = document.getElementById('lastUpdated');
+      if (lastUpdated) lastUpdated.textContent = text;
+    }
+
+    async function refreshInsights() {
+      try {
+        const res = await fetch(`/api/video_insights/${videoId}`, {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          cache: 'no-store'
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        renderInsights(data);
+      } catch (error) {
+        console.warn('刷新学习分析失败：', error);
+      }
+    }
+
+    function startAutoRefresh() {
+      if (refreshTimer) {
+        clearInterval(refreshTimer);
+      }
+      refreshInsights();
+      refreshTimer = setInterval(refreshInsights, 5000);
+    }
+
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) {
+        refreshInsights();
+      }
+    });
+
+    startAutoRefresh();
+  </script>
+</body>
+</html>

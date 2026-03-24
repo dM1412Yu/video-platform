@@ -10,6 +10,7 @@ from pathlib import Path
 
 import torch
 import whisper
+import requests
 from werkzeug.utils import secure_filename
 
 # ==========================================
@@ -28,6 +29,8 @@ from core.knowledge_graph import generate_video_kg
 from core.relation_network import generate_relation_network
 from core.generate_questions import generate_questions_for_knowledge_points
 from core.correct_asr import run_correct_asr
+import requests
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
@@ -155,15 +158,422 @@ def _load_video_segments(video_id):
         except: pass
     return []
 
+# 轻量内存态学习档案（演示用）；生产环境建议迁移到数据库
+LEARNING_MEMORY = {}
+USER_VIDEOS = {}
+NEXT_VIDEO_ID = 100
+
+UPLOAD_DIR = os.path.join(app.root_path, 'static', 'uploads')
+VIDEO_DATA_DIR = os.path.join(app.root_path, 'static', 'video_data')
+ALLOWED_VIDEO_EXTS = {'.mp4', '.avi', '.mov', '.mkv', '.webm'}
+
+
+def _current_user_id():
+    return session.get('user') or 'guest'
+
+
+def _is_allowed_video(filename):
+    _, ext = os.path.splitext(filename.lower())
+    return ext in ALLOWED_VIDEO_EXTS
+
+
+def _tokenize_text(text):
+    if not text:
+        return []
+    return re.findall(r"[\u4e00-\u9fff]{1,}|[a-zA-Z0-9_]+", text.lower())
+
+
+def _evaluate_answer(user_answer, standard_answer):
+    user_tokens = set(_tokenize_text(user_answer))
+    std_tokens = set(_tokenize_text(standard_answer))
+
+    if not std_tokens:
+        coverage = 0.0
+    else:
+        coverage = len(user_tokens & std_tokens) / max(1, len(std_tokens))
+
+    # 兼容你原有的判定逻辑：包含标准答案前 3 个字符也算命中
+    prefix_hit = bool(
+        standard_answer and len(standard_answer) >= 3 and standard_answer[:3].lower() in (user_answer or "").lower()
+    )
+
+    is_correct = coverage >= 0.45 or prefix_hit
+    score = min(100, int(coverage * 100) + (10 if prefix_hit else 0))
+
+    if score >= 80:
+        level = "优秀"
+        comment = "回答结构清晰，核心概念覆盖完整。"
+    elif score >= 55:
+        level = "良好"
+        comment = "关键点基本到位，再补充定义或应用场景会更好。"
+    else:
+        level = "待提升"
+        comment = "已开始思考，但核心知识点覆盖不足，建议回看本节重点。"
+
+    strengths = []
+    weaknesses = []
+
+    if score >= 60:
+        strengths.append("抓住了问题主干")
+    if len((user_answer or "").strip()) >= 25:
+        strengths.append("回答较完整，表达有延展")
+    if not strengths:
+        strengths.append("有主动作答意识")
+
+    if score < 55:
+        weaknesses.append("关键术语覆盖不足")
+    if len((user_answer or "").strip()) < 12:
+        weaknesses.append("回答偏短，论证不充分")
+    if not weaknesses:
+        weaknesses.append("可增加例子让答案更有说服力")
+
+    return {
+        "is_correct": is_correct,
+        "score": score,
+        "level": level,
+        "comment": comment,
+        "strengths": strengths,
+        "weaknesses": weaknesses,
+    }
+
+
+def _build_student_profile(memory):
+    attempts = memory["attempts"]
+    correct = memory["correct"]
+    total_chars = memory["total_chars"]
+    accuracy = (correct / attempts) if attempts else 0.0
+    avg_len = (total_chars / attempts) if attempts else 0.0
+
+    if accuracy >= 0.8:
+        mastery_level = "高"
+        difficulty = "挑战"
+    elif accuracy >= 0.55:
+        mastery_level = "中"
+        difficulty = "进阶"
+    else:
+        mastery_level = "基础"
+        difficulty = "基础"
+
+    if avg_len >= 35:
+        learning_style = "解释型"
+    elif avg_len >= 18:
+        learning_style = "均衡型"
+    else:
+        learning_style = "速答型"
+
+    confidence = min(100, int(accuracy * 100 * 0.7 + min(avg_len, 40) * 0.8))
+
+    return {
+        "mastery_level": mastery_level,
+        "learning_style": learning_style,
+        "confidence": confidence,
+        "recommended_difficulty": difficulty,
+        "accuracy": round(accuracy * 100, 1),
+    }
+
+
+def _build_path_recommendation(profile, memory, segment_title):
+    segment_title = segment_title or "当前知识点"
+    recent = memory["history"][-3:]
+    recent_wrong = sum(1 for item in recent if not item["is_correct"])
+
+    if recent_wrong >= 2:
+        recommendation = f"建议先返回前面重看「{segment_title}」并完成1道基础题，再继续后续内容。"
+        action = "回看复盘"
+    elif profile["recommended_difficulty"] == "挑战":
+        recommendation = f"你可以深入学习「{segment_title}」的拓展应用，并尝试跨章节综合题。"
+        action = "深入学习"
+    elif profile["recommended_difficulty"] == "进阶":
+        recommendation = f"建议在当前章节继续进阶训练；若遇卡点，再回看「{segment_title}」关键定义。"
+        action = "稳步进阶"
+    else:
+        recommendation = f"建议先学习前置基础（定义、符号和例题），再回到「{segment_title}」做一次复答。"
+        action = "补齐前置"
+
+    return {"action": action, "recommendation": recommendation}
+
+
+def _extract_video_qa_items(video_id):
+    qa_path = os.path.join(VIDEO_DATA_DIR, str(video_id), 'knowledge_questions.json')
+    if not os.path.exists(qa_path):
+        return []
+
+    try:
+        with open(qa_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception:
+        return []
+
+    items = []
+    for block in data if isinstance(data, list) else []:
+        title = block.get('title', '未命名知识点')
+        for qa in block.get('questions', []):
+            q = (qa.get('question') or '').strip()
+            a = (qa.get('answer') or '').strip()
+            if q and a:
+                items.append({'title': title, 'question': q, 'answer': a})
+    return items
+
+
+def _load_video_segments(video_id):
+    qa_path = os.path.join(VIDEO_DATA_DIR, str(video_id), 'knowledge_questions.json')
+    if not os.path.exists(qa_path):
+        return []
+
+    try:
+        with open(qa_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception:
+        return []
+
+    segments = []
+    for idx, block in enumerate(data if isinstance(data, list) else []):
+        title = (block.get('title') or '').strip()
+        if not title:
+            continue
+        # 没有真实时间戳时，使用可视化演示的等距时间片
+        start = 2 + idx * 60
+        end = start + 45
+        segments.append({"title": title, "start_time": start, "end_time": end})
+    return segments
+
+
+def _find_best_qa_answer(video_id, user_question):
+    q_tokens = set(_tokenize_text(user_question))
+    if not q_tokens:
+        return None
+
+    best_item = None
+    best_score = 0.0
+    for item in _extract_video_qa_items(video_id):
+        item_tokens = set(_tokenize_text(item['question'] + ' ' + item['answer'] + ' ' + item['title']))
+        if not item_tokens:
+            continue
+        overlap = len(q_tokens & item_tokens)
+        score = overlap / max(1, len(q_tokens))
+        if score > best_score:
+            best_score = score
+            best_item = item
+
+    if best_item and best_score >= 0.2:
+        return {
+            'title': best_item['title'],
+            'question': best_item['question'],
+            'answer': best_item['answer'],
+            'score': round(best_score, 3),
+        }
+    return None
+
+
+def _build_recommended_questions(video_id, knowledge_segments, video_title=None):
+    recommended = []
+    seen = set()
+
+    # 1) 优先使用当前视频题库中的真实问题
+    for item in _extract_video_qa_items(video_id):
+        q = (item.get('question') or '').strip()
+        if not q:
+            continue
+        if q in seen:
+            continue
+        seen.add(q)
+        recommended.append(q)
+        if len(recommended) >= 4:
+            return recommended
+
+    # 2) 若题库不足，按当前视频知识点自动补齐
+    templates = [
+        "{title} 的核心概念是什么？",
+        "{title} 常见易错点有哪些？",
+        "如何用一道例题理解 {title}？",
+        "{title} 和前置知识有什么关系？",
+    ]
+
+    for seg in knowledge_segments or []:
+        title = (seg.get('title') or '').strip()
+        if not title:
+            continue
+        for tpl in templates:
+            q = tpl.format(title=title)
+            if q in seen:
+                continue
+            seen.add(q)
+            recommended.append(q)
+            if len(recommended) >= 4:
+                return recommended
+
+    # 3) 最终兜底
+    fallback = [
+        f"这条视频《{video_title or '当前内容'}》最重要的三个知识点是什么？",
+        "这一节最重要的三个知识点是什么？",
+        "如果我要快速复习，这节课应该按什么顺序学？",
+        "这节内容在考试中最常见的题型有哪些？",
+        "我应该先巩固哪部分前置知识？",
+    ]
+    for q in fallback:
+        if q not in seen:
+            recommended.append(q)
+        if len(recommended) >= 4:
+            break
+
+    return recommended[:4]
+
+
+def _score_to_level(score):
+    if score >= 80:
+        return "优秀"
+    if score >= 55:
+        return "良好"
+    return "待提升"
+
+
+def _build_insight_view_data(video_id):
+    student_id = _current_user_id()
+    memory_key = f"{student_id}:{video_id}"
+    memory = LEARNING_MEMORY.get(memory_key, {
+        "attempts": 0,
+        "correct": 0,
+        "total_chars": 0,
+        "history": [],
+        "topic_mistakes": {}
+    })
+
+    profile = _build_student_profile(memory)
+    recent = memory["history"][-1] if memory["history"] else None
+    recent_score = recent["score"] if recent else 0
+
+    if recent:
+        evaluation_comment = "最近一次答题已纳入画像分析，可继续提问进行针对性提升。"
+    else:
+        evaluation_comment = "还没有答题记录，先完成一次随堂测验后这里会自动更新。"
+
+    sorted_mistakes = sorted(memory["topic_mistakes"].items(), key=lambda x: x[1], reverse=True)
+    weak_topics = [name for name, _ in sorted_mistakes[:3]]
+    path = _build_path_recommendation(profile, memory, recent["segment_title"] if recent else "当前知识点")
+
+    recent_records = []
+    for item in memory["history"][-5:]:
+        recent_records.append({
+            "segment_title": item.get("segment_title", "知识点"),
+            "score": item.get("score", 0),
+            "status": "正确" if item.get("is_correct") else "待提升"
+        })
+
+    return {
+        "evaluation": {
+            "score": recent_score,
+            "level": _score_to_level(recent_score),
+            "comment": evaluation_comment,
+            "strengths": ["主动完成答题反馈"] if recent else ["尚无记录"],
+            "weaknesses": ["继续通过随堂测验积累数据"] if not recent else ["针对薄弱点复习"]
+        },
+        "profile": profile,
+        "memory": {
+            "attempts": memory["attempts"],
+            "accuracy": profile["accuracy"],
+            "weak_topics": weak_topics,
+            "recent_records": recent_records
+        },
+        "path": path
+    }
+
+
+def _build_general_tutor_answer(question):
+    q = (question or '').strip()
+    if not q:
+        return "请先输入一个具体问题，例如：什么是导数？导数在本节课中有什么作用？"
+
+    if any(k in q for k in ['导数', '变化率', '斜率']):
+        return (
+            "导数可以理解为“瞬时变化率”，它描述了函数在某一点附近变化有多快。\n"
+            "在本节内容里，你可以先把导数记成两件事：\n"
+            "1. 物理意义：速度是位移对时间的导数。\n"
+            "2. 几何意义：曲线在该点切线的斜率。\n"
+            "如果你愿意，我可以继续给你一个 30 秒内能看懂的导数计算例子。"
+        )
+
+    if any(k in q for k in ['积分', '面积', '累积']):
+        return (
+            "积分可以理解为“累积量”，最直观的是曲线与坐标轴围成区域的面积。\n"
+            "你可以先记住：导数解决“变化快慢”，积分解决“累计总量”。\n"
+            "如果你想，我可以下一步帮你把“定积分与原函数”的关系画成一条学习链。"
+        )
+
+    if any(k in q for k in ['极限', '趋近']):
+        return (
+            "极限描述的是“无限接近时的结果”，它是导数和积分的基础语言。\n"
+            "理解极限时可抓住一句话：变量可以无限逼近某点，但不一定真的取到该点。\n"
+            "你可以继续问我一个具体极限式子，我按步骤带你算。"
+        )
+
+    return (
+        f"我先直接回答你的问题：{q}\n"
+        "当前页面是演示环境，我会基于本节微积分核心概念给你结构化解答。\n"
+        "建议你把问题进一步具体化为“定义是什么 / 为什么成立 / 怎么计算 / 有什么应用”，"
+        "我就能给你更精准的步骤答案。"
+    )
+
+
+def _build_video_context(video_id, max_items=6):
+    items = _extract_video_qa_items(video_id)[:max_items]
+    if not items:
+        return "当前视频暂无结构化题库上下文。"
+
+    lines = []
+    for i, item in enumerate(items, 1):
+        lines.append(f"{i}. 知识点：{item['title']}\\n   问：{item['question']}\\n   答：{item['answer']}")
+    return "\\n".join(lines)
+
+
+def _call_remote_llm(question, video_id):
+    api_key = os.getenv("DASHSCOPE_API_KEY") or os.getenv("QWEN_API_KEY")
+    if not api_key:
+        return None
+
+    model = os.getenv("DASHSCOPE_MODEL", "qwen-plus")
+    endpoint = os.getenv("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions")
+    context = _build_video_context(video_id)
+
+    payload = {
+        "model": model,
+        "temperature": 0.3,
+        "messages": [
+            {
+                "role": "system",
+                "content": "你是视频学习助教。回答要求：简洁、准确、可执行；优先结合提供的视频上下文。"
+            },
+            {
+                "role": "user",
+                "content": f"视频上下文：\\n{context}\\n\\n学生问题：{question}\\n\\n请给出：1) 直接答案 2) 关键点 3) 下一步建议"
+            }
+        ]
+    }
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+
+    try:
+        resp = requests.post(endpoint, headers=headers, json=payload, timeout=20)
+        if resp.status_code != 200:
+            return None
+        data = resp.json()
+        return (((data.get("choices") or [{}])[0].get("message") or {}).get("content") or "").strip() or None
+    except Exception:
+        return None
+
 # ==========================================
 # 静态资源路由 (适配前端加载)
 # ==========================================
 @app.route('/uploads/<filename>')
 def uploads(filename):
+    """前端视频播放器获取视频文件的接口"""
     return send_from_directory(UPLOAD_DIR, filename)
 
 @app.route('/video_data/<int:video_id>/<path:filename>')
 def video_data(video_id, filename):
+    """前端加载知识点题库 JSON 的接口"""
     per_video_dir = os.path.join(VIDEO_DATA_DIR, str(video_id))
     if os.path.exists(os.path.join(per_video_dir, filename)):
         return send_from_directory(per_video_dir, filename)
