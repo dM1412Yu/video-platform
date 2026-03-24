@@ -161,11 +161,304 @@ def _load_video_segments(video_id):
 # 轻量内存态学习档案（演示用）；生产环境建议迁移到数据库
 LEARNING_MEMORY = {}
 USER_VIDEOS = {}
-NEXT_VIDEO_ID = 100
-
 UPLOAD_DIR = os.path.join(app.root_path, 'static', 'uploads')
-VIDEO_DATA_DIR = os.path.join(app.root_path, 'static', 'video_data')
+VIDEO_DATA_DIR = os.path.join(app.root_path, 'video_data')
 ALLOWED_VIDEO_EXTS = {'.mp4', '.avi', '.mov', '.mkv', '.webm'}
+VIDEO_ID_LOCK = threading.Lock()
+VIDEO_REGISTRY_LOCK = threading.Lock()
+VIDEO_REGISTRY_PATH = os.path.join(VIDEO_DATA_DIR, '_user_videos.json')
+
+
+def _existing_video_ids():
+    ids = set()
+    for base_dir in [VIDEO_DATA_DIR, os.path.join(app.root_path, 'static', 'video_data')]:
+        if not os.path.isdir(base_dir):
+            continue
+        for name in os.listdir(base_dir):
+            if name.isdigit():
+                ids.add(int(name))
+    return ids
+
+
+def _get_next_video_id():
+    existing_ids = _existing_video_ids()
+    if not existing_ids:
+        return 100
+    return max(existing_ids) + 1
+
+
+NEXT_VIDEO_ID = _get_next_video_id()
+
+
+def _normalize_video_entry(entry):
+    if not isinstance(entry, dict):
+        return None
+
+    try:
+        video_id = int(entry.get('id'))
+    except (TypeError, ValueError):
+        return None
+
+    status = entry.get('status')
+    if status not in {'processing', 'completed', 'failed'}:
+        status = 'processing'
+
+    stored_filename = str(entry.get('stored_filename') or '').strip()
+    display_name = re.sub(r'^\d+_', '', stored_filename)
+    display_name = display_name.replace('.cancelled', '')
+    filename = str(entry.get('filename') or '').strip() or display_name or f"视频 {video_id}"
+    title = str(entry.get('title') or '').strip() or f"视频 {video_id}"
+
+    default_summary = {
+        'processing': 'AI正在深度解析视频，提取知识图谱与考点...',
+        'completed': 'AI 已完成解析，可开始学习。',
+        'failed': 'AI 处理失败，可重新上传重试。'
+    }
+    summary = str(entry.get('summary') or '').strip() or default_summary[status]
+
+    return {
+        'id': video_id,
+        'filename': filename,
+        'status': status,
+        'stored_filename': stored_filename,
+        'title': title,
+        'summary': summary
+    }
+
+
+def _build_video_registry_snapshot():
+    snapshot = {}
+    for user_id, videos in USER_VIDEOS.items():
+        normalized = []
+        for video in videos:
+            item = _normalize_video_entry(video)
+            if item:
+                normalized.append(item)
+        if normalized:
+            snapshot[user_id] = sorted(normalized, key=lambda item: item['id'])
+    return snapshot
+
+
+def _write_video_registry(snapshot):
+    os.makedirs(os.path.dirname(VIDEO_REGISTRY_PATH), exist_ok=True)
+    temp_path = f"{VIDEO_REGISTRY_PATH}.tmp"
+    with open(temp_path, 'w', encoding='utf-8') as f:
+        json.dump(snapshot, f, ensure_ascii=False, indent=2)
+    os.replace(temp_path, VIDEO_REGISTRY_PATH)
+
+
+def _first_artifact_mtime(video_dir):
+    timestamps = []
+    for root_dir, _, filenames in os.walk(video_dir):
+        for filename in filenames:
+            file_path = os.path.join(root_dir, filename)
+            try:
+                timestamps.append(os.path.getmtime(file_path))
+            except OSError:
+                continue
+    if timestamps:
+        return min(timestamps)
+    return os.path.getmtime(video_dir)
+
+
+def _bootstrap_completed_guest_videos(existing_snapshot):
+    existing_ids = {
+        int(video.get('id'))
+        for videos in existing_snapshot.values()
+        for video in videos
+        if isinstance(video, dict) and str(video.get('id', '')).isdigit()
+    }
+
+    upload_candidates = []
+    if os.path.isdir(UPLOAD_DIR):
+        for name in os.listdir(UPLOAD_DIR):
+            full_path = os.path.join(UPLOAD_DIR, name)
+            if not os.path.isfile(full_path) or name.lower().endswith('.cancelled'):
+                continue
+            _, ext = os.path.splitext(name.lower())
+            if ext not in ALLOWED_VIDEO_EXTS:
+                continue
+            upload_candidates.append({
+                'stored_filename': name,
+                'filename': re.sub(r'^\d+_', '', name),
+                'mtime': os.path.getmtime(full_path)
+            })
+    upload_candidates.sort(key=lambda item: item['mtime'])
+
+    recovered = []
+    pending_videos = []
+    if os.path.isdir(VIDEO_DATA_DIR):
+        for name in os.listdir(VIDEO_DATA_DIR):
+            if not name.isdigit():
+                continue
+            video_id = int(name)
+            if video_id < 100:
+                continue
+            if video_id in existing_ids:
+                continue
+
+            video_dir = os.path.join(VIDEO_DATA_DIR, name)
+            if not os.path.isdir(video_dir):
+                continue
+
+            if not os.path.exists(os.path.join(video_dir, 'knowledge_questions.json')):
+                continue
+
+            segments = _load_video_segments(video_id)
+            segment_count = len(segments)
+            summary = f"AI 已完成解析，共拆分 {segment_count} 个知识点，可开始学习。" if segment_count else "AI 已完成解析，可开始学习。"
+            pending_videos.append({
+                'id': video_id,
+                'title': f"视频 {video_id}",
+                'summary': summary,
+                'first_artifact_mtime': _first_artifact_mtime(video_dir)
+            })
+
+    pending_videos.sort(key=lambda item: item['first_artifact_mtime'])
+    used_upload_indexes = set()
+
+    for item in pending_videos:
+        chosen_index = None
+        for index, upload in enumerate(upload_candidates):
+            if index in used_upload_indexes:
+                continue
+            if upload['mtime'] <= item['first_artifact_mtime']:
+                chosen_index = index
+
+        filename = f"视频 {item['id']}"
+        stored_filename = ''
+        if chosen_index is not None:
+            used_upload_indexes.add(chosen_index)
+            filename = upload_candidates[chosen_index]['filename']
+            stored_filename = upload_candidates[chosen_index]['stored_filename']
+
+        recovered.append({
+            'id': item['id'],
+            'filename': filename,
+            'status': 'completed',
+            'stored_filename': stored_filename,
+            'title': item['title'],
+            'summary': item['summary']
+        })
+
+    return recovered
+
+
+def _load_video_registry():
+    snapshot = {}
+
+    if os.path.exists(VIDEO_REGISTRY_PATH):
+        try:
+            with open(VIDEO_REGISTRY_PATH, 'r', encoding='utf-8') as f:
+                raw_data = json.load(f)
+            if isinstance(raw_data, dict):
+                for user_id, videos in raw_data.items():
+                    normalized = []
+                    for video in videos if isinstance(videos, list) else []:
+                        item = _normalize_video_entry(video)
+                        if item and item['id'] >= 100:
+                            normalized.append(item)
+                    if normalized:
+                        snapshot[user_id] = sorted(normalized, key=lambda item: item['id'])
+        except Exception as exc:
+            logger.warning(f"加载视频注册表失败，准备回退到磁盘恢复：{exc}")
+
+    recovered_videos = _bootstrap_completed_guest_videos(snapshot)
+    if recovered_videos:
+        snapshot.setdefault('guest', [])
+        snapshot['guest'].extend(recovered_videos)
+        snapshot['guest'] = sorted(snapshot['guest'], key=lambda item: item['id'])
+
+    if snapshot:
+        try:
+            _write_video_registry(snapshot)
+        except Exception as exc:
+            logger.warning(f"写入视频注册表失败：{exc}")
+
+    return snapshot
+
+
+def _persist_user_videos_locked():
+    _write_video_registry(_build_video_registry_snapshot())
+
+
+def _get_user_videos(user_id):
+    with VIDEO_REGISTRY_LOCK:
+        return [dict(video) for video in USER_VIDEOS.get(user_id, [])]
+
+
+def _get_user_video(user_id, video_id):
+    with VIDEO_REGISTRY_LOCK:
+        for video in USER_VIDEOS.get(user_id, []):
+            if video.get('id') == video_id:
+                return dict(video)
+    return None
+
+
+def _get_video_display_title(video, fallback):
+    if video:
+        filename = str(video.get('filename') or '').strip()
+        if filename:
+            return filename
+
+        title = str(video.get('title') or '').strip()
+        if title:
+            return title
+
+    return fallback
+
+
+def _upsert_user_video(user_id, entry):
+    normalized = _normalize_video_entry(entry)
+    if not normalized:
+        return None
+
+    with VIDEO_REGISTRY_LOCK:
+        videos = USER_VIDEOS.setdefault(user_id, [])
+        for index, video in enumerate(videos):
+            if video.get('id') == normalized['id']:
+                videos[index] = normalized
+                break
+        else:
+            videos.append(normalized)
+            videos.sort(key=lambda item: item['id'])
+        _persist_user_videos_locked()
+
+    return dict(normalized)
+
+
+def _patch_user_video(user_id, video_id, **fields):
+    with VIDEO_REGISTRY_LOCK:
+        videos = USER_VIDEOS.setdefault(user_id, [])
+        target = next((video for video in videos if video.get('id') == video_id), None)
+        if target is None:
+            target = {'id': video_id}
+            videos.append(target)
+        target.update(fields)
+        normalized = _normalize_video_entry(target)
+        if not normalized:
+            return None
+        for index, video in enumerate(videos):
+            if video.get('id') == video_id:
+                videos[index] = normalized
+                break
+        videos.sort(key=lambda item: item['id'])
+        _persist_user_videos_locked()
+        return dict(normalized)
+
+
+def _remove_user_video(user_id, video_id):
+    with VIDEO_REGISTRY_LOCK:
+        videos = USER_VIDEOS.get(user_id, [])
+        target = next((video for video in videos if video.get('id') == video_id), None)
+        if target:
+            videos.remove(target)
+            _persist_user_videos_locked()
+            return dict(target)
+    return None
+
+
+USER_VIDEOS = _load_video_registry()
 
 
 def _current_user_id():
@@ -592,7 +885,8 @@ def workspace():
         {'id': 1, 'filename': '高等数学-微积分基础.mp4', 'status': 'completed', 'title': '微积分入门', 'summary': '核心概念与应用'}
     ]
     user_id = _current_user_id()
-    videos = list(reversed(USER_VIDEOS.get(user_id, []))) if USER_VIDEOS.get(user_id) else demo_videos
+    user_videos = _get_user_videos(user_id)
+    videos = list(reversed(user_videos)) if user_videos else demo_videos
     student_overview = {
         'total_videos': len(videos),
         'completed': sum(1 for v in videos if v['status'] == 'completed'),
@@ -743,21 +1037,19 @@ def process_video_pipeline(video_id, video_path, user_id):
         logger.info("开始执行 [总结标题摘要]")
         web_title, web_summary = run_generate_web_title_summary(video_id=vid_str, corrected_asr=corrected_asr)
 
-        for v in USER_VIDEOS.get(user_id, []):
-            if v['id'] == video_id:
-                v['status'] = 'completed'
-                v['title'] = web_title
-                v['summary'] = web_summary
-                break
+        _patch_user_video(
+            user_id,
+            video_id,
+            status='completed',
+            title=web_title,
+            summary=web_summary
+        )
 
         logger.info(f"✅ 视频 {video_id} AI 流水线全链条处理完毕！")
 
     except Exception as e:
         logger.error(f"❌ 视频 {video_id} AI 处理崩溃: {str(e)}", exc_info=True)
-        for v in USER_VIDEOS.get(user_id, []):
-            if v['id'] == video_id:
-                v['status'] = 'failed'
-                break
+        _patch_user_video(user_id, video_id, status='failed')
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -775,11 +1067,13 @@ def upload():
         video_file.save(save_path)
 
         user_id = _current_user_id()
-        if user_id not in USER_VIDEOS:
-            USER_VIDEOS[user_id] = []
 
-        current_video_id = NEXT_VIDEO_ID
-        USER_VIDEOS[user_id].append({
+        with VIDEO_ID_LOCK:
+            NEXT_VIDEO_ID = max(NEXT_VIDEO_ID, _get_next_video_id())
+            current_video_id = NEXT_VIDEO_ID
+            NEXT_VIDEO_ID += 1
+
+        _upsert_user_video(user_id, {
             'id': current_video_id,
             'filename': original_name,
             'status': 'processing', 
@@ -787,7 +1081,6 @@ def upload():
             'title': '解析中...',
             'summary': 'AI正在深度解析视频，提取知识图谱与考点...'
         })
-        NEXT_VIDEO_ID += 1
 
         # 启动后台AI线程
         threading.Thread(target=process_video_pipeline, args=(current_video_id, save_path, user_id), daemon=True).start()
@@ -799,10 +1092,8 @@ def upload():
 @app.route('/delete/<int:video_id>', methods=['POST'])
 def delete_video(video_id):
     user_id = _current_user_id()
-    videos = USER_VIDEOS.get(user_id, [])
-    target = next((v for v in videos if v['id'] == video_id), None)
+    target = _remove_user_video(user_id, video_id)
     if target:
-        videos.remove(target)
         flash('学习记录已彻底删除', 'success')
     return redirect(url_for('workspace'))
 
@@ -812,7 +1103,7 @@ def delete_video(video_id):
 @app.route('/video_detail/<int:video_id>')
 def video_detail(video_id):
     user_id = _current_user_id()
-    selected_video = next((v for v in USER_VIDEOS.get(user_id, []) if v['id'] == video_id), None)
+    selected_video = _get_user_video(user_id, video_id)
 
     # 加载真实的 AI 分段
     video_segments = _load_video_segments(video_id)
@@ -822,7 +1113,7 @@ def video_detail(video_id):
             {"title": "第二章：导数的应用", "start_time": 15, "end_time": 25}
         ]
 
-    title = selected_video['title'] if selected_video and selected_video.get('title') else f"知识点视频 {video_id}"
+    title = _get_video_display_title(selected_video, f"知识点视频 {video_id}")
     filepath = selected_video['stored_filename'] if selected_video else "sample.mp4"
     summary = selected_video['summary'] if selected_video and selected_video.get('summary') else "AI功能环境已就绪。"
     
@@ -841,11 +1132,16 @@ def video_detail(video_id):
 
 @app.route('/video_insights/<int:video_id>')
 def video_insights(video_id):
-    student_id = _current_user_id()
-    memory_key = f"{student_id}:{video_id}"
-    memory = LEARNING_MEMORY.get(memory_key, { "attempts": 0, "correct": 0, "total_chars": 0, "history": [], "topic_mistakes": {} })
-    profile = _build_student_profile(memory)
-    return render_template('video_insights.html', title=f"视频 {video_id} 分析", video_id=video_id, insights={"profile": profile, "memory": memory})
+    user_id = _current_user_id()
+    selected_video = _get_user_video(user_id, video_id)
+    title = _get_video_display_title(selected_video, f"视频 {video_id} 分析")
+    insights = _build_insight_view_data(video_id)
+    return render_template('video_insights.html', title=title, video_id=video_id, insights=insights)
+
+
+@app.route('/api/video_insights/<int:video_id>')
+def api_video_insights(video_id):
+    return jsonify(_build_insight_view_data(video_id))
 
 # ==========================================
 # AJAX 异步接口 (AI 互动核心)
@@ -906,4 +1202,5 @@ def page_not_found(e):
 if __name__ == '__main__':
     host = os.getenv('HOST', '0.0.0.0')
     port = int(os.getenv('PORT', '5000'))
-    app.run(host=host, port=port, debug=True)
+    debug = os.getenv('FLASK_DEBUG', '0').strip().lower() in {'1', 'true', 'yes', 'on'}
+    app.run(host=host, port=port, debug=debug)

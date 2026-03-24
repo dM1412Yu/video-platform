@@ -18,7 +18,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TESSERACT_CMD=/usr/bin/tesseract
 
 RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.list.save && \
-    apt-get update && apt-get install -y --no-install-recommends \
+    sed -i 's|http://deb.debian.org/debian|https://mirrors.tuna.tsinghua.edu.cn/debian|g; s|http://deb.debian.org/debian-security|https://mirrors.tuna.tsinghua.edu.cn/debian-security|g' /etc/apt/sources.list.d/*.sources && \
+    apt-get update -o Acquire::Retries=5 && \
+    apt-get install -y --fix-missing --no-install-recommends -o Acquire::Retries=5 \
     build-essential \
     ffmpeg \
     git \
