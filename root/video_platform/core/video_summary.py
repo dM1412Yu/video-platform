@@ -333,6 +333,7 @@ def run_video_summary(input_video_dir, output_root_dir, video_id):
     :return: 执行结果
     """
     try:
+        video_id = str(video_id)
         # 初始化环境（自动适配路径）
         actual_input_dir = init_env(input_video_dir, os.path.join(output_root_dir, video_id))
         
