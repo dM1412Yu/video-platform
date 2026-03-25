@@ -651,6 +651,16 @@ let currentQuizInfo = {
   standardAnswer: '' 
 };
 
+function findQuestionItemBySegment(seg, segIndex) {
+  const expectedSegmentId = Number.isInteger(segIndex) ? segIndex + 1 : null;
+  const expectedFolder = expectedSegmentId ? `t${expectedSegmentId}` : '';
+  return questionsData.find(item =>
+    (expectedSegmentId && Number(item.segment_id) === expectedSegmentId) ||
+    (expectedFolder && item.segment_folder === expectedFolder) ||
+    item.title === seg.title
+  ) || null;
+}
+
 // 按视频时间自动触发弹窗核心逻辑
 video.addEventListener('timeupdate', function() {
   const currentVideoTime = video.currentTime;
@@ -664,7 +674,7 @@ video.addEventListener('timeupdate', function() {
 });
 
 function openQuizPopupByTime(segIndex) {
-  const questionItem = questionsData.find(item => item.title === segments[segIndex].title);
+  const questionItem = findQuestionItemBySegment(segments[segIndex], segIndex);
   if (!questionItem || !questionItem.questions || questionItem.questions.length === 0) {
     console.warn(`⚠️ 知识点【${segments[segIndex].title}】无题目数据`);
     return; 
@@ -812,7 +822,7 @@ window.onload = async function() {
       console.log('✅ 题目数据加载成功：', questionsData);
       
       questionsData.forEach(item => {
-        if (!item.title || !item.questions || item.questions.length === 0) {
+        if (!item.title) {
           console.warn(`⚠️ 知识点【${item.title || '未知'}】题目格式错误`);
         }
       });
@@ -831,7 +841,7 @@ function showSegQuestionsModal(idx) {
   const modalQuestions = document.getElementById('modalQuestions');
   const modal = document.getElementById('questionsModal');
   modalTitle.textContent = "📑 " + seg.title;
-  const questionItem = questionsData.find(item => item.title === seg.title);
+  const questionItem = findQuestionItemBySegment(seg, idx);
   let html = '';
   if (questionItem && questionItem.questions && questionItem.questions.length >= 2) {
     html = `
@@ -842,6 +852,13 @@ function showSegQuestionsModal(idx) {
       <div class="question-item">
         <strong>考查题：</strong>${questionItem.questions[1].question}
         <br><small style="color:#86868b; display:block; margin-top:8px;">🎯 标准答案：${questionItem.questions[1].answer}</small>
+      </div>
+    `;
+  } else if (questionItem && questionItem.should_generate_questions === false) {
+    html = `
+      <div class="question-item">
+        <strong>本段暂不出题</strong>
+        <br><small style="color:#86868b; display:block; margin-top:8px;">原因：${questionItem.skip_reason || '当前片段以非知识性内容为主，已跳过自动出题。'}</small>
       </div>
     `;
   } else {
@@ -862,6 +879,7 @@ function closeModal() {
 async function askAI() {
   const q = (questionInput.value || '').trim();
   if (!q) return;
+  const currentTime = Number.isFinite(video.currentTime) ? video.currentTime : null;
 
   appendMessage('user', q, '');
   questionInput.value = '';
@@ -871,7 +889,11 @@ async function askAI() {
       const res = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ video_id: {{ video_id }}, question: q })
+        body: JSON.stringify({
+          video_id: {{ video_id }},
+          question: q,
+          current_time: currentTime
+        })
       });
       const data = await res.json();
       if (thinkingNode && thinkingNode.parentNode) {

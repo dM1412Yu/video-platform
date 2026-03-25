@@ -179,11 +179,6 @@
       margin: 4px 0;
     }
 
-    .empty {
-      color: var(--text-sec);
-      font-size: 14px;
-    }
-
     .tag-row {
       display: flex;
       flex-wrap: wrap;
@@ -213,8 +208,13 @@
   </style>
 </head>
 <body>
+  {% set evaluation = insights.get('evaluation', {}) %}
+  {% set profile = insights.get('profile', {}) %}
+  {% set memory = insights.get('memory', {}) %}
+  {% set path = insights.get('path', {}) %}
+
   <nav class="global-navbar">
-    <a href="/" class="logo">视学智问</a>
+    <a href="/" class="logo">视频学智问</a>
     <div class="nav-actions">
       <a href="/video_detail/{{ video_id }}" class="pill">返回视频页</a>
       <a href="/workspace" class="pill">学习记录</a>
@@ -224,43 +224,52 @@
   <main class="container" id="insightsContainer" data-video-id="{{ video_id }}">
     <section class="hero">
       <h1>{{ title }}</h1>
-      <p>学习分析面板（独立界面）。这里专门展示学生回答评价、画像、记忆和路径推荐，不再挤占视频空间。</p>
-      <div class="refresh-note">自动刷新：每 5 秒同步一次最新答题结果，最后更新时间 <strong id="lastUpdated">--:--:--</strong></div>
+      <p>学习分析面板会展示答题评价、学生画像、学习记忆和推荐路径，并每 5 秒自动刷新一次。</p>
+      <div class="refresh-note">最后更新时间：<strong id="lastUpdated">--:--:--</strong></div>
     </section>
 
     <section class="grid">
       <article class="card" id="evalModule">
-        <h3>🧪 学生回答评价</h3>
-        <div class="kpi"><strong id="evalScore">{{ insights.evaluation.score }}</strong><span id="evalLevel">/100 · {{ insights.evaluation.level }}</span></div>
-        <div class="tip" id="evalComment">{{ insights.evaluation.comment }}</div>
+        <h3>学生答题评价</h3>
+        <div class="kpi">
+          <strong id="evalScore">{{ evaluation.get('score', '-') }}</strong>
+          <span id="evalLevel">/100 · {{ evaluation.get('level', '未评级') }}</span>
+        </div>
+        <div class="tip" id="evalComment">{{ evaluation.get('comment', '等待新答题数据') }}</div>
         <ul class="list" id="evalList">
-          {% for item in insights.evaluation.strengths %}
+          {% for item in evaluation.get('strengths', []) %}
             <li>{{ item }}</li>
           {% endfor %}
-          {% for item in insights.evaluation.weaknesses %}
+          {% for item in evaluation.get('weaknesses', []) %}
             <li>{{ item }}</li>
           {% endfor %}
         </ul>
       </article>
 
       <article class="card" id="profileModule">
-        <h3>👤 学生画像</h3>
-        <div class="kpi"><strong id="profileConfidence">{{ insights.profile.confidence }}</strong><span>学习信心指数</span></div>
-        <div class="tag-row">
-          <span class="tag" id="profileMastery">掌握水平：{{ insights.profile.mastery_level }}</span>
-          <span class="tag" id="profileStyle">学习风格：{{ insights.profile.learning_style }}</span>
-          <span class="tag" id="profileDifficulty">推荐难度：{{ insights.profile.recommended_difficulty }}</span>
+        <h3>学生画像</h3>
+        <div class="kpi">
+          <strong id="profileConfidence">{{ profile.get('confidence', '-') }}</strong>
+          <span>学习信心指数</span>
         </div>
-        <div class="tip" style="margin-top:10px;" id="profileAccuracy">当前正确率：{{ insights.profile.accuracy }}%</div>
+        <div class="tag-row">
+          <span class="tag" id="profileMastery">掌握水平：{{ profile.get('mastery_level', '-') }}</span>
+          <span class="tag" id="profileStyle">学习风格：{{ profile.get('learning_style', '-') }}</span>
+          <span class="tag" id="profileDifficulty">推荐难度：{{ profile.get('recommended_difficulty', '-') }}</span>
+        </div>
+        <div class="tip" style="margin-top:10px;" id="profileAccuracy">当前正确率：{{ profile.get('accuracy', '-') }}%</div>
       </article>
 
       <article class="card" id="memoryModule">
-        <h3>🧠 学习记忆</h3>
-        <div class="kpi"><strong id="memoryAttempts">{{ insights.memory.attempts }}</strong><span>累计答题次数</span></div>
-        <div class="tip" id="memoryAccuracy">累计正确率：{{ insights.memory.accuracy }}%</div>
+        <h3>学习记忆</h3>
+        <div class="kpi">
+          <strong id="memoryAttempts">{{ memory.get('attempts', 0) }}</strong>
+          <span>累计答题次数</span>
+        </div>
+        <div class="tip" id="memoryAccuracy">累计正确率：{{ memory.get('accuracy', '-') }}%</div>
         <ul class="list" id="memoryWeakTopics">
-          {% if insights.memory.weak_topics %}
-            {% for topic in insights.memory.weak_topics %}
+          {% if memory.get('weak_topics') %}
+            {% for topic in memory.get('weak_topics', []) %}
               <li>薄弱点：{{ topic }}</li>
             {% endfor %}
           {% else %}
@@ -270,9 +279,12 @@
       </article>
 
       <article class="card" id="pathModule">
-        <h3>🗺 学习路径推荐</h3>
-        <div class="kpi"><strong id="pathAction">{{ insights.path.action }}</strong><span>建议动作</span></div>
-        <div class="tip" id="pathRecommendation">{{ insights.path.recommendation }}</div>
+        <h3>学习路径推荐</h3>
+        <div class="kpi">
+          <strong id="pathAction">{{ path.get('action', '待生成') }}</strong>
+          <span>建议动作</span>
+        </div>
+        <div class="tip" id="pathRecommendation">{{ path.get('recommendation', '完成答题后会自动推荐学习路径。') }}</div>
         <div class="tag-row">
           <span class="tag">深入学习</span>
           <span class="tag">回看复盘</span>
@@ -288,14 +300,17 @@
     let refreshTimer = null;
 
     function fillList(containerId, items, prefix) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
+      const list = document.getElementById(containerId);
+      if (!list) return;
 
-      const safeItems = (items && items.length) ? items : ['暂无'];
-      const html = safeItems
-        .map(item => `<li>${prefix ? `${prefix}${item}` : item}</li>`)
-        .join('');
-      container.innerHTML = html;
+      const safeItems = Array.isArray(items) && items.length ? items : ['暂无'];
+      list.replaceChildren();
+
+      safeItems.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = prefix ? `${prefix}${item}` : item;
+        list.appendChild(li);
+      });
     }
 
     function renderInsights(data) {
@@ -327,7 +342,7 @@
       const memoryAccuracy = document.getElementById('memoryAccuracy');
       if (memoryAttempts) memoryAttempts.textContent = memory.attempts ?? 0;
       if (memoryAccuracy) memoryAccuracy.textContent = `累计正确率：${memory.accuracy ?? '-'}%`;
-      fillList('memoryWeakTopics', (memory.weak_topics || []).map(topic => `薄弱点：${topic}`), '');
+      fillList('memoryWeakTopics', (memory.weak_topics || []).map((topic) => `薄弱点：${topic}`), '');
 
       const pathAction = document.getElementById('pathAction');
       const pathRecommendation = document.getElementById('pathRecommendation');
@@ -344,14 +359,14 @@
       try {
         const res = await fetch(`/api/video_insights/${videoId}`, {
           method: 'GET',
-          headers: { 'Accept': 'application/json' },
+          headers: { Accept: 'application/json' },
           cache: 'no-store'
         });
         if (!res.ok) return;
         const data = await res.json();
         renderInsights(data);
       } catch (error) {
-        console.warn('刷新学习分析失败：', error);
+        console.warn('刷新学习分析失败', error);
       }
     }
 
@@ -360,14 +375,8 @@
         clearInterval(refreshTimer);
       }
       refreshInsights();
-      refreshTimer = setInterval(refreshInsights, 5000);
+      refreshTimer = window.setInterval(refreshInsights, 5000);
     }
-
-    document.addEventListener('visibilitychange', function() {
-      if (!document.hidden) {
-        refreshInsights();
-      }
-    });
 
     startAutoRefresh();
   </script>

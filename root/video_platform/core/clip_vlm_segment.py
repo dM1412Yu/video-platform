@@ -173,30 +173,198 @@ def get_fallback_splits(subtitles, video_id):
     print(f"⚠️ 使用兜底拆分：共{len(fallback_splits)}个知识点")
     return fallback_splits
 
+
+def _clean_model_json_text(content):
+    if isinstance(content, list) and len(content) > 0 and "text" in content[0]:
+        content = content[0]["text"]
+    content = str(content or "").strip()
+    content = content.replace("```json", "").replace("```", "")
+    content = content.replace("\r", "").replace("\\n", "\n")
+    content = content.replace("“", '"').replace("”", '"')
+    content = content.replace("‘", "'").replace("’", "'")
+    return content.strip()
+
+
+def _extract_json_array_text(content):
+    content = _clean_model_json_text(content)
+    if not content:
+        return ""
+    start = content.find("[")
+    end = content.rfind("]")
+    if start != -1 and end != -1 and end > start:
+        return content[start : end + 1]
+    return content
+
+
+def _extract_string_field(obj_text, field_name):
+    key_pattern = f'"{field_name}"'
+    start = obj_text.find(key_pattern)
+    if start == -1:
+        return ""
+
+    colon = obj_text.find(":", start + len(key_pattern))
+    if colon == -1:
+        return ""
+
+    remainder = obj_text[colon + 1 :].lstrip()
+    if not remainder:
+        return ""
+
+    if not remainder.startswith('"'):
+        match = re.match(r"([^,}]+)", remainder)
+        return match.group(1).strip().strip('"') if match else ""
+
+    value_start = colon + 1 + len(obj_text[colon + 1 :]) - len(remainder) + 1
+    next_field_pattern = re.compile(r'"\s*,\s*"[a-zA-Z_][a-zA-Z0-9_]*"\s*:')
+    end_brace_pattern = re.compile(r'"\s*}')
+
+    field_match = next_field_pattern.search(obj_text, value_start)
+    brace_match = end_brace_pattern.search(obj_text, value_start)
+    candidates = [m.start() for m in (field_match, brace_match) if m]
+
+    if candidates:
+        value = obj_text[value_start : min(candidates)]
+    else:
+        value = remainder[1:]
+        if value.endswith('"'):
+            value = value[:-1]
+
+    return value.replace('\\"', '"').strip()
+
+
+def _extract_object_chunks(array_text):
+    chunks = []
+    depth = 0
+    start = None
+    for index, char in enumerate(array_text):
+        if char == "{":
+            if depth == 0:
+                start = index
+            depth += 1
+        elif char == "}":
+            if depth > 0:
+                depth -= 1
+                if depth == 0 and start is not None:
+                    chunks.append(array_text[start : index + 1])
+                    start = None
+    return chunks
+
+
+def _parse_splits_heuristically(content):
+    array_text = _extract_json_array_text(content)
+    object_chunks = _extract_object_chunks(array_text)
+    splits = []
+
+    for chunk in object_chunks:
+        start_match = re.search(r'"start_time"\s*:\s*(-?\d+(?:\.\d+)?)', chunk)
+        end_match = re.search(r'"end_time"\s*:\s*(-?\d+(?:\.\d+)?)', chunk)
+        if not start_match or not end_match:
+            continue
+
+        knowledge_point = _extract_string_field(chunk, "knowledge_point")
+        if not knowledge_point:
+            continue
+
+        description = _extract_string_field(chunk, "description")
+        splits.append({
+            "start_time": float(start_match.group(1)),
+            "end_time": float(end_match.group(1)),
+            "knowledge_point": knowledge_point,
+            "description": description,
+        })
+
+    return splits
+
+
+def _parse_model_splits(content):
+    array_text = _extract_json_array_text(content)
+    parse_errors = []
+
+    for candidate in (array_text, _clean_model_json_text(content)):
+        if not candidate:
+            continue
+        try:
+            parsed = json.loads(candidate)
+            if isinstance(parsed, list):
+                return parsed
+        except Exception as exc:
+            parse_errors.append(str(exc))
+
+    heuristic_splits = _parse_splits_heuristically(content)
+    if heuristic_splits:
+        return heuristic_splits
+
+    raise ValueError(parse_errors[-1] if parse_errors else "empty_model_response")
+
+
+def _build_text_split_prompt(subtitles, video_duration):
+    schema_example = json.dumps(
+        [
+            {
+                "start_time": 12.3,
+                "end_time": 85.6,
+                "knowledge_point": "知识点名称",
+                "description": "一句简洁的知识点说明",
+            }
+        ],
+        ensure_ascii=False,
+        indent=2,
+    )
+    return f"""
+你是教学视频知识点拆分专家，仅基于语音字幕文本语义拆分。
+
+请严格遵守以下规则：
+1. 以完整的大知识点为单位拆分，不要切成碎片化小点。
+2. 单个知识点时长尽量控制在 {MIN_SEC}~{MAX_SEC} 秒，小于 {FORCE_MERGE_BELOW} 秒的片段要和前后语义相关内容合并。
+3. 所有时间戳必须严格落在 0 ~ {video_duration:.2f} 秒范围内。
+4. 返回结果必须是“合法 JSON 数组”，不能带任何解释、标题、Markdown、代码块、注释或多余文字。
+5. 每个对象只能包含这 4 个字段：start_time, end_time, knowledge_point, description。
+6. `start_time` 和 `end_time` 必须是数字，不能加“秒”等单位。
+7. `knowledge_point` 和 `description` 必须是双引号包裹的 JSON 字符串。
+8. 如果字符串内部需要出现双引号，必须转义成 `\\"`；更推荐直接改写表述，避免在值里再嵌套引号。
+9. 不允许尾逗号，不允许半截对象，不允许省略号，不允许输出不完整 JSON。
+10. 输出前请自行检查一遍 JSON 是否能被标准 `json.loads` 成功解析。
+
+输出格式示例：
+{schema_example}
+
+字幕数据：
+{json.dumps(subtitles, ensure_ascii=False, indent=2)}
+""".strip()
+
+
+def _repair_split_output_with_model(raw_content, video_duration):
+    repair_prompt = f"""
+请把下面这段内容修复成“合法 JSON 数组”，不要补充任何解释文字。
+
+修复要求：
+1. 只输出 JSON 数组。
+2. 每个对象只能包含 start_time、end_time、knowledge_point、description 4 个字段。
+3. start_time 和 end_time 必须是数字，且位于 0 ~ {video_duration:.2f} 秒范围内。
+4. 所有字符串都必须是合法 JSON 字符串；如果内部有双引号，要正确转义，或直接改写成不含内嵌双引号的表述。
+5. 删除不完整对象、截断对象、注释、Markdown、代码块和多余文字。
+6. 输出必须能被标准 json.loads 解析。
+
+待修复内容：
+{_clean_model_json_text(raw_content)}
+""".strip()
+
+    resp = dashscope.MultiModalConversation.call(
+        model="qwen-vl-max",
+        messages=[{"role": "user", "content": [{"type": "text", "text": repair_prompt}]}],
+        result_format="json",
+        temperature=0.0
+    )
+    if resp.status_code != 200:
+        raise ValueError(resp.message)
+    return resp.output.choices[0].message.content
+
 # ==========================
 # 纯文本拆分（新增：传入真实时长，避免超限）
 # ==========================
 def call_text_only_knowledge_split(subtitles, video_id, video_duration):
     """修复：在prompt中告知大模型视频真实时长，避免生成超限时间戳"""
-    prompt = f"""
-你是教学视频知识点拆分专家，仅基于语音字幕文本语义拆分，严格遵循以下规则：
-1. 核心原则：以**完整的大知识点**为单位拆分，绝对禁止拆分为细碎小知识点
-2. 时长强制规则：
-   - 单个知识点时长控制在 {MIN_SEC}~{MAX_SEC} 秒
-   - 小于 {FORCE_MERGE_BELOW} 秒的知识点必须与前后语义相关的合并
-   - 超过 {MAX_SEC} 秒的知识点仅按语义断点拆分（如概念/公式/例题）
-3. 拆分规则：
-   - 语义相关的短知识点（如定义+公式）必须合并为一个完整知识点
-   - 不同主题的知识点（如牛顿定律/机械能守恒）独立拆分
-   - 严格按字幕时间戳标注，不凭空生成时间
-   - 所有时间戳必须在 0 ~ {video_duration:.2f} 秒范围内（视频真实总时长）
-4. 输出要求：
-   - 仅返回JSON数组，无任何多余文字
-   - 每个对象必须包含：start_time(数字/秒)、end_time(数字/秒)、knowledge_point(知识点名称)、description(简要说明)
-
-字幕数据：
-{json.dumps(subtitles, ensure_ascii=False, indent=2)}
-""".strip()
+    prompt = _build_text_split_prompt(subtitles, video_duration)
 
     try:
         resp = dashscope.MultiModalConversation.call(
@@ -211,22 +379,22 @@ def call_text_only_knowledge_split(subtitles, video_id, video_duration):
             return get_fallback_splits(subtitles, video_id)
 
         content = resp.output.choices[0].message.content
-        if isinstance(content, list) and len(content) > 0 and "text" in content[0]:
-            content = content[0]["text"]
-        content = content.strip().replace("\\n", "").replace('\\"', '"').replace("```json", "").replace("```", "")
-        
-        splits = json.loads(content)
+        try:
+            splits = _parse_model_splits(content)
+        except Exception:
+            repaired_content = _repair_split_output_with_model(content, video_duration)
+            splits = _parse_model_splits(repaired_content)
         valid_splits = []
         for s in splits:
             if all(k in s for k in ["start_time", "end_time", "knowledge_point"]) and s["end_time"] > s["start_time"]:
                 # 强制修正：确保时间戳在视频时长范围内
-                start = round(max(0.0, min(s["start_time"], video_duration - 1)), 2)
-                end = round(max(start + 1, min(s["end_time"], video_duration)), 2)
+                start = round(max(0.0, min(float(s["start_time"]), video_duration - 1)), 2)
+                end = round(max(start + 1, min(float(s["end_time"]), video_duration)), 2)
                 valid_splits.append({
                     "start_time": start,
                     "end_time": end,
-                    "knowledge_point": s["knowledge_point"].strip(),
-                    "description": s.get("description", "知识点讲解").strip()
+                    "knowledge_point": str(s["knowledge_point"]).strip(),
+                    "description": str(s.get("description", "知识点讲解")).strip()
                 })
 
         if not valid_splits:

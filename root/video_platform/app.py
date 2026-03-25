@@ -105,9 +105,9 @@ def _evaluate_answer(user_answer, standard_answer):
     return {"is_correct": is_correct, "score": score, "level": level, "comment": comment, "strengths": strengths, "weaknesses": weaknesses}
 
 def _build_student_profile(memory):
-    attempts = memory["attempts"]
-    correct = memory["correct"]
-    total_chars = memory["total_chars"]
+    attempts = int(memory.get("attempts", 0) or 0)
+    correct = int(memory.get("correct", 0) or 0)
+    total_chars = int(memory.get("total_chars", 0) or 0)
     accuracy = (correct / attempts) if attempts else 0.0
     avg_len = (total_chars / attempts) if attempts else 0.0
 
@@ -120,8 +120,9 @@ def _build_student_profile(memory):
 
 def _build_path_recommendation(profile, memory, segment_title):
     segment_title = segment_title or "当前知识点"
-    recent = memory["history"][-3:]
-    recent_wrong = sum(1 for item in recent if not item["is_correct"])
+    history = memory.get("history") or []
+    recent = history[-3:]
+    recent_wrong = sum(1 for item in recent if not item.get("is_correct"))
 
     if recent_wrong >= 2:
         return {"action": "回看复盘", "recommendation": f"建议先返回前面重看「{segment_title}」并完成1道基础题，再继续后续内容。"}
@@ -292,8 +293,6 @@ def _bootstrap_completed_guest_videos(existing_snapshot):
             if not name.isdigit():
                 continue
             video_id = int(name)
-            if video_id < 100:
-                continue
             if video_id in existing_ids:
                 continue
 
@@ -356,7 +355,7 @@ def _load_video_registry():
                     normalized = []
                     for video in videos if isinstance(videos, list) else []:
                         item = _normalize_video_entry(video)
-                        if item and item['id'] >= 100:
+                        if item:
                             normalized.append(item)
                     if normalized:
                         snapshot[user_id] = sorted(normalized, key=lambda item: item['id'])
@@ -406,6 +405,14 @@ def _get_video_display_title(video, fallback):
             return title
 
     return fallback
+
+
+def _require_user_video(video_id):
+    user_id = _current_user_id()
+    selected_video = _get_user_video(user_id, video_id)
+    if not selected_video:
+        abort(404)
+    return selected_video
 
 
 def _upsert_user_video(user_id, entry):
@@ -662,24 +669,26 @@ def _build_recommended_questions(video_id, knowledge_segments, video_title=None)
     recommended = []
     seen = set()
 
-    # 1) 优先使用当前视频题库中的真实问题
-    for item in _extract_video_qa_items(video_id):
-        q = (item.get('question') or '').strip()
-        if not q:
-            continue
-        if q in seen:
-            continue
-        seen.add(q)
-        recommended.append(q)
+    segment_titles = []
+    for seg in knowledge_segments or []:
+        title = (seg.get('title') or '').strip()
+        if title:
+            segment_titles.append(title)
+
+    llm_questions = _generate_recommended_questions_with_llm(video_title=video_title, segment_titles=segment_titles)
+    for q in llm_questions:
+        if q and q not in seen:
+            seen.add(q)
+            recommended.append(q)
         if len(recommended) >= 4:
             return recommended
 
-    # 2) 若题库不足，按当前视频知识点自动补齐
+    # 2) 若模型生成不足，按当前视频知识点自动补齐
     templates = [
-        "{title} 的核心概念是什么？",
-        "{title} 常见易错点有哪些？",
-        "如何用一道例题理解 {title}？",
-        "{title} 和前置知识有什么关系？",
+        "这里的“{title}”到底在讲什么？",
+        "学习 {title} 时最容易卡住的点是什么？",
+        "为什么这里要先讲 {title}？",
+        "{title} 和前面内容之间是什么关系？",
     ]
 
     for seg in knowledge_segments or []:
@@ -697,11 +706,11 @@ def _build_recommended_questions(video_id, knowledge_segments, video_title=None)
 
     # 3) 最终兜底
     fallback = [
-        f"这条视频《{video_title or '当前内容'}》最重要的三个知识点是什么？",
-        "这一节最重要的三个知识点是什么？",
-        "如果我要快速复习，这节课应该按什么顺序学？",
-        "这节内容在考试中最常见的题型有哪些？",
-        "我应该先巩固哪部分前置知识？",
+        f"这条视频《{video_title or '当前内容'}》主要想让我学会什么？",
+        "这节课最容易让人听懂但不会做的是哪部分？",
+        "如果我要快速复习，这节课应该按什么顺序抓重点？",
+        "这节内容里有哪些地方最值得我停下来再看一遍？",
+        "我应该先补哪部分前置知识，再回来听这一节？",
     ]
     for q in fallback:
         if q not in seen:
@@ -712,12 +721,127 @@ def _build_recommended_questions(video_id, knowledge_segments, video_title=None)
     return recommended[:4]
 
 
+def _generate_recommended_questions_with_llm(video_title=None, segment_titles=None):
+    api_key = os.getenv("DASHSCOPE_API_KEY") or os.getenv("QWEN_API_KEY")
+    if not api_key:
+        return []
+
+    model = os.getenv("DASHSCOPE_MODEL", "qwen-plus")
+    endpoint = os.getenv("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions")
+    segment_titles = [title for title in (segment_titles or []) if title]
+    prompt = f"""
+你是教学视频学习助手。
+
+请站在“正在看视频的学生”角度，针对这节课生成 4 个最自然、最可能出现的疑问句，作为界面里的“推荐问题”。
+
+要求：
+1. 问题要像学生会主动问出来的话，不要像老师命题，也不要像考试题。
+2. 优先生成“听不懂、想确认、想串联、想抓重点”这类真实疑问。
+3. 避免空泛大话，避免“帮我出一道题”“请总结一下”这类助教口吻。
+4. 问题要尽量具体，但不要依赖当前播放器时间。
+5. 每条问题一句话，长度自然，适合直接点击提问。
+6. 只输出 JSON，格式如下：
+{{
+  "questions": ["问题1", "问题2", "问题3", "问题4"]
+}}
+
+视频标题：
+{video_title or "当前教学视频"}
+
+本节涉及的知识点标题：
+{json.dumps(segment_titles[:12], ensure_ascii=False)}
+""".strip()
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "model": model,
+        "temperature": 0.7,
+        "messages": [
+            {"role": "system", "content": "你擅长从学生视角生成自然、有启发性的教学视频提问建议。"},
+            {"role": "user", "content": prompt}
+        ]
+    }
+
+    try:
+        resp = requests.post(endpoint, headers=headers, json=payload, timeout=20)
+        if resp.status_code != 200:
+            return []
+        data = resp.json()
+        content = (((data.get("choices") or [{}])[0].get("message") or {}).get("content") or "").strip()
+        if not content:
+            return []
+
+        try:
+            parsed = json.loads(content)
+        except Exception:
+            match = re.search(r"\{[\s\S]*\}", content)
+            parsed = json.loads(match.group(0)) if match else {}
+
+        questions = parsed.get("questions") or []
+        cleaned = []
+        for item in questions:
+            q = str(item or "").strip()
+            if not q:
+                continue
+            cleaned.append(q)
+            if len(cleaned) >= 4:
+                break
+        return cleaned
+    except Exception:
+        return []
+
+
 def _score_to_level(score):
     if score >= 80:
         return "优秀"
     if score >= 55:
         return "良好"
     return "待提升"
+
+
+def _default_insight_view_data():
+    return {
+        "evaluation": {
+            "score": 0,
+            "level": _score_to_level(0),
+            "comment": "杩樻病鏈夌瓟棰樿褰曪紝鍏堝畬鎴愪竴娆￠殢鍫傛祴楠屽悗杩欓噷浼氳嚜鍔ㄦ洿鏂般€?",
+            "strengths": ["灏氭棤璁板綍"],
+            "weaknesses": ["缁х画閫氳繃闅忓爞娴嬮獙绉疮鏁版嵁"],
+        },
+        "profile": {
+            "mastery_level": "鍩虹",
+            "learning_style": "閫熺瓟鍨?",
+            "confidence": 0,
+            "recommended_difficulty": "鍩虹",
+            "accuracy": 0.0,
+        },
+        "memory": {
+            "attempts": 0,
+            "accuracy": 0.0,
+            "weak_topics": [],
+            "recent_records": [],
+        },
+        "path": {
+            "action": "琛ラ綈鍓嶇疆",
+            "recommendation": "瀹屾垚绛旈鍚庝細鑷姩鎺ㄨ崘瀛︿範璺緞銆?",
+        },
+    }
+
+
+def _normalize_insight_view_data(insights):
+    normalized = _default_insight_view_data()
+    if not isinstance(insights, dict):
+        return normalized
+
+    for key in ("evaluation", "profile", "memory", "path"):
+        value = insights.get(key)
+        if isinstance(value, dict):
+            normalized[key].update(value)
+
+    return normalized
 
 
 def _build_insight_view_data(video_id):
@@ -732,20 +856,21 @@ def _build_insight_view_data(video_id):
     })
 
     profile = _build_student_profile(memory)
-    recent = memory["history"][-1] if memory["history"] else None
-    recent_score = recent["score"] if recent else 0
+    history = memory.get("history") or []
+    recent = history[-1] if history else None
+    recent_score = recent.get("score", 0) if recent else 0
 
     if recent:
         evaluation_comment = "最近一次答题已纳入画像分析，可继续提问进行针对性提升。"
     else:
         evaluation_comment = "还没有答题记录，先完成一次随堂测验后这里会自动更新。"
 
-    sorted_mistakes = sorted(memory["topic_mistakes"].items(), key=lambda x: x[1], reverse=True)
+    sorted_mistakes = sorted((memory.get("topic_mistakes") or {}).items(), key=lambda x: x[1], reverse=True)
     weak_topics = [name for name, _ in sorted_mistakes[:3]]
     path = _build_path_recommendation(profile, memory, recent["segment_title"] if recent else "当前知识点")
 
     recent_records = []
-    for item in memory["history"][-5:]:
+    for item in history[-5:]:
         recent_records.append({
             "segment_title": item.get("segment_title", "知识点"),
             "score": item.get("score", 0),
@@ -762,7 +887,7 @@ def _build_insight_view_data(video_id):
         },
         "profile": profile,
         "memory": {
-            "attempts": memory["attempts"],
+            "attempts": int(memory.get("attempts", 0) or 0),
             "accuracy": profile["accuracy"],
             "weak_topics": weak_topics,
             "recent_records": recent_records
@@ -1102,8 +1227,7 @@ def delete_video(video_id):
 # ==========================================
 @app.route('/video_detail/<int:video_id>')
 def video_detail(video_id):
-    user_id = _current_user_id()
-    selected_video = _get_user_video(user_id, video_id)
+    selected_video = _require_user_video(video_id)
 
     # 加载真实的 AI 分段
     video_segments = _load_video_segments(video_id)
@@ -1117,13 +1241,8 @@ def video_detail(video_id):
     filepath = selected_video['stored_filename'] if selected_video else "sample.mp4"
     summary = selected_video['summary'] if selected_video and selected_video.get('summary') else "AI功能环境已就绪。"
     
-    # 提取推荐问题
-    recommended_questions = []
-    for item in _extract_video_qa_items(video_id)[:4]:
-        recommended_questions.append(item['question'])
-
-    if not recommended_questions:
-        recommended_questions = ["这段视频最重要的结论是什么？", "有什么容易错的地方？", "帮我出一道考题"]
+    # 生成更贴近学生视角的推荐问题
+    recommended_questions = _build_recommended_questions(video_id, video_segments, video_title=title)
 
     return render_template('video_detail.html', 
                            title=title, video_id=video_id, filepath=filepath,
@@ -1132,16 +1251,16 @@ def video_detail(video_id):
 
 @app.route('/video_insights/<int:video_id>')
 def video_insights(video_id):
-    user_id = _current_user_id()
-    selected_video = _get_user_video(user_id, video_id)
+    selected_video = _require_user_video(video_id)
     title = _get_video_display_title(selected_video, f"视频 {video_id} 分析")
-    insights = _build_insight_view_data(video_id)
+    insights = _normalize_insight_view_data(_build_insight_view_data(video_id))
     return render_template('video_insights.html', title=title, video_id=video_id, insights=insights)
 
 
 @app.route('/api/video_insights/<int:video_id>')
 def api_video_insights(video_id):
-    return jsonify(_build_insight_view_data(video_id))
+    _require_user_video(video_id)
+    return jsonify(_normalize_insight_view_data(_build_insight_view_data(video_id)))
 
 # ==========================================
 # AJAX 异步接口 (AI 互动核心)
@@ -1181,12 +1300,13 @@ def ask_ai():
     data = request.json or {}
     question = (data.get('question') or '').strip()
     video_id = int(data.get('video_id', 0) or 0)
+    current_time = data.get('current_time')
 
     if not question:
         return jsonify({"answer": "请先输入你的问题。"})
 
     try:
-        result = run_answer_question(video_id, question)
+        result = run_answer_question(video_id, question, current_time=current_time)
         return jsonify({
             "answer": result.get("answer", "解析遇到了点小问题。"),
             "matched_subvideo": result.get("matched_subvideo", "")
