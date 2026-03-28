@@ -1,0 +1,760 @@
+{
+    "nodes": [
+        {
+            "name": "高等数学",
+            "symbolSize": 50,
+            "category": 0,
+            "draggable": true
+        },
+        {
+            "name": "第一卷: 一元微积分",
+            "symbolSize": 40,
+            "category": 0,
+            "draggable": true
+        },
+        {
+            "name": "第二卷: 多元微积分",
+            "symbolSize": 40,
+            "category": 0,
+            "draggable": true
+        },
+        {
+            "name": "Ch1 函数与极限",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "数列与函数极限",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "极限运算",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "无穷小分析",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "连续性",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "Ch2 导数与微分",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "导数定义",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "求导法则",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "微分",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "Ch3 中值定理",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "核心定理",
+            "symbolSize": 20,
+            "category": 4,
+            "draggable": true
+        },
+        {
+            "name": "洛必达法则",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "函数性态",
+            "symbolSize": 20,
+            "category": 5,
+            "draggable": true
+        },
+        {
+            "name": "Ch4 不定积分",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "积分法",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "特殊函数积分",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "Ch5 定积分",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "定义与基本定理",
+            "symbolSize": 20,
+            "category": 4,
+            "draggable": true
+        },
+        {
+            "name": "反常积分",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "Ch6 定积分应用",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "几何与物理应用",
+            "symbolSize": 20,
+            "category": 5,
+            "draggable": true
+        },
+        {
+            "name": "Ch7 微分方程",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "一阶与降阶",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "二阶线性",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "Ch8 向量与空间",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "向量代数",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "空间几何",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "Ch9 多元微分",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "多元导数",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "多元极值",
+            "symbolSize": 20,
+            "category": 5,
+            "draggable": true
+        },
+        {
+            "name": "Ch10 重积分",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "二重/三重积分",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "Ch11 线面积分",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "曲线积分",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "曲面积分",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "场论公式",
+            "symbolSize": 20,
+            "category": 4,
+            "draggable": true
+        },
+        {
+            "name": "Ch12 无穷级数",
+            "symbolSize": 35,
+            "category": 1,
+            "draggable": true
+        },
+        {
+            "name": "常数项级数",
+            "symbolSize": 20,
+            "category": 2,
+            "draggable": true
+        },
+        {
+            "name": "幂级数",
+            "symbolSize": 20,
+            "category": 3,
+            "draggable": true
+        },
+        {
+            "name": "傅里叶级数",
+            "symbolSize": 20,
+            "category": 5,
+            "draggable": true
+        }
+    ],
+    "links": [
+        {
+            "source": "高等数学",
+            "target": "第一卷: 一元微积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "高等数学",
+            "target": "第二卷: 多元微积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第一卷: 一元微积分",
+            "target": "Ch1 函数与极限",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch1 函数与极限",
+            "target": "数列与函数极限",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch1 函数与极限",
+            "target": "极限运算",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch1 函数与极限",
+            "target": "无穷小分析",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch1 函数与极限",
+            "target": "连续性",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第一卷: 一元微积分",
+            "target": "Ch2 导数与微分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch2 导数与微分",
+            "target": "导数定义",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch2 导数与微分",
+            "target": "求导法则",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch2 导数与微分",
+            "target": "微分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第一卷: 一元微积分",
+            "target": "Ch3 中值定理",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch3 中值定理",
+            "target": "核心定理",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch3 中值定理",
+            "target": "洛必达法则",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch3 中值定理",
+            "target": "函数性态",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第一卷: 一元微积分",
+            "target": "Ch4 不定积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch4 不定积分",
+            "target": "积分法",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch4 不定积分",
+            "target": "特殊函数积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第一卷: 一元微积分",
+            "target": "Ch5 定积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch5 定积分",
+            "target": "定义与基本定理",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch5 定积分",
+            "target": "反常积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第一卷: 一元微积分",
+            "target": "Ch6 定积分应用",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch6 定积分应用",
+            "target": "几何与物理应用",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第一卷: 一元微积分",
+            "target": "Ch7 微分方程",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch7 微分方程",
+            "target": "一阶与降阶",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch7 微分方程",
+            "target": "二阶线性",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第二卷: 多元微积分",
+            "target": "Ch8 向量与空间",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch8 向量与空间",
+            "target": "向量代数",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch8 向量与空间",
+            "target": "空间几何",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第二卷: 多元微积分",
+            "target": "Ch9 多元微分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch9 多元微分",
+            "target": "多元导数",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch9 多元微分",
+            "target": "多元极值",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第二卷: 多元微积分",
+            "target": "Ch10 重积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch10 重积分",
+            "target": "二重/三重积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第二卷: 多元微积分",
+            "target": "Ch11 线面积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch11 线面积分",
+            "target": "曲线积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch11 线面积分",
+            "target": "曲面积分",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch11 线面积分",
+            "target": "场论公式",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "第二卷: 多元微积分",
+            "target": "Ch12 无穷级数",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch12 无穷级数",
+            "target": "常数项级数",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch12 无穷级数",
+            "target": "幂级数",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "Ch12 无穷级数",
+            "target": "傅里叶级数",
+            "lineStyle": {
+                "curveness": 0.1
+            }
+        },
+        {
+            "source": "数列与函数极限",
+            "target": "导数定义",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#1f77b4"
+            },
+            "value": "极限->导数",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "导数定义",
+            "target": "定义与基本定理",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#1f77b4"
+            },
+            "value": "导数->积分",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "导数定义",
+            "target": "多元导数",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#1f77b4"
+            },
+            "value": "一元->多元",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "定义与基本定理",
+            "target": "二重/三重积分",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#1f77b4"
+            },
+            "value": "定积分->重积分",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "二重/三重积分",
+            "target": "曲线积分",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#1f77b4"
+            },
+            "value": "重积分->线积分",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "核心定理",
+            "target": "幂级数",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#1f77b4"
+            },
+            "value": "泰勒->级数",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "数列与函数极限",
+            "target": "连续性",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#d62728"
+            },
+            "value": "依赖",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "导数定义",
+            "target": "核心定理",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#d62728"
+            },
+            "value": "依赖",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "导数定义",
+            "target": "洛必达法则",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#d62728"
+            },
+            "value": "依赖",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "向量代数",
+            "target": "空间几何",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#d62728"
+            },
+            "value": "依赖",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "积分法",
+            "target": "一阶与降阶",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#d62728"
+            },
+            "value": "依赖",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "微分",
+            "target": "定义与基本定理",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#2ca02c"
+            },
+            "value": "互逆",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "场论公式",
+            "target": "定义与基本定理",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#2ca02c"
+            },
+            "value": "高维推广",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        },
+        {
+            "source": "连续性",
+            "target": "数列与函数极限",
+            "lineStyle": {
+                "curveness": 0.3,
+                "color": "#2ca02c"
+            },
+            "value": "关系",
+            "label": {
+                "show": true,
+                "formatter": "{c}"
+            }
+        }
+    ],
+    "categories": [
+        {
+            "name": "架构 (Architecture)"
+        },
+        {
+            "name": "章节 (Chapter)"
+        },
+        {
+            "name": "概念 (Concept)"
+        },
+        {
+            "name": "计算 (Calculation)"
+        },
+        {
+            "name": "定理 (Theorem)"
+        },
+        {
+            "name": "应用 (Application)"
+        }
+    ]
+}
