@@ -29,6 +29,7 @@ from core.knowledge_graph import generate_video_kg
 from core.relation_network import generate_relation_network
 from core.generate_questions import generate_questions_for_knowledge_points
 from core.correct_asr import run_correct_asr
+from core.subject_utils import infer_subject_hint
 import requests
 from werkzeug.utils import secure_filename
 
@@ -191,6 +192,168 @@ def _get_next_video_id():
 NEXT_VIDEO_ID = _get_next_video_id()
 
 
+def _video_artifact_paths(video_id):
+    video_id = str(video_id)
+    work_dir = os.path.join(VIDEO_DATA_DIR, video_id)
+    return {
+        'work_dir': work_dir,
+        'corrected_asr': os.path.join(work_dir, 'corrected_asr.txt'),
+        'final_splits': os.path.join(work_dir, 'final_knowledge_splits.json'),
+        'summaries': os.path.join(work_dir, 'subvideo_summaries_all.json'),
+        'custom_kg': os.path.join(work_dir, f'custom_kg_{video_id}.json'),
+        'relation_network': os.path.join(work_dir, 'relation_network.json'),
+        'final_llm_input': os.path.join(work_dir, 'final_llm_input.json'),
+        'knowledge_questions': os.path.join(work_dir, 'knowledge_questions.json'),
+    }
+
+
+def _safe_load_json_file(file_path, default):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return default
+
+
+def _save_json_file(file_path, data):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def _segment_sort_key(name):
+    match = re.search(r'(\d+)', str(name))
+    return int(match.group(1)) if match else 10 ** 9
+
+
+def _load_segment_records_from_artifacts(video_id):
+    paths = _video_artifact_paths(video_id)
+    splits = _safe_load_json_file(paths['final_splits'], [])
+    summaries_doc = _safe_load_json_file(paths['summaries'], {})
+    summary_map = summaries_doc.get('subvideo_summaries', {}) if isinstance(summaries_doc, dict) else {}
+    records = []
+
+    if isinstance(splits, list):
+        for index, seg in enumerate(splits, start=1):
+            summary_item = summary_map.get(f'segment_{index}.mp4', {}) if isinstance(summary_map, dict) else {}
+            title = str(
+                seg.get('knowledge_point') or
+                seg.get('title') or
+                (summary_item.get('title') if isinstance(summary_item, dict) else '') or
+                f'知识点 {index}'
+            ).strip()
+            start = float(seg.get('start_time', 0) or 0)
+            end = float(seg.get('end_time', start) or start)
+            if end < start:
+                end = start
+            records.append({
+                'segment_id': index,
+                'segment_name': f'segment_{index}.mp4',
+                'title': title,
+                'start': start,
+                'end': end,
+            })
+
+    if records:
+        return records
+
+    if isinstance(summary_map, dict):
+        for index, segment_name in enumerate(sorted(summary_map.keys(), key=_segment_sort_key), start=1):
+            item = summary_map.get(segment_name) or {}
+            records.append({
+                'segment_id': index,
+                'segment_name': segment_name,
+                'title': str(item.get('title') or f'知识点 {index}').strip(),
+                'start': 0.0,
+                'end': 0.0,
+            })
+
+    return records
+
+
+def _build_completed_video_summary(video_id):
+    segment_count = len(_load_segment_records_from_artifacts(video_id))
+    if segment_count:
+        return f"AI 已完成解析，共拆分 {segment_count} 个知识点，可开始学习。"
+    return "AI 已完成解析，可开始学习。"
+
+
+def _has_completed_video_artifacts(video_id):
+    paths = _video_artifact_paths(video_id)
+    required = ('corrected_asr', 'final_splits', 'summaries', 'knowledge_questions')
+    return all(os.path.exists(paths[key]) for key in required)
+
+
+def _write_relation_network_fallback(video_id):
+    paths = _video_artifact_paths(video_id)
+    summaries_doc = _safe_load_json_file(paths['summaries'], {})
+    summary_map = summaries_doc.get('subvideo_summaries', {}) if isinstance(summaries_doc, dict) else {}
+    custom_kg = _safe_load_json_file(paths['custom_kg'], {})
+
+    nodes = []
+    for segment_name in sorted(summary_map.keys(), key=_segment_sort_key):
+        item = summary_map.get(segment_name) or {}
+        nodes.append({
+            'video_name': segment_name,
+            'video_id': item.get('video_id', ''),
+            'title': item.get('title') or segment_name,
+            'key_concepts': item.get('key_concepts', []),
+        })
+
+    fallback_relation = {
+        'nodes': nodes,
+        'batch_edges': [],
+        'cross_edges': [],
+        'all_edges': [],
+        'overall_structure': '关系网生成失败，已写入仅含节点的兜底结构。',
+        'coverage_check': {
+            'total_videos': len(nodes),
+            'batch_coverage': [],
+            'cross_coverage': [],
+            'merged_node_names': [node['video_name'] for node in nodes],
+        },
+        'batch_info': {
+            'fallback': True,
+            'reason': 'relation_network_generation_failed',
+        }
+    }
+
+    final_input = {
+        'metadata': {
+            'video_id': str(video_id),
+            'video_count': len(nodes),
+            'description': '关系网生成失败后的兜底输入',
+        },
+        'subvideo_summaries': summary_map,
+        'custom_knowledge_graph': custom_kg,
+        'subvideo_relation_network': fallback_relation,
+    }
+
+    _save_json_file(paths['relation_network'], fallback_relation)
+    _save_json_file(paths['final_llm_input'], final_input)
+    return fallback_relation
+
+
+def _write_question_fallback(video_id, reason='题目生成阶段异常，已保留知识点结构，可稍后重试。'):
+    paths = _video_artifact_paths(video_id)
+    fallback_items = []
+    for record in _load_segment_records_from_artifacts(video_id):
+        segment_id = int(record.get('segment_id') or len(fallback_items) + 1)
+        fallback_items.append({
+            'should_generate_questions': False,
+            'skip_reason': reason,
+            'questions': [],
+            'segment_id': segment_id,
+            'segment_folder': f't{segment_id}',
+            'title': record.get('title') or f'知识点 {segment_id}',
+            'start': float(record.get('start', 0) or 0),
+            'end': float(record.get('end', 0) or 0),
+        })
+
+    _save_json_file(paths['knowledge_questions'], fallback_items)
+    return fallback_items
+
+
 def _normalize_video_entry(entry):
     if not isinstance(entry, dict):
         return None
@@ -203,12 +366,17 @@ def _normalize_video_entry(entry):
     status = entry.get('status')
     if status not in {'processing', 'completed', 'failed'}:
         status = 'processing'
+    if _has_completed_video_artifacts(video_id):
+        status = 'completed'
 
     stored_filename = str(entry.get('stored_filename') or '').strip()
     display_name = re.sub(r'^\d+_', '', stored_filename)
     display_name = display_name.replace('.cancelled', '')
     filename = str(entry.get('filename') or '').strip() or display_name or f"视频 {video_id}"
     title = str(entry.get('title') or '').strip() or f"视频 {video_id}"
+    subject = str(entry.get('subject') or '').strip()
+    if status == 'completed' and title == '解析中...':
+        title = filename or f"视频 {video_id}"
 
     default_summary = {
         'processing': 'AI正在深度解析视频，提取知识图谱与考点...',
@@ -216,6 +384,8 @@ def _normalize_video_entry(entry):
         'failed': 'AI 处理失败，可重新上传重试。'
     }
     summary = str(entry.get('summary') or '').strip() or default_summary[status]
+    if status == 'completed' and summary in {default_summary['processing'], default_summary['failed']}:
+        summary = _build_completed_video_summary(video_id)
 
     return {
         'id': video_id,
@@ -223,7 +393,8 @@ def _normalize_video_entry(entry):
         'status': status,
         'stored_filename': stored_filename,
         'title': title,
-        'summary': summary
+        'summary': summary,
+        'subject': subject,
     }
 
 
@@ -405,6 +576,48 @@ def _get_video_display_title(video, fallback):
             return title
 
     return fallback
+
+
+def _load_corrected_asr_excerpt(video_id, limit=2400):
+    corrected_asr_path = os.path.join(VIDEO_DATA_DIR, str(video_id), 'corrected_asr.txt')
+    if not os.path.exists(corrected_asr_path):
+        return ''
+    try:
+        with open(corrected_asr_path, 'r', encoding='utf-8') as f:
+            return f.read(limit).strip()
+    except Exception:
+        return ''
+
+
+def _build_video_subject_hint(video_id=None, video=None, knowledge_segments=None, corrected_asr=None):
+    segment_titles = [
+        (seg.get('title') or seg.get('knowledge_point') or '').strip()
+        for seg in (knowledge_segments or [])
+        if isinstance(seg, dict)
+    ]
+    if corrected_asr is None and video_id is not None:
+        corrected_asr = _load_corrected_asr_excerpt(video_id)
+
+    return infer_subject_hint(
+        (video or {}).get('subject'),
+        (video or {}).get('title'),
+        (video or {}).get('filename'),
+        (video or {}).get('summary'),
+        '\n'.join(segment_titles[:12]),
+        corrected_asr,
+    )
+
+
+def _estimate_video_duration_seconds(video_id):
+    try:
+        segments = _load_video_segments(video_id)
+    except Exception:
+        return 0.0
+
+    if not segments:
+        return 0.0
+
+    return max(float(seg.get('end_time', 0) or 0) for seg in segments)
 
 
 def _require_user_video(video_id):
@@ -616,6 +829,32 @@ def _extract_video_qa_items(video_id):
 
 
 def _load_video_segments(video_id):
+    splits_path = os.path.join(VIDEO_DATA_DIR, str(video_id), 'final_knowledge_splits.json')
+    if os.path.exists(splits_path):
+        try:
+            with open(splits_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            segments = []
+            for idx, block in enumerate(data if isinstance(data, list) else []):
+                title = (
+                    (block.get('knowledge_point') or '').strip()
+                    or (block.get('title') or '').strip()
+                    or f'知识点 {idx + 1}'
+                )
+                start_time = float(block.get('start_time', 0) or 0)
+                end_time = float(block.get('end_time', start_time) or start_time)
+                if end_time <= start_time:
+                    end_time = start_time + 1
+                segments.append({
+                    "title": title,
+                    "start_time": start_time,
+                    "end_time": end_time,
+                })
+            if segments:
+                return segments
+        except Exception:
+            pass
+
     qa_path = os.path.join(VIDEO_DATA_DIR, str(video_id), 'knowledge_questions.json')
     if not os.path.exists(qa_path):
         return []
@@ -631,10 +870,11 @@ def _load_video_segments(video_id):
         title = (block.get('title') or '').strip()
         if not title:
             continue
-        # 没有真实时间戳时，使用可视化演示的等距时间片
-        start = 2 + idx * 60
-        end = start + 45
-        segments.append({"title": title, "start_time": start, "end_time": end})
+        start_time = float(block.get('start', 2 + idx * 60) or 0)
+        end_time = float(block.get('end', start_time + 45) or (start_time + 45))
+        if end_time <= start_time:
+            end_time = start_time + 45
+        segments.append({"title": title, "start_time": start_time, "end_time": end_time})
     return segments
 
 
@@ -665,7 +905,7 @@ def _find_best_qa_answer(video_id, user_question):
     return None
 
 
-def _build_recommended_questions(video_id, knowledge_segments, video_title=None):
+def _build_recommended_questions(video_id, knowledge_segments, video_title=None, subject_hint=None, video_summary=None):
     recommended = []
     seen = set()
 
@@ -675,7 +915,12 @@ def _build_recommended_questions(video_id, knowledge_segments, video_title=None)
         if title:
             segment_titles.append(title)
 
-    llm_questions = _generate_recommended_questions_with_llm(video_title=video_title, segment_titles=segment_titles)
+    llm_questions = _generate_recommended_questions_with_llm(
+        video_title=video_title,
+        segment_titles=segment_titles,
+        subject_hint=subject_hint,
+        video_summary=video_summary,
+    )
     for q in llm_questions:
         if q and q not in seen:
             seen.add(q)
@@ -721,7 +966,7 @@ def _build_recommended_questions(video_id, knowledge_segments, video_title=None)
     return recommended[:4]
 
 
-def _generate_recommended_questions_with_llm(video_title=None, segment_titles=None):
+def _generate_recommended_questions_with_llm(video_title=None, segment_titles=None, subject_hint=None, video_summary=None):
     api_key = os.getenv("DASHSCOPE_API_KEY") or os.getenv("QWEN_API_KEY")
     if not api_key:
         return []
@@ -729,6 +974,11 @@ def _generate_recommended_questions_with_llm(video_title=None, segment_titles=No
     model = os.getenv("DASHSCOPE_MODEL", "qwen-plus")
     endpoint = os.getenv("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions")
     segment_titles = [title for title in (segment_titles or []) if title]
+    subject_rule = (
+        f"请严格限制在「{subject_hint}」学科范围内提问，不要跨到其他课程。"
+        if subject_hint else
+        "请先识别课程主学科，再保持问题始终在同一学科上下文中。"
+    )
     prompt = f"""
 你是教学视频学习助手。
 
@@ -740,13 +990,18 @@ def _generate_recommended_questions_with_llm(video_title=None, segment_titles=No
 3. 避免空泛大话，避免“帮我出一道题”“请总结一下”这类助教口吻。
 4. 问题要尽量具体，但不要依赖当前播放器时间。
 5. 每条问题一句话，长度自然，适合直接点击提问。
-6. 只输出 JSON，格式如下：
+6. {subject_rule}
+7. 问题不要照抄知识点标题，要更像学生在当前视频里会追问的说法。
+8. 只输出 JSON，格式如下：
 {{
   "questions": ["问题1", "问题2", "问题3", "问题4"]
 }}
 
 视频标题：
 {video_title or "当前教学视频"}
+
+课程摘要：
+{video_summary or "无"}
 
 本节涉及的知识点标题：
 {json.dumps(segment_titles[:12], ensure_ascii=False)}
@@ -1007,16 +1262,31 @@ def index():
 @app.route('/workspace')
 def workspace():
     demo_videos = [
-        {'id': 1, 'filename': '高等数学-微积分基础.mp4', 'status': 'completed', 'title': '微积分入门', 'summary': '核心概念与应用'}
+        {
+            'id': 1,
+            'filename': '高等数学-微积分基础.mp4',
+            'status': 'completed',
+            'title': '微积分入门',
+            'summary': '本节围绕极限、导数和基本应用建立微积分入门框架。',
+            'subject': '高等数学',
+        }
     ]
     user_id = _current_user_id()
     user_videos = _get_user_videos(user_id)
     videos = list(reversed(user_videos)) if user_videos else demo_videos
+    for video in videos:
+        if video.get('subject'):
+            continue
+        video['subject'] = _build_video_subject_hint(video_id=video.get('id'), video=video)
+    total_learning_hours = round(
+        sum(_estimate_video_duration_seconds(video.get('id')) for video in videos) / 3600,
+        1,
+    )
     student_overview = {
         'total_videos': len(videos),
         'completed': sum(1 for v in videos if v['status'] == 'completed'),
         'processing': sum(1 for v in videos if v['status'] == 'processing'),
-        'learning_hours': 12.5
+        'learning_hours': total_learning_hours
     }
     return render_template('workspace.html', videos=videos, student_overview=student_overview)
 
@@ -1124,11 +1394,30 @@ def process_video_pipeline(video_id, video_path, user_id):
     vid_str = str(video_id)
     work_dir = os.path.join(VIDEO_DATA_DIR, vid_str)
     os.makedirs(work_dir, exist_ok=True)
+    current_video = _get_user_video(user_id, video_id)
+    subject_hint = _build_video_subject_hint(video_id=video_id, video=current_video)
+    web_title = _get_video_display_title(current_video, f"视频 {video_id}")
+    web_summary = _build_completed_video_summary(vid_str)
+
+    def _run_optional_stage(stage_name, stage_func, fallback=None):
+        try:
+            logger.info(f"开始执行 [{stage_name}]")
+            return stage_func()
+        except Exception as exc:
+            logger.warning(f"⚠️ {stage_name} 失败，已降级继续：{exc}", exc_info=True)
+            if fallback is None:
+                return None
+            try:
+                return fallback(exc)
+            except Exception as fallback_exc:
+                logger.warning(f"⚠️ {stage_name} 兜底仍失败：{fallback_exc}", exc_info=True)
+                return None
 
     try:
         # [步骤0：真实ASR提取 + 矫正]
         corrected_asr_path, raw_asr_path, corrected_asr = _prepare_real_asr(vid_str, video_path, work_dir)
         logger.info(f"ASR文件准备完成：corrected={corrected_asr_path} | raw={raw_asr_path}")
+        subject_hint = _build_video_subject_hint(video_id=video_id, video=current_video, corrected_asr=corrected_asr)
 
         # [步骤1：知识点拆分与物理切割]
         logger.info("开始执行 [知识点拆分与物理切割]")
@@ -1140,41 +1429,75 @@ def process_video_pipeline(video_id, video_path, user_id):
         split_dir = os.path.join(work_dir, 'split_videos')
         if not os.path.exists(split_dir):
             raise FileNotFoundError(f"拆分后的子视频目录不存在：{split_dir}")
-        run_video_summary(split_dir, VIDEO_DATA_DIR, vid_str)
+        run_video_summary(split_dir, VIDEO_DATA_DIR, vid_str, subject_hint=subject_hint)
 
         # [步骤3：知识图谱]
-        logger.info("开始执行 [知识图谱生成]")
-        generate_video_kg(vid_str)
+        _run_optional_stage("知识图谱生成", lambda: generate_video_kg(vid_str))
 
         # [步骤4：关系网生成]
-        logger.info("开始执行 [视频关系网生成]")
-        custom_kg_path = os.path.join(work_dir, f"custom_kg_{vid_str}.json")
+        custom_kg_path = _video_artifact_paths(vid_str)['custom_kg']
         if os.path.exists(custom_kg_path):
-            generate_relation_network(vid_str, work_dir, custom_kg_path)
+            _run_optional_stage(
+                "视频关系网生成",
+                lambda: generate_relation_network(vid_str, work_dir, custom_kg_path),
+                fallback=lambda _exc: _write_relation_network_fallback(vid_str),
+            )
         else:
             logger.warning(f"未找到知识图谱文件，跳过关系网生成：{custom_kg_path}")
+            _write_relation_network_fallback(vid_str)
 
         # [步骤5：生成问题]
-        logger.info("开始执行 [随堂问题生成]")
-        generate_questions_for_knowledge_points(vid_str)
+        _run_optional_stage(
+            "随堂问题生成",
+            lambda: generate_questions_for_knowledge_points(vid_str, subject_hint=subject_hint),
+            fallback=lambda exc: _write_question_fallback(
+                vid_str,
+                reason=f"题目生成阶段异常：{str(exc)[:120]}",
+            ),
+        )
+        question_path = _video_artifact_paths(vid_str)['knowledge_questions']
+        if not os.path.exists(question_path):
+            _write_question_fallback(vid_str, reason='题目生成阶段未产出结果，已保留知识点结构，可稍后重试。')
 
         # [步骤6：生成网页标题摘要]
         logger.info("开始执行 [总结标题摘要]")
-        web_title, web_summary = run_generate_web_title_summary(video_id=vid_str, corrected_asr=corrected_asr)
+        web_title, web_summary = run_generate_web_title_summary(
+            video_id=vid_str,
+            corrected_asr=corrected_asr,
+            subject_hint=subject_hint,
+        )
+        if not web_title or web_title == '未命名视频':
+            web_title = _get_video_display_title(current_video, f"视频 {video_id}")
+        if not web_summary or web_summary == '暂无摘要':
+            web_summary = _build_completed_video_summary(vid_str)
+
+        if not _has_completed_video_artifacts(vid_str):
+            raise RuntimeError('核心产物未生成完整，无法标记完成')
 
         _patch_user_video(
             user_id,
             video_id,
             status='completed',
             title=web_title,
-            summary=web_summary
+            summary=web_summary,
+            subject=subject_hint,
         )
 
         logger.info(f"✅ 视频 {video_id} AI 流水线全链条处理完毕！")
 
     except Exception as e:
         logger.error(f"❌ 视频 {video_id} AI 处理崩溃: {str(e)}", exc_info=True)
-        _patch_user_video(user_id, video_id, status='failed')
+        if _has_completed_video_artifacts(vid_str):
+            _patch_user_video(
+                user_id,
+                video_id,
+                status='completed',
+                title=web_title,
+                summary=web_summary,
+                subject=subject_hint,
+            )
+        else:
+            _patch_user_video(user_id, video_id, status='failed')
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -1204,7 +1527,8 @@ def upload():
             'status': 'processing', 
             'stored_filename': unique_name,
             'title': '解析中...',
-            'summary': 'AI正在深度解析视频，提取知识图谱与考点...'
+            'summary': 'AI正在深度解析视频，提取知识图谱与考点...',
+            'subject': infer_subject_hint(original_name),
         })
 
         # 启动后台AI线程
@@ -1240,14 +1564,24 @@ def video_detail(video_id):
     title = _get_video_display_title(selected_video, f"知识点视频 {video_id}")
     filepath = selected_video['stored_filename'] if selected_video else "sample.mp4"
     summary = selected_video['summary'] if selected_video and selected_video.get('summary') else "AI功能环境已就绪。"
+    subject_hint = _build_video_subject_hint(video_id=video_id, video=selected_video, knowledge_segments=video_segments)
+    if subject_hint and not selected_video.get('subject'):
+        selected_video = _patch_user_video(_current_user_id(), video_id, subject=subject_hint) or selected_video
     
     # 生成更贴近学生视角的推荐问题
-    recommended_questions = _build_recommended_questions(video_id, video_segments, video_title=title)
+    recommended_questions = _build_recommended_questions(
+        video_id,
+        video_segments,
+        video_title=title,
+        subject_hint=subject_hint,
+        video_summary=summary,
+    )
 
     return render_template('video_detail.html', 
                            title=title, video_id=video_id, filepath=filepath,
                            summary=summary, knowledge_segments=video_segments, 
-                           recommended_questions=recommended_questions)
+                           recommended_questions=recommended_questions,
+                           subject_hint=subject_hint)
 
 @app.route('/video_insights/<int:video_id>')
 def video_insights(video_id):
@@ -1312,7 +1646,7 @@ def analyze_answer():
 
     return jsonify({
         "is_correct": eval_result["is_correct"], "standard_answer": standard_answer,
-        "analysis": f"🤖 AI 分析：{eval_result['comment']}",
+        "analysis": eval_result['comment'],
         "evaluation": eval_result, "student_profile": profile, "learning_path": path
     })
 

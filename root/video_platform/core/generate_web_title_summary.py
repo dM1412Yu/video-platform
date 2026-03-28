@@ -6,6 +6,11 @@ from pathlib import Path
 import dashscope
 from dashscope import Generation
 
+try:
+    from .subject_utils import build_subject_constraint_text, infer_subject_hint
+except ImportError:  # pragma: no cover
+    from subject_utils import build_subject_constraint_text, infer_subject_hint
+
 # ====================== 日志配置（增强报错） ======================
 logging.basicConfig(
     level=logging.INFO,
@@ -62,7 +67,7 @@ def call_qianwen(prompt, model="qwen-plus"):
         return err_msg, False
 
 # ====================== 核心函数（删除OCR+优化Prompt） ======================
-def generate_video_title_summary(corrected_asr):
+def generate_video_title_summary(corrected_asr, subject_hint=None):
     """
     生成网站展示用标题+摘要（彻底删除OCR相关内容）
     :param corrected_asr: 矫正后ASR文本（字符串）
@@ -74,11 +79,22 @@ def generate_video_title_summary(corrected_asr):
         logger.warning("⚠️ corrected_asr为空，使用兜底Prompt")
         return "未命名视频", "暂无摘要"
 
+    detected_subject = subject_hint or infer_subject_hint(corrected_asr[:4000])
+    subject_rule = build_subject_constraint_text(detected_subject)
+
     # 2. 优化Prompt：删除OCR相关内容，指令更清晰
     prompt = f"""
 基于以下网课视频的音频文本，严格按格式生成：
 1. 标题：简洁概括视频核心内容（≤20字，仅返回标题文本）
 2. 摘要：简要说明视频的知识点和讲解逻辑（≤150字，仅返回摘要文本）
+
+学科限制：
+{subject_rule}
+
+额外要求：
+1. 标题和摘要都要体现课程的主学科，不要写成跨学科泛化描述。
+2. 只基于材料中明确出现的内容总结，不要补充课外知识。
+3. 摘要优先写“这节课讲了什么 + 讲解顺序/重点”，避免空泛表述。
 
 矫正后音频文本：{corrected_asr[:800]}  # 限制长度避免Prompt过长
 
@@ -145,7 +161,7 @@ def load_video_data_for_title_summary(video_id):
         return ""
 
 # ====================== 对外统一调用入口（删除OCR+保持接口兼容） ======================
-def run_generate_web_title_summary(video_id=None, corrected_asr=None):
+def run_generate_web_title_summary(video_id=None, corrected_asr=None, subject_hint=None):
     """
     对外调用入口：支持两种方式（和原代码兼容，删除OCR参数）
     方式1：传video_id → 自动加载corrected_asr
@@ -164,7 +180,7 @@ def run_generate_web_title_summary(video_id=None, corrected_asr=None):
             raise ValueError("corrected_asr不能为空且必须是字符串")
         
         # 调用核心函数（删除OCR参数）
-        title, summary = generate_video_title_summary(corrected_asr)
+        title, summary = generate_video_title_summary(corrected_asr, subject_hint=subject_hint)
         return title, summary
 
     except Exception as e:

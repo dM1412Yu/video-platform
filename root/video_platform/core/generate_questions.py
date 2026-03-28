@@ -5,6 +5,11 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 try:
+    from .subject_utils import build_subject_constraint_text, infer_subject_hint
+except ImportError:  # pragma: no cover
+    from subject_utils import build_subject_constraint_text, infer_subject_hint
+
+try:
     import cv2
 except Exception:  # pragma: no cover
     cv2 = None
@@ -572,7 +577,7 @@ def _heuristic_should_skip(segment: Dict[str, Any]) -> str:
     return ""
 
 
-def _fallback_questions(segment: Dict[str, Any]) -> List[Dict[str, str]]:
+def _fallback_questions(segment: Dict[str, Any], subject_hint: str = "") -> List[Dict[str, str]]:
     if _heuristic_should_skip(segment):
         return []
 
@@ -595,8 +600,32 @@ def _fallback_questions(segment: Dict[str, Any]) -> List[Dict[str, str]]:
     return _normalize_question_items([guide, inspect])
 
 
-def _build_messages_for_segment(video_id: Any, segment: Dict[str, Any], video_data_dir: str = VIDEO_DATA_DIR) -> List[Dict[str, str]]:
+def _merge_questions_with_fallback(
+    segment: Dict[str, Any],
+    questions: List[Dict[str, str]],
+    subject_hint: str = "",
+) -> List[Dict[str, str]]:
+    merged = list(questions or [])
+    fallback = _fallback_questions(segment, subject_hint=subject_hint)
+    if fallback:
+        merged.extend(fallback)
+    return _normalize_question_items(merged)[:2]
+
+
+def _build_messages_for_segment(
+    video_id: Any,
+    segment: Dict[str, Any],
+    video_data_dir: str = VIDEO_DATA_DIR,
+    subject_hint: str = "",
+) -> List[Dict[str, str]]:
     base_dir = Path(video_data_dir) / str(video_id)
+    segment_subject = subject_hint or infer_subject_hint(
+        segment.get("title"),
+        segment.get("description"),
+        segment.get("summary"),
+        segment.get("asr_text"),
+    )
+    subject_rule = build_subject_constraint_text(segment_subject)
     messages: List[Dict[str, str]] = [
         {
             "role": "system",
@@ -607,6 +636,7 @@ def _build_messages_for_segment(video_id: Any, segment: Dict[str, Any], video_da
                 "只有当片段中存在明确、可考察、可教学提问的知识点时，才生成题目。"
                 "摘要、关系网、description、OCR、ASR 都只作为定位与辅助理解材料，不要机械地直接把摘要句子改写成题目。"
                 "如果适合出题，题目必须围绕该片段本身，难度适中，不空泛、不重复、不脱离片段。"
+                f"{subject_rule}"
                 "只输出 JSON。"
             ),
         }
@@ -637,11 +667,18 @@ def _build_messages_for_segment(video_id: Any, segment: Dict[str, Any], video_da
                 f"- relation_graph_hint: {_truncate_text(segment['relation_text'], 1400) or '无'}\n"
                 f"- key_concepts: {json.dumps(segment['key_concepts'], ensure_ascii=False)}\n"
                 f"- ASR: {_truncate_text(segment['asr_text'], 3000) or '无'}\n"
-                f"- OCR: {_truncate_text(segment['ocr_text'], 1200) or '无'}\n\n"
+                f"- OCR: {_truncate_text(segment['ocr_text'], 1200) or '无'}\n"
+                f"- subject_rule: {subject_rule}\n\n"
                 "请先判断它属于哪一类：\n"
                 "A. 适合出题的知识性内容，例如概念定义、原理讲解、公式/定理、方法步骤、例题分析、算法过程、关键结论、对比分析、应用场景。\n"
                 "B. 不适合硬出题的非知识性内容，例如课程介绍、本章导入、学习目标说明、课堂过渡语、复习衔接语、作业/考试/要求说明、鼓励提醒闲聊、总结性套话、没有实质知识点的信息。\n\n"
                 "如果判断为 B，请不要为了凑数量硬生成两道题，可以返回空题目列表。\n"
+                "如果判断为 A，请务必生成 2 道题，并满足：\n"
+                "1. 第 1 题是“引导题”：帮助学生说清定义、主线、步骤或核心结论，语气自然，适合弹窗互动。\n"
+                "2. 第 2 题是“考查题”：用于检查辨析、应用、易错点或因果关系，不能只是把第 1 题换个说法。\n"
+                "3. 两道题都必须限定在同一学科范围内，不能混入其他学科的例子或术语。\n"
+                "4. 问题要短而清楚，像老师随堂追问，不要写成长篇论述题。\n"
+                "5. answer 写标准答案，控制在 1 到 3 句，直接给出关键点，不要空话。\n"
                 "请严格输出以下 JSON 结构：\n"
                 "{\n"
                 '  "should_generate_questions": true,\n'
@@ -663,7 +700,12 @@ def _build_messages_for_segment(video_id: Any, segment: Dict[str, Any], video_da
     return messages
 
 
-def _generate_for_segment(video_id: Any, segment: Dict[str, Any], video_data_dir: str = VIDEO_DATA_DIR) -> Dict[str, Any]:
+def _generate_for_segment(
+    video_id: Any,
+    segment: Dict[str, Any],
+    video_data_dir: str = VIDEO_DATA_DIR,
+    subject_hint: str = "",
+) -> Dict[str, Any]:
     logger = setup_logging(video_id)
 
     heuristic_skip = _heuristic_should_skip(segment)
@@ -671,13 +713,18 @@ def _generate_for_segment(video_id: Any, segment: Dict[str, Any], video_data_dir
         logger.info("%s 命中启发式跳过: %s", segment["segment_folder"], heuristic_skip)
         return _empty_segment_result(segment, heuristic_skip)
 
-    messages = _build_messages_for_segment(video_id, segment, video_data_dir=video_data_dir)
+    messages = _build_messages_for_segment(
+        video_id,
+        segment,
+        video_data_dir=video_data_dir,
+        subject_hint=subject_hint,
+    )
     response = call_qwen_safely(messages, max_tokens=2400)
     payload = _extract_json_block(response)
 
     if not payload:
         logger.warning("%s 模型返回不可解析，回退到启发式结果", segment["segment_folder"])
-        fallback_questions = _fallback_questions(segment)
+        fallback_questions = _fallback_questions(segment, subject_hint=subject_hint)
         if fallback_questions:
             return {
                 "should_generate_questions": True,
@@ -713,18 +760,28 @@ def _generate_for_segment(video_id: Any, segment: Dict[str, Any], video_data_dir
         return result
 
     if not result["questions"]:
-        fallback_questions = _fallback_questions(segment)
+        fallback_questions = _fallback_questions(segment, subject_hint=subject_hint)
         if fallback_questions:
             result["questions"] = fallback_questions
         else:
             result["should_generate_questions"] = False
             result["skip_reason"] = skip_reason or "知识点不够清晰，降级跳过"
             result["questions"] = []
+    else:
+        result["questions"] = _merge_questions_with_fallback(
+            segment,
+            result["questions"],
+            subject_hint=subject_hint,
+        )
 
     return result
 
 
-def generate_questions_for_knowledge_points(video_id: Any, video_data_dir: str = VIDEO_DATA_DIR) -> List[Dict[str, Any]]:
+def generate_questions_for_knowledge_points(
+    video_id: Any,
+    video_data_dir: str = VIDEO_DATA_DIR,
+    subject_hint: str = "",
+) -> List[Dict[str, Any]]:
     logger = setup_logging(video_id)
     logger.info("===== 开始生成题目（先判断是否适合出题） =====")
 
@@ -736,7 +793,12 @@ def generate_questions_for_knowledge_points(video_id: Any, video_data_dir: str =
     results: List[Dict[str, Any]] = []
     for segment in segments:
         logger.info("处理 %s | %s", segment["segment_folder"], segment["title"])
-        result = _generate_for_segment(video_id, segment, video_data_dir=video_data_dir)
+        result = _generate_for_segment(
+            video_id,
+            segment,
+            video_data_dir=video_data_dir,
+            subject_hint=subject_hint,
+        )
         results.append(result)
         if result["should_generate_questions"]:
             logger.info("%s 生成题目 %s 道", segment["segment_folder"], len(result["questions"]))

@@ -16,6 +16,11 @@ import logging
 import traceback
 from pathlib import Path
 
+try:
+    from .subject_utils import build_subject_constraint_text, infer_subject_hint
+except ImportError:  # pragma: no cover
+    from subject_utils import build_subject_constraint_text, infer_subject_hint
+
 # ====================== 日志（新增报错日志） ======================
 logging.basicConfig(
     level=logging.INFO,
@@ -208,11 +213,13 @@ def batch_extract_multimodal_features(input_video_dir):
     return data
 
 # ====================== 结构化摘要生成（Prompt不变） ======================
-def generate_structured_summary(multimodal_info):
+def generate_structured_summary(multimodal_info, subject_hint=None):
     video_name = os.path.basename(multimodal_info["video_path"])
     try:
         audio_text = multimodal_info['audio_text'][:300]
         video_desc = multimodal_info['video_description']
+        segment_subject = subject_hint or infer_subject_hint(video_name, audio_text, video_desc)
+        subject_rule = build_subject_constraint_text(segment_subject)
 
         # 原版Prompt（一字未改）
         prompt = f"""
@@ -221,6 +228,7 @@ def generate_structured_summary(multimodal_info):
 ### 输入信息
 1. 视频视觉内容描述：{video_desc}
 2. 音频转文字辅助内容：{audio_text}
+3. 学科限制：{subject_rule}
 
 ### 核心校正规则（优先级最高）
 1. 先对比视觉描述和音频文字的核心词汇，识别视觉中的明显OCR错误（如生僻字+数字组合、无意义字符）；
@@ -242,6 +250,7 @@ def generate_structured_summary(multimodal_info):
 2. JSON字段值需贴合视频实际内容，不添加外部知识；
 3. 确保JSON格式合法，可直接解析；
 4.输出语音转文字的辅助内容时按照视频内容校正同音错字。
+5. 标题、知识点、逻辑流程和细节描述都必须保持在同一门学科上下文里，不要跨学科联想。
 
 ### 示例输出
 {{
@@ -269,6 +278,7 @@ def generate_structured_summary(multimodal_info):
         summary["video_path"] = multimodal_info["video_path"]
         summary["duration_seconds"] = multimodal_info["duration_seconds"]
         summary["status"] = "success"
+        summary["subject"] = segment_subject
         return summary
 
     except Exception as e:
@@ -284,10 +294,11 @@ def generate_structured_summary(multimodal_info):
             "video_path": multimodal_info["video_path"],
             "duration_seconds": multimodal_info["duration_seconds"],
             "status": "failed",
+            "subject": segment_subject,
             "error": str(e)[:100]
         }
 
-def batch_generate_summaries(multimodal_data):
+def batch_generate_summaries(multimodal_data, subject_hint=None):
     valid = sorted([k for k,v in multimodal_data.items() if v["status"]=="success"], key=extract_number_from_filename)
     if not valid:
         raise ValueError("无有效视频可生成摘要")
@@ -296,7 +307,7 @@ def batch_generate_summaries(multimodal_data):
     total = len(valid)
     for i, name in enumerate(valid, 1):
         logger.info(f"📝 摘要 {i}/{total}：{name}")
-        summaries[name] = generate_structured_summary(multimodal_data[name])
+        summaries[name] = generate_structured_summary(multimodal_data[name], subject_hint=subject_hint)
     return summaries
 
 # ====================== 保存结果（路径逻辑优化） ======================
@@ -324,7 +335,7 @@ def save_all_results(all_summaries, multimodal_data, output_dir, video_id):
     logger.info(f"✅ 已保存：{final_output_path}")
 
 # ====================== 核心函数（路径逻辑优化） ======================
-def run_video_summary(input_video_dir, output_root_dir, video_id):
+def run_video_summary(input_video_dir, output_root_dir, video_id, subject_hint=None):
     """
     核心函数：统一路径逻辑，增强容错性
     :param input_video_dir: 输入视频目录（支持相对/绝对路径）
@@ -341,7 +352,7 @@ def run_video_summary(input_video_dir, output_root_dir, video_id):
         mm_data = batch_extract_multimodal_features(actual_input_dir)
         
         # 生成摘要
-        summaries = batch_generate_summaries(mm_data)
+        summaries = batch_generate_summaries(mm_data, subject_hint=subject_hint)
         
         # 保存结果
         save_all_results(summaries, mm_data, output_root_dir, video_id)

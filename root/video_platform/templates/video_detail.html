@@ -109,6 +109,12 @@
 
   .summary-box { background: rgba(255,255,255,0.5); padding: 24px; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.8); line-height: 1.6; font-size: 15px; color: #333; }
   .summary-box h3 { font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .summary-meta { margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .summary-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+      color: #0b5fd7; background: rgba(11,95,215,0.08); border: 1px solid rgba(11,95,215,0.16);
+  }
 
   /* 右侧面板：AI 智能问答 */
     .question-panel {
@@ -341,20 +347,49 @@
   .coach-list li { margin: 4px 0; }
 
   /* ================= 随堂测验悬浮舱 (Core Glass UI) ================= */
+  .quiz-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(15, 23, 42, 0.24);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      z-index: 1998; display: none;
+  }
+
   .quiz-popup {
-      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.95);
+      position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.95);
       width: 90%; max-width: 520px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
       border-radius: var(--radius-xl); box-shadow: var(--shadow-float);
-      padding: 32px; z-index: 999; display: none; opacity: 0; border: 1px solid rgba(255,255,255,0.9);
+      padding: 32px; z-index: 1999; display: none; opacity: 0; border: 1px solid rgba(255,255,255,0.9);
       animation: popIn 0.4s var(--ease-apple) forwards;
+      max-height: min(85vh, 760px); overflow-y: auto;
   }
   
   .quiz-popup h4 { margin-bottom: 20px; font-size: 20px; font-weight: 700; color: #1d1d1f; line-height: 1.4; }
-  
-  .quiz-actions { display: flex; gap: 12px; margin-top: 20px; }
-  .quiz-actions button {
-      flex: 1; padding: 14px; border: none; border-radius: 14px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  .quiz-close-btn {
+      position: absolute; right: 16px; top: 16px;
+      width: 36px; height: 36px; border-radius: 999px; border: none;
+      background: rgba(15, 23, 42, 0.06); color: #334155;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 20px; cursor: pointer; transition: all 0.2s var(--ease-apple);
   }
+  .quiz-close-btn:hover { background: rgba(15, 23, 42, 0.12); color: #0f172a; }
+  .quiz-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .quiz-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700;
+      background: rgba(11,95,215,0.08); color: #0b5fd7; border: 1px solid rgba(11,95,215,0.16);
+  }
+  .quiz-segment-title {
+      font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 14px;
+      padding: 10px 12px; border-radius: 12px; background: rgba(248,250,252,0.92); border: 1px solid rgba(226,232,240,0.9);
+  }
+
+  .quiz-popup button {
+      padding: 14px; border: none; border-radius: 14px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+
+  .quiz-actions { display: flex; gap: 12px; margin-top: 20px; }
+  .quiz-actions button { flex: 1; }
+
   .btn-submit-ans { background: var(--accent-blue); color: #fff; box-shadow: 0 4px 12px rgba(0,113,227,0.2); }
   .btn-submit-ans:hover { background: var(--accent-hover); transform: translateY(-1px); }
   .btn-secondary { background: rgba(0,0,0,0.05); color: #333; }
@@ -474,7 +509,7 @@
         .question-panel { width: 100%; }
         .question-panel { height: auto; }
         .suggestion-box { padding: 10px; }
-        .quiz-popup { width: calc(100% - 24px); padding: 20px; }
+        .quiz-popup { width: calc(100% - 24px); padding: 20px; max-height: 85vh; }
         .modal-content { width: calc(100% - 24px); padding: 20px; }
         .global-navbar { padding: 0 16px; height: 56px; }
           .global-navbar .feature-nav { display: flex; max-width: 48vw; }
@@ -546,14 +581,22 @@
       <video id="video" controls>
         <source src="{{ url_for('uploads',filename=filepath) }}" type="video/mp4">
       </video>
+      <div class="quiz-backdrop" id="quizBackdrop"></div>
       
       <!-- 随堂测验毛玻璃弹窗 -->
       <div class="quiz-popup" id="quizPopup">
+        <button class="quiz-close-btn" type="button" onclick="closePopup()" aria-label="关闭">×</button>
         <h4 id="quizTitle">题目</h4>
+        <div class="quiz-meta">
+          <span class="quiz-pill" id="quizType">随堂互动</span>
+          <span class="quiz-pill" id="quizProgress">1 / 1</span>
+        </div>
+        <div class="quiz-segment-title" id="quizSegmentTitle">当前知识点</div>
         <input type="text" id="userAnswer" placeholder="请输入你的思考与答案...">
         
         <div class="quiz-actions">
           <button class="btn-submit-ans" onclick="submitAnswer()">提交验证</button>
+          <button class="btn-secondary" onclick="showNextQuestion()" style="display:none;" id="nextQuestionBtn">下一题</button>
           <button class="btn-secondary" onclick="closePopup()">稍后再答</button>
         </div>
         
@@ -577,6 +620,12 @@
     
     <div class="summary-box">
       <h3>📝 智能视频摘要</h3>
+      <div class="summary-meta">
+        {% if subject_hint %}
+          <span class="summary-chip">学科限制：{{ subject_hint }}</span>
+        {% endif %}
+        <span class="summary-chip">知识点数：{{ knowledge_segments|length }}</span>
+      </div>
       <p>{{ summary }}</p>
     </div>
 
@@ -586,7 +635,10 @@
   <div class="glass-panel question-panel">
     <div class="tutor-head">
       <div class="panel-title">✨ AI 智能助教</div>
-      <div class="tutor-subtitle">参考主流问答模型的对话体验：支持连续提问、推荐问题和结构化回答。</div>
+      <div class="tutor-subtitle">
+        参考主流问答模型的对话体验：支持连续提问、推荐问题和结构化回答。
+        {% if subject_hint %}当前回答会优先限制在「{{ subject_hint }}」学科上下文内。{% endif %}
+      </div>
     </div>
 
     <div class="suggestion-box">
@@ -633,8 +685,13 @@
 <!-- ================= 核心业务逻辑 (100% 完美保留，未作任何逻辑修改) ================= -->
 <script>
 const video = document.getElementById('video');
+const quizBackdrop = document.getElementById('quizBackdrop');
 const popup = document.getElementById('quizPopup');
 const quizTitle = document.getElementById('quizTitle');
+const quizType = document.getElementById('quizType');
+const quizProgress = document.getElementById('quizProgress');
+const quizSegmentTitle = document.getElementById('quizSegmentTitle');
+const nextQuestionBtn = document.getElementById('nextQuestionBtn');
 const userAnswerInput = document.getElementById('userAnswer'); 
 const feedback = document.getElementById('feedback');
 const showAnalysisBtn = document.getElementById('showAnalysisBtn');
@@ -643,16 +700,23 @@ const standardAnswer = document.getElementById('standardAnswer');
 const answerAnalysisText = document.getElementById('answerAnalysisText');
 const answerBox = document.getElementById('answer');
 const questionInput = document.getElementById('question');
+const questionsModal = document.getElementById('questionsModal');
 
 const segments = {{ knowledge_segments|tojson }};
 let currentSeg = null;
-let mode = '';
+let currentSegIndex = -1;
 let currentQuestionIdx = 0;
+let popupQuestions = [];
 let answered = false;
-let triggeredSegIndex = -1;
+let questionsData = [];
+let questionsReady = false;
+let questionsLoadPromise = null;
+let lastVideoTime = 0;
+const autoQuizTriggered = new Set();
 let currentQuizInfo = {
-  question: '',    
-  standardAnswer: '' 
+  question: '',
+  standardAnswer: '',
+  type: '',
 };
 
 function findQuestionItemBySegment(seg, segIndex) {
@@ -665,49 +729,145 @@ function findQuestionItemBySegment(seg, segIndex) {
   ) || null;
 }
 
-// 按视频时间自动触发弹窗核心逻辑
-video.addEventListener('timeupdate', function() {
-  const currentVideoTime = video.currentTime;
-  segments.forEach((seg, index) => {
-    const segStartTime = parseFloat(seg.start_time) || 0;
-    if (currentVideoTime >= segStartTime - 0.5 && currentVideoTime <= segStartTime + 0.5 && triggeredSegIndex !== index) {
-      triggeredSegIndex = index; 
-      openQuizPopupByTime(index); 
-    }
+function getUsableQuestions(questionItem) {
+  return (questionItem?.questions || []).filter(item => {
+    return item && String(item.question || '').trim() && String(item.answer || '').trim();
   });
-});
+}
 
-function openQuizPopupByTime(segIndex) {
-  const questionItem = findQuestionItemBySegment(segments[segIndex], segIndex);
-  if (!questionItem || !questionItem.questions || questionItem.questions.length === 0) {
-    console.warn(`⚠️ 知识点【${segments[segIndex].title}】无题目数据`);
-    return; 
-  }
-  
-  currentSeg = questionItem;
-  currentQuestionIdx = 0; 
-  answered = false;
-  
-  const currentQuestion = questionItem.questions[currentQuestionIdx];
-  currentQuizInfo = {
-    question: currentQuestion.question || '',
-    standardAnswer: currentQuestion.answer || ''
-  };
-  
-  console.log('✅ 已获取题目信息：', currentQuizInfo);
-  
-  quizTitle.innerText = `💡 ${currentQuizInfo.question}`; // 去掉了生硬的“引导题”字眼，加了emoji
-  userAnswerInput.value = ''; 
+function resetQuizFeedback() {
+  userAnswerInput.value = '';
   feedback.innerText = '';
   feedback.className = 'feedback';
   showAnalysisBtn.style.display = 'none';
   answerAnalysis.style.display = 'none';
+  standardAnswer.innerText = '';
+  answerAnalysisText.innerText = '';
+  nextQuestionBtn.style.display = 'none';
+  answered = false;
+}
+
+function renderCurrentQuizQuestion() {
+  const currentQuestion = popupQuestions[currentQuestionIdx] || {};
+  currentQuizInfo = {
+    question: currentQuestion.question || '',
+    standardAnswer: currentQuestion.answer || '',
+    type: currentQuestion.type || '随堂互动'
+  };
+
+  quizTitle.innerText = currentQuizInfo.question ? `💡 ${currentQuizInfo.question}` : '题目加载中...';
+  quizType.innerText = currentQuizInfo.type;
+  quizProgress.innerText = `${currentQuestionIdx + 1} / ${Math.max(popupQuestions.length, 1)}`;
+  quizSegmentTitle.innerText = currentSeg?.title || segments[currentSegIndex]?.title || '当前知识点';
+  resetQuizFeedback();
+}
+
+async function loadQuestionsData() {
+  if (questionsLoadPromise) {
+    return questionsLoadPromise;
+  }
+
+  questionsLoadPromise = (async function() {
+    try {
+      const res = await fetch(`/video_data/{{ video_id }}/knowledge_questions.json`);
+      if (!res.ok) {
+        console.warn("⚠️ 题目文件加载失败，状态码：", res.status);
+        questionsData = [];
+        questionsReady = false;
+        questionsLoadPromise = null;
+        return questionsData;
+      }
+
+      const data = await res.json();
+      questionsData = Array.isArray(data) ? data : [];
+      questionsReady = true;
+      if (!video.paused && video.currentTime > 0) {
+        tryAutoOpenQuiz(video.currentTime, false);
+      }
+      return questionsData;
+    } catch (e) {
+      console.error("❌ 加载题目数据出错：", e);
+      questionsData = [];
+      questionsReady = false;
+      questionsLoadPromise = null;
+      return questionsData;
+    }
+  })();
+
+  return questionsLoadPromise;
+}
+
+function tryAutoOpenQuiz(currentVideoTime, crossedOnly) {
+  if (!questionsReady || popup.style.display === 'block' || questionsModal.style.display === 'flex') {
+    return false;
+  }
+
+  let opened = false;
+  segments.forEach((seg, index) => {
+    if (opened || autoQuizTriggered.has(index)) {
+      return;
+    }
+
+    const segStartTime = parseFloat(seg.start_time) || 0;
+    const segEndTime = parseFloat(seg.end_time) || (segStartTime + 1);
+    const crossedStart = currentVideoTime >= segStartTime && lastVideoTime < segStartTime;
+    const insideSegment = currentVideoTime >= segStartTime && currentVideoTime <= segEndTime;
+
+    if ((crossedOnly && !crossedStart) || (!crossedOnly && !(crossedStart || insideSegment))) {
+      return;
+    }
+
+    if (openQuizPopupByTime(index)) {
+      autoQuizTriggered.add(index);
+      opened = true;
+    }
+  });
+
+  return opened;
+}
+
+video.addEventListener('timeupdate', function() {
+  const currentVideoTime = Number.isFinite(video.currentTime) ? video.currentTime : 0;
+  tryAutoOpenQuiz(currentVideoTime, true);
+  lastVideoTime = currentVideoTime;
+});
+
+function openQuizPopupByTime(segIndex) {
+  const questionItem = findQuestionItemBySegment(segments[segIndex], segIndex);
+  const availableQuestions = getUsableQuestions(questionItem);
+
+  if (!questionItem || availableQuestions.length === 0) {
+    console.warn(`⚠️ 知识点【${segments[segIndex].title}】无题目数据`);
+    return false;
+  }
   
-  // 增加动画类显示
+  currentSeg = questionItem;
+  currentSegIndex = segIndex;
+  currentQuestionIdx = Number(questionItem._cursor || 0) % availableQuestions.length;
+  questionItem._cursor = currentQuestionIdx + 1;
+  popupQuestions = availableQuestions;
+  renderCurrentQuizQuestion();
+  
+  quizBackdrop.style.display = 'block';
   popup.style.display = 'block';
+  document.body.style.overflow = 'hidden';
   popup.style.animation = 'none';
-  setTimeout(() => popup.style.animation = 'popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards', 10);
+  setTimeout(() => {
+    popup.style.animation = 'popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+    userAnswerInput.focus();
+  }, 10);
   video.pause();
+  return true;
+}
+
+function showNextQuestion() {
+  if (currentQuestionIdx >= popupQuestions.length - 1) {
+    closePopup();
+    return;
+  }
+
+  currentQuestionIdx += 1;
+  renderCurrentQuizQuestion();
 }
 
 async function submitAnswer() {
@@ -755,10 +915,11 @@ async function submitAnswer() {
     standardAnswer.innerText = data.standard_answer;
     answerAnalysisText.innerText = data.analysis;
     showAnalysisBtn.style.display = 'inline-block';
+    nextQuestionBtn.style.display = currentQuestionIdx < popupQuestions.length - 1 ? 'inline-block' : 'none';
     renderLearningCoach(data);
     answered = true;
     
-    if (data.is_correct) {
+    if (data.is_correct && currentQuestionIdx >= popupQuestions.length - 1) {
       setTimeout(() => closePopup(), 2500); // 延迟加长一点让用户看清夸奖
     }
   } catch (e) {
@@ -771,6 +932,7 @@ async function submitAnswer() {
       ? '你的回答准确覆盖了核心知识点，表述清晰。'
       : '你的回答缺少核心要点，建议参考标准答案完善。';
     showAnalysisBtn.style.display = 'inline-block';
+    nextQuestionBtn.style.display = currentQuestionIdx < popupQuestions.length - 1 ? 'inline-block' : 'none';
     renderLearningCoach({
       evaluation: {
         score: isCorrect ? 75 : 45,
@@ -817,47 +979,26 @@ document.querySelectorAll('.segment').forEach(el => {
   }
 });
 
-let questionsData = [];
-window.onload = async function() {
-  try {
-    const res = await fetch(`/video_data/{{ video_id }}/knowledge_questions.json`);
-    if (res.ok) {
-      questionsData = await res.json();
-      console.log('✅ 题目数据加载成功：', questionsData);
-      
-      questionsData.forEach(item => {
-        if (!item.title) {
-          console.warn(`⚠️ 知识点【${item.title || '未知'}】题目格式错误`);
-        }
-      });
-    } else {
-      console.warn("⚠️ 题目文件加载失败，状态码：", res.status);
-    }
-  } catch (e) {
-    console.error("❌ 加载题目数据出错：", e);
-    // 静默失败，不打断视觉体验
-  }
-};
+window.addEventListener('load', function() {
+  loadQuestionsData();
+});
 
-function showSegQuestionsModal(idx) {
+async function showSegQuestionsModal(idx) {
+  await loadQuestionsData();
   const seg = segments[idx];
   const modalTitle = document.getElementById('modalTitle');
   const modalQuestions = document.getElementById('modalQuestions');
-  const modal = document.getElementById('questionsModal');
   modalTitle.textContent = "📑 " + seg.title;
   const questionItem = findQuestionItemBySegment(seg, idx);
   let html = '';
-  if (questionItem && questionItem.questions && questionItem.questions.length >= 2) {
-    html = `
+  const availableQuestions = getUsableQuestions(questionItem);
+  if (questionItem && availableQuestions.length > 0) {
+    html = availableQuestions.map((item, index) => `
       <div class="question-item">
-        <strong>引导题：</strong>${questionItem.questions[0].question}
-        <br><small style="color:#86868b; display:block; margin-top:8px;">🎯 标准答案：${questionItem.questions[0].answer}</small>
+        <strong>${item.type || `问题 ${index + 1}`}：</strong>${item.question}
+        <br><small style="color:#86868b; display:block; margin-top:8px;">🎯 标准答案：${item.answer}</small>
       </div>
-      <div class="question-item">
-        <strong>考查题：</strong>${questionItem.questions[1].question}
-        <br><small style="color:#86868b; display:block; margin-top:8px;">🎯 标准答案：${questionItem.questions[1].answer}</small>
-      </div>
-    `;
+    `).join('');
   } else if (questionItem && questionItem.should_generate_questions === false) {
     html = `
       <div class="question-item">
@@ -869,14 +1010,14 @@ function showSegQuestionsModal(idx) {
     html = '<div style="color:#d93025; text-align:center; padding: 20px;">暂无该知识点的详细题库数据</div>';
   }
   modalQuestions.innerHTML = html;
-  modal.style.display = 'flex';
+  questionsModal.style.display = 'flex';
   video.currentTime = seg.start_time || seg.start || 0;
   video.pause(); // 查看题库时建议暂停视频
 }
 
 function closeModal() {
-  const modal = document.getElementById('questionsModal');
-  modal.style.display = 'none';
+  questionsModal.style.display = 'none';
+  document.body.style.overflow = '';
   video.play(); // 关闭题库后继续播放
 }
 
@@ -949,16 +1090,25 @@ questionInput.addEventListener('keydown', function(event) {
   }
 });
 
+userAnswerInput.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault();
+    submitAnswer();
+  }
+});
+
 function closePopup() {
   popup.style.display = 'none';
-  userAnswerInput.value = ''; 
-  feedback.innerText = '';
-  feedback.className = 'feedback';
-  showAnalysisBtn.style.display = 'none';
-  answerAnalysis.style.display = 'none';
-  answered = false;
-  currentQuizInfo = { question: '', standardAnswer: '' };
-  video.play(); 
+  quizBackdrop.style.display = 'none';
+  document.body.style.overflow = '';
+  resetQuizFeedback();
+  currentSeg = null;
+  currentSegIndex = -1;
+  popupQuestions = [];
+  currentQuizInfo = { question: '', standardAnswer: '', type: '' };
+  if (questionsModal.style.display !== 'flex') {
+    video.play();
+  }
 }
 
 function showAnswerAnalysis() {
@@ -989,6 +1139,17 @@ function bindWheelScroll(container) {
 
 bindWheelScroll(document.querySelector('.panel-body'));
 bindWheelScroll(document.getElementById('answer'));
+bindWheelScroll(document.getElementById('quizPopup'));
+
+quizBackdrop.addEventListener('click', function() {
+  closePopup();
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape' && popup.style.display === 'block') {
+    closePopup();
+  }
+});
 </script>
 </body>
 </html>

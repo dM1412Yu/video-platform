@@ -1,6 +1,0 @@
-2026-02-27 16:26:39,529 - INFO - generate_questions_for_knowledge_points - line 157 - ===== 开始生成题目（3次基础传入 + 逐t分段出题） =====
-2026-02-27 16:26:39,620 - INFO - init_base_context - line 94 - ✅ 第1次传入：知识图谱
-2026-02-27 16:26:39,726 - INFO - init_base_context - line 102 - ✅ 第2次传入：关系网
-2026-02-27 16:26:39,834 - INFO - init_base_context - line 112 - ✅ 第3次传入：矫正ASR
-2026-02-27 16:26:39,835 - ERROR - load_all_t_segments_ocr - line 126 - ❌ 未找到原有OCR汇总文件，无法读取t分段
-2026-02-27 16:26:39,835 - ERROR - generate_questions_for_knowledge_points - line 165 - ❌ 无有效t分段，终止生成
