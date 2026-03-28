@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - 知识脉络图谱</title>
+    <meta name="description" content="交互式知识图谱可视化，展示视频知识点之间的关联关系">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f5f7; --text: #1d1d1f; --text2: #86868b;
+            --blue: #0071e3; --purple: #af52de; --green: #30d158;
+            --orange: #ff9f0a; --pink: #ff375f; --teal: #64d2ff;
+            --glass: rgba(255,255,255,0.55); --glass-border: rgba(255,255,255,0.75);
+            --shadow: 0 12px 32px rgba(0,0,0,0.06);
+            --shadow-lg: 0 24px 64px rgba(0,0,0,0.1);
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box;
+            font-family:'Inter',-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+            -webkit-font-smoothing:antialiased; }
+        html, body { height:100%; overflow:hidden; }
+        body { background:var(--bg); color:var(--text); }
+
+        /* ===== 流体背景 ===== */
+        .bg { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+        .orb { position:absolute; border-radius:50%; filter:blur(100px); opacity:.45;
+               animation:drift 28s infinite alternate ease-in-out; }
+        .o1 { width:50vw; height:50vw; background:radial-gradient(#c3dafe,#e0f2fe); top:-12%; left:-5%; }
+        .o2 { width:44vw; height:44vw; background:radial-gradient(#e9d5ff,#f3e8ff); bottom:-15%; right:-5%; animation-delay:-6s; }
+        .o3 { width:36vw; height:36vw; background:radial-gradient(#fed7aa,#ffedd5); top:40%; left:50%; animation-delay:-12s; }
+        @keyframes drift { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(2%,3%) scale(1.03)} 100%{transform:translate(-2%,-2%) scale(.97)} }
+
+        /* ===== 导航栏 ===== */
+        .nav {
+            position:fixed; top:0; left:0; width:100%; height:56px; z-index:999;
+            display:flex; align-items:center; gap:12px; padding:0 20px;
+            background:rgba(245,245,247,.78); backdrop-filter:blur(20px);
+            border-bottom:1px solid rgba(0,0,0,.06);
+        }
+        .nav a { text-decoration:none; }
+        .nav .back { color:var(--text2); font-size:13px; font-weight:500; display:flex; align-items:center; gap:4px; transition:color .2s; }
+        .nav .back:hover { color:var(--text); }
+        .nav .brand { font-size:18px; font-weight:700; color:var(--text); border-left:1px solid rgba(0,0,0,.1); padding-left:14px; }
+        .nav .badge {
+            display:inline-flex; align-items:center; gap:5px; padding:4px 12px;
+            border-radius:99px; font-size:12px; font-weight:600; color:var(--blue);
+            background:linear-gradient(135deg,rgba(0,113,227,.08),rgba(175,82,222,.08));
+            border:1px solid rgba(0,113,227,.12);
+        }
+        .nav .spacer { flex:1; }
+        .nav .pill {
+            font-size:12px; font-weight:600; color:var(--text); padding:6px 14px;
+            border-radius:99px; border:1px solid rgba(0,0,0,.06);
+            background:rgba(255,255,255,.9); transition:all .2s;
+        }
+        .nav .pill:hover { border-color:rgba(0,113,227,.2); color:var(--blue); transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,113,227,.12); }
+
+        /* ===== 画布 ===== */
+        #canvas { position:fixed; inset:0; z-index:1; cursor:grab; padding-top:56px; }
+        #canvas:active { cursor:grabbing; }
+        #canvas svg { display:block; }
+
+        /* ===== 节点 ===== */
+        .node { cursor:pointer; }
+        .node circle { transition:all .25s var(--ease); }
+        .node:hover circle { filter:brightness(1.1) drop-shadow(0 8px 20px rgba(0,113,227,.35)) !important; transform:scale(1.05); }
+        .node-fo { pointer-events:none; overflow:hidden; }
+        .node-fo div {
+            width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+            font-size:10px; font-weight:700; color:var(--text); text-align:center;
+            line-height:1.25; padding:4px; word-break:break-all; overflow:hidden;
+        }
+        .link { stroke-linecap:round; }
+
+
+        /* ===== Tooltip ===== */
+        #tip {
+            position:fixed; z-index:90; pointer-events:none; opacity:0;
+            background:rgba(255,255,255,.85); backdrop-filter:blur(20px);
+            border:1px solid rgba(255,255,255,.9); border-radius:14px;
+            box-shadow:var(--shadow-lg); padding:14px 18px; max-width:340px;
+            transition:opacity .15s;
+        }
+        .tip-t { font-size:15px; font-weight:700; margin-bottom:2px; }
+        .tip-chips { display:flex; flex-wrap:wrap; gap:4px; margin-top:8px; }
+        .tip-c { font-size:10px; padding:2px 7px; border-radius:5px; background:rgba(0,113,227,.08); color:var(--blue); font-weight:600; }
+
+        /* ===== 侧边栏 ===== */
+        #panel {
+            position:fixed; right:20px; top:72px; bottom:20px; width:380px; z-index:80;
+            background:rgba(255,255,255,.62); backdrop-filter:blur(40px);
+            border:1px solid rgba(255,255,255,.8); border-radius:22px;
+            box-shadow:var(--shadow-lg); padding:24px 20px; overflow-y:auto;
+            display:flex; flex-direction:column; gap:16px;
+            transform:translateX(130%); opacity:0; pointer-events:none;
+            transition:all .45s var(--ease);
+        }
+        #panel.open { transform:translateX(0); opacity:1; pointer-events:auto; }
+        #panel::-webkit-scrollbar { width:4px; } #panel::-webkit-scrollbar-thumb { background:rgba(0,0,0,.06); border-radius:9px; }
+        .p-x { position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:50%;
+                background:rgba(0,0,0,.04); display:flex; align-items:center; justify-content:center;
+                cursor:pointer; color:var(--text2); font-size:15px; font-weight:700; transition:all .15s; border:none; }
+        .p-x:hover { background:rgba(0,0,0,.08); color:var(--text); }
+        .p-badge { font-size:11px; font-family:ui-monospace,monospace; color:var(--blue); font-weight:600;
+                   background:rgba(0,113,227,.08); padding:3px 8px; border-radius:6px; display:inline-block; }
+        .p-title { font-size:20px; font-weight:800; line-height:1.3; margin-right:36px; }
+        .p-sep { border-top:1px solid rgba(0,0,0,.05); padding-top:14px; }
+        .p-lbl { font-size:10px; font-weight:700; color:var(--text2); text-transform:uppercase; letter-spacing:.8px; margin-bottom:10px; }
+        .p-tags { display:flex; flex-wrap:wrap; gap:6px; }
+        .p-tag { font-size:12px; padding:5px 12px; border-radius:8px; background:rgba(255,255,255,.7);
+                 border:1px solid rgba(0,0,0,.04); font-weight:500; }
+        .p-rels { display:flex; flex-direction:column; gap:6px; }
+        .p-rel { display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px;
+                 background:rgba(255,255,255,.4); border:1px solid rgba(255,255,255,.6); font-size:12px; }
+        .p-rt { font-size:10px; font-weight:700; padding:2px 6px; border-radius:5px; flex-shrink:0; }
+        .p-rt.prerequisite { background:rgba(255,55,95,.1); color:var(--pink); }
+        .p-rt.progressive  { background:rgba(0,113,227,.1); color:var(--blue); }
+        .p-rt.parallel      { background:rgba(175,82,222,.1); color:var(--purple); }
+        .p-rt.supplementary { background:rgba(255,159,10,.1); color:var(--orange); }
+        .p-rt.summary       { background:rgba(48,209,88,.1); color:var(--green); }
+        .p-rn { font-weight:500; flex:1; }
+
+        /* ===== 统计 & 图例 ===== */
+        .hud { position:fixed; z-index:50; background:rgba(255,255,255,.6); backdrop-filter:blur(28px);
+               border:1px solid rgba(255,255,255,.8); border-radius:16px; box-shadow:var(--shadow); }
+        #stats { left:20px; top:72px; padding:14px 20px; display:none; gap:20px; align-items:center; }
+        .s-v { font-size:22px; font-weight:800; color:var(--blue); }
+        .s-l { font-size:10px; font-weight:600; color:var(--text2); text-transform:uppercase; letter-spacing:.5px; }
+        #legend { left:20px; bottom:20px; padding:14px 18px; display:none; flex-direction:column; gap:5px; }
+        .lg-t { font-size:12px; font-weight:700; margin-bottom:2px; }
+        .lg-i { display:flex; align-items:center; gap:8px; font-size:11px; color:var(--text2); font-weight:500; }
+        .lg-line { width:18px; height:2.5px; border-radius:2px; }
+
+        /* ===== 加载 & 空 ===== */
+        #loader { position:fixed; inset:0; z-index:200; display:flex; flex-direction:column;
+                  align-items:center; justify-content:center; background:rgba(245,245,247,.92); backdrop-filter:blur(8px); }
+        .spin { width:36px; height:36px; border:3px solid rgba(0,113,227,.12); border-top-color:var(--blue);
+                border-radius:50%; animation:sp .7s linear infinite; margin-bottom:14px; }
+        @keyframes sp { to{transform:rotate(360deg)} }
+        .load-txt { font-size:14px; font-weight:600; color:var(--text2); }
+        #empty { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:50;
+                 text-align:center; display:none; }
+        .em-icon { font-size:56px; margin-bottom:12px; opacity:.5; }
+        .em-t { font-size:20px; font-weight:700; margin-bottom:6px; }
+        .em-d { font-size:13px; color:var(--text2); max-width:360px; line-height:1.5; }
+
+        @media(max-width:768px) {
+            .nav { height:48px; padding:0 10px; } .nav .badge { display:none; }
+            #panel { width:calc(100%-16px); right:8px; top:60px; bottom:8px; }
+            #stats { left:10px; top:60px; } #legend { left:10px; bottom:10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+
+<nav class="nav">
+    <a href="/video_detail/{{ video_id }}" class="back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        返回
+    </a>
+    <a href="/" class="brand">视学智问</a>
+    <span class="badge">✦ 知识图谱</span>
+    <span class="spacer"></span>
+    <a href="/video_detail/{{ video_id }}" class="pill">▶ 视频学习</a>
+    <a href="/video_insights/{{ video_id }}" class="pill">析 学习分析</a>
+    {% if session.get('user') %}
+        <a href="/workspace" class="pill">工作台</a>
+        <a href="/logout" class="pill">退出</a>
+    {% else %}
+        <a href="/login" class="pill">登录</a>
+        <a href="/register" class="pill">免费体验</a>
+    {% endif %}
+</nav>
+
+<div id="loader"><div class="spin"></div><div class="load-txt">正在构建知识图谱…</div></div>
+<div id="canvas"></div>
+<div id="tip"></div>
+<div id="empty"><div class="em-icon">🕸️</div><div class="em-t">暂无图谱数据</div><div class="em-d">当前视频尚未完成 AI 解析，请先处理视频后再查看知识图谱。</div></div>
+
+<div class="hud" id="stats">
+    <div style="text-align:center"><div class="s-v" id="sN">0</div><div class="s-l">知识节点</div></div>
+    <div style="text-align:center"><div class="s-v" id="sE">0</div><div class="s-l">关系连线</div></div>
+    <div style="text-align:center"><div class="s-v" id="sT">0</div><div class="s-l">关系类型</div></div>
+</div>
+
+<div class="hud" id="legend">
+    <div class="lg-t">关系图例</div>
+    <div class="lg-i"><div class="lg-line" style="background:#ff375f"></div>前置依赖</div>
+    <div class="lg-i"><div class="lg-line" style="background:#0071e3"></div>递进深入</div>
+    <div class="lg-i"><div class="lg-line" style="background:#af52de"></div>并行对比</div>
+    <div class="lg-i"><div class="lg-line" style="background:#ff9f0a"></div>补充说明</div>
+    <div class="lg-i"><div class="lg-line" style="background:#30d158"></div>归纳总结</div>
+</div>
+
+<div id="panel">
+    <button class="p-x" id="pClose">✕</button>
+    <div>
+        <div class="p-badge" id="pId"></div>
+        <div class="p-title" id="pTitle"></div>
+    </div>
+    <div class="p-sep">
+        <div class="p-lbl">核心概念</div>
+        <div class="p-tags" id="pTags"></div>
+    </div>
+    <div class="p-sep" id="pRelWrap" style="display:none">
+        <div class="p-lbl">关联关系</div>
+        <div class="p-rels" id="pRels"></div>
+    </div>
+</div>
+
+<script>
+const VID = {{ video_id }};
+const RC = { prerequisite:'#ff375f', progressive:'#0071e3', parallel:'#af52de', supplementary:'#ff9f0a', summary:'#30d158' };
+const NC = [
+    {f:'rgba(0,113,227,.15)', s:'#0071e3'},  {f:'rgba(175,82,222,.15)', s:'#af52de'},
+    {f:'rgba(48,209,88,.15)',  s:'#30d158'},  {f:'rgba(255,159,10,.15)', s:'#ff9f0a'},
+    {f:'rgba(100,210,255,.15)',s:'#64d2ff'},  {f:'rgba(255,55,95,.15)',  s:'#ff375f'}
+];
+const TM = { prerequisite:'前置', progressive:'递进', parallel:'并行', supplementary:'补充', summary:'总结' };
+
+function trunc(s, n) { return !s ? '' : s.length > n ? s.slice(0,n)+'…' : s; }
+function rc(t) { return RC[t] || '#c7c7cc'; }
+
+(async function init() {
+    const loader = document.getElementById('loader');
+    let raw;
+    try {
+        const r = await fetch(`/api/knowledge_graph/${VID}`);
+        raw = await r.json();
+    } catch(e) { raw = null; }
+
+    if (!raw || !raw.nodes || !raw.nodes.length) {
+        loader.style.opacity='0'; setTimeout(()=>loader.style.display='none',400);
+        document.getElementById('empty').style.display='block'; return;
+    }
+
+    /* ---- 构建 titleMap ---- */
+    const titleMap = {};
+    raw.nodes.forEach(n => { titleMap[n.video_name] = n.title || n.video_name; });
+
+    /* ---- 去重边（all_edges 中有重复的 source-target-type 组合）---- */
+    const edgeSet = new Set();
+    const edges = [];
+    (raw.all_edges || []).forEach(e => {
+        if (!e.source || !e.target) return;
+        const key = `${e.source}|${e.target}|${e.relation_type}`;
+        if (edgeSet.has(key)) return;
+        edgeSet.add(key);
+        edges.push(e);
+    });
+
+    /* ---- 计算度 ---- */
+    const deg = {};
+    raw.nodes.forEach(n => deg[n.video_name] = 0);
+    edges.forEach(e => {
+        if (deg[e.source]!==undefined) deg[e.source]++;
+        if (deg[e.target]!==undefined) deg[e.target]++;
+    });
+
+    /* ---- 构建节点（过滤掉无连线的孤立节点）& 连线 ---- */
+    const nodes = raw.nodes
+        .filter(n => (deg[n.video_name] || 0) > 0)
+        .map((n,i) => ({
+        id: n.video_name,
+        vid: n.video_id || '',
+        title: n.title || n.video_name,
+        label: trunc(n.title || n.video_name, 8),
+        concepts: n.key_concepts || [],
+        r: 36 + Math.min((deg[n.video_name]||0)*2, 14),
+        ci: i % NC.length
+    }));
+    const links = edges.map(e => ({
+        source: e.source, target: e.target,
+        type: e.relation_type||'', reason: e.reason||'',
+        concept: e.kg_concept_relation||''
+    }));
+
+    /* ---- 统计 ---- */
+    const types = new Set(links.map(l=>l.type).filter(Boolean));
+    document.getElementById('sN').textContent = nodes.length;
+    document.getElementById('sE').textContent = links.length;
+    document.getElementById('sT').textContent = types.size;
+    document.getElementById('stats').style.display = 'flex';
+    document.getElementById('legend').style.display = 'flex';
+
+    /* ---- SVG ---- */
+    const box = document.getElementById('canvas');
+    const W = box.clientWidth, H = box.clientHeight;
+    const svg = d3.select('#canvas').append('svg').attr('width',W).attr('height',H);
+
+    /* 箭头 */
+    const defs = svg.append('defs');
+    Object.entries({...RC, _def:'#c7c7cc', _dim:'#e5e5ea'}).forEach(([k,c])=>{
+        defs.append('marker').attr('id','a-'+k).attr('viewBox','0 -4 8 8')
+            .attr('refX',0).attr('refY',0).attr('markerWidth',5).attr('markerHeight',5)
+            .attr('orient','auto').append('path').attr('fill',c).attr('d','M0,-3.5L7,0L0,3.5Z')
+            .style('opacity', k==='_dim'?.15:.6);
+    });
+
+    const g = svg.append('g');
+
+    /* 力引擎 */
+    const sim = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id(d=>d.id).distance(220).strength(.4))
+        .force('charge', d3.forceManyBody().strength(-2000))
+        .force('center', d3.forceCenter(W/2, H/2+28))
+        .force('collide', d3.forceCollide().radius(d=>d.r+16).strength(1));
+
+    /* 连线 */
+    const linkG = g.append('g');
+    const linkEl = linkG.selectAll('line').data(links).join('line')
+        .attr('class','link').attr('stroke', d=>rc(d.type))
+        .attr('stroke-width',1.8).attr('stroke-opacity',.5)
+        .attr('marker-end', d=>`url(#a-${RC[d.type]?d.type:'_def'})`);
+
+
+
+    /* 节点组 */
+    const nodeG = g.append('g');
+    const nodeEl = nodeG.selectAll('g').data(nodes).join('g')
+        .attr('class','node')
+        .call(d3.drag().on('start',(e,d)=>{ if(!e.active) sim.alphaTarget(.25).restart(); d.fx=d.x; d.fy=d.y; })
+                       .on('drag',(e,d)=>{ d.fx=e.x; d.fy=e.y; })
+                       .on('end',(e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+
+    nodeEl.append('circle').attr('r',d=>d.r)
+        .attr('fill',d=>NC[d.ci].f).attr('stroke',d=>NC[d.ci].s).attr('stroke-width',2)
+        .style('filter',d=>`drop-shadow(0 3px 8px ${NC[d.ci].s}33)`);
+
+    /* 用 foreignObject 在圆内显示文字（自动换行，不会溢出重叠）*/
+    nodeEl.append('foreignObject').attr('class','node-fo')
+        .attr('x', d=> -d.r*.7).attr('y', d=> -d.r*.7)
+        .attr('width', d=> d.r*1.4).attr('height', d=> d.r*1.4)
+        .append('xhtml:div').text(d=>d.label);
+
+    /* ---- 邻接索引 ---- */
+    const adj = {};
+    links.forEach(d => {
+        const s=d.source.id||d.source, t=d.target.id||d.target;
+        adj[s+','+t]=true; adj[t+','+s]=true;
+    });
+    const conn = (a,b) => adj[a.id+','+b.id] || a.id===b.id;
+    const linked = (l,n) => (l.source.id||l.source)===n.id || (l.target.id||l.target)===n.id;
+
+    /* ---- Tooltip ---- */
+    const tip = d3.select('#tip');
+    nodeEl.on('mouseover',(ev,d)=>{
+        let h = `<div class="tip-t">${d.title}</div>`;
+        if (d.concepts.length) h += `<div class="tip-chips">${d.concepts.map(c=>`<span class="tip-c">${c}</span>`).join('')}</div>`;
+        tip.html(h).style('opacity',1);
+        nodeEl.style('opacity',o=>conn(d,o)?1:.08);
+        linkEl.attr('stroke-opacity',o=>linked(o,d)?.85:.03)
+              .attr('stroke',o=>linked(o,d)?rc(o.type):'#e5e5ea')
+              .attr('stroke-width',o=>linked(o,d)?2.8:1)
+              .attr('marker-end',o=>linked(o,d)?`url(#a-${RC[o.type]?o.type:'_def'})`:'url(#a-_dim)');
+
+    }).on('mousemove',ev=>{
+        tip.style('left',(ev.clientX+16)+'px').style('top',(ev.clientY+16)+'px');
+    }).on('mouseout',()=>{
+        tip.style('opacity',0);
+        nodeEl.style('opacity',1);
+        linkEl.attr('stroke-opacity',.5).attr('stroke',d=>rc(d.type))
+              .attr('stroke-width',1.8).attr('marker-end',d=>`url(#a-${RC[d.type]?d.type:'_def'})`);
+
+    });
+
+    /* ---- 侧边栏 ---- */
+    const panel = document.getElementById('panel');
+    nodeEl.on('click',(ev,d)=>{
+        if(ev.defaultPrevented) return; ev.stopPropagation();
+        document.getElementById('pId').innerText = d.vid || d.id;
+        document.getElementById('pTitle').innerText = d.title;
+        document.getElementById('pTags').innerHTML = d.concepts.map(c=>`<div class="p-tag">${c}</div>`).join('');
+
+        const rels = links.filter(l=>(l.source.id||l.source)===d.id||(l.target.id||l.target)===d.id);
+        const wrap = document.getElementById('pRelWrap');
+        const cont = document.getElementById('pRels');
+        if (rels.length) {
+            wrap.style.display='block';
+            cont.innerHTML = rels.map(e=>{
+                const oid=(e.source.id||e.source)===d.id?(e.target.id||e.target):(e.source.id||e.source);
+                return `<div class="p-rel"><span class="p-rt ${e.type}">${TM[e.type]||'关联'}</span><span class="p-rn">${titleMap[oid]||oid}</span></div>`;
+            }).join('');
+        } else wrap.style.display='none';
+        panel.classList.add('open');
+    });
+    svg.on('click',()=>panel.classList.remove('open'));
+    document.getElementById('pClose').onclick = ()=>panel.classList.remove('open');
+    panel.addEventListener('click',e=>e.stopPropagation());
+
+    /* ---- tick ---- */
+    sim.on('tick',()=>{
+        linkEl.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
+            .attr('x2',d=>{
+                const dx=d.target.x-d.source.x, dy=d.target.y-d.source.y;
+                const dist=Math.hypot(dx,dy)||1, pad=(d.target.r||18)+10;
+                return d.target.x - dx*pad/dist;
+            })
+            .attr('y2',d=>{
+                const dx=d.target.x-d.source.x, dy=d.target.y-d.source.y;
+                const dist=Math.hypot(dx,dy)||1, pad=(d.target.r||18)+10;
+                return d.target.y - dy*pad/dist;
+            });
+
+        nodeEl.attr('transform',d=>`translate(${d.x},${d.y})`);
+    });
+
+    /* ---- 缩放 ---- */
+    const zm = d3.zoom().scaleExtent([.12,3.5]).on('zoom',ev=>{
+        g.attr('transform',ev.transform);
+        nodeEl.selectAll('.node-fo div').style('opacity', ev.transform.k<.35?0:Math.min(1,ev.transform.k));
+
+    });
+    svg.call(zm).on('dblclick.zoom',null);
+
+    /* 自动适配 */
+    setTimeout(()=>{
+        const b = g.node().getBBox();
+        if (b.width>0 && b.height>0) {
+            const fW=W, fH=H-56;
+            const sc = .8 / Math.max(b.width/fW, b.height/fH);
+            const tx = fW/2 - sc*(b.x+b.width/2), ty = fH/2 - sc*(b.y+b.height/2) + 28;
+            svg.transition().duration(900).ease(d3.easeCubicOut)
+               .call(zm.transform, d3.zoomIdentity.translate(tx,ty).scale(Math.min(sc,1.1)));
+        }
+    }, 2200);
+
+    /* 隐藏 loader */
+    loader.style.opacity='0'; setTimeout(()=>loader.style.display='none',400);
+})();
+</script>
+</body>
+</html>

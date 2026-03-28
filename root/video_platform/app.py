@@ -1256,6 +1256,27 @@ def video_insights(video_id):
     insights = _normalize_insight_view_data(_build_insight_view_data(video_id))
     return render_template('video_insights.html', title=title, video_id=video_id, insights=insights)
 
+@app.route('/knowledge_graph/<int:video_id>')
+def knowledge_graph(video_id):
+    selected_video = _require_user_video(video_id)
+    title = _get_video_display_title(selected_video, f"视频 {video_id} 知识图谱")
+    return render_template('knowledge_graph.html', title=title, video_id=video_id)
+
+@app.route('/api/knowledge_graph/<int:video_id>')
+def api_knowledge_graph(video_id):
+    """返回视频的知识关系网络数据（relation_network.json）供前端 D3 渲染"""
+    _require_user_video(video_id)
+    rn_path = os.path.join(VIDEO_DATA_DIR, str(video_id), 'relation_network.json')
+    if not os.path.exists(rn_path):
+        return jsonify({'nodes': [], 'all_edges': [], 'error': '尚未生成知识关系网络'})
+    try:
+        with open(rn_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return jsonify(data)
+    except Exception as e:
+        logger.error(f'加载知识图谱数据失败: {e}')
+        return jsonify({'nodes': [], 'all_edges': [], 'error': str(e)})
+
 
 @app.route('/api/video_insights/<int:video_id>')
 def api_video_insights(video_id):
